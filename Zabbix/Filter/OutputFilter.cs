@@ -12,7 +12,12 @@
         {
             Filter = new();
         }
-
+        public bool IsNullOrEmpty()
+        {
+            if (Filter == null || Filter.Count == 0)
+                return true;
+            return false;
+        }
         public void AddFilter(TEntityProperty filter)
         {
             if (!string.IsNullOrEmpty(filter.ToString()))

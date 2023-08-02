@@ -50,7 +50,7 @@ namespace Zabbix.Services
                 @params = new Dictionary<string, object>();
 
 
-            if (filwter)
+            if (filter != null filter.)
                 @params.AddIfNotExist("output", "extend");
             else
                 @params.Add("output", filter.OutputFilter.Filter);

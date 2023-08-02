@@ -27,6 +27,24 @@ namespace Zabbix.Filter
             IncludeFilter = includeFilter;
         }
 
+        public bool IsOutputFilterNullOrEmpty()
+        {
+            if (OutputFilter == null || OutputFilter.IsNullOrEmpty())
+                return true;
+            return false;
+        }
+        public bool IsObjectFilterNullOrEmpty()
+        {
+            if (ObjectFilter == null || ObjectFilter.IsNullOrEmpty())
+                return true;
+            return false;
+        }
+        public bool IsIncludeFilterNullOrEmpty()
+        {
+            if (IncludeFilter == null || IncludeFilter.IsNullOrEmpty())
+                return true;
+            return false;
+        }
 
     }
 }
