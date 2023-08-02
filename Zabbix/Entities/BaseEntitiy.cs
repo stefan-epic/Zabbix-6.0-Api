@@ -9,9 +9,6 @@ namespace Zabbix.Entities
 {
     public abstract class BaseEntitiy
     {
-        public enum Properties
-        {
 
-        }
     }
 }

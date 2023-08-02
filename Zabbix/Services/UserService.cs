@@ -17,6 +17,12 @@ namespace Zabbix.Services
         {
         }
 
+        protected override Dictionary<string, object> BuildParams(
+            RequestFilter<UserProperties, UserInclude> filter = null, Dictionary<string, object> @params = null)
+        {
+            return BaseBuildParams(filter, @params);
+        }
+
         //TODO Make Async Variants
         public User Login(string username, string password, Dictionary<string, string> @params = null)
         {
@@ -37,11 +43,7 @@ namespace Zabbix.Services
             public override string[] Ids { get; set; }
         }
 
-        protected override Dictionary<string, object> BuildParams(
-            RequestFilter<UserProperties, UserInclude> filter = null, Dictionary<string, object> @params = null)
-        {
-            return BaseBuildParams(filter, @params);
-        }
+
     }
 
     public enum UserInclude

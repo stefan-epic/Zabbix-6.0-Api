@@ -29,6 +29,27 @@ namespace Zabbix.Services
             return BaseBuildParams(filter, @params);
 
         }
+
+        public string[] AddDependency(int triggerId, int dependsOnTriggerId)
+        {
+            Dictionary<string, object> @params = new Dictionary<string, object>
+            {
+                { "triggerid", triggerId },
+                { "dependsOnTriggerid", dependsOnTriggerId }
+            };
+
+            return Core.SendRequest<TriggerResult>(@params, ClassName + ".adddependencies").Ids;
+        }
+        public string[] DeleteDependency(int triggerId)
+        {
+            Dictionary<string, object> @params = new Dictionary<string, object>
+            {
+                { "triggerid", triggerId }
+            };
+
+
+            return Core.SendRequest<TriggerResult>(@params, ClassName + ".deleteDependencies").Ids;
+        }
     }
 
     public enum TriggerInclude
