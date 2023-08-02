@@ -39,7 +39,7 @@ namespace Zabbix.Services
         {
             foreach (KeyValuePair<string, List<object>> kvp in include.Filter)
             {
-                    @params.Add(kvp.Key, kvp.Value);
+                @params.Add(kvp.Key, kvp.Value);
             }
             return @params;
         }
@@ -49,16 +49,17 @@ namespace Zabbix.Services
             if (@params == null)
                 @params = new Dictionary<string, object>();
 
+            if(filter != null){
+                if (!filter.IsOutputFilterNullOrEmpty())
+                    @params.AddIfNotExist("output", "extend");
+                else
+                    @params.Add("output", filter.OutputFilter.Filter);
 
-            if (filter != null filter.)
-                @params.AddIfNotExist("output", "extend");
-            else
-                @params.Add("output", filter.OutputFilter.Filter);
-
-
-            @params = MapIncludesToParams(filter.IncludeFilter, @params);
-            @params.Add("filter", filter.ObjectFilter.Filter);
-
+                if(!filter.IsIncludeFilterNullOrEmpty())
+                    @params = MapIncludesToParams(filter.IncludeFilter, @params);
+                if(!filter.IsObjectFilterNullOrEmpty())
+                    @params.Add("filter", filter.ObjectFilter.Filter);
+            }
             return @params;
         }
 

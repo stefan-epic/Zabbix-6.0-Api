@@ -23,12 +23,12 @@ namespace Zabbix.Filter
             return false;
         }
 
-        public void AddOrReplaceProperty(TEnum name, object value)
+        public void Set(TEnum name, object value)
         {
             Filter[name.ToString()] = new List<object> { value };
         }
 
-        public void AddIfNotExistsProperty(TEnum name, object value)
+        public void SetIfNotExists(TEnum name, object value)
         {
             if (!Filter.ContainsKey(name.ToString()))
             {
@@ -36,7 +36,7 @@ namespace Zabbix.Filter
             }
         }
 
-        public void AddObjectToProperty(TEnum name, object value)
+        public void Append(TEnum name, object value)
         {
             if (Filter.ContainsKey(name.ToString()))
             {
@@ -44,7 +44,7 @@ namespace Zabbix.Filter
             }
             else
             {
-                AddOrReplaceProperty(name, value);
+                Set(name, value);
             }
         }
     }

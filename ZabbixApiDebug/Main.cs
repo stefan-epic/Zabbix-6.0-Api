@@ -30,7 +30,9 @@ namespace ZabbixApiDebug
             ZabbixCore core = new ZabbixCore(url, username, password);
             List<Host> hosts =  core.Hosts.Get().ToList();
 
-
+            RequestFilter<HostProperties, HostInclude> filter = new();
+            filter.OutputFilter.AddFilter(HostProperties.hostid);
+            filter.IncludeFilter.Set(HostInclude.selectGroups, "extend");
             /*
 
 
@@ -48,10 +50,10 @@ namespace ZabbixApiDebug
 
             rqFilter.OutputFilter.AddFilter(HostProperties.host);
 
-            rqFilter.ObjectFilter.AddOrReplaceProperty(HostProperties.host, "Zabbix server");
-            rqFilter.ObjectFilter.AddObjectToProperty(HostProperties.host, "Linux server");
+            rqFilter.ObjectFilter.Set(HostProperties.host, "Zabbix server");
+            rqFilter.ObjectFilter.Append(HostProperties.host, "Linux server");
 
-            rqFilter.IncludeFilter.AddOrReplaceProperty(HostInclude.selectGroups, "name");
+            rqFilter.IncludeFilter.Set(HostInclude.selectGroups, "name");
 
             core.Hosts.Get(rqFilter);
             /*
@@ -67,8 +69,8 @@ namespace ZabbixApiDebug
             fo.AddFilter(HostProperties.host);
 
             ObjectFilter obj = new ObjectFilter();
-            obj.AddOrReplaceProperty("host", "Zabbix server");
-            obj.AddObjectToProperty("host", "Linux server");
+            obj.Set("host", "Zabbix server");
+            obj.Append("host", "Linux server");
             
 
             List<Host> hosts = core.Hosts.Get(null, fo, kvp, null).ToList();

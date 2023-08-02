@@ -30,10 +30,11 @@ namespace Zabbix.Core
         public HostInterfaceService Interfaces;
         public AlertService Alerts;
         public EventService Events;
-        #endregion
+        #endregion 
 
         public ZabbixCore(string url, string username, string password)
         {
+            //TODO remove this
             Check.IsNotNullOrWhiteSpace(url, "ZabbixApi.url");
             Check.IsNotNullOrWhiteSpace(username, "ZappixApi.username");
             Check.IsNotNullOrWhiteSpace(password, "ZabbixApi.password");
