@@ -7,7 +7,9 @@ using Zabbix.Services;
 
 namespace Zabbix.Filter
 {
-    public class RequestFilter<TEntityProperty, TEntityInclude> where TEntityProperty : Enum where TEntityInclude : Enum
+    public class RequestFilter<TEntityProperty, TEntityInclude> 
+        where TEntityProperty : Enum 
+        where TEntityInclude : Enum
     {
         public OutputFilter<TEntityProperty> OutputFilter { get; set; }
         public ObjectFilter<TEntityProperty> ObjectFilter { get; set; }

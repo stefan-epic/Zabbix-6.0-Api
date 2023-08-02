@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities
 {
-    public class DashboardField : IBaseEntitiy
+    public class DashboardField : BaseEntitiy
     {
         [JsonProperty("type")]
         public string Type { get; set; }

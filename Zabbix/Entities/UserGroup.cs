@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public class UserGroup : IBaseEntitiy
+    public class UserGroup : BaseEntitiy
     {
         [JsonProperty("usrgrpid")]
         public string Usrgrpid { get; set; }

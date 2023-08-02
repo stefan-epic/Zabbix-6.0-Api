@@ -1,6 +1,6 @@
 ﻿namespace Zabbix.Entities
 {
-    public class Discovery : IBaseEntitiy
+    public class Discovery : BaseEntitiy
     {
     }
 }

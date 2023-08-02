@@ -8,29 +8,37 @@ using ZabbixApi.Helper;
 
 namespace Zabbix.Entities
 {
+    public enum HostGroupProperties
+    {
+        groupid,
+        name,
+        @internal,
+        flags
+    }
     //TODO
 
-    public class HostGroup : IBaseEntitiy
+    public class HostGroup : BaseEntitiy
     {
         #region Properties
-        [JsonProperty("groupid")]
-        public string Groupid { get; set; }
-        [JsonProperty("name")]
-        public string Name { get; set; }
+
+        [JsonProperty("groupid")] public string Groupid { get; set; }
+        [JsonProperty("name")] public string Name { get; set; }
+
         [JsonConverter(typeof(IntToBoolConverter))]
         [JsonProperty("internal")]
         public bool Internal { get; set; }
-        [JsonProperty("flags")]
-        public string Flags { get; set; }
+
+        [JsonProperty("flags")] public string Flags { get; set; }
+
         #endregion
 
         #region Components
+
         //Select discoveryrule
         //select groupdiscovery
-        [JsonProperty("hosts")]
-        public IList<Host> Hosts { get; set; }
-        [JsonProperty("templates")]
-        public IList<Template> Templates { get; set; }
+        [JsonProperty("hosts")] public IList<Host> Hosts { get; set; }
+        [JsonProperty("templates")] public IList<Template> Templates { get; set; }
+
         #endregion
 
 
@@ -38,6 +46,5 @@ namespace Zabbix.Entities
         {
             return $"Group ID: {Groupid}, Name: {Name}, Internal: {Internal}, Flags: {Flags}";
         }
-
     }
 }

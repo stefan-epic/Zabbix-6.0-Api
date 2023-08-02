@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
-using Zabbix.Filter.FilterEnums;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services

@@ -1,7 +1,6 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
-using Zabbix.Filter.FilterEnums;
 using Zabbix.Helpers;
 using Zabbix.Services;
 

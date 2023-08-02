@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities
 {
-    public class Acknowledge : IBaseEntitiy
+    public class Acknowledge : BaseEntitiy
     {
         #region Properties
         [JsonProperty("acknowledgeid")]

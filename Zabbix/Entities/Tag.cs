@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public class Tag : IBaseEntitiy
+    public class Tag : BaseEntitiy
     {
         [JsonProperty("tag")]
         public string TagName { get; set; }

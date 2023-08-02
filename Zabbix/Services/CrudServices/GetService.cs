@@ -7,7 +7,7 @@ namespace Zabbix.Services.CrudServices
 {
 
     public abstract class GetService<TEntity, TEntityInclude, TEntityProperty> : ServiceBase<TEntity, TEntityInclude, TEntityProperty>, IGet<TEntity, TEntityInclude, TEntityProperty>
-        where TEntity : IBaseEntitiy
+        where TEntity : BaseEntitiy
         where TEntityInclude : struct, Enum
         where TEntityProperty : Enum 
     {

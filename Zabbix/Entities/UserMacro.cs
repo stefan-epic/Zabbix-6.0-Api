@@ -4,7 +4,7 @@ namespace Zabbix.Entities
 {
     //TODO
 
-    public class UserMacro : IBaseEntitiy
+    public class UserMacro : BaseEntitiy
     {
         [JsonProperty("hostmacroid")]
         public string Hostmacroid { get; set; }

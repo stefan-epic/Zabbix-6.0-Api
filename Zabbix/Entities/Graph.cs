@@ -3,7 +3,7 @@
 namespace Zabbix.Entities
 {
     //TODO
-    public class Graph : IBaseEntitiy
+    public class Graph : BaseEntitiy
     {
         #region Properties
         [JsonProperty("graphid")]

@@ -2,7 +2,7 @@
 {
 
     //TODO dont know if correct
-    public class Inventory : IBaseEntitiy
+    public class Inventory : BaseEntitiy
     {
         #region Properties
 

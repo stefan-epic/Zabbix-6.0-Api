@@ -12,7 +12,7 @@ namespace Zabbix.Services
 {
     //https://www.zabbix.com/documentation/6.0/en/manual/api/reference_commentary#common-get-method-parameters
     public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty> 
-    where TEntity : IBaseEntitiy 
+    where TEntity : BaseEntitiy 
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
     {
@@ -43,7 +43,7 @@ namespace Zabbix.Services
             }
             return @params;
         }
-
+        //TODO make this default implementation
         protected Dictionary<string, object> BaseBuildParams(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
         {
             if (@params == null)

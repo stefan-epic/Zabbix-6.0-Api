@@ -5,7 +5,7 @@ namespace Zabbix.Services.CrudServices
     //TODO: Maybe add some ---ById Methods for all of these
     //not sure who need EntityInclude yet
     public interface ICreate<TEntity>
-    where TEntity : IBaseEntitiy
+    where TEntity : BaseEntitiy
     {
         IEnumerable<string> Create(IEnumerable<TEntity> entity);
         string Create(TEntity entity);

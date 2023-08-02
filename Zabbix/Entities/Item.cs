@@ -4,7 +4,7 @@ namespace Zabbix.Entities
 {
 
     //TODO
-    public class Item : IBaseEntitiy
+    public class Item : BaseEntitiy
     {
         #region Properties
         [JsonProperty("itemid")]

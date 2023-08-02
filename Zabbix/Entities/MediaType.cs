@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public class MediaType : IBaseEntitiy
+    public class MediaType : BaseEntitiy
     {
     }
 }

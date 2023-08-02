@@ -3,7 +3,7 @@
 namespace Zabbix.Services.CrudServices
 {
     public interface IDelete<TEntity>
-    where TEntity : IBaseEntitiy
+    where TEntity : BaseEntitiy
     {
         IEnumerable<string> Delete(IEnumerable<string> ids);
         string Delete(string id);
