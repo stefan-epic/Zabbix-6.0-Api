@@ -17,7 +17,7 @@ namespace Zabbix.Services
             public override string[] Ids { get; set; }
         }
 
-        public ActionService(ICore core, string className) : base(core, className)
+        public ActionService(ICore core) : base(core, "action")
         {
         }
 

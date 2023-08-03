@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
+    //this doesnt have an id TODO
+    public enum AuthenticationProperties
+    {
+
+    }
     public class Authentication : BaseEntitiy
     {
         #region Properties

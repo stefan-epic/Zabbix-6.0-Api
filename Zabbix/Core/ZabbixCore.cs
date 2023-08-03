@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Zabbix.Entities;
 using Zabbix.Services;
@@ -30,6 +31,13 @@ namespace Zabbix.Core
         public HostInterfaceService Interfaces;
         public AlertService Alerts;
         public EventService Events;
+        public ActionService Actions;
+        public AuthenticationService Authentication;
+        public UserMacroService UserMacros;
+        public RoleService Roles;
+        public ItemService Items;
+        public AuditLogService AuditLogs;
+
         #endregion 
 
         public ZabbixCore(string url, string username, string password)
@@ -66,6 +74,13 @@ namespace Zabbix.Core
             Interfaces = new HostInterfaceService(this);
             Alerts = new AlertService(this);
             Events = new EventService(this);
+            Actions = new ActionService(this);
+            Authentication = new AuthenticationService(this);
+            UserMacros = new UserMacroService(this);
+            Roles = new RoleService(this);
+            Items = new ItemService(this);
+            AuditLogs = new AuditLogService(this);
+
         }
 
         private void Authenticate(string user, string password)

@@ -43,6 +43,7 @@ namespace Zabbix.Services
             }
             return @params;
         }
+
         //TODO make this default implementation
         protected Dictionary<string, object> BaseBuildParams(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
         {

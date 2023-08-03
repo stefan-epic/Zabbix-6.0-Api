@@ -16,7 +16,7 @@ namespace Zabbix.Services
         {
         }
 
-        public ItemService(ICore core, string className) : base(core, className)
+        public ItemService(ICore core) : base(core, "item")
         {
         }
 

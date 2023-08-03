@@ -9,20 +9,14 @@ using Zabbix.Filter;
 
 namespace Zabbix.Services.CrudServices
 {
-    public class GetAndUpdateService<TEntity, TEntityInclude, TEntityProperty> : GetService<TEntity, TEntityInclude,TEntityProperty>, IUpdate<TEntity>
+    public abstract class GetAndUpdateService<TEntity, TEntityInclude, TEntityProperty> : GetService<TEntity, TEntityInclude,TEntityProperty>, IUpdate<TEntity>
         where TEntity : BaseEntitiy
         where TEntityInclude : struct, Enum
         where TEntityProperty : Enum
     {
-        public GetAndUpdateService(ICore core, string className) : base(core, className)
+        protected GetAndUpdateService(ICore core, string className) : base(core, className)
         {
         }
-
-        protected override Dictionary<string, object> BuildParams(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
-        {
-            return BaseBuildParams(filter, @params);
-        }
-
 
         //TODO:
         public IEnumerable<string> Update(IEnumerable<TEntity> entity)
@@ -44,5 +38,7 @@ namespace Zabbix.Services.CrudServices
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

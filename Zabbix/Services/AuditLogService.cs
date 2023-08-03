@@ -8,7 +8,7 @@ namespace Zabbix.Services;
 public class AuditLogService : GetService<AuditLog, AuditLogInclude, AuditLogProperties>
 {
 
-    public AuditLogService(ICore core, string className) : base(core, className)
+    public AuditLogService(ICore core) : base(core, "auditlog")
     {
     }
 

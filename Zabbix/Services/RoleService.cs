@@ -9,7 +9,7 @@ namespace Zabbix.Services
     public class RoleService : CrudService<Role, RoleInclude, RoleProperties, RoleService.RoleResult>
     {
 
-        public RoleService(ICore core, string className) : base(core, className)
+        public RoleService(ICore core) : base(core, "role")
         {
         }
 

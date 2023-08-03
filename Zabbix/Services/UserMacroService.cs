@@ -16,7 +16,7 @@ namespace Zabbix.Services
     public class UserMacroService : CrudService<UserMacro, UserMacroInclude, UserMacroProperties, UserMacroService.UserMacroResult>
     {
 
-        public UserMacroService(ICore core, string className) : base(core, className)
+        public UserMacroService(ICore core) : base(core, "usermacro")
         {
         }
 
