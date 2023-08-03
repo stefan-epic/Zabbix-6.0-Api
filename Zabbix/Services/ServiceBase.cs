@@ -51,9 +51,10 @@ namespace Zabbix.Services
 
             if(filter != null){
                 if (!filter.IsOutputFilterNullOrEmpty())
-                    @params.AddIfNotExist("output", "extend");
-                else
                     @params.Add("output", filter.OutputFilter.Filter);
+                else
+                    @params.AddIfNotExist("output", "extend");
+
 
                 if(!filter.IsIncludeFilterNullOrEmpty())
                     @params = MapIncludesToParams(filter.IncludeFilter, @params);
@@ -64,12 +65,12 @@ namespace Zabbix.Services
         }
 
         #region Async Variants
-        public Task<IReadOnlyList<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
+        public Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
         {
             return BaseGetAsync(BuildParams(filter, @params));
         }
 
-        protected async Task<IReadOnlyList<TEntity>> BaseGetAsync(object @params)
+        protected async Task<IEnumerable<TEntity>> BaseGetAsync(object @params)
         {
             return await Core.SendRequestAsync<TEntity[]>(@params, ClassName + ".get");
         }

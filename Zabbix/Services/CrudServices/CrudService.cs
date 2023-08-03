@@ -31,7 +31,7 @@ namespace Zabbix.Services.CrudServices
             return base.Get(filter, @params);
         }
 
-        public async Task<IReadOnlyList<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
+        public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
         {
             return await base.GetAsync(filter, @params);
         }
@@ -54,7 +54,7 @@ namespace Zabbix.Services.CrudServices
 
         }
 
-        public virtual async Task<IReadOnlyList<string>> CreateAsync(IEnumerable<TEntity> entities)
+        public virtual async Task<IEnumerable<string>> CreateAsync(IEnumerable<TEntity> entities)
         {
             Check.EnumerableNotNullOrEmpty(entities);
 
@@ -83,7 +83,7 @@ namespace Zabbix.Services.CrudServices
 
             return Update(new List<TEntity>() { entity }).FirstOrDefault();
         }
-        public virtual async Task<IReadOnlyList<string>> UpdateAsync(IEnumerable<TEntity> entities)
+        public virtual async Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entities)
         {
             Check.EnumerableNotNullOrEmpty(entities, "entities");
 
@@ -97,29 +97,47 @@ namespace Zabbix.Services.CrudServices
 
         #region Delete
 
-        public virtual IEnumerable<string> Delete(IEnumerable<TEntity> entities)
-        {
-            return Core.SendRequest<TEntityResult>(entities, ClassName + ".delete").Ids;
-        }
+
 
         public virtual string Delete(TEntity entity)
         {
-            var id = entity.id;
-            return Delete(new List<TEntity>(){entity.id}).FirstOrDefault();
+            return Delete(new List<string>(){entity.EntityId}).FirstOrDefault();
         }
-
-
-
-        public virtual async Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<TEntity> entities)
+        public virtual string Delete(string id)
         {
-            return (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".delete")).Ids;
+            return Delete(new List<string>() { id }).FirstOrDefault();
         }
+        public virtual IEnumerable<string> Delete(IEnumerable<TEntity> entities)
+        {
+            var ids = entities.ToList().Select(e => e.EntityId).ToList();
+            return Delete(ids);
+        }
+        public virtual IEnumerable<string> Delete(IEnumerable<string> id)
+        {
+            return Core.SendRequest<TEntityResult>(id, ClassName + ".delete").Ids;
+        }
+
 
         public virtual async Task<string> DeleteAsync(TEntity entity)
         {
             return (await DeleteAsync(new List<TEntity>() { entity })).FirstOrDefault();
         }
 
+        public virtual async Task<string> DeleteAsync(string id)
+        {
+            return Delete(new List<string>() { id }).FirstOrDefault();
+        }
+
+        public virtual async Task<IEnumerable<string>> DeleteAsync(IEnumerable<TEntity> entities)
+        {
+            var ids = entities.ToList().Select(e => e.EntityId).ToList();
+            return await DeleteAsync(ids);
+        }
+
+        public virtual async Task<IEnumerable<string>> DeleteAsync(IEnumerable<string> id)
+        { 
+            return (await Core.SendRequestAsync<TEntityResult>(id, ClassName + ".delete")).Ids;
+        }
         #endregion
 
     }

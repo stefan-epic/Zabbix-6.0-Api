@@ -31,5 +31,7 @@ namespace Zabbix.Services
 
     public enum HostInterfaceInclude
     {
+        selectHosts,
+        selectItems
     }
 }

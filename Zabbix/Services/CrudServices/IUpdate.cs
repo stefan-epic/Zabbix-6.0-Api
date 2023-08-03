@@ -8,7 +8,7 @@ namespace Zabbix.Services.CrudServices
         IEnumerable<string> Update(IEnumerable<TEntity> entity);
         string Update(TEntity entity);
 
-        Task<IReadOnlyList<string>> UpdateAsync(IEnumerable<TEntity> entity);
+        Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entity);
         Task<string> UpdateAsync(TEntity entity);
     }
 }

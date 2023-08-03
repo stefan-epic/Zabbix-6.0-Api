@@ -24,6 +24,8 @@ namespace Zabbix.Services
 
     public enum AlertInclude
     {
-        
+        selectHosts,
+        selectMediaTypes,
+        selectUsers
     }
 }

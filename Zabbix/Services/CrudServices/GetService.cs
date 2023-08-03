@@ -20,7 +20,7 @@ namespace Zabbix.Services.CrudServices
             return base.Get(filter, @params);
         }
 
-        public Task<IReadOnlyList<TEntity>> GetAsync(Dictionary<string, object> @params = null, RequestFilter<TEntityProperty, TEntityInclude> filter = null)
+        public Task<IEnumerable<TEntity>> GetAsync(Dictionary<string, object> @params = null, RequestFilter<TEntityProperty, TEntityInclude> filter = null)
         {
             throw new NotImplementedException();
         }

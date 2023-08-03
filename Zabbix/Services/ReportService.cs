@@ -30,5 +30,7 @@ namespace Zabbix.Services
 
     public enum ReportInclude
     {
+        selectUsers,
+        selectUserGroups
     }
 }

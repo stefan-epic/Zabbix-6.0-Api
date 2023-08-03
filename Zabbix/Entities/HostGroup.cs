@@ -41,6 +41,17 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public HostGroup(string name)
+        {
+            Name = name;
+        }
+        public HostGroup()
+        {
+        }
+
+        #endregion
 
         public override string ToString()
         {

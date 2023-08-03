@@ -118,22 +118,24 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
 
         public Host()
         {
         }
-
-        protected new enum Properties
+        public Host(string hostName, IList<HostGroup> groups)
         {
-            Property3,
-            Property4
+            HostName = hostName;
+            Groups = groups;
         }
+
+        #endregion
 
 
         public override string ToString()
         {
             return
-                $"{nameof(Hostid)}: {Hostid}, {nameof(ProxyHostid)}: {ProxyHostid}, {nameof(HostName)}: {HostName}, {nameof(Status)}: {Status}, {nameof(Lastaccess)}: {Lastaccess}, {nameof(IpmiAuthtype)}: {IpmiAuthtype}, {nameof(IpmiPrivilege)}: {IpmiPrivilege}, {nameof(IpmiUsername)}: {IpmiUsername}, {nameof(IpmiPassword)}: {IpmiPassword}, {nameof(Maintenanceid)}: {Maintenanceid}, {nameof(MaintenanceStatus)}: {MaintenanceStatus}, {nameof(MaintenanceType)}: {MaintenanceType}, {nameof(MaintenanceFrom)}: {MaintenanceFrom}, {nameof(Name)}: {Name}, {nameof(Flags)}: {Flags}, {nameof(Description)}: {Description}, {nameof(TlsConnect)}: {TlsConnect}, {nameof(TlsAccept)}: {TlsAccept}, {nameof(TlsIssuer)}: {TlsIssuer}, {nameof(TlsSubject)}: {TlsSubject}, {nameof(InventoryMode)}: {InventoryMode}, {nameof(Groups)}: {Groups}, {nameof(Templates)}: {Templates}, {nameof(Tags)}: {Tags}, {nameof(Triggers)}: {Triggers}, {nameof(Items)}: {Items}, {nameof(Graphs)}: {Graphs}, {nameof(WebScenarios)}: {WebScenarios}, {nameof(Interfaces)}: {Interfaces}, {nameof(Inventory)}: {Inventory}, {nameof(Macros)}: {Macros}, {nameof(Dashboards)}: {Dashboards}, {nameof(InheritedTags)}: {InheritedTags}, {nameof(ValueMaps)}: {ValueMaps}";
+                $"{nameof(EntityId)}: {EntityId}, {nameof(ProxyHostid)}: {ProxyHostid}, {nameof(HostName)}: {HostName}, {nameof(Status)}: {Status}, {nameof(Lastaccess)}: {Lastaccess}, {nameof(IpmiAuthtype)}: {IpmiAuthtype}, {nameof(IpmiPrivilege)}: {IpmiPrivilege}, {nameof(IpmiUsername)}: {IpmiUsername}, {nameof(IpmiPassword)}: {IpmiPassword}, {nameof(Maintenanceid)}: {Maintenanceid}, {nameof(MaintenanceStatus)}: {MaintenanceStatus}, {nameof(MaintenanceType)}: {MaintenanceType}, {nameof(MaintenanceFrom)}: {MaintenanceFrom}, {nameof(Name)}: {Name}, {nameof(Flags)}: {Flags}, {nameof(Description)}: {Description}, {nameof(TlsConnect)}: {TlsConnect}, {nameof(TlsAccept)}: {TlsAccept}, {nameof(TlsIssuer)}: {TlsIssuer}, {nameof(TlsSubject)}: {TlsSubject}, {nameof(InventoryMode)}: {InventoryMode}, {nameof(Groups)}: {Groups}, {nameof(Templates)}: {Templates}, {nameof(Tags)}: {Tags}, {nameof(Triggers)}: {Triggers}, {nameof(Items)}: {Items}, {nameof(Graphs)}: {Graphs}, {nameof(WebScenarios)}: {WebScenarios}, {nameof(Interfaces)}: {Interfaces}, {nameof(Inventory)}: {Inventory}, {nameof(Macros)}: {Macros}, {nameof(Dashboards)}: {Dashboards}, {nameof(InheritedTags)}: {InheritedTags}, {nameof(ValueMaps)}: {ValueMaps}";
         }
     }
 }

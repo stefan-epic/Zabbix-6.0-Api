@@ -1,361 +1,220 @@
-﻿namespace Zabbix.Entities
+﻿using Newtonsoft.Json;
+
+namespace Zabbix.Entities
 {
 
-    //TODO dont know if correct missing properties
     public class Inventory : BaseEntitiy
     {
         #region Properties
 
-        /// <summary>
-        /// Alias.
-        /// </summary>
+        [JsonProperty("alias")]
         public string Alias { get; set; }
 
-        /// <summary>
-        /// Asset tag.
-        /// </summary>
+        [JsonProperty("asset_tag")]
         public string AssetTag { get; set; }
 
-        /// <summary>
-        /// Chassis.
-        /// </summary>
+        [JsonProperty("chassis")]
         public string Chassis { get; set; }
 
-        /// <summary>
-        /// Contact person.
-        /// </summary>
+        [JsonProperty("contact")]
         public string Contact { get; set; }
 
-        /// <summary>
-        /// Contract number.
-        /// </summary>
+        [JsonProperty("contract_number")]
         public string ContractNumber { get; set; }
 
-        /// <summary>
-        /// HW decommissioning date.
-        /// </summary>
-        public string DateHwDecomm { get; set; }
+        [JsonProperty("date_hw_decomm")]
+        public string DateHWDecomm { get; set; }
 
-        /// <summary>
-        /// HW maintenance expiry date.
-        /// </summary>
-        public string DateHwExpiry { get; set; }
+        [JsonProperty("date_hw_expiry")]
+        public string DateHWExpiry { get; set; }
 
-        /// <summary>
-        /// HW installation date.
-        /// </summary>
-        public string DateHwInstall { get; set; }
+        [JsonProperty("date_hw_install")]
+        public string DateHWInstall { get; set; }
 
-        /// <summary>
-        /// HW purchase date.
-        /// </summary>
-        public string DateHwPurchase { get; set; }
+        [JsonProperty("date_hw_purchase")]
+        public string DateHWPurchase { get; set; }
 
-        /// <summary>
-        /// Deployment status.
-        /// </summary>
+        [JsonProperty("deployment_status")]
         public string DeploymentStatus { get; set; }
 
-        /// <summary>
-        /// Hardware.
-        /// </summary>
+        [JsonProperty("hardware")]
         public string Hardware { get; set; }
 
-        /// <summary>
-        /// Detailed hardware.
-        /// </summary>
+        [JsonProperty("hardware_full")]
         public string HardwareFull { get; set; }
 
-        /// <summary>
-        /// Host subnet mask.
-        /// </summary>
+        [JsonProperty("host_netmask")]
         public string HostNetmask { get; set; }
 
-        /// <summary>
-        /// Host networks.
-        /// </summary>
+        [JsonProperty("host_networks")]
         public string HostNetworks { get; set; }
 
-        /// <summary>
-        /// Host router.
-        /// </summary>
+        [JsonProperty("host_router")]
         public string HostRouter { get; set; }
 
+        [JsonProperty("hw_arch")]
+        public string HWArchitecture { get; set; }
 
-        /// <summary>
-        /// HW architecture.
-
-        /// </summary>
-        public string HwArch { get; set; }
-
-        /// <summary>
-        /// Installer name.
-        /// </summary>
+        [JsonProperty("installer_name")]
         public string InstallerName { get; set; }
 
-        /// <summary>
-        /// Location.
-        /// </summary>
+        [JsonProperty("location")]
         public string Location { get; set; }
 
-        /// <summary>
-        /// Location latitude.
-        /// </summary>
-        public string LocationLat { get; set; }
+        [JsonProperty("location_lat")]
+        public string LocationLatitude { get; set; }
 
-        /// <summary>
-        /// Location longitude.
-        /// </summary>
-        public string LocationLon { get; set; }
+        [JsonProperty("location_lon")]
+        public string LocationLongitude { get; set; }
 
-        /// <summary>
-        /// MAC address A.
-        /// </summary>
-        public string MacaddressA { get; set; }
+        [JsonProperty("macaddress_a")]
+        public string MacAddressA { get; set; }
 
-        /// <summary>
-        /// MAC address B.
-        /// </summary>
-        public string MacaddressB { get; set; }
+        [JsonProperty("macaddress_b")]
+        public string MacAddressB { get; set; }
 
-        /// <summary>
-        /// Model.
-        /// </summary>
+        [JsonProperty("model")]
         public string Model { get; set; }
 
-        /// <summary>
-        /// Name.
-        /// </summary>
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        /// <summary>
-        /// Notes.
-        /// </summary>
+        [JsonProperty("notes")]
         public string Notes { get; set; }
 
-        /// <summary>
-        /// OOB IP address.
-        /// </summary>
-        public string OobIp { get; set; }
+        [JsonProperty("oob_ip")]
+        public string OOBIPAddress { get; set; }
 
-        /// <summary>
-        /// OOB host subnet mask.
-        /// </summary>
-        public string OobNetmask { get; set; }
+        [JsonProperty("oob_netmask")]
+        public string OOBHostNetmask { get; set; }
 
-        /// <summary>
-        /// OOB router.
-        /// </summary>
-        public string OobRouter { get; set; }
+        [JsonProperty("oob_router")]
+        public string OOBRouter { get; set; }
 
-        /// <summary>
-        /// OS name.
-        /// </summary>
-        public string Os { get; set; }
+        [JsonProperty("os")]
+        public string OS { get; set; }
 
-        /// <summary>
-        /// Detailed OS name.
-        /// </summary>
-        public string OsFull { get; set; }
+        [JsonProperty("os_full")]
+        public string OSFull { get; set; }
 
-        /// <summary>
-        /// Short OS name.
-        /// </summary>
-        public string OsShort { get; set; }
+        [JsonProperty("os_short")]
+        public string OSShort { get; set; }
 
-        /// <summary>
-        /// Primary POC mobile number.
-        /// </summary>
-        public string Poc1Cell { get; set; }
+        [JsonProperty("poc_1_cell")]
+        public string PrimaryPOCMobileNumber { get; set; }
 
-        /// <summary>
-        /// Primary email.
-        /// </summary>
-        public string Poc1Email { get; set; }
+        [JsonProperty("poc_1_email")]
+        public string PrimaryPOCEmail { get; set; }
 
-        /// <summary>
-        /// Primary POC name.
-        /// </summary>
-        public string Poc1Name { get; set; }
+        [JsonProperty("poc_1_name")]
+        public string PrimaryPOCName { get; set; }
 
-        /// <summary>
-        /// Primary POC notes.
-        /// </summary>
-        public string Poc1Notes { get; set; }
+        [JsonProperty("poc_1_notes")]
+        public string PrimaryPOCNotes { get; set; }
 
-        /// <summary>
-        /// Primary POC phone A.
-        /// </summary>
-        public string Poc1PhoneA { get; set; }
+        [JsonProperty("poc_1_phone_a")]
+        public string PrimaryPOCPhoneA { get; set; }
 
-        /// <summary>
-        /// Primary POC phone B.
-        /// </summary>
-        public string Poc1PhoneB { get; set; }
+        [JsonProperty("poc_1_phone_b")]
+        public string PrimaryPOCPhoneB { get; set; }
 
-        /// <summary>
-        /// Primary POC screen name.
-        /// </summary>
-        public string Poc1Screen { get; set; }
+        [JsonProperty("poc_1_screen")]
+        public string PrimaryPOCScreenName { get; set; }
 
-        /// <summary>
-        /// Secondary POC mobile number.
-        /// </summary>
-        public string Poc2Cell { get; set; }
+        [JsonProperty("poc_2_cell")]
+        public string SecondaryPOCMobileNumber { get; set; }
 
-        /// <summary>
-        /// Secondary POC email.
-        /// </summary>
-        public string Poc2Email { get; set; }
+        [JsonProperty("poc_2_email")]
+        public string SecondaryPOCEmail { get; set; }
 
-        /// <summary>
-        /// Secondary POC name.
-        /// </summary>
-        public string Poc2Name { get; set; }
+        [JsonProperty("poc_2_name")]
+        public string SecondaryPOCName { get; set; }
 
-        /// <summary>
-        /// Secondary POC notes.
-        /// </summary>
-        public string Poc2Notes { get; set; }
+        [JsonProperty("poc_2_notes")]
+        public string SecondaryPOCNotes { get; set; }
 
-        /// <summary>
-        /// Secondary POC phone A.
-        /// </summary>
-        public string Poc2PhoneA { get; set; }
+        [JsonProperty("poc_2_phone_a")]
+        public string SecondaryPOCPhoneA { get; set; }
 
-        /// <summary>
-        /// Secondary POC phone B.
-        /// </summary>
-        public string Poc2PhoneB { get; set; }
+        [JsonProperty("poc_2_phone_b")]
+        public string SecondaryPOCPhoneB { get; set; }
 
-        /// <summary>
-        /// Secondary POC screen name.
-        /// </summary>
-        public string Poc2Screen { get; set; }
+        [JsonProperty("poc_2_screen")]
+        public string SecondaryPOCScreenName { get; set; }
 
-        /// <summary>
-        /// Serial number A.
-        /// </summary>
-        public string SerialnoA { get; set; }
+        [JsonProperty("serialno_a")]
+        public string SerialNumberA { get; set; }
 
-        /// <summary>
-        /// Serial number B.
-        /// </summary>
-        public string SerialnoB { get; set; }
+        [JsonProperty("serialno_b")]
+        public string SerialNumberB { get; set; }
 
-        /// <summary>
-        /// Site address A.
-        /// </summary>
+        [JsonProperty("site_address_a")]
         public string SiteAddressA { get; set; }
 
-        /// <summary>
-        /// Site address B.
-        /// </summary>
+        [JsonProperty("site_address_b")]
         public string SiteAddressB { get; set; }
 
-        /// <summary>
-        /// Site address C.
-        /// </summary>
+        [JsonProperty("site_address_c")]
         public string SiteAddressC { get; set; }
 
-        /// <summary>
-        /// Site city.
-        /// </summary>
+        [JsonProperty("site_city")]
         public string SiteCity { get; set; }
 
-        /// <summary>
-        /// Site country.
-        /// </summary>
+        [JsonProperty("site_country")]
         public string SiteCountry { get; set; }
 
-        /// <summary>
-        /// Site notes.
-        /// </summary>
+        [JsonProperty("site_notes")]
         public string SiteNotes { get; set; }
 
-        /// <summary>
-        /// Site rack location.
-        /// </summary>
-        public string SiteRack { get; set; }
+        [JsonProperty("site_rack")]
+        public string SiteRackLocation { get; set; }
 
-        /// <summary>
-        /// Site state.
-        /// </summary>
+        [JsonProperty("site_state")]
         public string SiteState { get; set; }
 
-        /// <summary>
-        /// Site ZIP/postal code.
-        /// </summary>
-        public string SiteZip { get; set; }
+        [JsonProperty("site_zip")]
+        public string SiteZIP { get; set; }
 
-        /// <summary>
-        /// Software.
-        /// </summary>
+        [JsonProperty("software")]
         public string Software { get; set; }
 
-        /// <summary>
-        /// Software application A.
-        /// </summary>
-        public string SoftwareAppA { get; set; }
+        [JsonProperty("software_app_a")]
+        public string SoftwareApplicationA { get; set; }
 
-        /// <summary>
-        /// Software application B.
-        /// </summary>
-        public string SoftwareAppB { get; set; }
+        [JsonProperty("software_app_b")]
+        public string SoftwareApplicationB { get; set; }
 
-        /// <summary>
-        /// Software application C.
-        /// </summary>
-        public string SoftwareAppC { get; set; }
+        [JsonProperty("software_app_c")]
+        public string SoftwareApplicationC { get; set; }
 
-        /// <summary>
-        /// Software application D.
-        /// </summary>
-        public string SoftwareAppD { get; set; }
+        [JsonProperty("software_app_d")]
+        public string SoftwareApplicationD { get; set; }
 
-        /// <summary>
-        /// Software application E.
-        /// </summary>
-        public string SoftwareAppE { get; set; }
+        [JsonProperty("software_app_e")]
+        public string SoftwareApplicationE { get; set; }
 
-        /// <summary>
-        /// Software details.
-        /// </summary>
+        [JsonProperty("software_full")]
         public string SoftwareFull { get; set; }
 
-        /// <summary>
-        /// TagName.
-        /// </summary>
+        [JsonProperty("tag")]
         public string Tag { get; set; }
 
-        /// <summary>
-        /// Type.
-        /// </summary>
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        /// <summary>
-        /// Type details.
-        /// </summary>
-        public string TypeFull { get; set; }
+        [JsonProperty("type_full")]
+        public string TypeDetails { get; set; }
 
-        /// <summary>
-        /// URL A.
-        /// </summary>
-        public string UrlA { get; set; }
+        [JsonProperty("url_a")]
+        public string URLA { get; set; }
 
-        /// <summary>
-        /// URL B.
-        /// </summary>
-        public string UrlB { get; set; }
+        [JsonProperty("url_b")]
+        public string URLB { get; set; }
 
-        /// <summary>
-        /// URL C.
-        /// </summary>
-        public string UrlC { get; set; }
+        [JsonProperty("url_c")]
+        public string URLC { get; set; }
 
-        /// <summary>
-        /// Vendor.
-        /// </summary>
+        [JsonProperty("vendor")]
         public string Vendor { get; set; }
 
         #endregion Properties

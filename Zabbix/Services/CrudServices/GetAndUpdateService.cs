@@ -35,7 +35,7 @@ namespace Zabbix.Services.CrudServices
             throw new NotImplementedException();
         }
 
-        public Task<IReadOnlyList<string>> UpdateAsync(IEnumerable<TEntity> entity)
+        public Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entity)
         {
             throw new NotImplementedException();
         }

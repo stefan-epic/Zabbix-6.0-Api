@@ -3,6 +3,11 @@
 namespace Zabbix.Entities
 {
 
+    public enum ItemProperties
+    {
+
+    }
+
     //TODO
     public class Item : BaseEntitiy
     {
@@ -175,5 +180,79 @@ namespace Zabbix.Entities
         [JsonProperty("prevvalue")]
         public string Prevvalue { get; set; }
         #endregion
+
+        #region Components
+        [JsonProperty("hosts")]
+        public IList<Host> Hosts;
+
+        [JsonProperty("interfaces")]
+        public IList<HostInterface> Interfaces;
+
+        [JsonProperty("triggers")]
+        public IList<Trigger> Triggers;
+
+        [JsonProperty("graphs")]
+        public IList<Graph> Graphs;
+
+        [JsonProperty("discoveryRule")]
+        public IList<DiscoverRule> DiscoverRules;
+
+        [JsonProperty("itemDiscovery")]
+        public IList<ItemDiscovery> ItemDiscoveries;
+
+        [JsonProperty("preprocessing")]
+        public IList<ItemPreprocessing> Preprocessings;
+
+        [JsonProperty("tags")]
+        public IList<Tag> Tags;
+
+        [JsonProperty("valuemap")]
+        public IList<ValueMap> ValueMaps;
+
+        #endregion
+    }
+
+    public class ItemPreprocessing
+    {
+        #region Properties
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("params")]
+        public string Params { get; set; }
+
+        [JsonProperty("error_handler")]
+        public string ErrorHandler { get; set; }
+
+        [JsonProperty("error_handler_params")]
+        public string ErrorHandlerParams { get; set; }
+
+        #endregion
+
+    }
+
+    public class ItemDiscovery
+    {
+        #region Properties
+
+        [JsonProperty("itemdiscoveryid")]
+        public string ItemDiscoveryId { get; set; }
+
+        [JsonProperty("itemid")]
+        public string ItemId { get; set; }
+
+        [JsonProperty("parent_itemid")]
+        public string ParentItemId { get; set; }
+
+        [JsonProperty("key_")]
+        public string Key { get; set; }
+
+        [JsonProperty("lastcheck")]
+        public DateTime LastCheck { get; set; }
+
+        [JsonProperty("ts_delete")]
+        public DateTime TsDelete { get; set; }
+        #endregion
+
     }
 }

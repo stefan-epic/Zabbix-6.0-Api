@@ -3,9 +3,15 @@
 namespace Zabbix.Entities
 {
     //TODO
+    public enum UserMacroProperties
+    {
+
+    }
 
     public class UserMacro : BaseEntitiy
     {
+        #region Properties
+
         [JsonProperty("hostmacroid")]
         public override string EntityId { get; set; }
 
@@ -23,5 +29,20 @@ namespace Zabbix.Entities
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        #endregion
+
+        #region Components
+
+        [JsonProperty("groups")]
+        public IList<HostGroup> Groups { get; set; }
+
+        [JsonProperty("hosts")]
+        public IList<Host> Hosts { get; set; }
+
+        [JsonProperty("templates")]
+        public IList<Template> Templates { get; set; }
+
+        #endregion
     }
 }

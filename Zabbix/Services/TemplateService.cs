@@ -31,5 +31,18 @@ namespace Zabbix.Services
     //TODO:
     public enum TemplateInclude
     {
+        selectGroups,
+        selectTags,
+        selectHosts,
+        selectTemplates,
+        selectParentTemplates,
+        selectHttpTests,
+        selectItems,
+        selectDiscoveries,
+        selectTriggers,
+        selectGraphs,
+        selectMacros,
+        selectDashboards,
+        selectValueMaps
     }
 }

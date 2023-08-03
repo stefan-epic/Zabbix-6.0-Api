@@ -10,7 +10,7 @@ namespace Zabbix.Services.CrudServices
         IEnumerable<string> Create(IEnumerable<TEntity> entity);
         string Create(TEntity entity);
 
-        Task<IReadOnlyList<string>> CreateAsync(IEnumerable<TEntity> entity);
+        Task<IEnumerable<string>> CreateAsync(IEnumerable<TEntity> entity);
         Task<string> CreateAsync(TEntity entity);
     }
 }

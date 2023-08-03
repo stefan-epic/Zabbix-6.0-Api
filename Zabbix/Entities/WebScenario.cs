@@ -97,9 +97,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("httpstepid")] public string Httpstepid { get; set; }
-
-        [JsonProperty("httptestid")] public string Httptestid { get; set; }
+        [JsonProperty("httptestid")] public override string EntityId { get; set; }
 
         [JsonProperty("name")] public string Name { get; set; }
 

@@ -28,6 +28,16 @@ namespace ZabbixApiDebug
 
             ZabbixCore core = new ZabbixCore(url, username, password);
 
+            RequestFilter<HostGroupProperties, HostGroupInclude> rqFilter = new();
+            rqFilter.ObjectFilter.Set(HostGroupProperties.name, "Linux servers");
+            rqFilter.OutputFilter.AddFilter(HostGroupProperties.groupid);
+            HostGroup h = core.HostGroups.Get(rqFilter).FirstOrDefault();
+            Host newHost = new Host("hallo", new List<HostGroup>(){h});
+            Host newHost2 = new Host("Welt", new List<HostGroup>(){h});
+
+            core.Hosts.Create(new List<Host>() { newHost, newHost2 });
+
+            /*
 
             List<Host> hosts = core.Hosts.Get().ToList();
 
@@ -35,7 +45,6 @@ namespace ZabbixApiDebug
             //toUpate.HostName = "Harambus";
             core.Hosts.Delete(toUpate);
             //core.Hosts.Update(toUpate);
-            /*
 
             List<Host> hosts =  core.Hosts.Get().ToList();
 

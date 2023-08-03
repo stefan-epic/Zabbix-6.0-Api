@@ -11,9 +11,9 @@ namespace Zabbix.Services.CrudServices
         IEnumerable<string> Delete(IEnumerable<TEntity> entities);
         string Delete(TEntity entity);
 
-        //Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<string> ids);
+        //Task<IEnumerable<string>> DeleteAsync(IEnumerable<string> ids);
         //Task<string> DeleteAsync(string id);
-        Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<TEntity> entities);
+        Task<IEnumerable<string>> DeleteAsync(IEnumerable<TEntity> entities);
         Task<string> DeleteAsync(TEntity entity);
     }
 }
