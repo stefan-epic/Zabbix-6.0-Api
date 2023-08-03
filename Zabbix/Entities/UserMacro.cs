@@ -1,48 +1,37 @@
 ﻿using Newtonsoft.Json;
 
-namespace Zabbix.Entities
+namespace Zabbix.Entities;
+
+//TODO
+public enum UserMacroProperties
 {
-    //TODO
-    public enum UserMacroProperties
-    {
+}
 
-    }
+public class UserMacro : BaseEntitiy
+{
+    #region Properties
 
-    public class UserMacro : BaseEntitiy
-    {
-        #region Properties
+    [JsonProperty("hostmacroid")] public override string EntityId { get; set; }
 
-        [JsonProperty("hostmacroid")]
-        public override string EntityId { get; set; }
+    [JsonProperty("hostid")] public string Hostid { get; set; }
 
-        [JsonProperty("hostid")]
-        public string Hostid { get; set; }
+    [JsonProperty("macro")] public string Macro { get; set; }
 
-        [JsonProperty("macro")]
-        public string Macro { get; set; }
+    [JsonProperty("value")] public string Value { get; set; }
 
-        [JsonProperty("value")]
-        public string Value { get; set; }
+    [JsonProperty("description")] public string Description { get; set; }
 
-        [JsonProperty("description")]
-        public string Description { get; set; }
+    [JsonProperty("type")] public string Type { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+    #endregion
 
-        #endregion
+    #region Components
 
-        #region Components
+    [JsonProperty("groups")] public IList<HostGroup> Groups { get; set; }
 
-        [JsonProperty("groups")]
-        public IList<HostGroup> Groups { get; set; }
+    [JsonProperty("hosts")] public IList<Host> Hosts { get; set; }
 
-        [JsonProperty("hosts")]
-        public IList<Host> Hosts { get; set; }
+    [JsonProperty("templates")] public IList<Template> Templates { get; set; }
 
-        [JsonProperty("templates")]
-        public IList<Template> Templates { get; set; }
-
-        #endregion
-    }
+    #endregion
 }

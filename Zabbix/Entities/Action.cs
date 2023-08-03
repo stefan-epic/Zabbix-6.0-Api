@@ -1,364 +1,276 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace Zabbix.Entities
+namespace Zabbix.Entities;
+
+public class Action : BaseEntitiy
 {
-    public class Action : BaseEntitiy
-    {
-        #region Properties
-        [JsonProperty("actionid")]
-        public override string EntityId { get; set; }
+    #region Properties
 
-        [JsonProperty("esc_period")]
-        public string EscPeriod { get; set; }
+    [JsonProperty("actionid")] public override string EntityId { get; set; }
 
-        [JsonProperty("eventsource")]
-        public string EventSource { get; set; }
+    [JsonProperty("esc_period")] public string EscPeriod { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+    [JsonProperty("eventsource")] public string EventSource { get; set; }
 
-        [JsonProperty("status")]
-        public string Status { get; set; }
+    [JsonProperty("name")] public string Name { get; set; }
 
-        [JsonProperty("pause_suppressed")]
-        public string PauseSuppressed { get; set; }
+    [JsonProperty("status")] public string Status { get; set; }
 
-        [JsonProperty("notify_if_canceled")]
-        public string NotifyIfCanceled { get; set; }
+    [JsonProperty("pause_suppressed")] public string PauseSuppressed { get; set; }
 
+    [JsonProperty("notify_if_canceled")] public string NotifyIfCanceled { get; set; }
 
-        #endregion
+    #endregion
 
-        #region Components
-        [JsonProperty("filter")]
-        public IList<ActionFilter> Filters {get; set; }
+    #region Components
 
-        [JsonProperty("operations")]
-        public IList<ActionOperation> Operations {get; set; }
+    [JsonProperty("filter")] public IList<ActionFilter> Filters { get; set; }
 
-        [JsonProperty("recovery_operations")]
-        public IList<ActionRecoveryOperation> RecoveryOperations {get; set; }
+    [JsonProperty("operations")] public IList<ActionOperation> Operations { get; set; }
 
-        [JsonProperty("update_operations")]
-        public IList<ActionUpdateOperation> UpdateOperations {get; set; }
+    [JsonProperty("recovery_operations")] public IList<ActionRecoveryOperation> RecoveryOperations { get; set; }
 
-        #endregion
-    }
+    [JsonProperty("update_operations")] public IList<ActionUpdateOperation> UpdateOperations { get; set; }
 
-    public class ActionOperation
-    {
-        #region Properties
+    #endregion
+}
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+public class ActionOperation
+{
+    #region Properties
 
-        [JsonProperty("operationtype")]
-        public string OperationType { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("actionid")]
-        public string ActionId { get; set; }
+    [JsonProperty("operationtype")] public string OperationType { get; set; }
 
-        [JsonProperty("esc_period")]
-        public string EscPeriod { get; set; }
+    [JsonProperty("actionid")] public string ActionId { get; set; }
 
-        [JsonProperty("esc_step_from")]
-        public string EscStepFrom { get; set; }
+    [JsonProperty("esc_period")] public string EscPeriod { get; set; }
 
-        [JsonProperty("esc_step_to")]
-        public string EscStepTo { get; set; }
+    [JsonProperty("esc_step_from")] public string EscStepFrom { get; set; }
 
-        [JsonProperty("evaltype")]
-        public string EvalType { get; set; }
+    [JsonProperty("esc_step_to")] public string EscStepTo { get; set; }
 
-        [JsonProperty("opcommand")]
-        public string OpCommand { get; set; }
+    [JsonProperty("evaltype")] public string EvalType { get; set; }
 
-        #endregion
+    [JsonProperty("opcommand")] public string OpCommand { get; set; }
 
-        #region Components
+    #endregion
 
-        [JsonProperty("opcommand_grp")]
-        public IList<OperationCommandGroup> OpCommandGroup { get; set; }
+    #region Components
 
-        [JsonProperty("opcommand_hst")]
-        public IList<OperationCommandHost> OpCommandHost { get; set; }
+    [JsonProperty("opcommand_grp")] public IList<OperationCommandGroup> OpCommandGroup { get; set; }
 
-        [JsonProperty("opconditions")]
-        public IList<OperationCondition> OpConditions { get; set; }
+    [JsonProperty("opcommand_hst")] public IList<OperationCommandHost> OpCommandHost { get; set; }
 
-        [JsonProperty("opgroup")]
-        public IList<OperationGroup> OpGroup { get; set; }
+    [JsonProperty("opconditions")] public IList<OperationCondition> OpConditions { get; set; }
 
-        [JsonProperty("opmessage")]
-        public ActionOperationMessage OpMessage { get; set; }
+    [JsonProperty("opgroup")] public IList<OperationGroup> OpGroup { get; set; }
 
-        [JsonProperty("opmessage_grp")]
-        public IList<OperationMessageGroup> OpMessageGroup { get; set; }
+    [JsonProperty("opmessage")] public ActionOperationMessage OpMessage { get; set; }
 
-        [JsonProperty("opmessage_usr")]
-        public IList<OperationMessageUser> OpMessageUser { get; set; }
+    [JsonProperty("opmessage_grp")] public IList<OperationMessageGroup> OpMessageGroup { get; set; }
 
-        [JsonProperty("filter")]
-        public IList<ActionFilter> Filter { get; set; }
+    [JsonProperty("opmessage_usr")] public IList<OperationMessageUser> OpMessageUser { get; set; }
 
-        #endregion
+    [JsonProperty("filter")] public IList<ActionFilter> Filter { get; set; }
 
+    #endregion
+}
 
-    }
+public class ActionFilter
+{
+    #region Properties
 
-    public class ActionFilter
-    {
-        #region Properties
+    [JsonProperty("conditionid")] public string ConditionId { get; set; }
 
-        [JsonProperty("conditionid")]
-        public string ConditionId { get; set; }
+    [JsonProperty("conditiontype")] public string ConditionType { get; set; }
 
-        [JsonProperty("conditiontype")]
-        public string ConditionType { get; set; }
+    [JsonProperty("value")] public string Value { get; set; }
 
-        [JsonProperty("value")]
-        public string Value { get; set; }
+    [JsonProperty("value2")] public string Value2 { get; set; }
 
-        [JsonProperty("value2")]
-        public string Value2 { get; set; }
+    [JsonProperty("actionid")] public string ActionId { get; set; }
 
-        [JsonProperty("actionid")]
-        public string ActionId { get; set; }
+    [JsonProperty("fomulaid")] public string FormulaId { get; set; }
 
-        [JsonProperty("fomulaid")]
-        public string FormulaId { get; set; }
+    [JsonProperty("operator")] public string Operator { get; set; }
 
-        [JsonProperty("operator")]
-        public string Operator { get; set; }
+    #endregion
+}
 
-        #endregion
+public class ActionRecoveryOperation
+{
+    #region Properties
 
-    }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    public class ActionRecoveryOperation
-    {
-        #region Properties
+    [JsonProperty("operationtype")] public string OperationType { get; set; }
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    #endregion
 
-        [JsonProperty("operationtype")]
-        public string OperationType { get; set; }
+    #region Components
 
-        #endregion
+    [JsonProperty("opcommand")] public OperationCommand OpCommand { get; set; }
 
-        #region Components
-        [JsonProperty("opcommand")]
-        public OperationCommand OpCommand { get; set; }
+    [JsonProperty("opcommand_grp")] public IList<OperationCommandGroup> OpCommandGroup { get; set; }
 
-        [JsonProperty("opcommand_grp")]
-        public IList<OperationCommandGroup> OpCommandGroup { get; set; }
+    [JsonProperty("opcommand_hst")] public IList<OperationCommandHost> OpCommandHost { get; set; }
 
-        [JsonProperty("opcommand_hst")]
-        public IList<OperationCommandHost> OpCommandHost { get; set; }
+    [JsonProperty("opmessage")] public ActionOperationMessage OpMessage { get; set; }
 
-        [JsonProperty("opmessage")]
-        public ActionOperationMessage OpMessage { get; set; }
+    [JsonProperty("opmessage_grp")] public IList<OperationMessageGroup> OpMessageGroup { get; set; }
 
-        [JsonProperty("opmessage_grp")]
-        public IList<OperationMessageGroup> OpMessageGroup { get; set; }
+    [JsonProperty("opmessage_usr")] public IList<OperationMessageUser> OpMessageUser { get; set; }
 
-        [JsonProperty("opmessage_usr")]
-        public IList<OperationMessageUser> OpMessageUser { get; set; }
+    #endregion
+}
 
+public class ActionUpdateOperation
+{
+    #region Properties
 
-        #endregion
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    }
+    [JsonProperty("operationtype")] public string OperationType { get; set; }
 
-    public class ActionUpdateOperation
-    {
-        #region Properties
+    #endregion
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    #region Components
 
-        [JsonProperty("operationtype")]
-        public string OperationType { get; set; }
+    [JsonProperty("opcommand")] public OperationCommand OpCommand { get; set; }
 
-        #endregion
+    [JsonProperty("opcommand_grp")] public IList<OperationCommandGroup> OpCommandGroup { get; set; }
 
-        #region Components
+    [JsonProperty("opcommand_hst")] public IList<OperationCommandHost> OpCommandHost { get; set; }
 
-        [JsonProperty("opcommand")]
-        public OperationCommand OpCommand { get; set; }
+    [JsonProperty("opmessage")] public ActionOperationMessage OpMessage { get; set; }
 
-        [JsonProperty("opcommand_grp")]
-        public IList<OperationCommandGroup> OpCommandGroup { get; set; }
+    [JsonProperty("opmessage_grp")] public IList<OperationMessageGroup> OpMessageGroup { get; set; }
 
-        [JsonProperty("opcommand_hst")]
-        public IList<OperationCommandHost> OpCommandHost { get; set; }
+    [JsonProperty("opmessage_usr")] public IList<OperationMessageUser> OpMessageUser { get; set; }
 
-        [JsonProperty("opmessage")]
-        public ActionOperationMessage OpMessage { get; set; }
+    #endregion
+}
 
-        [JsonProperty("opmessage_grp")]
-        public IList<OperationMessageGroup> OpMessageGroup { get; set; }
+public class OperationCommand
+{
+    #region Properties
 
-        [JsonProperty("opmessage_usr")]
-        public IList<OperationMessageUser> OpMessageUser { get; set; }
+    [JsonProperty("scriptid")] public string ScriptId { get; set; }
 
-        #endregion
+    #endregion
+}
 
-    }
+public class OperationGroup
+{
+    #region Properties
 
-    public class OperationCommand
-    {
-        #region Properties
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("scriptid")]
-        public string ScriptId { get; set; }
+    [JsonProperty("groupid")] public string GroupId { get; set; }
 
-        #endregion
+    #endregion
+}
 
-    }
+public class OperationCommandGroup
+{
+    #region Properties
 
-    public class OperationGroup
-    {
-        #region Properties
+    [JsonProperty("opcommand_grpid")] public string OpCommandGroupId { get; set; }
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("groupid")]
-        public string GroupId { get; set; }
+    [JsonProperty("groupid")] public string GroupId { get; set; }
 
-        #endregion
+    #endregion
+}
 
-    }
+public class OperationCommandHost
+{
+    #region Properties
 
-    public class OperationCommandGroup
-    {
-        #region Properties
+    [JsonProperty("opcommand_hstid")] public string OpCommandHostId { get; set; }
 
-        [JsonProperty("opcommand_grpid")]
-        public string OpCommandGroupId { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("hostid")] public string HostId { get; set; }
 
-        [JsonProperty("groupid")]
-        public string GroupId { get; set; }
+    #endregion
+}
 
-        #endregion
+public class OperationCondition
+{
+    #region MyRegion
 
-    }
+    [JsonProperty("opconditionid")] public string OpConditionId { get; set; }
 
-    public class OperationCommandHost
-    {
-        #region Properties
-        [JsonProperty("opcommand_hstid")]
-        public string OpCommandHostId { get; set; }
+    [JsonProperty("conditiontype")] public string ConditionType { get; set; }
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("value")] public string Value { get; set; }
 
-        [JsonProperty("hostid")]
-        public string HostId { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        #endregion
+    [JsonProperty("operator")] public string Operator { get; set; }
 
-    }
+    #endregion
+}
 
-    public class OperationCondition
-    {
-        #region MyRegion
+public class ActionOperationMessage
+{
+    #region Properties
 
-        [JsonProperty("opconditionid")]
-        public string OpConditionId { get; set; }
+    [JsonProperty("default_msg")] public string DefaultMessage { get; set; }
 
-        [JsonProperty("conditiontype")]
-        public string ConditionType { get; set; }
+    [JsonProperty("mediatypeid")] public string MediaTypeId { get; set; }
 
-        [JsonProperty("value")]
-        public string Value { get; set; }
+    [JsonProperty("message")] public string Message { get; set; }
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("subject")] public string Subject { get; set; }
 
-        [JsonProperty("operator")]
-        public string Operator { get; set; }
+    #endregion
+}
 
-        #endregion
+public class OperationMessageGroup
+{
+    #region Properties
 
-    }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    public class ActionOperationMessage
-    {
-        #region Properties
-        [JsonProperty("default_msg")]
-        public string DefaultMessage { get; set; }
+    [JsonProperty("usrgrpid")] public string UserGroupId { get; set; }
 
-        [JsonProperty("mediatypeid")]
-        public string MediaTypeId { get; set; }
+    #endregion
+}
 
-        [JsonProperty("message")]
-        public string Message { get; set; }
+public class OperationMessageUser
+{
+    #region Properties
 
-        [JsonProperty("subject")] 
-        public string Subject { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        #endregion
+    [JsonProperty("userid")] public string UserId { get; set; }
 
-    }
+    #endregion
+}
 
-    public class OperationMessageGroup
-    {
-        #region Properties
+public class OperationTemplate
+{
+    #region Properties
 
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("usrgrpid")]
-        public string UserGroupId { get; set; }
+    [JsonProperty("templateid")] public string TemplateId { get; set; }
 
-        #endregion
+    #endregion
+}
 
-    }
+public class OperationInventory
+{
+    #region Properties
 
-    public class OperationMessageUser
-    {
-        #region Properties
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
+    [JsonProperty("operationid")] public string OperationId { get; set; }
 
-        [JsonProperty("userid")]
-        public string UserId { get; set; }
+    [JsonProperty("inventory_mode")] public string InventoryMode { get; set; }
 
-        #endregion
-
-    }
-
-    public class OperationTemplate
-    {
-        #region Properties
-
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
-
-        [JsonProperty("templateid")]
-        public string TemplateId { get; set; }
-
-        #endregion
-
-    }
-
-    public class OperationInventory
-    {
-        #region Properties
-        [JsonProperty("operationid")]
-        public string OperationId { get; set; }
-
-        [JsonProperty("inventory_mode")]
-        public string InventoryMode { get; set; }
-
-        #endregion
-
-    }
+    #endregion
 }

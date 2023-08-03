@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Zabbix.Services.CrudServices;
 
-namespace Zabbix.Services.CrudServices
+internal interface IBulkRequest
 {
-    internal interface IBulkRequest
-    {
-    }
 }

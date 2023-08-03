@@ -1,32 +1,23 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
+using Newtonsoft.Json;
 
-namespace Zabbix.Helpers
+namespace Zabbix.Helpers;
+
+public class ReflectionHelper<TEntity>
 {
-    public class ReflectionHelper<TEntity>
+    public List<string> GetJsonPropertiesOfEntity()
     {
-        public List<string> GetJsonPropertiesOfEntity()
+        List<string> jsonProperties = new List<string>();
+
+        Type entityType = typeof(TEntity);
+        PropertyInfo[] properties = entityType.GetProperties();
+
+        foreach (PropertyInfo propertyInfo in properties)
         {
-            List<string> jsonProperties = new List<string>();
-
-            Type entityType = typeof(TEntity);
-            PropertyInfo[] properties = entityType.GetProperties();
-
-            foreach (PropertyInfo propertyInfo in properties)
-            {
-                JsonPropertyAttribute jsonPropertyAttribute = propertyInfo.GetCustomAttribute<JsonPropertyAttribute>();
-                if (jsonPropertyAttribute != null)
-                {
-                    jsonProperties.Add(jsonPropertyAttribute.PropertyName);
-                }
-            }
-
-            return jsonProperties;
+            JsonPropertyAttribute jsonPropertyAttribute = propertyInfo.GetCustomAttribute<JsonPropertyAttribute>();
+            if (jsonPropertyAttribute != null) jsonProperties.Add(jsonPropertyAttribute.PropertyName);
         }
+
+        return jsonProperties;
     }
 }

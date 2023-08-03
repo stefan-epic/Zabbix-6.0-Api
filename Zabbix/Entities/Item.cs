@@ -1,258 +1,183 @@
 ﻿using Newtonsoft.Json;
 
-namespace Zabbix.Entities
+namespace Zabbix.Entities;
+
+public enum ItemProperties
 {
+}
 
-    public enum ItemProperties
-    {
+//TODO
+public class Item : BaseEntitiy
+{
+    #region Properties
 
-    }
+    [JsonProperty("itemid")] public override string EntityId { get; set; }
 
-    //TODO
-    public class Item : BaseEntitiy
-    {
-        #region Properties
-        [JsonProperty("itemid")]
-        public override string EntityId { get; set; }
+    [JsonProperty("type")] public string Type { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+    [JsonProperty("snmp_oid")] public string SnmpOid { get; set; }
 
-        [JsonProperty("snmp_oid")]
-        public string SnmpOid { get; set; }
+    [JsonProperty("hostid")] public string Hostid { get; set; }
 
-        [JsonProperty("hostid")]
-        public string Hostid { get; set; }
+    [JsonProperty("name")] public string Name { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+    [JsonProperty("key_")] public string Key { get; set; }
 
-        [JsonProperty("key_")]
-        public string Key { get; set; }
+    [JsonProperty("delay")] public string Delay { get; set; }
 
-        [JsonProperty("delay")]
-        public string Delay { get; set; }
+    [JsonProperty("history")] public string History { get; set; }
 
-        [JsonProperty("history")]
-        public string History { get; set; }
+    [JsonProperty("trends")] public string Trends { get; set; }
 
-        [JsonProperty("trends")]
-        public string Trends { get; set; }
+    [JsonProperty("status")] public string Status { get; set; }
 
-        [JsonProperty("status")]
-        public string Status { get; set; }
+    [JsonProperty("value_type")] public string ValueType { get; set; }
 
-        [JsonProperty("value_type")]
-        public string ValueType { get; set; }
+    [JsonProperty("trapper_hosts")] public string TrapperHosts { get; set; }
 
-        [JsonProperty("trapper_hosts")]
-        public string TrapperHosts { get; set; }
+    [JsonProperty("units")] public string Units { get; set; }
 
-        [JsonProperty("units")]
-        public string Units { get; set; }
+    [JsonProperty("logtimefmt")] public string Logtimefmt { get; set; }
 
-        [JsonProperty("logtimefmt")]
-        public string Logtimefmt { get; set; }
+    [JsonProperty("templateid")] public string Templateid { get; set; }
 
-        [JsonProperty("templateid")]
-        public string Templateid { get; set; }
+    [JsonProperty("valuemapid")] public string Valuemapid { get; set; }
 
-        [JsonProperty("valuemapid")]
-        public string Valuemapid { get; set; }
+    [JsonProperty("params")] public string Params { get; set; }
 
-        [JsonProperty("params")]
-        public string Params { get; set; }
+    [JsonProperty("ipmi_sensor")] public string IpmiSensor { get; set; }
 
-        [JsonProperty("ipmi_sensor")]
-        public string IpmiSensor { get; set; }
+    [JsonProperty("authtype")] public string Authtype { get; set; }
 
-        [JsonProperty("authtype")]
-        public string Authtype { get; set; }
+    [JsonProperty("username")] public string Username { get; set; }
 
-        [JsonProperty("username")]
-        public string Username { get; set; }
+    [JsonProperty("password")] public string Password { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
+    [JsonProperty("publickey")] public string Publickey { get; set; }
 
-        [JsonProperty("publickey")]
-        public string Publickey { get; set; }
+    [JsonProperty("privatekey")] public string Privatekey { get; set; }
 
-        [JsonProperty("privatekey")]
-        public string Privatekey { get; set; }
+    [JsonProperty("flags")] public string Flags { get; set; }
 
-        [JsonProperty("flags")]
-        public string Flags { get; set; }
+    [JsonProperty("interfaceid")] public string Interfaceid { get; set; }
 
-        [JsonProperty("interfaceid")]
-        public string Interfaceid { get; set; }
+    [JsonProperty("description")] public string Description { get; set; }
 
-        [JsonProperty("description")]
-        public string Description { get; set; }
+    [JsonProperty("inventory_link")] public string InventoryLink { get; set; }
 
-        [JsonProperty("inventory_link")]
-        public string InventoryLink { get; set; }
+    [JsonProperty("evaltype")] public string Evaltype { get; set; }
 
-        [JsonProperty("evaltype")]
-        public string Evaltype { get; set; }
+    [JsonProperty("jmx_endpoint")] public string JmxEndpoint { get; set; }
 
-        [JsonProperty("jmx_endpoint")]
-        public string JmxEndpoint { get; set; }
+    [JsonProperty("master_itemid")] public string MasterItemid { get; set; }
 
-        [JsonProperty("master_itemid")]
-        public string MasterItemid { get; set; }
+    [JsonProperty("timeout")] public string Timeout { get; set; }
 
-        [JsonProperty("timeout")]
-        public string Timeout { get; set; }
+    [JsonProperty("url")] public string Url { get; set; }
 
-        [JsonProperty("url")]
-        public string Url { get; set; }
+    [JsonProperty("query_fields")] public List<object> QueryFields { get; set; }
 
-        [JsonProperty("query_fields")]
-        public List<object> QueryFields { get; set; }
+    [JsonProperty("posts")] public string Posts { get; set; }
 
-        [JsonProperty("posts")]
-        public string Posts { get; set; }
+    [JsonProperty("status_codes")] public string StatusCodes { get; set; }
 
-        [JsonProperty("status_codes")]
-        public string StatusCodes { get; set; }
+    [JsonProperty("follow_redirects")] public string FollowRedirects { get; set; }
 
-        [JsonProperty("follow_redirects")]
-        public string FollowRedirects { get; set; }
+    [JsonProperty("post_type")] public string PostType { get; set; }
 
-        [JsonProperty("post_type")]
-        public string PostType { get; set; }
+    [JsonProperty("http_proxy")] public string HttpProxy { get; set; }
 
-        [JsonProperty("http_proxy")]
-        public string HttpProxy { get; set; }
+    [JsonProperty("headers")] public List<object> Headers { get; set; }
 
-        [JsonProperty("headers")]
-        public List<object> Headers { get; set; }
+    [JsonProperty("retrieve_mode")] public string RetrieveMode { get; set; }
 
-        [JsonProperty("retrieve_mode")]
-        public string RetrieveMode { get; set; }
+    [JsonProperty("request_method")] public string RequestMethod { get; set; }
 
-        [JsonProperty("request_method")]
-        public string RequestMethod { get; set; }
+    [JsonProperty("output_format")] public string OutputFormat { get; set; }
 
-        [JsonProperty("output_format")]
-        public string OutputFormat { get; set; }
+    [JsonProperty("ssl_cert_file")] public string SslCertFile { get; set; }
 
-        [JsonProperty("ssl_cert_file")]
-        public string SslCertFile { get; set; }
+    [JsonProperty("ssl_key_file")] public string SslKeyFile { get; set; }
 
-        [JsonProperty("ssl_key_file")]
-        public string SslKeyFile { get; set; }
+    [JsonProperty("ssl_key_password")] public string SslKeyPassword { get; set; }
 
-        [JsonProperty("ssl_key_password")]
-        public string SslKeyPassword { get; set; }
+    [JsonProperty("verify_peer")] public string VerifyPeer { get; set; }
 
-        [JsonProperty("verify_peer")]
-        public string VerifyPeer { get; set; }
+    [JsonProperty("verify_host")] public string VerifyHost { get; set; }
 
-        [JsonProperty("verify_host")]
-        public string VerifyHost { get; set; }
+    [JsonProperty("allow_traps")] public string AllowTraps { get; set; }
 
-        [JsonProperty("allow_traps")]
-        public string AllowTraps { get; set; }
+    [JsonProperty("uuid")] public string Uuid { get; set; }
 
-        [JsonProperty("uuid")]
-        public string Uuid { get; set; }
+    [JsonProperty("state")] public string State { get; set; }
 
-        [JsonProperty("state")]
-        public string State { get; set; }
+    [JsonProperty("error")] public string Error { get; set; }
 
-        [JsonProperty("error")]
-        public string Error { get; set; }
+    [JsonProperty("parameters")] public List<object> Parameters { get; set; }
 
-        [JsonProperty("parameters")]
-        public List<object> Parameters { get; set; }
+    [JsonProperty("lastclock")] public string Lastclock { get; set; }
 
-        [JsonProperty("lastclock")]
-        public string Lastclock { get; set; }
+    [JsonProperty("lastns")] public string Lastns { get; set; }
 
-        [JsonProperty("lastns")]
-        public string Lastns { get; set; }
+    [JsonProperty("lastvalue")] public string Lastvalue { get; set; }
 
-        [JsonProperty("lastvalue")]
-        public string Lastvalue { get; set; }
+    [JsonProperty("prevvalue")] public string Prevvalue { get; set; }
 
-        [JsonProperty("prevvalue")]
-        public string Prevvalue { get; set; }
-        #endregion
+    #endregion
 
-        #region Components
-        [JsonProperty("hosts")]
-        public IList<Host> Hosts;
+    #region Components
 
-        [JsonProperty("interfaces")]
-        public IList<HostInterface> Interfaces;
+    [JsonProperty("hosts")] public IList<Host> Hosts;
 
-        [JsonProperty("triggers")]
-        public IList<Trigger> Triggers;
+    [JsonProperty("interfaces")] public IList<HostInterface> Interfaces;
 
-        [JsonProperty("graphs")]
-        public IList<Graph> Graphs;
+    [JsonProperty("triggers")] public IList<Trigger> Triggers;
 
-        [JsonProperty("discoveryRule")]
-        public IList<DiscoverRule> DiscoverRules;
+    [JsonProperty("graphs")] public IList<Graph> Graphs;
 
-        [JsonProperty("itemDiscovery")]
-        public IList<ItemDiscovery> ItemDiscoveries;
+    [JsonProperty("discoveryRule")] public IList<DiscoverRule> DiscoverRules;
 
-        [JsonProperty("preprocessing")]
-        public IList<ItemPreprocessing> Preprocessings;
+    [JsonProperty("itemDiscovery")] public IList<ItemDiscovery> ItemDiscoveries;
 
-        [JsonProperty("tags")]
-        public IList<Tag> Tags;
+    [JsonProperty("preprocessing")] public IList<ItemPreprocessing> Preprocessings;
 
-        [JsonProperty("valuemap")]
-        public IList<ValueMap> ValueMaps;
+    [JsonProperty("tags")] public IList<Tag> Tags;
 
-        #endregion
-    }
+    [JsonProperty("valuemap")] public IList<ValueMap> ValueMaps;
 
-    public class ItemPreprocessing
-    {
-        #region Properties
-        [JsonProperty("type")]
-        public string Type { get; set; }
+    #endregion
+}
 
-        [JsonProperty("params")]
-        public string Params { get; set; }
+public class ItemPreprocessing
+{
+    #region Properties
 
-        [JsonProperty("error_handler")]
-        public string ErrorHandler { get; set; }
+    [JsonProperty("type")] public string Type { get; set; }
 
-        [JsonProperty("error_handler_params")]
-        public string ErrorHandlerParams { get; set; }
+    [JsonProperty("params")] public string Params { get; set; }
 
-        #endregion
+    [JsonProperty("error_handler")] public string ErrorHandler { get; set; }
 
-    }
+    [JsonProperty("error_handler_params")] public string ErrorHandlerParams { get; set; }
 
-    public class ItemDiscovery
-    {
-        #region Properties
+    #endregion
+}
 
-        [JsonProperty("itemdiscoveryid")]
-        public string ItemDiscoveryId { get; set; }
+public class ItemDiscovery
+{
+    #region Properties
 
-        [JsonProperty("itemid")]
-        public string ItemId { get; set; }
+    [JsonProperty("itemdiscoveryid")] public string ItemDiscoveryId { get; set; }
 
-        [JsonProperty("parent_itemid")]
-        public string ParentItemId { get; set; }
+    [JsonProperty("itemid")] public string ItemId { get; set; }
 
-        [JsonProperty("key_")]
-        public string Key { get; set; }
+    [JsonProperty("parent_itemid")] public string ParentItemId { get; set; }
 
-        [JsonProperty("lastcheck")]
-        public DateTime LastCheck { get; set; }
+    [JsonProperty("key_")] public string Key { get; set; }
 
-        [JsonProperty("ts_delete")]
-        public DateTime TsDelete { get; set; }
-        #endregion
+    [JsonProperty("lastcheck")] public DateTime LastCheck { get; set; }
 
-    }
+    [JsonProperty("ts_delete")] public DateTime TsDelete { get; set; }
+
+    #endregion
 }

@@ -1,6 +1,5 @@
-﻿namespace Zabbix.Entities
+﻿namespace Zabbix.Entities;
+
+public class Discovery : BaseEntitiy
 {
-    public class Discovery : BaseEntitiy
-    {
-    }
 }

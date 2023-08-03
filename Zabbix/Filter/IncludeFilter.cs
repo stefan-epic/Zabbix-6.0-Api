@@ -1,12 +1,13 @@
-﻿namespace Zabbix.Filter
+﻿namespace Zabbix.Filter;
+
+public class IncludeFilter<TEntityInclude> : BaseFilter<TEntityInclude> where TEntityInclude : Enum
 {
-    public class IncludeFilter<TEntityInclude> : BaseFilter<TEntityInclude> where TEntityInclude : Enum
+    public IncludeFilter()
     {
-        public IncludeFilter() : base() { }
+    }
 
 
-        public IncludeFilter(Dictionary<string, List<object>> filter) : base(filter)
-        {
-        }
+    public IncludeFilter(Dictionary<string, List<object>> filter) : base(filter)
+    {
     }
 }
