@@ -30,6 +30,7 @@ namespace Zabbix.Services
 
         }
 
+        //TODO: make async variants
         public string[] AddDependency(int triggerId, int dependsOnTriggerId)
         {
             Dictionary<string, object> @params = new Dictionary<string, object>

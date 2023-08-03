@@ -14,10 +14,10 @@ namespace Zabbix.Entities
         public string Value { get; set; }
     }
 
-    public class DashboardPage
+    public class DashboardPage : BaseEntitiy
     {
         [JsonProperty("dashboard_pageid")]
-        public string DashboardPageid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -29,10 +29,10 @@ namespace Zabbix.Entities
         public List<DashboardWidget> Widgets { get; set; }
     }
 
-    public class Dashboard
+    public class Dashboard : BaseEntitiy
     {
         [JsonProperty("dashboardid")]
-        public string Dashboardid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -53,10 +53,10 @@ namespace Zabbix.Entities
         public List<DashboardPage> Pages { get; set; }
     }
 
-    public class DashboardWidget
+    public class DashboardWidget : BaseEntitiy
     {
         [JsonProperty("widgetid")]
-        public string Widgetid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

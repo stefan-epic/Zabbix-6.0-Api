@@ -10,7 +10,7 @@ namespace Zabbix.Entities
     public class UserGroup : BaseEntitiy
     {
         [JsonProperty("usrgrpid")]
-        public string Usrgrpid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

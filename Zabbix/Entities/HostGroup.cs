@@ -21,7 +21,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("groupid")] public string Groupid { get; set; }
+        [JsonProperty("groupid")] public override string EntityId { get; set; }
         [JsonProperty("name")] public string Name { get; set; }
 
         [JsonConverter(typeof(IntToBoolConverter))]
@@ -44,7 +44,7 @@ namespace Zabbix.Entities
 
         public override string ToString()
         {
-            return $"Group ID: {Groupid}, Name: {Name}, Internal: {Internal}, Flags: {Flags}";
+            return $"Group ID: {EntityId}, Name: {Name}, Internal: {Internal}, Flags: {Flags}";
         }
     }
 }

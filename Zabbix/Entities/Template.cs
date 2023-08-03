@@ -115,7 +115,7 @@ namespace Zabbix.Entities
 
         [JsonProperty("flags")] public string Flags { get; set; }
 
-        [JsonProperty("templateid")] public string Templateid { get; set; }
+        [JsonProperty("templateid")] public override string EntityId { get; set; }
 
         [JsonProperty("description")] public string Description { get; set; }
 

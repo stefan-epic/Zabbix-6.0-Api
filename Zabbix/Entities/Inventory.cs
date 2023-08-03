@@ -1,7 +1,7 @@
 ﻿namespace Zabbix.Entities
 {
 
-    //TODO dont know if correct
+    //TODO dont know if correct missing properties
     public class Inventory : BaseEntitiy
     {
         #region Properties

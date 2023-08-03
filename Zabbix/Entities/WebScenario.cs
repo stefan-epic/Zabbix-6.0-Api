@@ -29,7 +29,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("httptestid")] public string Httptestid { get; set; }
+        [JsonProperty("httptestid")] public override string EntityId { get; set; }
 
         [JsonProperty("name")] public string Name { get; set; }
 
@@ -93,7 +93,7 @@ namespace Zabbix.Entities
         #endregion
     }
 
-    public class WebScenarioStep
+    public class WebScenarioStep : BaseEntitiy
     {
         #region Properties
 

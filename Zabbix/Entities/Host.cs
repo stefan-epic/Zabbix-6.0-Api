@@ -37,7 +37,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("hostid")] public string Hostid { get; set; }
+        [JsonProperty("hostid")] public override string EntityId { get; set; }
 
         [JsonProperty("proxy_hostid")] public string ProxyHostid { get; set; }
 

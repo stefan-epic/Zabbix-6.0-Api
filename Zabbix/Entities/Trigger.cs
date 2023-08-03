@@ -47,7 +47,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("triggerid")] public string Triggerid { get; set; }
+        [JsonProperty("triggerid")] public override string EntityId { get; set; }
 
         [JsonProperty("expression")] public string Expression { get; set; }
 

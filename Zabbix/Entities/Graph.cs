@@ -7,7 +7,7 @@ namespace Zabbix.Entities
     {
         #region Properties
         [JsonProperty("graphid")]
-        public string Graphid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

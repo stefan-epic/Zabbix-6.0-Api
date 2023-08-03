@@ -7,7 +7,7 @@ namespace Zabbix.Entities
     public class UserMacro : BaseEntitiy
     {
         [JsonProperty("hostmacroid")]
-        public string Hostmacroid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("hostid")]
         public string Hostid { get; set; }

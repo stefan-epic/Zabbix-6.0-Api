@@ -32,7 +32,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("reportid")] public string Reportid { get; set; }
+        [JsonProperty("reportid")] public override string EntityId { get; set; }
 
         [JsonProperty("userid")] public string Userid { get; set; }
 

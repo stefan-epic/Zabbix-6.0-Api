@@ -27,12 +27,21 @@ namespace ZabbixApiDebug
             string password = "zabbix";
 
             ZabbixCore core = new ZabbixCore(url, username, password);
+
+
+            List<Host> hosts = core.Hosts.Get().ToList();
+
+            Host toUpate = hosts[2];
+            //toUpate.HostName = "Harambus";
+            core.Hosts.Delete(toUpate);
+            //core.Hosts.Update(toUpate);
+            /*
+
             List<Host> hosts =  core.Hosts.Get().ToList();
 
             RequestFilter<HostProperties, HostInclude> filter = new();
             filter.OutputFilter.AddFilter(HostProperties.hostid);
             filter.IncludeFilter.Set(HostInclude.selectGroups, "extend");
-            /*
 
 
             ReflectionHelper<Host> r = new();
@@ -42,7 +51,6 @@ namespace ZabbixApiDebug
             {
                 Console.WriteLine(s+",");
             }
-            */
 
 
             RequestFilter<HostProperties, HostInclude> rqFilter = new();
@@ -55,6 +63,8 @@ namespace ZabbixApiDebug
             rqFilter.IncludeFilter.Set(HostInclude.selectGroups, "name");
 
             core.Hosts.Get(rqFilter);
+            */
+
             /*
 
             Dictionary<HostInclude, object> kvp = new Dictionary<HostInclude, object>

@@ -1,1 +1,0 @@
-﻿namespace Zabbix.Entities;

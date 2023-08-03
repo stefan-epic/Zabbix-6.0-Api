@@ -30,8 +30,7 @@ namespace Zabbix.Entities
     public class Alert : BaseEntitiy
     {
         #region Properties
-
-        [JsonProperty("alertid")] public string Alertid { get; set; }
+        [JsonProperty("alertid")] public override string EntityId { get; set; }
 
         [JsonProperty("actionid")] public string Actionid { get; set; }
 

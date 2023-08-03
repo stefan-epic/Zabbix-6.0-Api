@@ -29,7 +29,7 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-        [JsonProperty("eventid")] public string Eventid { get; set; }
+        [JsonProperty("eventid")] public override string EntityId { get; set; }
 
         [JsonProperty("source")] public string Source { get; set; }
 

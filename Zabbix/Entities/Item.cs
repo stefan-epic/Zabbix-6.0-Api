@@ -8,7 +8,7 @@ namespace Zabbix.Entities
     {
         #region Properties
         [JsonProperty("itemid")]
-        public string Itemid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

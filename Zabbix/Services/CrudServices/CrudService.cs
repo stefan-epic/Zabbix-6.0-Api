@@ -24,8 +24,6 @@ namespace Zabbix.Services.CrudServices
         public CrudService(ICore core, string className) : base(core, className) { }
 
 
-
-
         #region Get
 
         public virtual IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter, Dictionary<string, object> @params = null)
@@ -56,79 +54,70 @@ namespace Zabbix.Services.CrudServices
 
         }
 
-        public virtual Task<IReadOnlyList<string>> CreateAsync(IEnumerable<TEntity> entity)
+        public virtual async Task<IReadOnlyList<string>> CreateAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            Check.EnumerableNotNullOrEmpty(entities);
+
+            return (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".create")).Ids;
         }
-        public virtual Task<string> CreateAsync(TEntity entity)
+        public virtual async Task<string> CreateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            Check.NotNull(entity, "entity");
+
+            return (await CreateAsync(new List<TEntity>() { entity })).FirstOrDefault();
         }
 
         #endregion
 
         #region Update
 
-        public virtual IEnumerable<string> Update(IEnumerable<TEntity> entity)
+        public virtual IEnumerable<string> Update(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            Check.EnumerableNotNullOrEmpty(entities, "entities");
+
+            return Core.SendRequest<TEntityResult>(entities, ClassName + ".update").Ids;
         }
 
         public virtual string Update(TEntity entity)
         {
-            throw new NotImplementedException();
+
+            return Update(new List<TEntity>() { entity }).FirstOrDefault();
         }
-        public virtual Task<IReadOnlyList<string>> UpdateAsync(IEnumerable<TEntity> entity)
+        public virtual async Task<IReadOnlyList<string>> UpdateAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            Check.EnumerableNotNullOrEmpty(entities, "entities");
+
+            return (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".update")).Ids;
         }
-        public virtual Task<string> UpdateAsync(TEntity entity)
+        public virtual async Task<string> UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            return (await UpdateAsync(new List<TEntity>() { entity })).FirstOrDefault();
         }
         #endregion
 
         #region Delete
 
-        public virtual IEnumerable<string> Delete(IEnumerable<string> ids)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string Delete(string id)
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual IEnumerable<string> Delete(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            return Core.SendRequest<TEntityResult>(entities, ClassName + ".delete").Ids;
         }
 
         public virtual string Delete(TEntity entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public virtual Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<string> ids)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> DeleteAsync(string id)
-        {
-            throw new NotImplementedException();
+            var id = entity.id;
+            return Delete(new List<TEntity>(){entity.id}).FirstOrDefault();
         }
 
 
-        public virtual Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<TEntity> entities)
+
+        public virtual async Task<IReadOnlyList<string>> DeleteAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            return (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".delete")).Ids;
         }
 
-        public virtual Task<string> DeleteAsync(TEntity entity)
+        public virtual async Task<string> DeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            return (await DeleteAsync(new List<TEntity>() { entity })).FirstOrDefault();
         }
 
         #endregion

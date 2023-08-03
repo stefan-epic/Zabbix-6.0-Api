@@ -5,8 +5,10 @@ namespace Zabbix.Entities
     public class Acknowledge : BaseEntitiy
     {
         #region Properties
+
+
         [JsonProperty("acknowledgeid")]
-        public string Acknowledgeid { get; set; }
+        public override string EntityId { get; set; }
 
         [JsonProperty("userid")]
         public string Userid { get; set; }
