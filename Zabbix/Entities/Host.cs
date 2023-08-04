@@ -30,27 +30,21 @@ public enum HostProperties
 
 public class Host : BaseEntitiy
 {
-    public override string ToString()
-    {
-        return
-            $"{nameof(EntityId)}: {EntityId}, {nameof(ProxyHostid)}: {ProxyHostid}, {nameof(HostName)}: {HostName}, {nameof(Status)}: {Status}, {nameof(Lastaccess)}: {Lastaccess}, {nameof(IpmiAuthtype)}: {IpmiAuthtype}, {nameof(IpmiPrivilege)}: {IpmiPrivilege}, {nameof(IpmiUsername)}: {IpmiUsername}, {nameof(IpmiPassword)}: {IpmiPassword}, {nameof(Maintenanceid)}: {Maintenanceid}, {nameof(MaintenanceStatus)}: {MaintenanceStatus}, {nameof(MaintenanceType)}: {MaintenanceType}, {nameof(MaintenanceFrom)}: {MaintenanceFrom}, {nameof(Name)}: {Name}, {nameof(Flags)}: {Flags}, {nameof(Description)}: {Description}, {nameof(TlsConnect)}: {TlsConnect}, {nameof(TlsAccept)}: {TlsAccept}, {nameof(TlsIssuer)}: {TlsIssuer}, {nameof(TlsSubject)}: {TlsSubject}, {nameof(InventoryMode)}: {InventoryMode}, {nameof(Groups)}: {Groups}, {nameof(Templates)}: {Templates}, {nameof(Tags)}: {Tags}, {nameof(Triggers)}: {Triggers}, {nameof(Items)}: {Items}, {nameof(Graphs)}: {Graphs}, {nameof(WebScenarios)}: {WebScenarios}, {nameof(Interfaces)}: {Interfaces}, {nameof(Inventory)}: {Inventory}, {nameof(Macros)}: {Macros}, {nameof(Dashboards)}: {Dashboards}, {nameof(InheritedTags)}: {InheritedTags}, {nameof(ValueMaps)}: {ValueMaps}";
-    }
-
     #region Properties
 
     [JsonProperty("hostid")] public override string EntityId { get; set; }
 
     [JsonProperty("proxy_hostid")] public string ProxyHostid { get; set; }
 
-    [JsonProperty("host")] public string HostName { get; set; }
+    [JsonProperty("host")] public string host { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     [JsonProperty("lastaccess")] public string Lastaccess { get; set; }
 
-    [JsonProperty("ipmi_authtype")] public string IpmiAuthtype { get; set; }
+    [JsonProperty("ipmi_authtype")] public int IpmiAuthtype { get; set; }
 
-    [JsonProperty("ipmi_privilege")] public string IpmiPrivilege { get; set; }
+    [JsonProperty("ipmi_privilege")] public int IpmiPrivilege { get; set; }
 
     [JsonProperty("ipmi_username")] public string IpmiUsername { get; set; }
 
@@ -60,7 +54,7 @@ public class Host : BaseEntitiy
 
     [JsonProperty("maintenance_status")] public int MaintenanceStatus { get; set; }
 
-    [JsonProperty("maintenance_type")] public string MaintenanceType { get; set; }
+    [JsonProperty("maintenance_type")] public int MaintenanceType { get; set; }
 
     [JsonProperty("maintenance_from")]
     [JsonConverter(typeof(TimestampToDateTimeConverter))]
@@ -68,19 +62,19 @@ public class Host : BaseEntitiy
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("flags")] public string Flags { get; set; }
+    [JsonProperty("flags")] public int Flags { get; set; }
 
     [JsonProperty("description")] public string Description { get; set; }
 
-    [JsonProperty("tls_connect")] public string TlsConnect { get; set; }
+    [JsonProperty("tls_connect")] public int TlsConnect { get; set; }
 
-    [JsonProperty("tls_accept")] public string TlsAccept { get; set; }
+    [JsonProperty("tls_accept")] public int TlsAccept { get; set; }
 
     [JsonProperty("tls_issuer")] public string TlsIssuer { get; set; }
 
     [JsonProperty("tls_subject")] public string TlsSubject { get; set; }
 
-    [JsonProperty("inventory_mode")] public string InventoryMode { get; set; }
+    [JsonProperty("inventory_mode")] public int InventoryMode { get; set; }
 
     #endregion
 
@@ -127,7 +121,7 @@ public class Host : BaseEntitiy
 
     public Host(string hostName, IList<HostGroup> groups)
     {
-        HostName = hostName;
+        host = hostName;
         Groups = groups;
     }
 

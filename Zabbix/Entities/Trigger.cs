@@ -63,9 +63,9 @@ public class Trigger : BaseEntitiy
 
     [JsonProperty("status")] public string Status { get; set; }
 
-    [JsonProperty("value")] public string Value { get; set; }
+    [JsonProperty("value")] public int Value { get; set; }
 
-    [JsonProperty("priority")] public string Priority { get; set; }
+    [JsonProperty("priority")] public int Priority { get; set; }
 
     [JsonProperty("lastchange")] public string Lastchange { get; set; }
 
@@ -75,21 +75,21 @@ public class Trigger : BaseEntitiy
 
     [JsonProperty("templateid")] public string Templateid { get; set; }
 
-    [JsonProperty("type")] public string Type { get; set; }
+    [JsonProperty("type")] public int Type { get; set; }
 
-    [JsonProperty("state")] public string State { get; set; }
+    [JsonProperty("state")] public int State { get; set; }
 
-    [JsonProperty("flags")] public string Flags { get; set; }
+    [JsonProperty("flags")] public int Flags { get; set; }
 
-    [JsonProperty("recovery_mode")] public string RecoveryMode { get; set; }
+    [JsonProperty("recovery_mode")] public int RecoveryMode { get; set; }
 
     [JsonProperty("recovery_expression")] public string RecoveryExpression { get; set; }
 
-    [JsonProperty("correlation_mode")] public string CorrelationMode { get; set; }
+    [JsonProperty("correlation_mode")] public int CorrelationMode { get; set; }
 
     [JsonProperty("correlation_tag")] public string CorrelationTag { get; set; }
 
-    [JsonProperty("manual_close")] public string ManualClose { get; set; }
+    [JsonProperty("manual_close")] public int ManualClose { get; set; }
 
     [JsonProperty("opdata")] public string Opdata { get; set; }
 

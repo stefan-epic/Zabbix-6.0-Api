@@ -3,7 +3,7 @@ using Zabbix.Entities;
 using Zabbix.Filter;
 using ZabbixApi.Helper;
 
-namespace Zabbix.Services;
+namespace Zabbix.Services.CrudServices;
 
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference_commentary#common-get-method-parameters
 public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
@@ -23,16 +23,7 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
     protected abstract Dictionary<string, object> BuildParams(
         RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null);
 
-    public IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter = null,
-        Dictionary<string, object> @params = null)
-    {
-        return BaseGet(BuildParams(filter, @params));
-    }
 
-    protected IEnumerable<TEntity> BaseGet(object @params)
-    {
-        return Core.SendRequest<TEntity[]>(@params, ClassName + ".get");
-    }
 
     protected Dictionary<string, object> MapIncludesToParams(IncludeFilter<TEntityInclude> include,
         Dictionary<string, object> @params)
@@ -64,19 +55,4 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
 
         return @params;
     }
-
-    #region Async Variants
-
-    public Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null,
-        Dictionary<string, object> @params = null)
-    {
-        return BaseGetAsync(BuildParams(filter, @params));
-    }
-
-    protected async Task<IEnumerable<TEntity>> BaseGetAsync(object @params)
-    {
-        return await Core.SendRequestAsync<TEntity[]>(@params, ClassName + ".get");
-    }
-
-    #endregion
 }

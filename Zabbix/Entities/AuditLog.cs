@@ -20,9 +20,9 @@ public class AuditLog : BaseEntitiy
 
     [JsonProperty("ip")] public string Ip { get; set; }
 
-    [JsonProperty("action")] public string Action { get; set; }
+    [JsonProperty("action")] public int Action { get; set; }
 
-    [JsonProperty("resourcetype")] public string Resourcetype { get; set; }
+    [JsonProperty("resourcetype")] public int Resourcetype { get; set; }
 
     [JsonProperty("resourceid")] public string Resourceid { get; set; }
 

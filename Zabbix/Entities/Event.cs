@@ -27,23 +27,23 @@ public class Event : BaseEntitiy
 
     [JsonProperty("eventid")] public override string EntityId { get; set; }
 
-    [JsonProperty("source")] public string Source { get; set; }
+    [JsonProperty("source")] public int Source { get; set; }
 
-    [JsonProperty("object")] public string EventObject { get; set; }
+    [JsonProperty("object")] public int EventObject { get; set; }
 
     [JsonProperty("objectid")] public string ObjectId { get; set; }
 
-    [JsonProperty("acknowledged")] public string Acknowledged { get; set; }
+    [JsonProperty("acknowledged")] public int Acknowledged { get; set; }
 
     [JsonProperty("clock")] public string Clock { get; set; }
 
-    [JsonProperty("ns")] public string Ns { get; set; }
+    [JsonProperty("ns")] public int Ns { get; set; }
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("value")] public string Value { get; set; }
+    [JsonProperty("value")] public int Value { get; set; }
 
-    [JsonProperty("severity")] public string Severity { get; set; }
+    [JsonProperty("severity")] public int Severity { get; set; }
 
     [JsonProperty("r_eventid")] public string REventId { get; set; }
 
@@ -53,7 +53,7 @@ public class Event : BaseEntitiy
 
     [JsonProperty("userid")] public string UserId { get; set; }
 
-    [JsonProperty("supressed")] public string Supressed { get; set; }
+    [JsonProperty("supressed")] public int Supressed { get; set; }
 
     [JsonProperty("opdata")] public string OpData { get; set; }
 

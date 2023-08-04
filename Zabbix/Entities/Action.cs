@@ -10,15 +10,15 @@ public class Action : BaseEntitiy
 
     [JsonProperty("esc_period")] public string EscPeriod { get; set; }
 
-    [JsonProperty("eventsource")] public string EventSource { get; set; }
+    [JsonProperty("eventsource")] public int EventSource { get; set; }
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
-    [JsonProperty("pause_suppressed")] public string PauseSuppressed { get; set; }
+    [JsonProperty("pause_suppressed")] public int PauseSuppressed { get; set; }
 
-    [JsonProperty("notify_if_canceled")] public string NotifyIfCanceled { get; set; }
+    [JsonProperty("notify_if_canceled")] public int NotifyIfCanceled { get; set; }
 
     #endregion
 
@@ -41,15 +41,15 @@ public class ActionOperation
 
     [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    [JsonProperty("operationtype")] public string OperationType { get; set; }
+    [JsonProperty("operationtype")] public int OperationType { get; set; }
 
     [JsonProperty("actionid")] public string ActionId { get; set; }
 
-    [JsonProperty("esc_period")] public string EscPeriod { get; set; }
+    [JsonProperty("esc_period")] public int EscPeriod { get; set; }
 
-    [JsonProperty("esc_step_from")] public string EscStepFrom { get; set; }
+    [JsonProperty("esc_step_from")] public int EscStepFrom { get; set; }
 
-    [JsonProperty("esc_step_to")] public string EscStepTo { get; set; }
+    [JsonProperty("esc_step_to")] public int EscStepTo { get; set; }
 
     [JsonProperty("evaltype")] public string EvalType { get; set; }
 
@@ -80,11 +80,21 @@ public class ActionOperation
 
 public class ActionFilter
 {
+    [JsonProperty("conditions")] public IList<ActionFilterConditon> Conditons { get; set; }
+    [JsonProperty("evaltype")] public int Evaltype { get; set; }
+    [JsonProperty("eval_formula")] public string EvalFormula { get; set; }
+    [JsonProperty("formula")] public string Formula { get; set; }
+
+
+}
+
+public class ActionFilterConditon
+{
     #region Properties
 
     [JsonProperty("conditionid")] public string ConditionId { get; set; }
 
-    [JsonProperty("conditiontype")] public string ConditionType { get; set; }
+    [JsonProperty("conditiontype")] public int ConditionType { get; set; }
 
     [JsonProperty("value")] public string Value { get; set; }
 
@@ -94,7 +104,7 @@ public class ActionFilter
 
     [JsonProperty("fomulaid")] public string FormulaId { get; set; }
 
-    [JsonProperty("operator")] public string Operator { get; set; }
+    [JsonProperty("operator")] public int Operator { get; set; }
 
     #endregion
 }
@@ -105,7 +115,7 @@ public class ActionRecoveryOperation
 
     [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    [JsonProperty("operationtype")] public string OperationType { get; set; }
+    [JsonProperty("operationtype")] public int OperationType { get; set; }
 
     #endregion
 
@@ -132,7 +142,7 @@ public class ActionUpdateOperation
 
     [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    [JsonProperty("operationtype")] public string OperationType { get; set; }
+    [JsonProperty("operationtype")] public int OperationType { get; set; }
 
     #endregion
 
@@ -205,13 +215,13 @@ public class OperationCondition
 
     [JsonProperty("opconditionid")] public string OpConditionId { get; set; }
 
-    [JsonProperty("conditiontype")] public string ConditionType { get; set; }
+    [JsonProperty("conditiontype")] public int ConditionType { get; set; }
 
     [JsonProperty("value")] public string Value { get; set; }
 
     [JsonProperty("operationid")] public string OperationId { get; set; }
 
-    [JsonProperty("operator")] public string Operator { get; set; }
+    [JsonProperty("operator")] public int Operator { get; set; }
 
     #endregion
 }
@@ -220,7 +230,7 @@ public class ActionOperationMessage
 {
     #region Properties
 
-    [JsonProperty("default_msg")] public string DefaultMessage { get; set; }
+    [JsonProperty("default_msg")] public int DefaultMessage { get; set; }
 
     [JsonProperty("mediatypeid")] public string MediaTypeId { get; set; }
 

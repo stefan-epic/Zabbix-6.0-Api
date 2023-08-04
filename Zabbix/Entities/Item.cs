@@ -13,7 +13,7 @@ public class Item : BaseEntitiy
 
     [JsonProperty("itemid")] public override string EntityId { get; set; }
 
-    [JsonProperty("type")] public string Type { get; set; }
+    [JsonProperty("type")] public int Type { get; set; }
 
     [JsonProperty("snmp_oid")] public string SnmpOid { get; set; }
 
@@ -29,9 +29,9 @@ public class Item : BaseEntitiy
 
     [JsonProperty("trends")] public string Trends { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
-    [JsonProperty("value_type")] public string ValueType { get; set; }
+    [JsonProperty("value_type")] public int ValueType { get; set; }
 
     [JsonProperty("trapper_hosts")] public string TrapperHosts { get; set; }
 
@@ -63,13 +63,13 @@ public class Item : BaseEntitiy
 
     [JsonProperty("description")] public string Description { get; set; }
 
-    [JsonProperty("inventory_link")] public string InventoryLink { get; set; }
+    [JsonProperty("inventory_link")] public int InventoryLink { get; set; }
 
     [JsonProperty("evaltype")] public string Evaltype { get; set; }
 
     [JsonProperty("jmx_endpoint")] public string JmxEndpoint { get; set; }
 
-    [JsonProperty("master_itemid")] public string MasterItemid { get; set; }
+    [JsonProperty("master_itemid")] public int MasterItemid { get; set; }
 
     [JsonProperty("timeout")] public string Timeout { get; set; }
 
@@ -81,19 +81,19 @@ public class Item : BaseEntitiy
 
     [JsonProperty("status_codes")] public string StatusCodes { get; set; }
 
-    [JsonProperty("follow_redirects")] public string FollowRedirects { get; set; }
+    [JsonProperty("follow_redirects")] public int FollowRedirects { get; set; }
 
-    [JsonProperty("post_type")] public string PostType { get; set; }
+    [JsonProperty("post_type")] public int PostType { get; set; }
 
     [JsonProperty("http_proxy")] public string HttpProxy { get; set; }
 
-    [JsonProperty("headers")] public List<object> Headers { get; set; }
+    [JsonProperty("headers")] public IList<object> Headers { get; set; }
 
-    [JsonProperty("retrieve_mode")] public string RetrieveMode { get; set; }
+    [JsonProperty("retrieve_mode")] public int RetrieveMode { get; set; }
 
-    [JsonProperty("request_method")] public string RequestMethod { get; set; }
+    [JsonProperty("request_method")] public int RequestMethod { get; set; }
 
-    [JsonProperty("output_format")] public string OutputFormat { get; set; }
+    [JsonProperty("output_format")] public int OutputFormat { get; set; }
 
     [JsonProperty("ssl_cert_file")] public string SslCertFile { get; set; }
 
@@ -101,15 +101,15 @@ public class Item : BaseEntitiy
 
     [JsonProperty("ssl_key_password")] public string SslKeyPassword { get; set; }
 
-    [JsonProperty("verify_peer")] public string VerifyPeer { get; set; }
+    [JsonProperty("verify_peer")] public int VerifyPeer { get; set; }
 
-    [JsonProperty("verify_host")] public string VerifyHost { get; set; }
+    [JsonProperty("verify_host")] public int VerifyHost { get; set; }
 
-    [JsonProperty("allow_traps")] public string AllowTraps { get; set; }
+    [JsonProperty("allow_traps")] public int AllowTraps { get; set; }
 
     [JsonProperty("uuid")] public string Uuid { get; set; }
 
-    [JsonProperty("state")] public string State { get; set; }
+    [JsonProperty("state")] public int State { get; set; }
 
     [JsonProperty("error")] public string Error { get; set; }
 
@@ -117,7 +117,7 @@ public class Item : BaseEntitiy
 
     [JsonProperty("lastclock")] public string Lastclock { get; set; }
 
-    [JsonProperty("lastns")] public string Lastns { get; set; }
+    [JsonProperty("lastns")] public int Lastns { get; set; }
 
     [JsonProperty("lastvalue")] public string Lastvalue { get; set; }
 
@@ -135,7 +135,7 @@ public class Item : BaseEntitiy
 
     [JsonProperty("graphs")] public IList<Graph> Graphs;
 
-    [JsonProperty("discoveryRule")] public IList<DiscoverRule> DiscoverRules;
+    [JsonProperty("discoveryRule")] public IList<DiscoveryRule> DiscoverRules;
 
     [JsonProperty("itemDiscovery")] public IList<ItemDiscovery> ItemDiscoveries;
 
@@ -152,11 +152,11 @@ public class ItemPreprocessing
 {
     #region Properties
 
-    [JsonProperty("type")] public string Type { get; set; }
+    [JsonProperty("type")] public int Type { get; set; }
 
     [JsonProperty("params")] public string Params { get; set; }
 
-    [JsonProperty("error_handler")] public string ErrorHandler { get; set; }
+    [JsonProperty("error_handler")] public int ErrorHandler { get; set; }
 
     [JsonProperty("error_handler_params")] public string ErrorHandlerParams { get; set; }
 

@@ -12,7 +12,9 @@ public interface ICrudService<TEntity, TEntityInclude, TEntityProperty> : ICreat
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
 {
+
 }
+
 
 public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEntityResult> :
     ServiceBase<TEntity, TEntityInclude, TEntityProperty>, ICrudService<TEntity, TEntityInclude, TEntityProperty>
@@ -28,16 +30,16 @@ public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEnt
 
     #region Get
 
-    public virtual IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter,
-        Dictionary<string, object> @params = null)
+    public virtual IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
     {
-        return base.Get(filter, @params);
+
+        return Core.SendRequest<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
     }
 
     public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null,
         Dictionary<string, object> @params = null)
     {
-        return await base.GetAsync(filter, @params);
+        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
     }
 
     #endregion

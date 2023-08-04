@@ -17,12 +17,12 @@ public abstract class GetService<TEntity, TEntityInclude, TEntityProperty> :
     public IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter = null,
         Dictionary<string, object> @params = null)
     {
-        return base.Get(filter, @params);
+        return Core.SendRequest<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
     }
 
-    public Task<IEnumerable<TEntity>> GetAsync(Dictionary<string, object> @params = null,
-        RequestFilter<TEntityProperty, TEntityInclude> filter = null)
+    public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
     {
-        throw new NotImplementedException();
+        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
+
     }
 }

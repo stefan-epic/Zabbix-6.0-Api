@@ -43,13 +43,13 @@ public class WebScenario : BaseEntitiy
 
     [JsonProperty("delay")] public string Delay { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     [JsonProperty("variables")] public List<object> Variables { get; set; }
 
     [JsonProperty("agent")] public string Agent { get; set; }
 
-    [JsonProperty("authentication")] public string Authentication { get; set; }
+    [JsonProperty("authentication")] public int Authentication { get; set; }
 
     [JsonProperty("http_user")] public string HttpUser { get; set; }
 
@@ -61,7 +61,7 @@ public class WebScenario : BaseEntitiy
 
     [JsonProperty("http_proxy")] public string HttpProxy { get; set; }
 
-    [JsonProperty("retries")] public string Retries { get; set; }
+    [JsonProperty("retries")] public int Retries { get; set; }
 
     [JsonProperty("ssl_cert_file")] public string SslCertFile { get; set; }
 
@@ -69,9 +69,9 @@ public class WebScenario : BaseEntitiy
 
     [JsonProperty("ssl_key_password")] public string SslKeyPassword { get; set; }
 
-    [JsonProperty("verify_peer")] public string VerifyPeer { get; set; }
+    [JsonProperty("verify_peer")] public int VerifyPeer { get; set; }
 
-    [JsonProperty("verify_host")] public string VerifyHost { get; set; }
+    [JsonProperty("verify_host")] public int VerifyHost { get; set; }
 
     [JsonProperty("headers")] public List<object> Headers { get; set; }
 
@@ -107,7 +107,7 @@ public class WebScenarioStep : BaseEntitiy
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("no")] public string No { get; set; }
+    [JsonProperty("no")] public int No { get; set; }
 
     [JsonProperty("url")] public string Url { get; set; }
 
@@ -119,9 +119,9 @@ public class WebScenarioStep : BaseEntitiy
 
     [JsonProperty("status_codes")] public string StatusCodes { get; set; }
 
-    [JsonProperty("follow_redirects")] public string FollowRedirects { get; set; }
+    [JsonProperty("follow_redirects")] public int FollowRedirects { get; set; }
 
-    [JsonProperty("retrieve_mode")] public string RetrieveMode { get; set; }
+    [JsonProperty("retrieve_mode")] public int RetrieveMode { get; set; }
 
     [JsonProperty("headers")] public List<object> Headers { get; set; }
 
@@ -131,7 +131,7 @@ public class WebScenarioStep : BaseEntitiy
 
     #region Constructors
 
-    public WebScenarioStep(string name, string no, string url)
+    public WebScenarioStep(string name, int no, string url)
     {
         Name = name;
         No = no;

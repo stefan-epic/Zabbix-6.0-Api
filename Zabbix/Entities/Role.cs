@@ -20,9 +20,9 @@ public class Role : BaseEntitiy
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("type")] public string type { get; set; }
+    [JsonProperty("type")] public int type { get; set; }
 
-    [JsonProperty("readonly")] public string ReadOnly { get; set; }
+    [JsonProperty("readonly")] public int ReadOnly { get; set; }
 
     #endregion
 }
@@ -31,25 +31,25 @@ public class RoleRule
 {
     #region Properties
 
-    [JsonProperty("ui.default_access")] public string UiDefaultAccess { get; set; }
+    [JsonProperty("ui.default_access")] public int UiDefaultAccess { get; set; }
 
-    [JsonProperty("services.read.mode")] public string ServicesReadMode { get; set; }
+    [JsonProperty("services.read.mode")] public int ServicesReadMode { get; set; }
 
     [JsonProperty("services.read.tag")] public IList<Tag> ServicesReadTag { get; set; }
 
-    [JsonProperty("services.write.mode")] public string ServicesWriteMode { get; set; }
+    [JsonProperty("services.write.mode")] public int ServicesWriteMode { get; set; }
 
     [JsonProperty("modules.default_access")]
-    public string ModulesDefaultAccess { get; set; }
+    public int ModulesDefaultAccess { get; set; }
 
-    [JsonProperty("api.access")] public string ApiAccess { get; set; }
+    [JsonProperty("api.access")] public int ApiAccess { get; set; }
 
-    [JsonProperty("api.mode")] public string ApiMode { get; set; }
+    [JsonProperty("api.mode")] public int ApiMode { get; set; }
 
     [JsonProperty("api")] public IList<string> Api { get; set; }
 
     [JsonProperty("actions.default_access")]
-    public string ActionsDefaultAccess { get; set; }
+    public int ActionsDefaultAccess { get; set; }
 
     #endregion
 
@@ -85,7 +85,7 @@ public class Module
 
     [JsonProperty("moduleid")] public string ModuleId { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     #endregion
 }
@@ -96,7 +96,7 @@ public class UiElement
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     #endregion
 }
@@ -107,7 +107,7 @@ public class RoleAction
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     #endregion
 }

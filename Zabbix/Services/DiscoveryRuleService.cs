@@ -6,7 +6,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class DiscoveryRuleService : CrudService<DiscoverRule, DiscoverRuleInclude, DiscoverRuleProperties,
+public class DiscoveryRuleService : CrudService<DiscoveryRule, DiscoverRuleInclude, DiscoverRuleProperties,
     DiscoveryRuleService.DiscoveryRuleResult>
 {
     public DiscoveryRuleService(ICore core) : base(core, "drule")

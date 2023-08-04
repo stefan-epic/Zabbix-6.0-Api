@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities;
 
-//TODO
+//TODO maybe also make Host and GlobalMacro diffrent classes
 public enum UserMacroProperties
 {
 }
@@ -21,7 +21,7 @@ public class UserMacro : BaseEntitiy
 
     [JsonProperty("description")] public string Description { get; set; }
 
-    [JsonProperty("type")] public string Type { get; set; }
+    [JsonProperty("type")] public int Type { get; set; }
 
     #endregion
 

@@ -7,7 +7,7 @@ public enum DiscoverRuleProperties
 {
 }
 
-public class DiscoverRule : BaseEntitiy
+public class DiscoveryRule : BaseEntitiy
 {
     #region Properties
 
@@ -23,7 +23,7 @@ public class DiscoverRule : BaseEntitiy
 
     [JsonProperty("proxy_hostid")] public string ProxyHostId { get; set; }
 
-    [JsonProperty("status")] public string Status { get; set; }
+    [JsonProperty("status")] public int Status { get; set; }
 
     #endregion
 

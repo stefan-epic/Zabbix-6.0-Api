@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using Zabbix.Entities;
 using Zabbix.Services;
 using ZabbixApi.Helper;
@@ -52,9 +53,10 @@ public class ZabbixCore : ICore
         }
     }
 
-    public Task<T> SendRequestAsync<T>(object @params, string method)
+    public async Task<T> SendRequestAsync<T>(object @params, string method)
     {
-        throw new NotImplementedException();
+        var token = CheckAndGetToken();
+        return await SendRequestAsync<T>(@params, method, token);
     }
 
     public async Task<T> SendRequestAsync<T>(object @params, string method, string token)
@@ -106,6 +108,7 @@ public class ZabbixCore : ICore
         Roles = new RoleService(this);
         Items = new ItemService(this);
         AuditLogs = new AuditLogService(this);
+        Proxys = new ProxyService(this);
     }
 
     private void Authenticate(string user, string password)
@@ -114,7 +117,7 @@ public class ZabbixCore : ICore
         _authenticationToken = _loggedInUser.SessionId;
     }
 
-    private Task AuthenticateAsync(string user, string password)
+    private void AuthenticateAsync(string user, string password)
     {
         throw new NotImplementedException();
     }
@@ -172,6 +175,7 @@ public class ZabbixCore : ICore
     public RoleService Roles;
     public ItemService Items;
     public AuditLogService AuditLogs;
+    public ProxyService Proxys;
 
     #endregion
 }

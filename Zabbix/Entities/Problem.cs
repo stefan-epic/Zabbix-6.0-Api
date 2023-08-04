@@ -26,15 +26,15 @@ public class Problem : BaseEntitiy
 
     [JsonProperty("eventid")] public override string EntityId { get; set; }
 
-    [JsonProperty("source")] public string Source { get; set; }
+    [JsonProperty("source")] public int Source { get; set; }
 
-    [JsonProperty("object")] public string Object { get; set; }
+    [JsonProperty("object")] public int Object { get; set; }
 
     [JsonProperty("objectid")] public string Objectid { get; set; }
 
     [JsonProperty("clock")] public string Clock { get; set; }
 
-    [JsonProperty("ns")] public string Ns { get; set; }
+    [JsonProperty("ns")] public int Ns { get; set; }
 
     [JsonProperty("r_eventid")] public string REventid { get; set; }
 
@@ -48,13 +48,13 @@ public class Problem : BaseEntitiy
 
     [JsonProperty("name")] public string Name { get; set; }
 
-    [JsonProperty("acknowledged")] public string Acknowledged { get; set; }
+    [JsonProperty("acknowledged")] public int Acknowledged { get; set; }
 
-    [JsonProperty("severity")] public string Severity { get; set; }
+    [JsonProperty("severity")] public int Severity { get; set; }
 
     [JsonProperty("opdata")] public string Opdata { get; set; }
 
-    [JsonProperty("suppressed")] public string Suppressed { get; set; }
+    [JsonProperty("suppressed")] public int Suppressed { get; set; }
 
     #endregion
 
