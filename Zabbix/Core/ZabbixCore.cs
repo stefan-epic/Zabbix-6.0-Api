@@ -109,7 +109,18 @@ public class ZabbixCore : ICore
         Items = new ItemService(this);
         AuditLogs = new AuditLogService(this);
         Proxys = new ProxyService(this);
+        ValueMaps = new ValueMapService(this);
+        DiscoveredHosts = new DiscoveredHostService(this);
+        DiscoveryChecks = new DiscoveryCheckService(this);
+        DiscoveredServices = new DiscoveredServiceService(this);
+        DiscoveryRules = new DiscoveryRuleService(this);
+        TriggerPrototypess = new TriggerPrototypeService(this);
+        Trends = new TrendService(this);
+        LLDRules = new LLDRuleService(this);
+        UserGroups = new UserGroupService(this);
     }
+
+    
 
     private void Authenticate(string user, string password)
     {
@@ -176,6 +187,17 @@ public class ZabbixCore : ICore
     public ItemService Items;
     public AuditLogService AuditLogs;
     public ProxyService Proxys;
+    public ValueMapService ValueMaps;
+    public DiscoveredHostService DiscoveredHosts;
+    public DiscoveredServiceService DiscoveredServices;
+    public DiscoveryRuleService DiscoveryRules;
+    public DiscoveryCheckService DiscoveryChecks;
+    public TriggerPrototypeService TriggerPrototypess;
+    public TrendService Trends;
+    public LLDRuleService LLDRules;
+    public UserGroupService UserGroups;
+
+
 
     #endregion
 }

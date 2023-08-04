@@ -35,6 +35,7 @@ namespace ZabbixApiDebug
             Host newHost = new Host("hallo", new List<HostGroup>(){h});
             Host newHost2 = new Host("Welt", new List<HostGroup>(){h});
 
+
             core.Hosts.Create(new List<Host>() { newHost, newHost2 });
 
             /*

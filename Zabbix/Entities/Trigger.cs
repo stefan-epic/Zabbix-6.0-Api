@@ -45,12 +45,6 @@ public class TriggerFunction
 
 public class Trigger : BaseEntitiy
 {
-    #region Components
-
-    [JsonProperty("functions")] public List<Trigger> TriggerFunctions { get; set; }
-
-    #endregion
-
     #region Properties
 
     [JsonProperty("triggerid")] public override string EntityId { get; set; }
@@ -92,6 +86,12 @@ public class Trigger : BaseEntitiy
     [JsonProperty("manual_close")] public int ManualClose { get; set; }
 
     [JsonProperty("opdata")] public string Opdata { get; set; }
+
+    #endregion
+
+    #region Components
+
+    [JsonProperty("functions")] public List<Trigger> TriggerFunctions { get; set; }
 
     #endregion
 
