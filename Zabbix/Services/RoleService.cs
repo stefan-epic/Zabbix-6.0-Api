@@ -12,15 +12,15 @@ public class RoleService : CrudService<Role, RoleInclude, RoleProperties, RoleSe
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(RequestFilter<RoleProperties, RoleInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<RoleProperties, RoleInclude>? filter = null,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class RoleResult : BaseResult
     {
-        [JsonProperty("roleids")] public override string[] Ids { get; set; }
+        [JsonProperty("roleids")] public override IList<string>? Ids { get; set; }
     }
 }
 

@@ -12,15 +12,15 @@ public class ReportService : CrudService<Report, ReportInclude, ReportProperties
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(RequestFilter<ReportProperties, ReportInclude> filter,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<ReportProperties, ReportInclude>? filter,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class ReportResult : BaseResult
     {
-        [JsonProperty("reportids")] public override string[] Ids { get; set; }
+        [JsonProperty("reportids")] public override IList<string>? Ids { get; set; }
     }
 }
 

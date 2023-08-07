@@ -19,14 +19,14 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<TemplateDashboardProperties, TemplateDashboardInclude> filter = null, Dictionary<string, object> @params = null)
+        protected override Dictionary<string, object>? BuildParams(RequestFilter<TemplateDashboardProperties, TemplateDashboardInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }
         public class TemplateDashboardResult : BaseResult
         {
             [JsonProperty("templatedashboardids")]
-            public override string[] Ids { get; set; }
+            public override IList<string>? Ids { get; set; }
         }
     }
 

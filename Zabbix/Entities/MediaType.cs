@@ -13,91 +13,91 @@ public class MediaType : BaseEntitiy
     #region Properties
 
     [JsonProperty("mediatypeid")]
-    public string MediaTypeId { get; set; }
+    public string? MediaTypeId { get; set; }
 
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonProperty("type")]
-    public int Type { get; set; }
+    public int? Type { get; set; }
 
     [JsonProperty("exec_path")]
-    public string ExecPath { get; set; }
+    public string? ExecPath { get; set; }
 
     [JsonProperty("gsm_modem")]
-    public string GsmModem { get; set; }
+    public string? GsmModem { get; set; }
 
     [JsonProperty("passwd")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
 
     [JsonProperty("smtp_email")]
-    public string SmtpEmail { get; set; }
+    public string? SmtpEmail { get; set; }
 
     [JsonProperty("smtp_helo")]
-    public string SmtpHelo { get; set; }
+    public string? SmtpHelo { get; set; }
 
     [JsonProperty("smtp_server")]
-    public string SmtpServer { get; set; }
+    public string? SmtpServer { get; set; }
 
     [JsonProperty("smtp_port")]
-    public int SmtpPort { get; set; }
+    public int? SmtpPort { get; set; }
 
     [JsonProperty("smtp_security")]
-    public int SmtpSecurity { get; set; }
+    public int? SmtpSecurity { get; set; }
 
     [JsonProperty("smtp_verify_host")]
-    public int SmtpVerifyHost { get; set; }
+    public int? SmtpVerifyHost { get; set; }
 
     [JsonProperty("smtp_verify_peer")]
-    public int SmtpVerifyPeer { get; set; }
+    public int? SmtpVerifyPeer { get; set; }
 
     [JsonProperty("smtp_authentication")]
-    public int SmtpAuthentication { get; set; }
+    public int? SmtpAuthentication { get; set; }
 
     [JsonProperty("status")]
-    public int Status { get; set; }
+    public int? Status { get; set; }
 
     [JsonProperty("username")]
-    public string Username { get; set; }
+    public string? Username { get; set; }
 
     [JsonProperty("exec_params")]
-    public string ExecParams { get; set; }
+    public string? ExecParams { get; set; }
 
     [JsonProperty("maxsessions")]
-    public int MaxSessions { get; set; }
+    public int? MaxSessions { get; set; }
 
     [JsonProperty("maxattempts")]
-    public int MaxAttempts { get; set; }
+    public int? MaxAttempts { get; set; }
 
     [JsonProperty("attempt_interval")]
-    public string AttemptInterval { get; set; }
+    public string? AttemptInterval { get; set; }
 
     [JsonProperty("content_type")]
-    public int ContentType { get; set; }
+    public int? ContentType { get; set; }
 
     [JsonProperty("script")]
-    public string Script { get; set; }
+    public string? Script { get; set; }
 
     [JsonProperty("timeout")]
-    public string Timeout { get; set; }
+    public string? Timeout { get; set; }
 
     [JsonProperty("process_tags")]
-    public int ProcessTags { get; set; }
+    public int? ProcessTags { get; set; }
 
     [JsonProperty("show_event_menu")]
-    public int ShowEventMenu { get; set; }
+    public int? ShowEventMenu { get; set; }
 
     [JsonProperty("event_menu_url")]
-    public string EventMenuUrl { get; set; }
+    public string? EventMenuUrl { get; set; }
 
     [JsonProperty("event_menu_name")]
-    public string EventMenuName { get; set; }
+    public string? EventMenuName { get; set; }
 
     [JsonProperty("parameters")]
-    public IList<WebhookParameter> Parameters { get; set; }
+    public IList<WebhookParameter>? Parameters { get; set; }
 
     [JsonProperty("description")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     #endregion
 
@@ -110,16 +110,16 @@ public class MessageTemplate
     #region Properties
 
     [JsonProperty("eventsource")]
-    public int EventSource { get; set; }
+    public int? EventSource { get; set; }
 
     [JsonProperty("recovery")]
-    public int Recovery { get; set; }
+    public int? Recovery { get; set; }
 
     [JsonProperty("subject")]
-    public string Subject { get; set; }
+    public string? Subject { get; set; }
 
     [JsonProperty("message")]
-    public string Message { get; set; }
+    public string? Message { get; set; }
 
     #endregion
 

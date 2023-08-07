@@ -15,33 +15,33 @@ namespace Zabbix.Entities
     {
         #region Properties
         [JsonProperty("maintenanceid")]
-        public override string EntityId { get; set; }
+        public override string? EntityId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("active_since")]
-        public string ActiveSince { get; set; }
+        public string? ActiveSince { get; set; }
 
         [JsonProperty("active_till")]
-        public string ActiveTill { get; set; }
+        public string? ActiveTill { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [JsonProperty("maintenance_type")]
-        public int MaintenanceType { get; set; }
+        public int? MaintenanceType { get; set; }
 
         [JsonProperty("tags_evaltype")]
-        public int TagsEvalType { get; set; }
+        public int? TagsEvalType { get; set; }
 
         #endregion
 
         #region Components
 
-        [JsonProperty("groups")] public IList<HostGroup> HostGroups { get; set; }
-        [JsonProperty("hosts")] public IList<Host> Hosts { get; set; }
-        [JsonProperty("tags")] public IList<ProblemTag> ProblemTags { get; set; }
+        [JsonProperty("groups")] public IList<HostGroup>? HostGroups { get; set; }
+        [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
+        [JsonProperty("tags")] public IList<ProblemTag>? ProblemTags { get; set; }
 
 
         #endregion
@@ -52,28 +52,28 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("period")]
-        public int Period { get; set; }
+        public int? Period { get; set; }
 
         [JsonProperty("timeperiod_type")]
-        public int TimePeriodType { get; set; }
+        public int? TimePeriodType { get; set; }
 
         [JsonProperty("start_date")]
-        public string StartDate { get; set; }
+        public string? StartDate { get; set; }
 
         [JsonProperty("start_time")]
-        public int StartTime { get; set; }
+        public int? StartTime { get; set; }
 
         [JsonProperty("every")]
-        public int Every { get; set; }
+        public int? Every { get; set; }
 
         [JsonProperty("dayofweek")]
-        public int DayOfWeek { get; set; }
+        public int? DayOfWeek { get; set; }
 
         [JsonProperty("day")]
-        public int Day { get; set; }
+        public int? Day { get; set; }
 
         [JsonProperty("month")]
-        public int Month { get; set; }
+        public int? Month { get; set; }
 
         #endregion
     }

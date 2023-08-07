@@ -15,31 +15,31 @@ namespace Zabbix.Entities
     {
         #region Properties
         [JsonProperty("taskid")]
-        public override string EntityId { get; set; }
+        public override string? EntityId { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public int? Type { get; set; }
 
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         [JsonProperty("clock")]
-        public string Clock { get; set; }
+        public string? Clock { get; set; }
 
         [JsonProperty("ttl")]
-        public int Ttl { get; set; }
+        public int? Ttl { get; set; }
 
         [JsonProperty("proxy_hostid")]
-        public string ProxyHostId { get; set; }
+        public string? ProxyHostId { get; set; }
         #endregion
 
 
         #region Components
         [JsonProperty("request")]
-        public TaskTypeObject Request { get; set; }
+        public TaskTypeObject? Request { get; set; }
 
         [JsonProperty("result")]
-        public StatisticResult Result { get; set; }
+        public StatisticResult? Result { get; set; }
         #endregion
     }
 
@@ -48,7 +48,7 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("itemid")]
-        public string ItemId { get; set; }
+        public string? ItemId { get; set; }
 
         #endregion
     }
@@ -58,19 +58,19 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("historycache")]
-        public StatisticRequest HistoryCache { get; set; }
+        public StatisticRequest? HistoryCache { get; set; }
 
         [JsonProperty("valuecache")]
-        public StatisticRequest ValueCache { get; set; }
+        public StatisticRequest? ValueCache { get; set; }
 
         [JsonProperty("preprocessing")]
-        public StatisticRequest Preprocessing { get; set; }
+        public StatisticRequest? Preprocessing { get; set; }
 
         [JsonProperty("alerting")]
-        public StatisticRequest Alerting { get; set; }
+        public StatisticRequest? Alerting { get; set; }
 
         [JsonProperty("lld")]
-        public StatisticRequest Lld { get; set; }
+        public StatisticRequest? Lld { get; set; }
 
         #endregion
 
@@ -80,10 +80,10 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("stats")]
-        public string Query { get; set; } = "extend";
+        public string? Query { get; set; } = "extend";
 
         [JsonProperty("top")]
-        public object Top { get; set; }
+        public object? Top { get; set; }
 
         #endregion
 
@@ -94,10 +94,10 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         [JsonProperty("data")]
-        public object Data { get; set; }
+        public object? Data { get; set; }
 
         #endregion
 

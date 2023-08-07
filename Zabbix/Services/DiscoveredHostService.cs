@@ -16,7 +16,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<DiscoveredHostProperties, DiscoveredHostInclude> filter = null, Dictionary<string, object> @params = null)
+        protected override Dictionary<string, object>? BuildParams(RequestFilter<DiscoveredHostProperties, DiscoveredHostInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }

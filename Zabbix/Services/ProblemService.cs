@@ -11,8 +11,8 @@ public class ProblemService : GetService<Problem, ProblemInclude, ProblemPropert
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(RequestFilter<ProblemProperties, ProblemInclude> filter,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<ProblemProperties, ProblemInclude>? filter,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }

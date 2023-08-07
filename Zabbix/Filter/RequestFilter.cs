@@ -11,36 +11,30 @@ public class RequestFilter<TEntityProperty, TEntityInclude>
         IncludeFilter = new IncludeFilter<TEntityInclude>();
     }
 
-    public RequestFilter(OutputFilter<TEntityProperty> outputFilter = null,
-        ObjectFilter<TEntityProperty> objectFilter = null, IncludeFilter<TEntityInclude> includeFilter = null)
+    public RequestFilter(OutputFilter<TEntityProperty>? outputFilter = null,
+        ObjectFilter<TEntityProperty>? objectFilter = null, IncludeFilter<TEntityInclude>? includeFilter = null)
     {
         OutputFilter = outputFilter;
         ObjectFilter = objectFilter;
         IncludeFilter = includeFilter;
     }
 
-    public OutputFilter<TEntityProperty> OutputFilter { get; set; }
-    public ObjectFilter<TEntityProperty> ObjectFilter { get; set; }
-    public IncludeFilter<TEntityInclude> IncludeFilter { get; set; }
+    public OutputFilter<TEntityProperty>? OutputFilter { get; set; }
+    public ObjectFilter<TEntityProperty>? ObjectFilter { get; set; }
+    public IncludeFilter<TEntityInclude>? IncludeFilter { get; set; }
 
     public bool IsOutputFilterNullOrEmpty()
     {
-        if (OutputFilter == null || OutputFilter.IsNullOrEmpty())
-            return true;
-        return false;
+        return OutputFilter == null || OutputFilter.IsEmpty();
     }
 
     public bool IsObjectFilterNullOrEmpty()
     {
-        if (ObjectFilter == null || ObjectFilter.IsNullOrEmpty())
-            return true;
-        return false;
+        return ObjectFilter == null || ObjectFilter.IsEmpty();
     }
 
     public bool IsIncludeFilterNullOrEmpty()
     {
-        if (IncludeFilter == null || IncludeFilter.IsNullOrEmpty())
-            return true;
-        return false;
+        return IncludeFilter == null || IncludeFilter.IsEmpty();
     }
 }

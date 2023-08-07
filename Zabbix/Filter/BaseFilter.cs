@@ -14,24 +14,22 @@ public abstract class BaseFilter<TEnum> where TEnum : Enum
 
     public Dictionary<string, List<object>> Filter { get; }
 
-    public bool IsNullOrEmpty()
+    public bool IsEmpty()
     {
-        if (Filter == null || Filter.Count == 0)
-            return true;
-        return false;
+        return Filter.Count == 0;
     }
 
-    public void Set(TEnum name, object value)
+    public virtual void Set(TEnum name, object value)
     {
         Filter[name.ToString()] = new List<object> { value };
     }
 
-    public void SetIfNotExists(TEnum name, object value)
+    public virtual void SetIfNotExists(TEnum name, object value)
     {
         if (!Filter.ContainsKey(name.ToString())) Filter[name.ToString()] = new List<object> { value };
     }
 
-    public void Append(TEnum name, object value)
+    public virtual void Append(TEnum name, object value)
     {
         if (Filter.ContainsKey(name.ToString()))
             Filter[name.ToString()].Add(value);

@@ -18,14 +18,14 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<MaintenanceProperties, MaintenanceInclude> filter = null, Dictionary<string, object> @params = null)
+        protected override Dictionary<string, object>? BuildParams(RequestFilter<MaintenanceProperties, MaintenanceInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }
         public class MaintenanceResult : BaseResult
         {
             [JsonProperty("maintenanceids")]
-            public override string[] Ids { get; set; }
+            public override IList<string>? Ids { get; set; }
         }
 
     }

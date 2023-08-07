@@ -13,9 +13,9 @@ public class
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<AuthenticationProperties, AuthenticationInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<AuthenticationProperties, AuthenticationInclude>? filter = null,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }

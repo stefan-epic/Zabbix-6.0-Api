@@ -12,15 +12,15 @@ public class ActionService : CrudService<Action, ActionInclude, ActionProperties
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<ActionProperties, ActionInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<ActionProperties, ActionInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class ActionResult : BaseResult
     {
-        [JsonProperty("actionids")] public override string[] Ids { get; set; }
+        [JsonProperty("actionids")] public override IList<string>? Ids { get; set; }
     }
 }
 

@@ -13,15 +13,15 @@ public class
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(RequestFilter<TemplateProperties, TemplateInclude> filter,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<TemplateProperties, TemplateInclude>? filter,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class TemplateResult : BaseResult
     {
-        [JsonProperty("templateids")] public override string[] Ids { get; set; }
+        [JsonProperty("templateids")] public override IList<string>? Ids { get; set; }
     }
 }
 

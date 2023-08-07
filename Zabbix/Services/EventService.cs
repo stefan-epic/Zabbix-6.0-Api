@@ -1,6 +1,7 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
+using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
@@ -11,17 +12,16 @@ public class EventService : GetService<Event, EventInclude, EventProperties>
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<EventProperties, EventInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<EventProperties, EventInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     //TODO: make enum for action, make async variants
-    public IEnumerable<string> Acknowledge(IList<string> eventIds, int action, string message = null,
-        string severity = null)
+    public IEnumerable<string> Acknowledge(IList<string> eventIds, int action, string? message = null, string? severity = null)
     {
-        Dictionary<string, object> @params = new()
+        Dictionary<string, object?>? @params = new()
         {
             { "eventids", eventIds },
             { "action", action }
@@ -32,13 +32,13 @@ public class EventService : GetService<Event, EventInclude, EventProperties>
         if (severity != null)
             @params.Add("severity", severity);
 
-
-        return Core.SendRequest<EventResult>(@params, ClassName + ".acknowledge").Ids;
+        var ret = Core.SendRequest<EventResult>(@params, ClassName + ".acknowledge").Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
     }
 
     public class EventResult : BaseResult
     {
-        public override string[] Ids { get; set; }
+        public override IList<string>? Ids { get; set; }
     }
 }
 

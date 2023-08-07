@@ -13,16 +13,16 @@ public class DiscoveryRuleService : CrudService<DiscoveryRule, DiscoverRuleInclu
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<DiscoverRuleProperties, DiscoverRuleInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<DiscoverRuleProperties, DiscoverRuleInclude>? filter = null,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class DiscoveryRuleResult : BaseResult
     {
-        [JsonProperty("druleids")] public override string[] Ids { get; set; }
+        [JsonProperty("druleids")] public override IList<string>? Ids { get; set; }
     }
 }
 

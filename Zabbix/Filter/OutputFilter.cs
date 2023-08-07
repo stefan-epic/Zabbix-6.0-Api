@@ -14,11 +14,9 @@ public class OutputFilter<TEntityProperty> where TEntityProperty : Enum
 
     public List<string> Filter { get; set; }
 
-    public bool IsNullOrEmpty()
+    public bool IsEmpty()
     {
-        if (Filter == null || Filter.Count == 0)
-            return true;
-        return false;
+        return Filter.Count == 0;
     }
 
     public void AddFilter(TEntityProperty filter)

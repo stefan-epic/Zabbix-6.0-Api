@@ -15,15 +15,15 @@ public class UserMacroService : CrudService<UserMacro, UserMacroInclude, UserMac
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<UserMacroProperties, UserMacroInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<UserMacroProperties, UserMacroInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class UserMacroResult : BaseResult
     {
-        [JsonProperty("hostmacroids")] public override string[] Ids { get; set; }
+        [JsonProperty("hostmacroids")] public override IList<string>? Ids { get; set; }
     }
 }
 

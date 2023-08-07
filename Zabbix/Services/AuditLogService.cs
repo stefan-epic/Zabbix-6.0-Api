@@ -11,8 +11,8 @@ public class AuditLogService : GetService<AuditLog, AuditLogInclude, AuditLogPro
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<AuditLogProperties, AuditLogInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<AuditLogProperties, AuditLogInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }

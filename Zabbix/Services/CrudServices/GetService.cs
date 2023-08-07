@@ -10,17 +10,16 @@ public abstract class GetService<TEntity, TEntityInclude, TEntityProperty> :
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
 {
-    public GetService(ICore core, string className) : base(core, className)
+    protected GetService(ICore core, string className) : base(core, className)
     {
     }
 
-    public IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    public IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return Core.SendRequest<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
     }
 
-    public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude> filter = null, Dictionary<string, object> @params = null)
+    public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
 

@@ -13,16 +13,14 @@ public class WebScenarioService : CrudService<WebScenario, WebScenarioInclude, W
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<WebScenarioProperties, WebScenarioInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<WebScenarioProperties, WebScenarioInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class WebScenarioResult : BaseResult
     {
-        [JsonProperty("httptestids")] public override string[] Ids { get; set; }
+        [JsonProperty("httptestids")] public override IList<string>? Ids { get; set; }
     }
 }
 

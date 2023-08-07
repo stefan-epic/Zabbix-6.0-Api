@@ -2,5 +2,10 @@
 
 public class BaseResult
 {
-    public virtual string[] Ids { get; set; }
+    public virtual IList<string>? Ids { get; set; }
+
+    public BaseResult()
+    {
+
+    }
 }

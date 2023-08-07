@@ -14,15 +14,15 @@ public class HostInterfaceService : CrudService<HostInterface, HostInterfaceIncl
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<HostInterfaceProperties, HostInterfaceInclude> filter, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<HostInterfaceProperties, HostInterfaceInclude>? filter, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     public class HostInterfaceResult : BaseResult
     {
-        [JsonProperty("interfaceids")] public override string[] Ids { get; set; }
+        [JsonProperty("interfaceids")] public override IList<string>? Ids { get; set; }
     }
 }
 

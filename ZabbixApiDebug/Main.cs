@@ -29,6 +29,67 @@ namespace ZabbixApiDebug
             ZabbixCore core = new ZabbixCore(url, username, password);
 
             RequestFilter<HostGroupProperties, HostGroupInclude> rqFilter = new();
+
+            rqFilter.OutputFilter?.AddFilter(HostGroupProperties.groupid);
+
+            rqFilter.ObjectFilter?.Set(HostGroupProperties.name, "Linux servers");
+
+            HostGroup? linuxServers = core.HostGroups.Get(rqFilter).FirstOrDefault();
+
+            if (linuxServers != null)
+            {
+                Host progressHost = new Host("Progress-APIs", new List<HostGroup>() { linuxServers });
+
+                string progressHostId = core.Hosts.Create(progressHost);
+
+                List<WebScenarioStep> steps = new List<WebScenarioStep>();
+                WebScenarioStep step = new WebScenarioStep("\\", 1, "http://10.10.51.194:8080/");
+                step.Required = "{\"id\":3}";
+                step.StatusCodes = "200";
+                steps.Add(step);
+                
+                WebScenario scenario = new WebScenario("Check Node Api", progressHostId, steps);
+                scenario.Delay = "10s";
+                core.WebScenarios.Create(scenario);
+                Trigger t = new Trigger("Api unavilable", "last(/Progress-APIs/web.test.fail[Check Node Api])=1");
+                t.Priority = 4;
+                core.Triggers.Create(t);
+            }
+
+
+            while (true)
+            {
+                List<Problem> problems = core.Problems.Get().ToList();
+                foreach (var problem in problems)
+                {
+                    Console.WriteLine(problem.Name);
+                }
+            }
+
+            /*
+
+
+            List<Problem> problem = core.Problems.Get().ToList();
+
+            RequestFilter<WebScenarioProperties, WebScenarioInclude> filter = new();
+            filter.IncludeFilter.Set(WebScenarioInclude.selectSteps);
+            filter.ObjectFilter.Set(WebScenarioProperties.status, 0);
+            while (true)
+            {
+                List<WebScenario> scenarios = core.WebScenarios.Get(filter).ToList();
+                foreach (var scenario in scenarios)
+                {
+                    foreach (var step in scenario.Steps)
+                    {
+                        Console.WriteLine("Step failed: " + step.Name + ", for scenario: " + scenario.Name);
+                    }
+                }
+            }
+
+
+
+
+            RequestFilter<HostGroupProperties, HostGroupInclude> rqFilter = new();
             rqFilter.ObjectFilter.Set(HostGroupProperties.name, "Linux servers");
             rqFilter.OutputFilter.AddFilter(HostGroupProperties.groupid);
             HostGroup h = core.HostGroups.Get(rqFilter).FirstOrDefault();
@@ -38,7 +99,6 @@ namespace ZabbixApiDebug
 
             core.Hosts.Create(new List<Host>() { newHost, newHost2 });
 
-            /*
 
             List<Host> hosts = core.Hosts.Get().ToList();
 
@@ -127,7 +187,7 @@ namespace ZabbixApiDebug
 
             string ret = core.Hosts.Create(h);
             Console.WriteLine(ret);
-            Console.WriteLine(h.ToString());
+            Console.WriteLine(h.Tostring());
             */
 
 

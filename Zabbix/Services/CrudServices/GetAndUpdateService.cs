@@ -15,7 +15,7 @@ public abstract class
     }
 
     //TODO:
-    public IEnumerable<string> Update(IEnumerable<TEntity> entity)
+    public IEnumerable<string> Update(IEnumerable<TEntity>? entity)
     {
         throw new NotImplementedException();
     }
@@ -25,7 +25,7 @@ public abstract class
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entity)
+    public Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity>? entity)
     {
         throw new NotImplementedException();
     }

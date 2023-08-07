@@ -2,6 +2,7 @@
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
+using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
@@ -12,38 +13,39 @@ public class TriggerService : CrudService<Trigger, TriggerInclude, TriggerProper
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<TriggerProperties, TriggerInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<TriggerProperties, TriggerInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     //TODO: make async variants
-    public string[] AddDependency(int triggerId, int dependsOnTriggerId)
+    public IList<string> AddDependency(int triggerId, int dependsOnTriggerId)
     {
-        Dictionary<string, object> @params = new Dictionary<string, object>
+        Dictionary<string, object>? @params = new Dictionary<string, object>
         {
             { "triggerid", triggerId },
             { "dependsOnTriggerid", dependsOnTriggerId }
         };
 
-        return Core.SendRequest<TriggerResult>(@params, ClassName + ".adddependencies").Ids;
+        var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".adddependencies").Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
     }
 
-    public string[] DeleteDependency(int triggerId)
+    public IList<string> DeleteDependency(int triggerId)
     {
-        Dictionary<string, object> @params = new Dictionary<string, object>
+        Dictionary<string, object>? @params = new Dictionary<string, object>
         {
             { "triggerid", triggerId }
         };
 
-
-        return Core.SendRequest<TriggerResult>(@params, ClassName + ".deleteDependencies").Ids;
+        var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".deleteDependencies").Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
     }
 
     public class TriggerResult : BaseResult
     {
-        [JsonProperty("triggerids")] public override string[] Ids { get; set; }
+        [JsonProperty("triggerids")] public override IList<string>? Ids { get; set; }
     }
 }
 

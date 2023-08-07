@@ -16,13 +16,13 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("clock")]
-        public string Timestamp { get; set; }
+        public string? Timestamp { get; set; }
 
         [JsonProperty("itemid")]
-        public int ItemId { get; set; }
+        public int? ItemId { get; set; }
 
         [JsonProperty("num")]
-        public int NumValues { get; set; }
+        public int? NumValues { get; set; }
 
         #endregion
 
@@ -32,13 +32,13 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("value_min")]
-        public float MinValue { get; set; }
+        public float? MinValue { get; set; }
 
         [JsonProperty("value_avg")]
-        public float AverageValue { get; set; }
+        public float? AverageValue { get; set; }
 
         [JsonProperty("value_max")]
-        public float MaxValue { get; set; }
+        public float? MaxValue { get; set; }
 
         #endregion
     }
@@ -48,13 +48,13 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("value_min")]
-        public int MinValue { get; set; }
+        public int? MinValue { get; set; }
 
         [JsonProperty("value_avg")]
-        public int AverageValue { get; set; }
+        public int? AverageValue { get; set; }
 
         [JsonProperty("value_max")]
-        public int MaxValue { get; set; }
+        public int? MaxValue { get; set; }
 
         #endregion
     }

@@ -16,31 +16,31 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("tokenid")]
-        public override string EntityId { get; set; }
+        public override string? EntityId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [JsonProperty("userid")]
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         [JsonProperty("lastaccess")]
-        public DateTime LastAccess { get; set; }
+        public string? LastAccess { get; set; }
 
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         [JsonProperty("expires_at")]
-        public DateTime ExpiresAt { get; set; }
+        public string? ExpiresAt { get; set; }
 
         [JsonProperty("created_at")]
-        public DateTime CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 
         [JsonProperty("creator_userid")]
-        public string CreatorUserId { get; set; }
+        public string? CreatorUserId { get; set; }
 
         #endregion
 

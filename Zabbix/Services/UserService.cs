@@ -12,14 +12,14 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<UserProperties, UserInclude> filter = null, Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(
+        RequestFilter<UserProperties, UserInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
 
     //TODO Make Async Variants
-    public User Login(string username, string password, Dictionary<string, string> @params = null)
+    public User Login(string username, string password, Dictionary<string, string>? @params = null)
     {
         if (@params == null)
             @params = new Dictionary<string, string>
@@ -33,7 +33,7 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
 
     public class UserResult : BaseResult
     {
-        [JsonProperty("userids")] public override string[] Ids { get; set; }
+        [JsonProperty("userids")] public override IList<string>? Ids { get; set; }
     }
 }
 

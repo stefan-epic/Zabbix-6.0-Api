@@ -5,93 +5,43 @@ using Newtonsoft.Json.Linq;
 using Zabbix.Entities;
 using Zabbix.Services;
 using ZabbixApi.Helper;
+using Debug = System.Diagnostics.Debug;
 
 namespace Zabbix.Core;
 
 //TODO: massAdd massdelete massupdate
 public class ZabbixCore : ICore
 {
-    private volatile string _authenticationToken;
-    private HttpClient _httpClient;
-    private User _loggedInUser;
-    private JsonSerializerSettings _serializerSettings;
-    private string _url;
+    private volatile string? _authenticationToken = "";
+    private readonly HttpClient _httpClient;
+    private User? _loggedInUser;
+    private readonly JsonSerializerSettings _serializerSettings;
+    private readonly string _url;
 
     public ZabbixCore(string url, string username, string password)
     {
-        //TODO remove this
-        Check.IsNotNullOrWhiteSpace(url, "ZabbixApi.url");
-        Check.IsNotNullOrWhiteSpace(username, "ZappixApi.username");
-        Check.IsNotNullOrWhiteSpace(password, "ZabbixApi.password");
 
-        Init(url);
-        Authenticate(username, password);
-    }
-
-    public T SendRequest<T>(object @params, string method)
-    {
-        lock (_httpClient)
+        if (password == null)
         {
-            var token = CheckAndGetToken();
-            return SendRequest<T>(@params, method, token);
+            throw new ArgumentNullException(nameof(password));
         }
-    }
-
-    public T SendRequest<T>(object @params, string method, string token)
-    {
-        lock (_httpClient)
+        if (url == null)
         {
-            var request = GetRequest(@params, method, token);
-
-            var requestData = new StringContent(JsonConvert.SerializeObject(request, _serializerSettings),
-                Encoding.UTF8, "application/json");
-            var response = _httpClient.PostAsync(_url, requestData).Result;
-            response.EnsureSuccessStatusCode();
-
-            var responseData = response.Content.ReadAsStringAsync().Result;
-            return HandleResponse<T>(request.Id, responseData);
+            throw new ArgumentNullException(nameof(url));
         }
-    }
+        if (username == null)
+        {
+            throw new ArgumentNullException(nameof(username));
+        }
 
-    public async Task<T> SendRequestAsync<T>(object @params, string method)
-    {
-        var token = CheckAndGetToken();
-        return await SendRequestAsync<T>(@params, method, token);
-    }
-
-    public async Task<T> SendRequestAsync<T>(object @params, string method, string token)
-    {
-        var request = GetRequest(@params, method, token);
-        _httpClient.DefaultRequestHeaders.Add("content-type", "application/json-rpc");
-
-        var requestData = new StringContent(JsonConvert.SerializeObject(request, _serializerSettings), Encoding.UTF8,
-            "application/json");
-        var response = await _httpClient.PostAsync(_url, requestData).ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
-
-        var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-        return HandleResponse<T>(request.Id, responseData);
-    }
-
-
-    public void Dispose()
-    {
-        Users.Logout();
-        throw new NotImplementedException();
-    }
-
-    private void Init(string url)
-    {
         _serializerSettings = new JsonSerializerSettings
         {
             NullValueHandling = NullValueHandling.Ignore,
-            Converters = new JsonConverter[] { new JavaScriptDateTimeConverter() }
         };
 
 
         _url = url;
         _httpClient = new HttpClient();
-
         Hosts = new HostService(this);
         HostGroups = new HostGroupService(this);
         WebScenarios = new WebScenarioService(this);
@@ -118,9 +68,63 @@ public class ZabbixCore : ICore
         Trends = new TrendService(this);
         LLDRules = new LLDRuleService(this);
         UserGroups = new UserGroupService(this);
+        Authenticate(username, password);
     }
 
-    
+    public T SendRequest<T>(object? @params, string method)
+    {
+        lock (_httpClient)
+        {
+            var token = CheckAndGetToken();
+            return SendRequest<T>(@params, method, token);
+        }
+    }
+
+    public T SendRequest<T>(object? @params, string method, string? token)
+    {
+        lock (_httpClient)
+        {
+            var request = GetRequest(@params, method, token);
+
+            var requestData = new StringContent(JsonConvert.SerializeObject(request, _serializerSettings), Encoding.UTF8, "application/json");
+            var response = _httpClient.PostAsync(_url, requestData).Result;
+            response.EnsureSuccessStatusCode();
+
+            var responseData = response.Content.ReadAsStringAsync().Result;
+            var ret = HandleResponse<T>(request.Id, responseData);
+                
+            return ret;
+        }
+    }
+
+    public async Task<T> SendRequestAsync<T>(object? @params, string method)
+    {
+        var token = CheckAndGetToken();
+        return await SendRequestAsync<T>(@params, method, token);
+    }
+
+    public async Task<T> SendRequestAsync<T>(object? @params, string method, string? token)
+    {
+        var request = GetRequest(@params, method, token);
+        _httpClient.DefaultRequestHeaders.Add("content-type", "application/json-rpc");
+
+        var requestData = new StringContent(JsonConvert.SerializeObject(request, _serializerSettings), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync(_url, requestData).ConfigureAwait(false);
+        response.EnsureSuccessStatusCode();
+
+        var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        return HandleResponse<T>(request.Id, responseData);
+    }
+
+
+    public void Dispose()
+    {
+        Users.Logout();
+        throw new NotImplementedException();
+    }
+
+
+
 
     private void Authenticate(string user, string password)
     {
@@ -138,18 +142,30 @@ public class ZabbixCore : ICore
     {
         var response = JsonConvert.DeserializeObject<Response<T>>(responseData, _serializerSettings);
 
+        if (response == null)
+        {
+            throw new NullReferenceException($"Object Deserialization is null for {responseData} with Id {requestId}");
+        }
+
+        if (response.Result == null)
+        {
+            throw new NullReferenceException($"Result is null or {responseData} with Id {requestId}. Possibly an error with Deserialization");
+        }
+
         if (response.Error != null)
-            throw new Exception(response.Error.Message,
-                new Exception(string.Format("{0} - code:{1}", response.Error.Data, response.Error.Code)));
+        {
+            throw new Exception(response.Error.Message, new Exception($"{response.Error.Data} - code:{response.Error.Code}"));
+        }
 
         if (response.Id != requestId)
-            throw new Exception(string.Format("The response id ({0}) does not match the request id ({1})", response.Id,
-                requestId));
+        {
+            throw new Exception($"The response id ({response.Id}) does not match the request id ({requestId})");
+        }
 
         return response.Result;
     }
 
-    private Request GetRequest(object @params, string method, string authenticationToken)
+    private Request GetRequest(object? @params, string method, string? authenticationToken)
     {
         return new Request
         {
@@ -160,10 +176,10 @@ public class ZabbixCore : ICore
         };
     }
 
-    private string CheckAndGetToken()
+    private string? CheckAndGetToken()
     {
         var token = _authenticationToken;
-        if (token == null) throw new InvalidOperationException("This zabbix core isn't authenticated.");
+        if (token == "") throw new InvalidOperationException("This zabbix core isn't authenticated.");
 
         return token;
     }

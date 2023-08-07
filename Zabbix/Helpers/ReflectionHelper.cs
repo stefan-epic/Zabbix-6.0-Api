@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 namespace Zabbix.Helpers;
 
+#nullable enable
 public class ReflectionHelper<TEntity>
 {
     public List<string> GetJsonPropertiesOfEntity()
@@ -14,10 +15,12 @@ public class ReflectionHelper<TEntity>
 
         foreach (PropertyInfo propertyInfo in properties)
         {
-            JsonPropertyAttribute jsonPropertyAttribute = propertyInfo.GetCustomAttribute<JsonPropertyAttribute>();
-            if (jsonPropertyAttribute != null) jsonProperties.Add(jsonPropertyAttribute.PropertyName);
+            JsonPropertyAttribute? jsonPropertyAttribute = propertyInfo.GetCustomAttribute<JsonPropertyAttribute>();
+            if (jsonPropertyAttribute != null && jsonPropertyAttribute.PropertyName != null)
+                jsonProperties.Add(jsonPropertyAttribute.PropertyName);
         }
 
         return jsonProperties;
     }
 }
+#nullable restore

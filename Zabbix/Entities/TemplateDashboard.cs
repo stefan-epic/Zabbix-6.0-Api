@@ -16,29 +16,29 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("dashboardid")]
-        public override string EntityId { get; set; }
+        public override string? EntityId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("templateid")]
-        public string TemplateId { get; set; }
+        public string? TemplateId { get; set; }
 
         [JsonProperty("display_period")]
-        public int DisplayPeriod { get; set; }
+        public int? DisplayPeriod { get; set; }
 
         [JsonProperty("auto_start")]
-        public int AutoStart { get; set; }
+        public int? AutoStart { get; set; }
 
         [JsonProperty("uuid")]
-        public string Uuid { get; set; }
+        public string? Uuid { get; set; }
 
         #endregion
 
         #region Components
 
         [JsonProperty("pages")]
-        public IList<TemplateDashboardPage> Pages { get; set; }
+        public IList<TemplateDashboardPage>? Pages { get; set; }
 
         #endregion
 
@@ -48,20 +48,20 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("dashboard_pageid")]
-        public string DashboardPageId { get; set; }
+        public string? DashboardPageId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("display_period")]
-        public int DisplayPeriod { get; set; }
+        public int? DisplayPeriod { get; set; }
 
         #endregion
 
         #region Components
 
         [JsonProperty("widgets")]
-        public IList<TemplateDashboardWidget> Widgets { get; set; }
+        public IList<TemplateDashboardWidget>? Widgets { get; set; }
 
         #endregion
 
@@ -72,35 +72,35 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("widgetid")]
-        public string WidgetId { get; set; }
+        public string? WidgetId { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("x")]
-        public int X { get; set; }
+        public int? X { get; set; }
 
         [JsonProperty("y")]
-        public int Y { get; set; }
+        public int? Y { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public int? Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public int? Height { get; set; }
 
         [JsonProperty("view_mode")]
-        public int ViewMode { get; set; }
+        public int? ViewMode { get; set; }
 
         #endregion
 
         #region Components
 
         [JsonProperty("fields")]
-        public IList<TemplateDashboardWidgetField> Fields { get; set; }
+        public IList<TemplateDashboardWidgetField>? Fields { get; set; }
 
         #endregion
 
@@ -110,13 +110,13 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public int? Type { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         #endregion
 

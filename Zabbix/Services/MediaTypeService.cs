@@ -19,14 +19,14 @@ namespace Zabbix.Services
             
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<MediaTypeProperties, MediaTypeInclude> filter = null, Dictionary<string, object> @params = null)
+        protected override Dictionary<string, object>? BuildParams(RequestFilter<MediaTypeProperties, MediaTypeInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }
         public class MediaTypeResult : BaseResult
         {
             [JsonProperty("mediatypeids")]
-            public override string[] Ids { get; set; }
+            public override IList<string>? Ids { get; set; }
         }
     }
 

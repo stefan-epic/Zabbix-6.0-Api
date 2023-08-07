@@ -11,8 +11,8 @@ public class ItemService : CrudService<Item, ItemInclude, ItemProperties, ItemSe
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(RequestFilter<ItemProperties, ItemInclude> filter = null,
-        Dictionary<string, object> @params = null)
+    protected override Dictionary<string, object>? BuildParams(RequestFilter<ItemProperties, ItemInclude>? filter = null,
+        Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }
