@@ -1,11 +1,7 @@
-﻿using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using System.Text;
 using Zabbix.Entities;
 using Zabbix.Services;
-using ZabbixApi.Helper;
-using Debug = System.Diagnostics.Debug;
 
 namespace Zabbix.Core;
 
@@ -92,7 +88,7 @@ public class ZabbixCore : ICore
 
             var responseData = response.Content.ReadAsStringAsync().Result;
             var ret = HandleResponse<T>(request.Id, responseData);
-                
+
             return ret;
         }
     }

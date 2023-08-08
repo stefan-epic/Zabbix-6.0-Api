@@ -42,7 +42,7 @@ public class Proxy : BaseEntitiy
 
     #region Components
 
-    [JsonProperty("interface")] public IList<ProxyInterface>? Interfaces { get; set;}
+    [JsonProperty("interface")] public IList<ProxyInterface>? Interfaces { get; set; }
     [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
 
     #endregion

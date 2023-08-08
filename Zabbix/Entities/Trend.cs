@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
@@ -11,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public abstract class Trend: BaseEntitiy
+    public abstract class Trend : BaseEntitiy
     {
         #region Properties
 

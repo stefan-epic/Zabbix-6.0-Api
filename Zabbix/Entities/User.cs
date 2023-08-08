@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using ZabbixApi.Helper;
 
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference/user/login
 namespace Zabbix.Entities;

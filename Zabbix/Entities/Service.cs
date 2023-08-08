@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public enum ServiceProperties{
+    public enum ServiceProperties
+    {
 
     }
     public class Service : BaseEntitiy
@@ -107,7 +103,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class ProblemEvent 
+    public class ProblemEvent
     {
         #region Properties
 

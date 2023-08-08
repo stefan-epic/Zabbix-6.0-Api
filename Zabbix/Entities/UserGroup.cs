@@ -2,7 +2,8 @@
 
 namespace Zabbix.Entities;
 
-public enum UserGroupProperties{
+public enum UserGroupProperties
+{
 
 }
 

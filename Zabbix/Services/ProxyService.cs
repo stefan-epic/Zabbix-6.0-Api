@@ -9,7 +9,7 @@ namespace Zabbix.Services;
 public class ProxyService : CrudService<Proxy, ProxyInclude, ProxyProperties, ProxyService.ProxyResult>
 {
 
-    public ProxyService(ICore core ) : base(core, "proxy")
+    public ProxyService(ICore core) : base(core, "proxy")
     {
     }
 

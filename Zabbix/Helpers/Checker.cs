@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zabbix.Entities;
+﻿using Zabbix.Entities;
 
 namespace Zabbix.Helpers
 {
@@ -11,7 +6,7 @@ namespace Zabbix.Helpers
     {
         public static IList<T> ReturnEmptyListOrActual<T>(IList<T>? objects)
         {
-            if(objects == null)
+            if (objects == null)
                 return new List<T>();
             return objects;
         }
@@ -20,7 +15,7 @@ namespace Zabbix.Helpers
             return str ?? string.Empty;
         }
 
-        public static void CheckEntityId(BaseEntitiy entity) 
+        public static void CheckEntityId(BaseEntitiy entity)
         {
             if (entity.EntityId == null)
             {
@@ -32,7 +27,7 @@ namespace Zabbix.Helpers
             if (id == null)
             {
                 throw new NullReferenceException($"ID cannot be null");
-            }   
+            }
         }
         public static void CheckEntityIds(IEnumerable<string?> ids)
         {
@@ -43,7 +38,7 @@ namespace Zabbix.Helpers
         }
         public static void CheckEntityIds(IEnumerable<BaseEntitiy> entities)
         {
-            
+
             foreach (var e in entities)
             {
                 CheckEntityId(e);
