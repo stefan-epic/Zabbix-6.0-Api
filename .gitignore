@@ -367,4 +367,5 @@ FodyWeavers.xsd
 /Zabbix/Filter/Test.cs
 /ZabbixApiDebug/Main.cs
 /ZabbixApiDebug/ZabbixApiDebug.csproj
-/ZabbixApiDebug/ZabbixApiDebug.csproj
+/ZabbixApiDebug/
+
