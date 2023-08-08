@@ -143,14 +143,14 @@ public class ZabbixCore : ICore
             throw new NullReferenceException($"Object Deserialization is null for {responseData} with Id {requestId}");
         }
 
-        if (response.Result == null)
-        {
-            throw new NullReferenceException($"Result is null or {responseData} with Id {requestId}. Possibly an error with Deserialization");
-        }
-
         if (response.Error != null)
         {
             throw new Exception(response.Error.Message, new Exception($"{response.Error.Data} - code:{response.Error.Code}"));
+        }
+
+        if (response.Result == null)
+        {
+            throw new NullReferenceException($"Result is null for {responseData} with Id {requestId}. Possibly an error with Deserialization");
         }
 
         if (response.Id != requestId)
