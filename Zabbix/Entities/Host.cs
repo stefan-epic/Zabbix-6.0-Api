@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using ZabbixApi.Helper;
 
 namespace Zabbix.Entities;
 
@@ -42,9 +41,9 @@ public class Host : BaseEntitiy
 
     [JsonProperty("lastaccess")] public string? Lastaccess { get; set; }
 
-    [JsonProperty("ipmi_authtype")] public int? IpmiAuthtype { get; set; } = -1;
+    [JsonProperty("ipmi_authtype")] public int? IpmiAuthtype { get; set; }
 
-    [JsonProperty("ipmi_privilege")] public int? IpmiPrivilege { get; set; } = 2;
+    [JsonProperty("ipmi_privilege")] public int? IpmiPrivilege { get; set; }
 
     [JsonProperty("ipmi_username")] public string? IpmiUsername { get; set; }
 

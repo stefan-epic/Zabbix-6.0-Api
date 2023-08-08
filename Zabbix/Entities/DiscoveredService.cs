@@ -45,11 +45,11 @@ public class DiscoveredService : BaseEntitiy
     #region Components
 
     [JsonProperty("drules")]
-    public IList<DiscoveryRule>? DiscoveryRules {get; set; }
+    public IList<DiscoveryRule>? DiscoveryRules { get; set; }
     [JsonProperty("dhosts")]
-    public IList<DiscoveredHost>? DiscoveredHosts {get; set; }
+    public IList<DiscoveredHost>? DiscoveredHosts { get; set; }
     [JsonProperty("hosts")]
-    public IList<Host>? Hosts {get; set; }
+    public IList<Host>? Hosts { get; set; }
 
     #endregion
 

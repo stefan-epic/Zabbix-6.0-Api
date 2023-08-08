@@ -2,7 +2,6 @@
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Helpers;
-using ZabbixApi.Helper;
 
 namespace Zabbix.Services.CrudServices;
 
@@ -164,7 +163,7 @@ public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEnt
 
     public virtual async Task<IEnumerable<string>> DeleteAsync(IEnumerable<string> ids)
     {
-    
+
         Checker.CheckEntityIds(ids);
         var ret = (await Core.SendRequestAsync<TEntityResult>(ids, ClassName + ".delete")).Ids;
         return Checker.ReturnEmptyListOrActual(ret);

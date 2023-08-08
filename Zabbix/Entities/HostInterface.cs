@@ -85,7 +85,7 @@ public class HostInterface : BaseEntitiy
     [JsonProperty("disable_until")] public string? DisableUntil { get; set; }
 
     #endregion
-  
+
     #region Components
 
     [JsonProperty("details")] public HostDetails? Details { get; set; }

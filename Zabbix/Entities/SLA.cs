@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
@@ -43,9 +38,9 @@ namespace Zabbix.Entities
 
         #region Components
 
-        [JsonProperty("excluded_downtimes")] public IList<SLAExcludedDowntime>? ExcludedDowntimes {get; set; }
-        [JsonProperty("service_tags")] public IList<Tag>? Tags {get; set; }
-        [JsonProperty("schedule")] public IList<SLASchedule>? Schedules {get; set; }
+        [JsonProperty("excluded_downtimes")] public IList<SLAExcludedDowntime>? ExcludedDowntimes { get; set; }
+        [JsonProperty("service_tags")] public IList<Tag>? Tags { get; set; }
+        [JsonProperty("schedule")] public IList<SLASchedule>? Schedules { get; set; }
 
         #endregion
     }
@@ -53,7 +48,7 @@ namespace Zabbix.Entities
     public class SLASchedule
     {
         #region Properties
-        
+
         [JsonProperty("period_from")]
         public int? PeriodFrom { get; set; }
 

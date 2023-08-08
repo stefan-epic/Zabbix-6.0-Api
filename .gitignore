@@ -370,3 +370,4 @@ FodyWeavers.xsd
 /ZabbixApiDebug/
 
 /ZabbixApiDebug/Main.cs
+/ZabbixApiDebug/ReflectionHelper.cs

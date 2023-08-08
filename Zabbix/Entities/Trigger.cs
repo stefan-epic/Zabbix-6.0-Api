@@ -57,7 +57,7 @@ public class Trigger : BaseEntitiy
 
     [JsonProperty("status")] public string? Status { get; set; }
 
-    [JsonProperty("value")] public int? Value { get; set; } = null;
+    [JsonProperty("value")] public int? Value { get; set; }
 
     [JsonProperty("priority")] public int? Priority { get; set; }
 
@@ -71,9 +71,9 @@ public class Trigger : BaseEntitiy
 
     [JsonProperty("type")] public int? Type { get; set; }
 
-    [JsonProperty("state")] public int? State { get; set; } = null;
+    [JsonProperty("state")] public int? State { get; set; }
 
-    [JsonProperty("flags")] public int? Flags { get; set; } = null;
+    [JsonProperty("flags")] public int? Flags { get; set; }
 
     [JsonProperty("recovery_mode")] public int? RecoveryMode { get; set; }
 
