@@ -16,6 +16,9 @@
 # Mono auto generated files
 mono_crash.*
 
+#Debug Project
+/ZabbixApiDebug/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -362,3 +365,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Zabbix/Filter/Test.cs
+/ZabbixApiDebug/Main.cs
+/ZabbixApiDebug/ZabbixApiDebug.csproj
+/ZabbixApiDebug/ZabbixApiDebug.csproj
