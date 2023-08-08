@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
 namespace Zabbix.Entities;
-
+public enum ActionProperties
+{
+}
 public class Action : BaseEntitiy
 {
     #region Properties

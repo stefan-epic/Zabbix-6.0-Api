@@ -13,7 +13,7 @@ public class ProxyService : CrudService<Proxy, ProxyInclude, ProxyProperties, Pr
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(RequestFilter<ProxyProperties, ProxyInclude>? filter = null, Dictionary<string, object>? @params = null)
+    protected override Dictionary<string, object> BuildParams(RequestFilter<ProxyProperties, ProxyInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }

@@ -11,7 +11,7 @@ public class AlertService : GetService<Alert, AlertInclude, AlertProperties>
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<AlertProperties, AlertInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

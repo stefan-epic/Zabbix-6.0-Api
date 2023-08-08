@@ -20,7 +20,7 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
         ClassName = className;
     }
 
-    protected abstract Dictionary<string, object>? BuildParams(
+    protected abstract Dictionary<string, object> BuildParams(
         RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null);
 
 
@@ -34,7 +34,7 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
     }
 
     //TODO make this default implementation
-    protected Dictionary<string, object>? BaseBuildParams(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
+    protected Dictionary<string, object> BaseBuildParams(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
         Dictionary<string, object>? @params = null)
     {
         if (@params == null)
@@ -55,6 +55,6 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
                 @params!.Add("filter", filter.ObjectFilter!.Filter);
         }
 
-        return @params;
+        return @params!;
     }
 }

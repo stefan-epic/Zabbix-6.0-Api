@@ -13,7 +13,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object>? BuildParams(RequestFilter<ItemPrototypeProperties, ItemPrototypeInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(RequestFilter<ItemPrototypeProperties, ItemPrototypeInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }

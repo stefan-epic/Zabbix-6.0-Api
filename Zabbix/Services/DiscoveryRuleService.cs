@@ -13,7 +13,7 @@ public class DiscoveryRuleService : CrudService<DiscoveryRule, DiscoverRuleInclu
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<DiscoverRuleProperties, DiscoverRuleInclude>? filter = null,
         Dictionary<string, object>? @params = null)
     {

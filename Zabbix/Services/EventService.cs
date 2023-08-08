@@ -12,7 +12,7 @@ public class EventService : GetService<Event, EventInclude, EventProperties>
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<EventProperties, EventInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

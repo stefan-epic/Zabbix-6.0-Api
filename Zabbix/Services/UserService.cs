@@ -12,7 +12,7 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<UserProperties, UserInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

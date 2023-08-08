@@ -12,7 +12,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object>? BuildParams(RequestFilter<ServiceProperties, ServiceInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(RequestFilter<ServiceProperties, ServiceInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
             return BaseBuildParams(filter, @params);
         }

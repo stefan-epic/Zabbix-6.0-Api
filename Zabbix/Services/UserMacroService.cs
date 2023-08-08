@@ -15,7 +15,7 @@ public class UserMacroService : CrudService<UserMacro, UserMacroInclude, UserMac
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<UserMacroProperties, UserMacroInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

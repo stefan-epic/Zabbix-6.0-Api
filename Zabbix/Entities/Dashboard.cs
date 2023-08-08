@@ -59,3 +59,15 @@ public class DashboardWidget : BaseEntitiy
 
     [JsonProperty("fields")] public IList<DashboardField>? Fields { get; set; }
 }
+
+public class DashboardUserGroup
+{
+    [JsonProperty("usrgrpid")] public string? UserGroupId { get; set; }
+    [JsonProperty("permission")] public int? Permission { get; set; }
+}
+
+public class DashboardUser
+{
+    [JsonProperty("userid")] public string? UserId { get; set; }
+    [JsonProperty("permission")] public int? Permission { get; set; }
+}

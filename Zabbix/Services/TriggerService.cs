@@ -13,7 +13,7 @@ public class TriggerService : CrudService<Trigger, TriggerInclude, TriggerProper
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<TriggerProperties, TriggerInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

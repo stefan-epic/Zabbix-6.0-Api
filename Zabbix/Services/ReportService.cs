@@ -12,7 +12,7 @@ public class ReportService : CrudService<Report, ReportInclude, ReportProperties
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(RequestFilter<ReportProperties, ReportInclude>? filter,
+    protected override Dictionary<string, object> BuildParams(RequestFilter<ReportProperties, ReportInclude>? filter,
         Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

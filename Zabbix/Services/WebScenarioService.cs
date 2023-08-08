@@ -13,7 +13,7 @@ public class WebScenarioService : CrudService<WebScenario, WebScenarioInclude, W
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(RequestFilter<WebScenarioProperties, WebScenarioInclude>? filter = null, Dictionary<string, object>? @params = null)
+    protected override Dictionary<string, object> BuildParams(RequestFilter<WebScenarioProperties, WebScenarioInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
     }

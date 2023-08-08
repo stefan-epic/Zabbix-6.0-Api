@@ -13,7 +13,7 @@ public class HostGroupService : CrudService<HostGroup, HostGroupInclude, HostGro
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<HostGroupProperties, HostGroupInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

@@ -13,7 +13,7 @@ public class
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(RequestFilter<TemplateProperties, TemplateInclude>? filter,
+    protected override Dictionary<string, object> BuildParams(RequestFilter<TemplateProperties, TemplateInclude>? filter,
         Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

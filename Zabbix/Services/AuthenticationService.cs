@@ -6,14 +6,13 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services;
 
 //TODO:
-public class
-    AuthenticationService : GetAndUpdateService<Authentication, AuthenticationInclude, AuthenticationProperties>
+public class AuthenticationService : GetAndUpdateService<Authentication, AuthenticationInclude, AuthenticationProperties, bool>
 {
     public AuthenticationService(ICore core) : base(core, "authentication")
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<AuthenticationProperties, AuthenticationInclude>? filter = null,
         Dictionary<string, object>? @params = null)
     {

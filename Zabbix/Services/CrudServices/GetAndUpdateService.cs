@@ -1,10 +1,11 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
+using Zabbix.Helpers;
 
 namespace Zabbix.Services.CrudServices;
 
 public abstract class
-    GetAndUpdateService<TEntity, TEntityInclude, TEntityProperty> :
+    GetAndUpdateService<TEntity, TEntityInclude, TEntityProperty, TEntityResult> :
         GetService<TEntity, TEntityInclude, TEntityProperty>, IUpdate<TEntity>
     where TEntity : BaseEntitiy
     where TEntityInclude : struct, Enum
@@ -14,24 +15,39 @@ public abstract class
     {
     }
 
-    //TODO:
-    public IEnumerable<string> Update(IEnumerable<TEntity>? entity)
+    //TODO: this is horrible
+    public virtual IEnumerable<string> Update(IEnumerable<TEntity> entities)
     {
-        throw new NotImplementedException();
+        var ret = Core.SendRequest<TEntityResult>(entities, ClassName + ".update");
+        if (ret == null)
+        {
+            return new List<string>();
+        }
+
+        var retStr = ret.ToString();
+        return Checker.ReturnEmptyListOrActual(new List<string>(){retStr!});
     }
 
-    public string Update(TEntity entity)
+    public virtual string Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        var ret = Update(new List<TEntity> { entity }).FirstOrDefault();
+        return Checker.ReturnEmptyStringOrActual(ret);
     }
 
-    public Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity>? entity)
+    public virtual async Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entities)
     {
-        throw new NotImplementedException();
+        var ret = (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".update"));
+        if (ret == null)
+        {
+            return new List<string>();
+        }
+        var retStr = ret.ToString();
+        return Checker.ReturnEmptyListOrActual(new List<string>(){ retStr!});
     }
 
-    public Task<string> UpdateAsync(TEntity entity)
+    public virtual async Task<string> UpdateAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        var ret = (await UpdateAsync(new List<TEntity> { entity })).FirstOrDefault();
+        return Checker.ReturnEmptyStringOrActual(ret);
     }
 }

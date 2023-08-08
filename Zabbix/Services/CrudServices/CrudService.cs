@@ -17,11 +17,11 @@ public interface ICrudService<TEntity, TEntityInclude, TEntityProperty> : ICreat
 
 
 public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEntityResult> :
-    ServiceBase<TEntity, TEntityInclude, TEntityProperty>, ICrudService<TEntity, TEntityInclude, TEntityProperty>
-    where TEntity : BaseEntitiy
-    where TEntityInclude : struct, Enum
+    ServiceBase<TEntity, TEntityInclude, TEntityProperty>,
+    ICrudService<TEntity, TEntityInclude, TEntityProperty> where TEntityInclude : struct, Enum
     where TEntityResult : BaseResult
     where TEntityProperty : Enum
+    where TEntity : BaseEntitiy
 {
     protected CrudService(ICore core, string className) : base(core, className)
     {

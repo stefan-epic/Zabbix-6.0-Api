@@ -14,7 +14,7 @@ public class HostService : CrudService<Host, HostInclude, HostProperties, HostSe
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<HostProperties, HostInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);

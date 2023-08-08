@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Zabbix.Core;
+using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Services.CrudServices;
 using Action = Zabbix.Entities.Action;
@@ -12,7 +13,7 @@ public class ActionService : CrudService<Action, ActionInclude, ActionProperties
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<ActionProperties, ActionInclude>? filter = null, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
@@ -24,9 +25,7 @@ public class ActionService : CrudService<Action, ActionInclude, ActionProperties
     }
 }
 
-public enum ActionProperties
-{
-}
+
 
 public enum ActionInclude
 {

@@ -14,7 +14,7 @@ public class HostInterfaceService : CrudService<HostInterface, HostInterfaceIncl
     {
     }
 
-    protected override Dictionary<string, object>? BuildParams(
+    protected override Dictionary<string, object> BuildParams(
         RequestFilter<HostInterfaceProperties, HostInterfaceInclude>? filter, Dictionary<string, object>? @params = null)
     {
         return BaseBuildParams(filter, @params);
