@@ -63,15 +63,15 @@ public class Host : BaseEntitiy
 
     [JsonProperty("description")] public string? Description { get; set; }
 
-    [JsonProperty("tls_connect")] public int? TlsConnect { get; set; } = 1;
+    [JsonProperty("tls_connect")] public int? TlsConnect { get; set; }
 
-    [JsonProperty("tls_accept")] public int? TlsAccept { get; set; } = 1;
+    [JsonProperty("tls_accept")] public int? TlsAccept { get; set; }
 
     [JsonProperty("tls_issuer")] public string? TlsIssuer { get; set; }
 
     [JsonProperty("tls_subject")] public string? TlsSubject { get; set; }
 
-    [JsonProperty("inventory_mode")] public int? InventoryMode { get; set; } = -1;
+    [JsonProperty("inventory_mode")] public int? InventoryMode { get; set; }
 
     #endregion
 
