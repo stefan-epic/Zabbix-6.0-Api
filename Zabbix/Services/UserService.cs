@@ -27,8 +27,25 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
         return Core.SendRequest<User>(@params, ClassName + ".login", null);
     }
 
-    public void Logout()
+    public bool Logout()
     {
+        var res =  Core.SendRequest<bool>(new Dictionary<string, string>(), ClassName + ".logout", null);
+        return res;
+    }
+
+
+    public async Task<User> LoginAsync(string username, string password, Dictionary<string, string>? @params = null)
+    {
+        if (@params == null)
+            @params = new Dictionary<string, string>
+                { { "username", username }, { "password", password }, { "userData", "true" } };
+        return await Core.SendRequestAsync<User>(@params, ClassName + ".login", null);
+    }
+
+    public async Task<bool> LogoutAsync()
+    {
+        var res = await Core.SendRequestAsync<bool>(new Dictionary<string, string>(), ClassName + ".logout", null);
+        return res;
     }
 
     public class UserResult : BaseResult

@@ -3,6 +3,10 @@
 namespace Zabbix.Entities;
 
 //TODO
+public enum GraphProperties
+{
+
+}
 public class Graph : BaseEntitiy
 {
     #region Properties
@@ -46,4 +50,22 @@ public class Graph : BaseEntitiy
     [JsonProperty("flags")] public int? Flags { get; set; }
 
     #endregion
+
+    #region Components
+
+    [JsonProperty("groups")] public IList<HostGroup>? Groups { get; set; }
+    [JsonProperty("templates")] public IList<Template>? Templates { get; set; }
+    [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
+    [JsonProperty("items")] public IList<Item>? Items { get; set; }
+    [JsonProperty("graphDiscovery")] public IList<GraphDiscovery>? GraphDiscoveries { get; set; }
+    [JsonProperty("gitems")] public IList<GraphItem>? GraphItems { get; set; }
+    [JsonProperty("discoveryRule")] public IList<DiscoveryRule>? DiscoveryRules { get; set; }
+
+    #endregion
+}
+
+public class GraphDiscovery
+{
+    [JsonProperty("graphid")] public string? GraphId;
+    [JsonProperty("parent_graphid")] public string? ParentGraphId;
 }

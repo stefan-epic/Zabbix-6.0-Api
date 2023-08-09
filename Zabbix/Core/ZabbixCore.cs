@@ -116,7 +116,7 @@ public class ZabbixCore : ICore
     public void Dispose()
     {
         Users.Logout();
-        throw new NotImplementedException();
+        _httpClient.Dispose();
     }
 
 
@@ -128,9 +128,10 @@ public class ZabbixCore : ICore
         _authenticationToken = _loggedInUser.SessionId;
     }
 
-    private void AuthenticateAsync(string user, string password)
+    private async void AuthenticateAsync(string user, string password)
     {
-        throw new NotImplementedException();
+        _loggedInUser = await Users.LoginAsync(user, password);
+        _authenticationToken = _loggedInUser.SessionId;
     }
 
 
