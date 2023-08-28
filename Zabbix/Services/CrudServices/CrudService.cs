@@ -8,7 +8,7 @@ namespace Zabbix.Services.CrudServices;
 //TODO: Maybe add createOrupdate methods
 public interface ICrudService<TEntity, TEntityInclude, TEntityProperty> : ICreate<TEntity>,
     IGet<TEntity, TEntityInclude, TEntityProperty>, IUpdate<TEntity>, IDelete<TEntity>
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
 {
@@ -21,7 +21,7 @@ public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEnt
     ICrudService<TEntity, TEntityInclude, TEntityProperty> where TEntityInclude : struct, Enum
     where TEntityResult : BaseResult
     where TEntityProperty : Enum
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
 {
     protected CrudService(ICore core, string className) : base(core, className)
     {

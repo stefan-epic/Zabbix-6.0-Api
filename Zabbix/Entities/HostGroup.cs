@@ -11,7 +11,7 @@ public enum HostGroupProperties
 }
 //TODO
 
-public class HostGroup : BaseEntitiy
+public class HostGroup : BaseEntity
 {
 
     #region Properties

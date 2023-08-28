@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Token : BaseEntitiy
+    public class Token : BaseEntity
     {
         #region Properties
 

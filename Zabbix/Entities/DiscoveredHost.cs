@@ -8,7 +8,7 @@ public enum DiscoveredHostProperties
 {
 
 }
-public class DiscoveredHost : BaseEntitiy
+public class DiscoveredHost : BaseEntity
 {
     #region Properties
 

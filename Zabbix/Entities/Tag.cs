@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities;
 
-public class Tag : BaseEntitiy
+public class Tag : BaseEntity
 {
     [JsonProperty("tag")] public string? TagName { get; set; }
 

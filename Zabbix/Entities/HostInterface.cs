@@ -56,7 +56,7 @@ public class HostDetails
     #endregion
 }
 
-public class HostInterface : BaseEntitiy
+public class HostInterface : BaseEntity
 {
     #region Properties
 

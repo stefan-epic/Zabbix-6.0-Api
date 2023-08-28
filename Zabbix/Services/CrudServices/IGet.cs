@@ -4,7 +4,7 @@ using Zabbix.Filter;
 namespace Zabbix.Services.CrudServices;
 
 public interface IGet<TEntity, TEntityInclude, TEntityProperty>
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
 {

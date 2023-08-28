@@ -7,7 +7,7 @@ namespace Zabbix.Services.CrudServices;
 
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference_commentary#common-get-method-parameters
 public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
     where TEntityInclude : struct, Enum
     where TEntityProperty : Enum
 {
@@ -29,11 +29,19 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
     {
 
 
-        foreach (var kvp in include.Filter) @params.Add(kvp.Key, kvp.Value);
+        foreach (var kvp in include.Filter)
+        {
+            if (kvp.Value[0].Equals("extend"))
+            {
+                @params.Add(kvp.Key, "extend");
+            }
+            else
+                @params.Add(kvp.Key, kvp.Value);
+        };
         return @params;
     }
 
-    //TODO make this default implementation
+    //TODO make this default implementation of BuildParams
     protected Dictionary<string, object> BaseBuildParams(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
         Dictionary<string, object>? @params = null)
     {
@@ -42,16 +50,16 @@ public abstract class ServiceBase<TEntity, TEntityInclude, TEntityProperty>
 
         if (filter != null)
         {
-            if (!filter.IsOutputFilterNullOrEmpty())
+            if (!filter.IsOutputFilterEmpty())
                 @params.Add("output", filter.OutputFilter!.Filter);
             else
                 @params.AddIfNotExist("output", "extend");
 
 
-            if (!filter.IsIncludeFilterNullOrEmpty())
+            if (!filter.IsIncludeFilterEmpty())
                 @params = MapIncludesToParams(filter.IncludeFilter!, @params);
 
-            if (!filter.IsObjectFilterNullOrEmpty())
+            if (!filter.IsObjectFilterEmpty())
                 @params!.Add("filter", filter.ObjectFilter!.Filter);
         }
 

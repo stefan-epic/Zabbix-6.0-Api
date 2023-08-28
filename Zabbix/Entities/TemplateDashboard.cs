@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class TemplateDashboard : BaseEntitiy
+    public class TemplateDashboard : BaseEntity
     {
         #region Properties
 

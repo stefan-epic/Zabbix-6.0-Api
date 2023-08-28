@@ -11,7 +11,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class GraphItem : BaseEntitiy
+    public class GraphItem : BaseEntity
     {
         #region Properties
 

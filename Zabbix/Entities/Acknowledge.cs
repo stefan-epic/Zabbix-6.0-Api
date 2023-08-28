@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities;
 
-public class Acknowledge : BaseEntitiy
+public class Acknowledge : BaseEntity
 {
     #region Properties
 

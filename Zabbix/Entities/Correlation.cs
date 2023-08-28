@@ -12,7 +12,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class Correlation : BaseEntitiy
+    public class Correlation : BaseEntity
     {
         #region Properties
 

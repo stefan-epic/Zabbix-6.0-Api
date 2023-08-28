@@ -13,7 +13,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class History : BaseEntitiy
+    public class History : BaseEntity
     {
     }
 

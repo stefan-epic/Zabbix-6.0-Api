@@ -7,7 +7,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Settings : BaseEntitiy
+    public class Settings : BaseEntity
     {
         #region Properties
 

@@ -20,7 +20,7 @@ public enum ProblemProperties
     severity
 }
 
-public class Problem : BaseEntitiy
+public class Problem : BaseEntity
 {
     #region Properties
 

@@ -4,7 +4,7 @@ namespace Zabbix.Services.CrudServices;
 
 //TODO:add  byId methods
 public interface IDelete<TEntity>
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
 {
     //  IEnumerable<string> Delete(IEnumerable<string> ids);
     // string Delete(string id);

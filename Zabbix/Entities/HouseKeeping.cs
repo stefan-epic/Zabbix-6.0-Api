@@ -11,7 +11,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Housekeeping : BaseEntitiy
+    public class Housekeeping : BaseEntity
     {
         #region MyRegion
 

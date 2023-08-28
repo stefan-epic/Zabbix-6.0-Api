@@ -25,7 +25,7 @@ public enum WebScenarioProperties
     verify_host
 }
 
-public class WebScenario : BaseEntitiy
+public class WebScenario : BaseEntity
 {
     #region Components
 
@@ -93,7 +93,7 @@ public class WebScenario : BaseEntitiy
     #endregion
 }
 
-public class WebScenarioStep : BaseEntitiy
+public class WebScenarioStep : BaseEntity
 {
     #region Components
 

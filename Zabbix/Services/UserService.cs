@@ -33,7 +33,6 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
         return res;
     }
 
-
     public async Task<User> LoginAsync(string username, string password, Dictionary<string, string>? @params = null)
     {
         if (@params == null)

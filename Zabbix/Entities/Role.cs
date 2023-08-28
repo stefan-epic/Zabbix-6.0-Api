@@ -6,7 +6,7 @@ public enum RoleProperties
 {
 }
 
-public class Role : BaseEntitiy
+public class Role : BaseEntity
 {
     #region Components
 

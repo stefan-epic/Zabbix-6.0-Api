@@ -4,7 +4,7 @@ namespace Zabbix.Entities;
 public enum ActionProperties
 {
 }
-public class Action : BaseEntitiy
+public class Action : BaseEntity
 {
     #region Properties
 

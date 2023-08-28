@@ -25,7 +25,7 @@ public class ValueMappings
 
 }
 
-public class ValueMap : BaseEntitiy
+public class ValueMap : BaseEntity
 {
     #region Properties
 

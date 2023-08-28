@@ -7,7 +7,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class TriggerPrototype : BaseEntitiy
+    public class TriggerPrototype : BaseEntity
     {
         #region Properties
 

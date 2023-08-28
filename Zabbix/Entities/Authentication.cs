@@ -7,7 +7,7 @@ public enum AuthenticationProperties
 {
 }
 
-public class Authentication : BaseEntitiy
+public class Authentication : BaseEntity
 {
     #region Properties
 

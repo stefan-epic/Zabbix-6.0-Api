@@ -7,7 +7,7 @@ public enum UserMacroProperties
 {
 }
 
-public class UserMacro : BaseEntitiy
+public class UserMacro : BaseEntity
 {
     #region Properties
 

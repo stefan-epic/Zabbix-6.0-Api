@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class SLA : BaseEntitiy
+    public class SLA : BaseEntity
     {
         #region Properties
 

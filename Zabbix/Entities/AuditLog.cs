@@ -6,7 +6,7 @@ public enum AuditLogProperties
 {
 }
 
-public class AuditLog : BaseEntitiy
+public class AuditLog : BaseEntity
 {
     #region Properties
 

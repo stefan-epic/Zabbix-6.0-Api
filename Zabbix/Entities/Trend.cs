@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public abstract class Trend : BaseEntitiy
+    public abstract class Trend : BaseEntity
     {
         #region Properties
 

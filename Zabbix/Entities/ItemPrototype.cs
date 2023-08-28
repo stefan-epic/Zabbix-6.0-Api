@@ -7,7 +7,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class ItemPrototype : BaseEntitiy
+    public class ItemPrototype : BaseEntity
     {
         #region Properties
 

@@ -37,7 +37,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class IconMap : BaseEntitiy
+    public class IconMap : BaseEntity
     {
         #region Properties
 

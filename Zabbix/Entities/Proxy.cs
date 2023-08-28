@@ -8,7 +8,7 @@ public enum ProxyProperties
 
 }
 
-public class Proxy : BaseEntitiy
+public class Proxy : BaseEntity
 {
     #region Properties
 

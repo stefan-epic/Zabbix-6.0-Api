@@ -46,7 +46,7 @@ public enum TemplateProperties
 }
 //TODO
 
-public class Template : BaseEntitiy
+public class Template : BaseEntity
 {
     #region Properties
 

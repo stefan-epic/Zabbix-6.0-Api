@@ -25,7 +25,7 @@ public class HostService : MassCrudService<Host, HostInclude, HostProperties, Ho
     {
         [JsonProperty("hostids")] public override IList<string>? Ids { get; set; }
     }
-
+    /*
     public override Dictionary<string, object> BuildMassParams(IEnumerable<Host> entities, Host properties, Dictionary<string, object>? @params = null)
     {
         if (@params == null)
@@ -44,6 +44,11 @@ public class HostService : MassCrudService<Host, HostInclude, HostProperties, Ho
         @params.Add("params", JsonConvert.SerializeObject(properties, settings));
 
         return @params;
+    }
+    */
+    public override Dictionary<string, object> BuildMassParams(IEnumerable<Host> entities, Dictionary<HostProperties, object> properties, Dictionary<string, object>? @params = null)
+    {
+        throw new NotImplementedException();
     }
 }
 

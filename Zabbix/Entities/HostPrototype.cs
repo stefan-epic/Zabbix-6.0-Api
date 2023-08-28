@@ -11,7 +11,7 @@ public enum HostPrototypeProperties
 
 }
 //TODO
-public class HostPrototype : BaseEntitiy
+public class HostPrototype : BaseEntity
 {
     #region Properties
 

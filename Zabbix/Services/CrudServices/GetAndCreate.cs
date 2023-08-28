@@ -10,7 +10,7 @@ using Zabbix.Filter;
 namespace Zabbix.Services.CrudServices
 {
     //TODO
-    public abstract class GetAndCreate<TEntity, TEntityInclude, TEntityProperty> : GetService<TEntity, TEntityInclude, TEntityProperty>, ICreate<TEntity> where TEntityProperty : Enum where TEntityInclude : struct, Enum where TEntity : BaseEntitiy
+    public abstract class GetAndCreate<TEntity, TEntityInclude, TEntityProperty> : GetService<TEntity, TEntityInclude, TEntityProperty>, ICreate<TEntity> where TEntityProperty : Enum where TEntityInclude : struct, Enum where TEntity : BaseEntity
     {
         public GetAndCreate(ICore core, string className) : base(core, className)
         {

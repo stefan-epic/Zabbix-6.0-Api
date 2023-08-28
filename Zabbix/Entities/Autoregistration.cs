@@ -11,7 +11,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Autoregistration : BaseEntitiy
+    public class Autoregistration : BaseEntity
     {
         [JsonProperty("tls_accept")]
         public int? TlsAccept { get; set; }

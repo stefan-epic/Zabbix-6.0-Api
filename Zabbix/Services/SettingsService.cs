@@ -18,7 +18,7 @@ namespace Zabbix.Services
 
         protected override Dictionary<string, object> BuildParams(RequestFilter<SettingsProperties, SettingsInclude>? filter = null, Dictionary<string, object>? @params = null)
         {
-            BaseBuildParams(filter, @params);
+           return BaseBuildParams(filter, @params);
         }
     }
 

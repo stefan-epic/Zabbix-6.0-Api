@@ -8,7 +8,7 @@ public enum MediaTypeProperties
 
 }
 
-public class MediaType : BaseEntitiy
+public class MediaType : BaseEntity
 {
     #region Properties
 

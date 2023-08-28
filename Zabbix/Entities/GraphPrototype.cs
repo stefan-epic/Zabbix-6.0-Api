@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class GraphPrototype : BaseEntitiy
+    public class GraphPrototype : BaseEntity
     {
         #region Properties
 

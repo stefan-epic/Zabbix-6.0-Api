@@ -11,7 +11,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class HighAvailabilityNode : BaseEntitiy
+    public class HighAvailabilityNode : BaseEntity
     {
         #region Properties
 

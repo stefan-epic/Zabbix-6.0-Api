@@ -3,7 +3,7 @@
 namespace Zabbix.Services.CrudServices;
 
 public interface IUpdate<TEntity>
-    where TEntity : BaseEntitiy
+    where TEntity : BaseEntity
 {
     IEnumerable<string> Update(IEnumerable<TEntity> entity);
     string? Update(TEntity entity);

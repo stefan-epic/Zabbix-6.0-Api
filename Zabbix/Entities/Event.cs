@@ -21,7 +21,7 @@ public enum EventProperties
     opdata
 }
 
-public class Event : BaseEntitiy
+public class Event : BaseEntity
 {
     #region Properties
 

@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class RegexObject : BaseEntitiy
+    public class RegexObject : BaseEntity
     {
         [JsonProperty("regexpid")]
         public override string? EntityId { get; set; }

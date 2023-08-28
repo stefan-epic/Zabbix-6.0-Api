@@ -7,7 +7,7 @@ public enum DiscoveryCheckProperties
 {
 
 }
-public class DiscoveryCheck : BaseEntitiy
+public class DiscoveryCheck : BaseEntity
 {
     #region Properties
 

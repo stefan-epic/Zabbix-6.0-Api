@@ -7,7 +7,7 @@ public enum GraphProperties
 {
 
 }
-public class Graph : BaseEntitiy
+public class Graph : BaseEntity
 {
     #region Properties
 

@@ -7,7 +7,7 @@ public enum DiscoverRuleProperties
 {
 }
 
-public class DiscoveryRule : BaseEntitiy
+public class DiscoveryRule : BaseEntity
 {
     #region Properties
 

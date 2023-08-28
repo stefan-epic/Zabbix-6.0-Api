@@ -7,7 +7,7 @@ public enum ItemProperties
 }
 
 //TODO
-public class Item : BaseEntitiy
+public class Item : BaseEntity
 {
     #region Properties
 

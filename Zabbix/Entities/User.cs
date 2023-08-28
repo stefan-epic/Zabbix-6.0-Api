@@ -29,7 +29,7 @@ public enum UserProperties
 }
 //TODO
 
-public class User : BaseEntitiy
+public class User : BaseEntity
 {
     #region Properties
 

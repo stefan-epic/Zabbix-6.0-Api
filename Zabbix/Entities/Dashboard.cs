@@ -2,7 +2,7 @@
 
 namespace Zabbix.Entities;
 
-public class DashboardField : BaseEntitiy
+public class DashboardField : BaseEntity
 {
     [JsonProperty("type")] public string? Type { get; set; }
 
@@ -11,7 +11,7 @@ public class DashboardField : BaseEntitiy
     [JsonProperty("value")] public string? Value { get; set; }
 }
 
-public class DashboardPage : BaseEntitiy
+public class DashboardPage : BaseEntity
 {
     [JsonProperty("dashboard_pageid")] public override string? EntityId { get; set; }
 
@@ -22,7 +22,7 @@ public class DashboardPage : BaseEntitiy
     [JsonProperty("widgets")] public IList<DashboardWidget>? Widgets { get; set; }
 }
 
-public class Dashboard : BaseEntitiy
+public class Dashboard : BaseEntity
 {
     [JsonProperty("dashboardid")] public override string? EntityId { get; set; }
 
@@ -39,7 +39,7 @@ public class Dashboard : BaseEntitiy
     [JsonProperty("pages")] public IList<DashboardPage>? Pages { get; set; }
 }
 
-public class DashboardWidget : BaseEntitiy
+public class DashboardWidget : BaseEntity
 {
     [JsonProperty("widgetid")] public override string? EntityId { get; set; }
 

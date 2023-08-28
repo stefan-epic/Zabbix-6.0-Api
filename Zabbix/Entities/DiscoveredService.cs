@@ -6,7 +6,7 @@ public enum DiscoveredServiceProperties
 {
 
 }
-public class DiscoveredService : BaseEntitiy
+public class DiscoveredService : BaseEntity
 {
     #region Properties
 

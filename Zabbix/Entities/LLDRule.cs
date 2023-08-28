@@ -7,7 +7,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class LLDRule : BaseEntitiy
+    public class LLDRule : BaseEntity
     {
         #region Properties
 

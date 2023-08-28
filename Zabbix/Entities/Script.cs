@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Script : BaseEntitiy
+    public class Script : BaseEntity
     {
         #region Properties
 

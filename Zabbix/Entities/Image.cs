@@ -11,7 +11,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Image : BaseEntitiy
+    public class Image : BaseEntity
     {
         [JsonProperty("imageid")]
         public override string? EntityId { get; set; }

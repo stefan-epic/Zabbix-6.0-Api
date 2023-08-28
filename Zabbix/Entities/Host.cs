@@ -27,7 +27,7 @@ public enum HostProperties
     inventory_mode
 }
 
-public class Host : BaseEntitiy
+public class Host : BaseEntity
 {
     #region Properties
 

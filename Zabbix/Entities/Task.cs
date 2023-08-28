@@ -5,7 +5,7 @@ namespace Zabbix.Entities
 
     //TODO: this is probably wrong or bad or both
 
-    public class TaskObject : BaseEntitiy
+    public class TaskObject : BaseEntity
     {
         #region Properties
         [JsonProperty("taskid")]

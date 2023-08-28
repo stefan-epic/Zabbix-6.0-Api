@@ -22,7 +22,7 @@ public enum AlertProperties
     acknowledgeid
 }
 
-public class Alert : BaseEntitiy
+public class Alert : BaseEntity
 {
     #region Properties
 

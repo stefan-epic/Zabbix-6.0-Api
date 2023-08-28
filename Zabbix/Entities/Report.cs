@@ -23,7 +23,7 @@ public enum ReportProperties
     info
 }
 
-public class Report : BaseEntitiy
+public class Report : BaseEntity
 {
     #region Properties
 

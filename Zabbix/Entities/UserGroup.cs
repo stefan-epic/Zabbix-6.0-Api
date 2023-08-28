@@ -7,7 +7,7 @@ public enum UserGroupProperties
 
 }
 
-public class UserGroup : BaseEntitiy
+public class UserGroup : BaseEntity
 {
     #region Properties
     [JsonProperty("usrgrpid")] public override string? EntityId { get; set; }

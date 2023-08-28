@@ -15,7 +15,7 @@ namespace Zabbix.Helpers
             return str ?? string.Empty;
         }
 
-        public static void CheckEntityId(BaseEntitiy entity)
+        public static void CheckEntityId(BaseEntity entity)
         {
             if (entity.EntityId == null)
             {
@@ -36,7 +36,7 @@ namespace Zabbix.Helpers
                 throw new NullReferenceException();
             }
         }
-        public static void CheckEntityIds(IEnumerable<BaseEntitiy> entities)
+        public static void CheckEntityIds(IEnumerable<BaseEntity> entities)
         {
 
             foreach (var e in entities)

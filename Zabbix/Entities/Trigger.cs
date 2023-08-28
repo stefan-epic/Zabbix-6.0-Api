@@ -43,7 +43,7 @@ public class TriggerFunction
     #endregion
 }
 
-public class Trigger : BaseEntitiy
+public class Trigger : BaseEntity
 {
     #region Properties
 

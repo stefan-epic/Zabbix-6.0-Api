@@ -6,7 +6,7 @@ namespace Zabbix.Entities
     {
 
     }
-    public class Maintenance : BaseEntitiy
+    public class Maintenance : BaseEntity
     {
         #region Properties
         [JsonProperty("maintenanceid")]
