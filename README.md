@@ -3,7 +3,7 @@
 This is a C# library designed to simplify interactions with the Zabbix API (version 6.0). It provides an intuitive way to perform operations such as creating, updating, deleting and getting entties for Zabbix.
 
 ## Still in Development
-Please note that this library is still under active development, there may be bugs. Your assistance in identifying and addressing these issues is greatly appreciated.
+Please note that this library is still under active development, there are probably a lot of bugs. Your assistance in identifying and addressing these issues is greatly appreciated.
 
 ## Installation
 
