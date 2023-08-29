@@ -4,7 +4,29 @@ namespace Zabbix.Entities
 {
     public enum TriggerPrototypeProperties
     {
-
+        triggerid,
+        expression,
+        description,
+        url,
+        status,
+        priority,
+        comments,
+        templateid,
+        type,
+        flags,
+        recovery_mode,
+        recovery_expression,
+        correlation_mode,
+        correlation_tag,
+        manual_close,
+        opdata,
+        discover,
+        functions,
+        discoveryRule,
+        groups,
+        hosts,
+        items,
+        tags
     }
 
     public class TriggerPrototype : BaseEntity

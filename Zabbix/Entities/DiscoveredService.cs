@@ -4,7 +4,19 @@ namespace Zabbix.Entities;
 
 public enum DiscoveredServiceProperties
 {
-
+    dserviceid,
+    dcheckid,
+    dhostid,
+    dns,
+    ip,
+    lastdown,
+    lastup,
+    port,
+    status,
+    value,
+    drules,
+    dhosts,
+    hosts
 }
 public class DiscoveredService : BaseEntity
 {

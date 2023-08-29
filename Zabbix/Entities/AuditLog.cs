@@ -4,6 +4,17 @@ namespace Zabbix.Entities;
 
 public enum AuditLogProperties
 {
+    auditid,
+    userid,
+    username,
+    clock,
+    ip,
+    action,
+    resourcetype,
+    resourceid,
+    resourcename,
+    recordsetid,
+    details
 }
 
 public class AuditLog : BaseEntity

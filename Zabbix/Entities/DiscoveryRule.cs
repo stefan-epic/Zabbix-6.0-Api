@@ -5,6 +5,15 @@ namespace Zabbix.Entities;
 //TODO
 public enum DiscoverRuleProperties
 {
+    druleid,
+    iprange,
+    name,
+    delay,
+    nextcheck,
+    proxy_hostid,
+    status,
+    dhosts,
+    dchecks
 }
 
 public class DiscoveryRule : BaseEntity

@@ -4,7 +4,15 @@ namespace Zabbix.Entities
 {
     public enum TokenProperties
     {
-
+        tokenid,
+        name,
+        description,
+        userid,
+        lastaccess,
+        status,
+        expires_at,
+        created_at,
+        creator_userid
     }
     public class Token : BaseEntity
     {

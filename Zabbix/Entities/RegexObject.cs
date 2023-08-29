@@ -4,7 +4,9 @@ namespace Zabbix.Entities
 {
     public enum RegexObjectProperties
     {
-
+        regexpid,
+        name,
+        test_string
     }
     public class RegexObject : BaseEntity
     {

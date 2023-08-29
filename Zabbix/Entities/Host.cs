@@ -24,7 +24,20 @@ public enum HostProperties
     tls_accept,
     tls_issuer,
     tls_subject,
-    inventory_mode
+    inventory_mode,
+    groups,
+    parentTemplates,
+    tags,
+    triggers,
+    items,
+    graphs,
+    httptests,
+    interfaces,
+    inventory,
+    macros,
+    dashboards,
+    inheritedTags,
+    valueMaps
 }
 
 public class Host : BaseEntity

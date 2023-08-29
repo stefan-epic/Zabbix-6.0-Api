@@ -4,6 +4,11 @@ namespace Zabbix.Entities;
 
 public enum RoleProperties
 {
+    rules,
+    roleid,
+    name,
+    type,
+    @readonly
 }
 
 public class Role : BaseEntity

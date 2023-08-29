@@ -3,6 +3,17 @@
 namespace Zabbix.Entities;
 public enum ActionProperties
 {
+    actionid,
+    esc_period,
+    eventsource,
+    name,
+    status,
+    pause_suppressed,
+    notify_if_canceled,
+    filter,
+    operations,
+    recovery_operations,
+    update_operations
 }
 public class Action : BaseEntity
 {

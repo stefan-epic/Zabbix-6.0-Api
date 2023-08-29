@@ -4,7 +4,17 @@ namespace Zabbix.Entities
 {
     public enum MaintenanceProperties
     {
-
+        maintenanceid,
+        name,
+        active_since,
+        active_till,
+        description,
+        maintenance_type,
+        tags_evaltype,
+        groups,
+        hosts,
+        tags,
+        timeperiods
     }
     public class Maintenance : BaseEntity
     {

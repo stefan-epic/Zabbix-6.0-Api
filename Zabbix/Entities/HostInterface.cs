@@ -15,7 +15,10 @@ public enum HostInterfaceProperties
     available,
     error,
     errors_from,
-    disable_until
+    disable_until,
+    details,
+    hosts,
+    items
 }
 
 //TODO

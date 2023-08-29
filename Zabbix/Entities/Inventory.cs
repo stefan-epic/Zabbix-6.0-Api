@@ -2,8 +2,7 @@
 
 namespace Zabbix.Entities;
 
-//TODO remove Base Entity
-public class Inventory : BaseEntity
+public class Inventory
 {
     #region Properties
 

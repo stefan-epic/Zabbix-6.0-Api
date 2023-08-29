@@ -9,7 +9,9 @@ namespace Zabbix.Entities
 {
     public enum IconMapProperties
     {
-
+        iconmapid,
+        default_iconid,
+        name
     }
     public class IconMapping
     {
@@ -52,7 +54,6 @@ namespace Zabbix.Entities
     {
         #region Properties
 
-
         [JsonProperty("iconmapid")]
         public override string? EntityId { get; set; }
 
@@ -64,8 +65,6 @@ namespace Zabbix.Entities
         #endregion
 
         #region Components
-
-
         [JsonProperty("mappings")] IList<IconMapping>? IconMappings {get; set; }
 
         #endregion

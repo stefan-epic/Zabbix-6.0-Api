@@ -10,7 +10,12 @@ namespace Zabbix.Entities
     //TODO:
     public enum CorrelationProperties
     {
-
+        correlationid,
+        name,
+        description,
+        status,
+        operations,
+        filter
     }
 
     public class Correlation : BaseEntity

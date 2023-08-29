@@ -1,7 +1,7 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
-using ZabbixApi.Helper;
+using Zabbix.Helpers;
 
 namespace Zabbix.Services.CrudServices;
 

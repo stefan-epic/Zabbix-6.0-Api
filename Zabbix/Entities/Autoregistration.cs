@@ -9,7 +9,9 @@ namespace Zabbix.Entities
 {
     public enum AutoregistrationProperties
     {
-
+        tls_accept,
+        tls_psk_identity,
+        tls_psk
     }
     public class Autoregistration : BaseEntity
     {

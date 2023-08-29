@@ -9,7 +9,16 @@ namespace Zabbix.Entities
 {
     public enum GraphItemProperties
     {
-
+        gitemid,
+        color,
+        itemid,
+        calc_fnc,
+        drawtype,
+        graphid,
+        sortorder,
+        type,
+        yaxisside,
+        graphs
     }
     public class GraphItem : BaseEntity
     {

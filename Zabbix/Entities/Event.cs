@@ -18,7 +18,11 @@ public enum EventProperties
     correlationid,
     userid,
     supressed,
-    opdata
+    opdata,
+    urls,
+    acknowledges,
+    suppression_data,
+    tags
 }
 
 public class Event : BaseEntity

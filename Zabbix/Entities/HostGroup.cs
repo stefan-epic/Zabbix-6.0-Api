@@ -7,7 +7,11 @@ public enum HostGroupProperties
     groupid,
     name,
     @internal,
-    flags
+    flags,
+    discoveryRule,
+    groupDiscovery,
+    hosts,
+    templates
 }
 
 public class HostGroup : BaseEntity

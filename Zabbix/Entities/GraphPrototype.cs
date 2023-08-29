@@ -4,7 +4,25 @@ namespace Zabbix.Entities
 {
     public enum GraphPrototypeProperties
     {
-
+        graphid,
+        height,
+        name,
+        width,
+        graphtype,
+        percent_left,
+        percent_right,
+        show_3d,
+        show_legend,
+        show_work_period,
+        templateid,
+        yaxismax,
+        yaxismin,
+        ymax_itemid,
+        ymax_type,
+        ymin_itemid,
+        ymin_type,
+        discover,
+        uuid
     }
     public class GraphPrototype : BaseEntity
     {

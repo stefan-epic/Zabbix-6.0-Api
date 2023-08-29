@@ -1,4 +1,4 @@
-﻿namespace ZabbixApi.Helper;
+﻿namespace Zabbix.Helpers;
 
 internal static class DictionaryExtensions
 {

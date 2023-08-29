@@ -4,7 +4,13 @@ namespace Zabbix.Entities
 {
     public enum TemplateDashboardProperties
     {
-
+        dashboardid,
+        name,
+        templateid,
+        display_period,
+        auto_start,
+        uuid,
+        pages
     }
     public class TemplateDashboard : BaseEntity
     {
@@ -71,8 +77,6 @@ namespace Zabbix.Entities
         public IList<TemplateDashboardWidget>? Widgets { get; set; }
 
         #endregion
-
-
 
     }
     public class TemplateDashboardWidget

@@ -9,7 +9,12 @@ namespace Zabbix.Entities
 {
     public enum HighAvailabilityNodeProperties
     {
-
+        ha_nodeid,
+        name,
+        address,
+        port,
+        lastaccess,
+        status
     }
     public class HighAvailabilityNode : BaseEntity
     {

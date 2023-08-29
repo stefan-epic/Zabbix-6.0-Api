@@ -9,7 +9,10 @@ namespace Zabbix.Entities
 {
     public enum ImageProperties
     {
-
+        imageid,
+        name,
+        imagetype,
+        image
     }
     public class Image : BaseEntity
     {

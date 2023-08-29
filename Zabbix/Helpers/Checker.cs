@@ -22,7 +22,7 @@ namespace Zabbix.Helpers
                 throw new NullReferenceException($"ID cannot be null for {entity}");
             }
         }
-        public static void CheckEntityId(string id)
+        public static void CheckEntityId(string? id)
         {
             if (id == null)
             {
@@ -33,7 +33,7 @@ namespace Zabbix.Helpers
         {
             if (ids.Any(id => id == null))
             {
-                throw new NullReferenceException();
+                throw new NullReferenceException($"ID cannot be null");
             }
         }
         public static void CheckEntityIds(IEnumerable<BaseEntity> entities)

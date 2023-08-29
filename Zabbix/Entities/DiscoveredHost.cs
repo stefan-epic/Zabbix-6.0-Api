@@ -6,7 +6,13 @@ namespace Zabbix.Entities;
 
 public enum DiscoveredHostProperties
 {
-
+    dhostid,
+    druleid,
+    lastdown,
+    lastup,
+    status,
+    drules,
+    dservices
 }
 public class DiscoveredHost : BaseEntity
 {

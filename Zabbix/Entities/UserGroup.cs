@@ -4,7 +4,14 @@ namespace Zabbix.Entities;
 
 public enum UserGroupProperties
 {
-
+    usrgrpid,
+    name,
+    gui_access,
+    users_status,
+    debug_mode,
+    tag_filters,
+    users,
+    rights
 }
 
 public class UserGroup : BaseEntity

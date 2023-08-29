@@ -4,7 +4,6 @@ using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Services.CrudServices;
-using ZabbixApi.Helper;
 
 namespace Zabbix.Services;
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference/host/get
