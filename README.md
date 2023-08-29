@@ -22,7 +22,7 @@ ZabbixCore core = new ZabbixCore(url, username, password);
 
 ### Creating Entities
 Creating an Entity returns its remote Zabbix id, Zabbix will set every unset value to its default value. <br/>
-It's important to note that each entity has a set of required properties that must be configured, as indicated by the constructor. (Do note that this constructor isn't available for every entity yet; refer to the Zabbix API documentation when unsure.)
+It's important to note that each entity has a set of required properties that must be configured, as indicated by the constructor.
 ```csharp
 Host serverHost = new Host("Server", new List<HostGroup>() { linuxServers });
 string createdServerHostId = core.Hosts.Create(serverHost);
