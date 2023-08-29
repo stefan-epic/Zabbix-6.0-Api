@@ -1,6 +1,6 @@
 # Zabbix 6.0 API Library for C#
 
-This is a C# library designed to simplify interactions with the Zabbix API (version 6.0). It provides an intuitive way to perform operations such as creating, updating, deleting and getting entties for your Zabbix instance.
+This is a C# library designed to simplify interactions with the Zabbix API (version 6.0). It provides an intuitive way to perform operations such as creating, updating, deleting and getting entties for Zabbix.
 
 ## Still in Development
 Please note that this library is still under active development, there may be bugs. Your assistance in identifying and addressing these issues is greatly appreciated.
@@ -95,3 +95,5 @@ Every Crud operation can be called with either a single Entity or a List of Enti
 ## Contribution
 I welcome contributions and improvements to this library. Please feel free to open issues and submit pull requests.
 
+## Credit
+Lots of Code has been reused from https://github.com/HenriqueCaires/ZabbixApi/tree/master
