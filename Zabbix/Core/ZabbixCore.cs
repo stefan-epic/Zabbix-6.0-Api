@@ -38,6 +38,9 @@ public class ZabbixCore : ICore
 
         _url = url;
         _httpClient = new HttpClient();
+        GraphItems = new GraphItemService(this);
+        Autoregistration = new(this);
+        Correlations = new CorrelationService(this);
         Hosts = new HostService(this);
         HostGroups = new HostGroupService(this);
         WebScenarios = new WebScenarioService(this);
@@ -45,7 +48,7 @@ public class ZabbixCore : ICore
         Triggers = new TriggerService(this);
         Problems = new ProblemService(this);
         Reports = new ReportService(this);
-        Interfaces = new HostInterfaceService(this);
+        HostInterfaces = new HostInterfaceService(this);
         Alerts = new AlertService(this);
         Events = new EventService(this);
         Actions = new ActionService(this);
@@ -54,7 +57,7 @@ public class ZabbixCore : ICore
         Roles = new RoleService(this);
         Items = new ItemService(this);
         AuditLogs = new AuditLogService(this);
-        Proxys = new ProxyService(this);
+        Proxies = new ProxyService(this);
         ValueMaps = new ValueMapService(this);
         DiscoveredHosts = new DiscoveredHostService(this);
         DiscoveryChecks = new DiscoveryCheckService(this);
@@ -62,8 +65,25 @@ public class ZabbixCore : ICore
         DiscoveryRules = new DiscoveryRuleService(this);
         TriggerPrototypess = new TriggerPrototypeService(this);
         Trends = new TrendService(this);
-        LLDRules = new LLDRuleService(this);
+        LldRules = new LLDRuleService(this);
         UserGroups = new UserGroupService(this);
+        GraphPrototypes = new GraphPrototypeService(this);
+        HighAvailabilityNodes = new HighAvailabilityNodeService(this);
+        History = new HistoryService(this);
+        HostPrototypes = new HostPrototypeService(this);
+        Housekeeping = new HousekeepingService(this);
+        IconMaps = new IconMapService(this);
+        Images = new ImageService(this);
+        ItemPrototypes = new ItemPrototypeService(this);
+        Maintenance = new MaintenanceService(this);
+        MediaTypes = new MediaTypeService(this);
+        Regex = new RegexObjectService(this);
+        Scripts = new ScriptService(this);
+        Settings = new SettingsService(this);
+        SLAs = new SLAService(this);
+        TemplateDashboards = new TemplateDashboardService(this);
+        Templates = new TemplateService(this);
+        Tokens = new TokenService(this);
         Authenticate(username, password);
     }
 
@@ -182,33 +202,55 @@ public class ZabbixCore : ICore
     }
 
     #region Services
-
-    public HostService Hosts;
-    public HostGroupService HostGroups;
-    public WebScenarioService WebScenarios;
-    public UserService Users;
-    public TriggerService Triggers;
-    public ProblemService Problems;
-    public ReportService Reports;
-    public HostInterfaceService Interfaces;
-    public AlertService Alerts;
-    public EventService Events;
     public ActionService Actions;
-    public AuthenticationService Authentication;
-    public UserMacroService UserMacros;
-    public RoleService Roles;
-    public ItemService Items;
+    public AlertService Alerts;
     public AuditLogService AuditLogs;
-    public ProxyService Proxys;
-    public ValueMapService ValueMaps;
+    public AuthenticationService Authentication;
+    public AutoregistrationService Autoregistration;
+    //Configuration
+    public CorrelationService Correlations;
     public DiscoveredHostService DiscoveredHosts;
+    public DiscoveryCheckService DiscoveryChecks;
     public DiscoveredServiceService DiscoveredServices;
     public DiscoveryRuleService DiscoveryRules;
-    public DiscoveryCheckService DiscoveryChecks;
-    public TriggerPrototypeService TriggerPrototypess;
+    public EventService Events;
+    public GraphItemService GraphItems;
+    public GraphPrototypeService GraphPrototypes;
+    public HighAvailabilityNodeService HighAvailabilityNodes;
+    public HistoryService History;
+    public HostGroupService HostGroups;
+    public HostInterfaceService HostInterfaces;
+    public HostPrototypeService HostPrototypes;
+    public HostService Hosts;
+    public HousekeepingService Housekeeping;
+    public IconMapService IconMaps;
+    public ImageService Images;
+    public ItemPrototypeService ItemPrototypes;
+    public ItemService Items;
+    public LLDRuleService LldRules;
+    public MaintenanceService Maintenance;
+    public MediaTypeService MediaTypes;
+    public ProblemService Problems;
+    public ProxyService Proxies;
+    public RegexObjectService Regex;
+    public ReportService Reports;
+    public RoleService Roles;
+    public ScriptService Scripts;
+    public ServiceService Services;
+    public SettingsService Settings;
+    public SLAService SLAs;
+    //TaskService
+    public TemplateDashboardService TemplateDashboards;
+    public TemplateService Templates;
+    public TokenService Tokens;
     public TrendService Trends;
-    public LLDRuleService LLDRules;
+    public TriggerPrototypeService TriggerPrototypess;
+    public TriggerService Triggers;
     public UserGroupService UserGroups;
+    public UserMacroService UserMacros;
+    public UserService Users;
+    public ValueMapService ValueMaps;
+    public WebScenarioService WebScenarios;
 
 
 
