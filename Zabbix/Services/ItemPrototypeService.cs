@@ -9,7 +9,7 @@ namespace Zabbix.Services
     public class ItemPrototypeService : CrudService<ItemPrototype, ItemPrototypeInclude, ItemPrototypeProperties, ItemPrototypeService.ItemPrototypeResult>
     {
 
-        public ItemPrototypeService(ICore core, string className) : base(core, className)
+        public ItemPrototypeService(ICore core) : base(core, "itemprototype")
         {
         }
 

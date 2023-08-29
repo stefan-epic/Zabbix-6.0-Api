@@ -9,7 +9,7 @@ namespace Zabbix.Services;
 public class
     TemplateService : CrudService<Template, TemplateInclude, TemplateProperties, TemplateService.TemplateResult>
 {
-    public TemplateService(ICore core, string className) : base(core, className)
+    public TemplateService(ICore core) : base(core, "template")
     {
     }
 
