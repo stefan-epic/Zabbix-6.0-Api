@@ -35,6 +35,17 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public IconMapping(string iconid, string expression, int inventoryLink)
+        {
+            IconId = iconid;
+            Expression = expression;
+            InventoryLink = inventoryLink;
+        }
+        public IconMapping(){}
+        #endregion
+
     }
 
     public class IconMap : BaseEntity
@@ -52,12 +63,23 @@ namespace Zabbix.Entities
         public string? Name { get; set; }
         #endregion
 
-
         #region Components
 
 
-        [JsonProperty("mappings")] IList<IconMapping> IconMappings {get; set; }
+        [JsonProperty("mappings")] IList<IconMapping>? IconMappings {get; set; }
 
+        #endregion
+
+        #region Constructo
+
+        public IconMap(IList<IconMapping> mappings, string defaultIconId, string name)
+        {
+            IconMappings = mappings;
+            DefaultIconId = defaultIconId;
+            Name = name;
+        }
+
+        public IconMap(){}
         #endregion
 
     }

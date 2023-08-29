@@ -62,6 +62,23 @@ public class Graph : BaseEntity
     [JsonProperty("discoveryRule")] public IList<DiscoveryRule>? DiscoveryRules { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public Graph(int height, int width, string name, IList<GraphItem> graphItems)
+    {
+        Height = height;
+        Width = width;
+        Name = name;
+        GraphItems = graphItems;
+    }
+
+    public Graph()
+    {
+
+    }
+
+    #endregion
 }
 
 public class GraphDiscovery

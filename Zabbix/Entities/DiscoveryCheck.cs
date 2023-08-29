@@ -61,4 +61,17 @@ public class DiscoveryCheck : BaseEntity
 
     #endregion
 
+    #region Constructors
+
+    public DiscoveryCheck(int type)
+    {
+        Type = type;
+    }
+
+    public DiscoveryCheck()
+    {
+
+    }
+
+    #endregion
 }

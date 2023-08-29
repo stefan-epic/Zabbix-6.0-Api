@@ -2,6 +2,8 @@
 
 namespace Zabbix.Entities;
 
+
+//TODO: lots of stuff todo https://www.zabbix.com/documentation/6.0/en/manual/api/reference/dashboard/object
 public class DashboardField : BaseEntity
 {
     [JsonProperty("type")] public string? Type { get; set; }

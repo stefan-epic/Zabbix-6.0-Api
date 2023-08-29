@@ -146,6 +146,23 @@ public class Item : BaseEntity
     [JsonProperty("valuemap")] public IList<ValueMap>? ValueMaps;
 
     #endregion
+
+    #region Constructors
+
+    public Item(string delay, string hostid, string interfaceid, string key, string name, int type, string url,
+        int valueType)
+    {
+        Delay = delay;
+        Hostid = hostid;
+        Interfaceid = interfaceid;
+        Key = key;
+        Name = name;
+        Type = type;
+        Url = url;
+        ValueType = valueType;
+    }
+    public Item(){}
+    #endregion
 }
 
 public class ItemPreprocessing
@@ -159,6 +176,19 @@ public class ItemPreprocessing
     [JsonProperty("error_handler")] public int? ErrorHandler { get; set; }
 
     [JsonProperty("error_handler_params")] public string? ErrorHandlerParams { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public ItemPreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+    {
+        Type = type;
+        Params = @params;
+        ErrorHandler = errorHandler;
+        ErrorHandlerParams = errorHandlerParams;
+    }
+    public ItemPreprocessing(){}
 
     #endregion
 }

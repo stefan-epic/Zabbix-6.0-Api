@@ -3,7 +3,6 @@
 namespace Zabbix.Entities
 {
 
-    //TODO: this is probably wrong or bad or both
 
     public class TaskObject : BaseEntity
     {
@@ -27,13 +26,24 @@ namespace Zabbix.Entities
         public string? ProxyHostId { get; set; }
         #endregion
 
-
         #region Components
         [JsonProperty("request")]
         public TaskTypeObject? Request { get; set; }
 
         [JsonProperty("result")]
         public StatisticResult? Result { get; set; }
+        #endregion
+
+        #region MyRegion
+
+        public TaskObject(int type, TaskTypeObject request)
+        {
+            Type = type;
+            Request = request;
+        }
+
+        public TaskObject() { }
+
         #endregion
     }
 

@@ -70,6 +70,18 @@ public class Report : BaseEntity
     [JsonProperty("user_groups")] public List<ReportUserGroup>? UserGroups { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public Report(string userid, string name, string dashboardid)
+    {
+        Userid = userid;
+        Name = name;
+        Dashboardid = dashboardid;
+    }
+    public Report() { }
+
+    #endregion
 }
 
 public class ReportUser
@@ -82,6 +94,16 @@ public class ReportUser
 
     #endregion
 
+    #region Constructors
+
+    public ReportUser(string userId)
+    {
+        UserId = userId;
+    }
+    public ReportUser() { }
+
+    #endregion
+
 }
 
 public class ReportUserGroup
@@ -89,6 +111,16 @@ public class ReportUserGroup
     #region Properties
     [JsonProperty("usrgrpid")] public string? UserGroupId { get; set; }
     [JsonProperty("access_userid")] public string? AccessUserId { get; set; }
+
+    #endregion
+
+    #region Construcors
+
+    public ReportUserGroup(string userGroupId)
+    {
+        UserGroupId = userGroupId;
+    }
+    public ReportUserGroup() { }
 
     #endregion
 

@@ -31,7 +31,23 @@ public class DiscoveryRule : BaseEntity
 
     [JsonProperty("dhosts")] public IList<DiscoveredHost>? DiscoveredHosts { get; set; }
 
-    [JsonProperty("dchecks")] public IList<DiscoveryCheck>? DiscoveredChecks { get; set; }
+    [JsonProperty("dchecks")] public IList<DiscoveryCheck>? DiscoveryChecks { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public DiscoveryRule(IList<DiscoveryCheck> checks, string ipRange, string name)
+    {
+        Name = name;
+        IpRange = ipRange;
+        DiscoveryChecks = checks;
+    }
+
+    public DiscoveryRule()
+    {
+
+    }
 
     #endregion
 }

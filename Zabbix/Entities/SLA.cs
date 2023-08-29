@@ -39,8 +39,22 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("excluded_downtimes")] public IList<SLAExcludedDowntime>? ExcludedDowntimes { get; set; }
-        [JsonProperty("service_tags")] public IList<Tag>? Tags { get; set; }
+        [JsonProperty("service_tags")] public IList<SLAServiceTag>? Tags { get; set; }
         [JsonProperty("schedule")] public IList<SLASchedule>? Schedules { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public SLA(string name, int period, float slo, string timezone, IList<SLAServiceTag> tags)
+        {
+            Name = name;
+            Period = period;
+            SLO = slo;
+            Timezone = timezone;
+            Tags = tags;
+        }
+        public SLA() { }
 
         #endregion
     }
@@ -58,6 +72,15 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+        public SLASchedule(int periodFrom, int periodTo)
+        {
+            PeriodFrom = periodFrom;
+            PeriodTo = periodTo;
+        }
+
+        public SLASchedule() { }
+        #endregion
     }
 
     public class SLAExcludedDowntime
@@ -75,20 +98,29 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public SLAExcludedDowntime(string name, long periodFrom, long periodTo)
+        {
+            Name = name;
+            PeriodFrom = periodFrom;
+            PeriodTo = periodTo;
+        }
+        #endregion
+
     }
 
-    public class SLAServiceTag
+    public class SLAServiceTag : Tag
     {
         #region Properties
-
-        [JsonProperty("tag")]
-        public string? Tag { get; set; }
 
         [JsonProperty("operator")]
         public int? Operator { get; set; }
 
-        [JsonProperty("value")]
-        public string? Value { get; set; }
+        #endregion
+
+        #region Constructors
+        public SLAServiceTag(string tagName, string value) : base(tagName, value) { }
 
         #endregion
 

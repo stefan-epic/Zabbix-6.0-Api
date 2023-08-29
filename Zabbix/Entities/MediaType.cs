@@ -93,15 +93,28 @@ public class MediaType : BaseEntity
     [JsonProperty("event_menu_name")]
     public string? EventMenuName { get; set; }
 
-    [JsonProperty("parameters")]
-    public IList<WebhookParameter>? Parameters { get; set; }
-
     [JsonProperty("description")]
     public string? Description { get; set; }
 
     #endregion
 
+    #region Components
 
+    [JsonProperty("parameters")]
+    public IList<WebhookParameter>? Parameters { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public MediaType(string name, int type)
+    {
+        Name = name;
+        Type = type;
+    }
+    public MediaType(){}
+    
+    #endregion
 }
 
 
@@ -123,4 +136,15 @@ public class MessageTemplate
 
     #endregion
 
+    #region Constructors
+
+    public MessageTemplate(int eventSource, int recovery)
+    {
+        EventSource = eventSource;
+        Recovery = recovery;
+    }
+
+    public MessageTemplate() { }
+
+    #endregion
 }

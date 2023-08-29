@@ -93,16 +93,19 @@ public class WebScenario : BaseEntity
     #endregion
 }
 
-public class WebScenarioStep : BaseEntity
+public class WebScenarioStep
 {
     #region Components
+    [JsonProperty("variables")] public IList<HttpField>? Variables { get; set; }
+    [JsonProperty("posts")] public IList<HttpField>? Posts { get; set; } 
+    [JsonProperty("headers")] public IList<HttpField>? Headers { get; set; }
+    [JsonProperty("query_fields")] public IList<HttpField>? QueryFields { get; set; }
 
-    [JsonProperty("variables")] public IList<WebScenarioVariable>? Variables { get; set; }
     #endregion
 
     #region Properties
 
-    [JsonProperty("httptestid")] public override string? EntityId { get; set; }
+    [JsonProperty("httptestid")] public string? WebScenarioId { get; set; }
 
     [JsonProperty("name")] public string? Name { get; set; }
 
@@ -112,7 +115,6 @@ public class WebScenarioStep : BaseEntity
 
     [JsonProperty("timeout")] public string? Timeout { get; set; }
 
-    [JsonProperty("posts")] public IList<object>? Posts { get; set; } //TODO: map this to HTTP fields
 
     [JsonProperty("required")] public string? Required { get; set; }
 
@@ -122,9 +124,7 @@ public class WebScenarioStep : BaseEntity
 
     [JsonProperty("retrieve_mode")] public int? RetrieveMode { get; set; }
 
-    [JsonProperty("headers")] public IList<object>? Headers { get; set; }
 
-    [JsonProperty("query_fields")] public IList<object>? QueryFields { get; set; }
 
     #endregion
 
@@ -144,13 +144,24 @@ public class WebScenarioStep : BaseEntity
     #endregion
 }
 
-public class WebScenarioVariable
+public class HttpField
 {
     #region Properties
 
     [JsonProperty("name")] public string? Name { get; set; }
-
     [JsonProperty("value")] public string? Value { get; set; }
+    #endregion
+
+    #region Constructors
+
+    public HttpField(string name, string value)
+    {
+        Name = name;
+        Value = value;
+    }
+
+    public HttpField() { }
 
     #endregion
+
 }

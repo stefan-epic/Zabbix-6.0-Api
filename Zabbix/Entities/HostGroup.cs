@@ -9,7 +9,6 @@ public enum HostGroupProperties
     @internal,
     flags
 }
-//TODO
 
 public class HostGroup : BaseEntity
 {
@@ -27,9 +26,6 @@ public class HostGroup : BaseEntity
     #endregion
 
     #region Components
-
-    //Select discoveryrule
-    //select groupdiscovery
 
     [JsonProperty("discoveryRule")] public IList<DiscoveryRule>? DiscoveryRules { get; set; }
     [JsonProperty("groupDiscovery")] public IList<GroupDiscovery>? GroupDiscoveries { get; set; }
@@ -54,6 +50,8 @@ public class HostGroup : BaseEntity
 
 public class GroupDiscovery
 {
+    #region Properties
+
     [JsonProperty("groupid")]
     public string? GroupId { get; set; }
 
@@ -68,4 +66,7 @@ public class GroupDiscovery
 
     [JsonProperty("ts_delete")]
     public string? TsDelete { get; set; }
+
+    #endregion
+
 }

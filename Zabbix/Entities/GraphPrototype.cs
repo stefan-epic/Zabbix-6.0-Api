@@ -60,5 +60,23 @@ namespace Zabbix.Entities
         [JsonProperty("templates")] IList<Template>? Templates { get; set; }
 
         #endregion
+
+        #region Constructors
+
+        public GraphPrototype(int height, int width, string name, IList<GraphItem> graphItems)
+        {
+            Height = height;
+            Width = width;
+            Name = name;
+            GraphItems = graphItems;
+        }
+
+        public GraphPrototype()
+        {
+
+        }
+
+        #endregion
+
     }
 }

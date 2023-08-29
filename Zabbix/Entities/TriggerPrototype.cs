@@ -75,6 +75,20 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public TriggerPrototype(string description, string expression)
+        {
+            Description = description;
+            Expression = expression;
+        }
+
+        public TriggerPrototype()
+        {
+        }
+
+        #endregion
+
     }
 
 }

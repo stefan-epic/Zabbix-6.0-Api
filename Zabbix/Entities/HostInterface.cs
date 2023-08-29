@@ -54,6 +54,20 @@ public class HostDetails
     public string? ContextName { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public HostDetails(int version)
+    {
+        Version = version;
+    }
+
+    public HostDetails()
+    {
+
+    }
+
+    #endregion
 }
 
 public class HostInterface : BaseEntity
@@ -91,6 +105,26 @@ public class HostInterface : BaseEntity
     [JsonProperty("details")] public HostDetails? Details { get; set; }
     [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
     [JsonProperty("items")] public IList<Item>? Items { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public HostInterface(string dns, string hostid, string ip, int main, string port, int type, int useip)
+    {
+        Dns = dns;
+        Hostid = hostid;
+        Ip = ip;
+        Main = main;
+        Port = port;
+        Type = type;
+        Useip = useip;
+    }
+
+    public HostInterface()
+    {
+
+    }
 
     #endregion
 

@@ -81,6 +81,17 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructor
+
+        public Script(string name, int type, string command)
+        {
+            Name = name;
+            Type = type;
+            Command = command;
+        }
+        public Script() { }
+        #endregion
+
     }
     public class Debug
     {
@@ -104,6 +115,16 @@ namespace Zabbix.Entities
 
         [JsonProperty("value")]
         public string? Value { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public WebhookParameter(string name)
+        {
+            Name = name;
+        }
+        public WebhookParameter() { }
 
         #endregion
 

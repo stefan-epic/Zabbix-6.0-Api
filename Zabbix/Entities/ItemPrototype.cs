@@ -54,7 +54,7 @@ namespace Zabbix.Entities
         public int? FollowRedirects { get; set; }
 
         [JsonProperty("headers")]
-        public object? Headers { get; set; } // You can replace 'object' with an appropriate class if needed.
+        public object? Headers { get; set; }
 
         [JsonProperty("history")]
         public string? History { get; set; }
@@ -99,7 +99,7 @@ namespace Zabbix.Entities
         public string? PublicKey { get; set; }
 
         [JsonProperty("query_fields")]
-        public IList<object>? QueryFields { get; set; }// TOdo: maybve change this and the one above
+        public IList<object>? QueryFields { get; set; }
 
         [JsonProperty("request_method")]
         public int? RequestMethod { get; set; }
@@ -172,6 +172,25 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public ItemPrototype(string ruleId, string delay, string hostid, string interfaceid, string key, string name,
+            int type, string url,
+            int valueType)
+        {
+            RuleId = ruleId;
+            Delay = delay;
+            HostId = hostid;
+            InterfaceId = interfaceid; 
+            Key = key;
+            Name = name;
+            Type = type;
+            Url = url;
+            ValueType = valueType;
+        }
+
+        public ItemPrototype(){}
+        #endregion
     }
     public class ItemPrototypeTag
     {
@@ -183,6 +202,15 @@ namespace Zabbix.Entities
         [JsonProperty("value")]
         public string? Value { get; set; }
 
+        #endregion
+
+        #region Constructor
+
+        public ItemPrototypeTag(string tag)
+        {
+            Tag = tag;
+        }
+        public ItemPrototypeTag(){}
         #endregion
 
     }
@@ -205,5 +233,18 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public ItemPrototypePreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+        {
+            Type = type;
+            Params = @params;
+            ErrorHandler = errorHandler;
+            ErrorHandlerParams = errorHandlerParams;
+        }
+        public ItemPrototypePreprocessing(){}
+        #endregion
+
     }
+
 }

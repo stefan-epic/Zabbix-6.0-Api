@@ -37,6 +37,18 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public TemplateDashboard(string name, string templateId)
+        {
+            Name = name;
+            TemplateId = templateId;
+        }
+
+        public TemplateDashboard() { }
+
+        #endregion
+
     }
     public class TemplateDashboardPage
     {
@@ -59,6 +71,7 @@ namespace Zabbix.Entities
         public IList<TemplateDashboardWidget>? Widgets { get; set; }
 
         #endregion
+
 
 
     }
@@ -99,6 +112,15 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public TemplateDashboardWidget(string type)
+        {
+            Type = type;
+        }
+        public TemplateDashboardWidget() { }
+
+        #endregion    
     }
     public class TemplateDashboardWidgetField
     {
@@ -115,5 +137,14 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+        public TemplateDashboardWidgetField(int type, object value)
+        {
+            Type = type;
+            Value = value;
+        }
+
+        public TemplateDashboardWidgetField() { }
+        #endregion
     }
 }

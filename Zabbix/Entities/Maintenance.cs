@@ -37,7 +37,22 @@ namespace Zabbix.Entities
         [JsonProperty("groups")] public IList<HostGroup>? HostGroups { get; set; }
         [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
         [JsonProperty("tags")] public IList<ProblemTag>? ProblemTags { get; set; }
+        [JsonProperty("timeperiods")] public IList<TimePeriod>? TimePeriods { get; set; }
 
+
+        #endregion
+
+        #region Constructors
+
+        public Maintenance(IList<TimePeriod> timePeriods, string name, string activeSince, string activeTill)
+        {
+            TimePeriods = timePeriods;
+            Name = name;
+            ActiveSince = activeSince;
+            ActiveTill = activeTill;
+        }
+
+        public Maintenance(){}
 
         #endregion
     }

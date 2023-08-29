@@ -9,7 +9,6 @@ public enum ValueMapProperties
 
 public class ValueMappings
 {
-
     #region Properties
 
     [JsonProperty("type")]
@@ -21,6 +20,16 @@ public class ValueMappings
     [JsonProperty("newvalue")]
     public string? NewValue { get; set; }
 
+    #endregion
+
+    #region Constructors
+    public ValueMappings(string? value, string? newValue)
+    {
+        Value = value;
+        NewValue = newValue;
+    }
+
+    public ValueMappings() { }
     #endregion
 
 }
@@ -47,6 +56,18 @@ public class ValueMap : BaseEntity
 
     [JsonProperty("mappings")]
     public IList<ValueMappings>? Mappings { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public ValueMap(string? hostId, string? name, IList<ValueMappings>? mappings)
+    {
+        HostId = hostId;
+        Name = name;
+        Mappings = mappings;
+    }
+    public ValueMap() { }
 
     #endregion
 }

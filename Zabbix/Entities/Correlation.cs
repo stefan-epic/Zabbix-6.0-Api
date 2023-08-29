@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
+    //TODO:
     public enum CorrelationProperties
     {
 
@@ -33,7 +34,20 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("operations")] public IList<CorrelationOperation>? Operations { get; set; }
-        [JsonProperty("filter")] public IList<CorrelationFilter>? Filters { get; set; }
+        [JsonProperty("filter")] public CorrelationFilter? Filter { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public Correlation(IList<CorrelationOperation> operations, CorrelationFilter filter, string name)
+        {
+            Operations = operations;
+            Filter = filter;
+            Name = name;
+        }
+
+        public Correlation(){}
 
         #endregion
     }
@@ -46,6 +60,19 @@ public class CorrelationOperation
     [JsonProperty("type")]
     public int? Type { get; set; }
 
+    #endregion
+
+    #region Constructors
+
+    public CorrelationOperation(int type)
+    {
+        Type = type;
+    }
+
+    public CorrelationOperation()
+    {
+
+    }
     #endregion
 
 }
@@ -79,6 +106,20 @@ public class CorrelationFilterCondition
 
     #endregion
 
+    #region Constructors
+
+    public CorrelationFilterCondition(int type)
+    {
+        Type = type;
+    }
+
+    public CorrelationFilterCondition()
+    {
+
+    }
+
+    #endregion
+
 }
 
 public class CorrelationFilter
@@ -98,4 +139,18 @@ public class CorrelationFilter
 
     #endregion
 
+    #region Constructors
+
+    public CorrelationFilter(int evalType, IList<CorrelationFilterCondition> conditions)
+    {
+        EvalType = evalType;
+        conditions = conditions;
+    }
+
+    public CorrelationFilter()
+    {
+
+    }
+
+    #endregion
 }

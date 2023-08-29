@@ -35,6 +35,23 @@ public class Action : BaseEntity
     [JsonProperty("update_operations")] public IList<ActionUpdateOperation>? UpdateOperations { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public Action(string escPeriod, int eventSource, string name)
+    {
+        EscPeriod = escPeriod;
+        EventSource = eventSource;
+        Name = name;
+    }
+
+    public Action()
+    {
+
+    }
+
+    #endregion
+
 }
 
 public class ActionOperation
@@ -78,19 +95,50 @@ public class ActionOperation
     [JsonProperty("filter")] public IList<ActionFilter>? Filter { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public ActionOperation(int operationType)
+    {
+        OperationType = operationType;
+    }
+
+    public ActionOperation()
+    {
+
+    }
+
+    #endregion
 }
 
 public class ActionFilter
 {
-    [JsonProperty("conditions")] public IList<ActionFilterConditon>? Conditons { get; set; }
+    #region Properties
+
     [JsonProperty("evaltype")] public int? Evaltype { get; set; }
     [JsonProperty("eval_formula")] public string? EvalFormula { get; set; }
     [JsonProperty("formula")] public string? Formula { get; set; }
 
+    #endregion
 
+    #region Components
+    [JsonProperty("conditions")] public IList<ActionFilterCondition>? Conditions { get; set; }
+    #endregion
+
+    #region Constructors
+
+    public ActionFilter(IList<ActionFilterCondition> conditions, int evalType)
+    {
+        Conditions = conditions;
+        Evaltype = evalType;
+    }
+
+    public ActionFilter() { }
+
+    #endregion
 }
 
-public class ActionFilterConditon
+public class ActionFilterCondition
 {
     #region Properties
 
@@ -108,6 +156,16 @@ public class ActionFilterConditon
 
     [JsonProperty("operator")] public int? Operator { get; set; }
 
+    #endregion
+
+    #region Constructors
+
+    public ActionFilterCondition(string value, int conditionType)
+    {
+        Value = value;
+        ConditionType = conditionType;
+    }
+    public ActionFilterCondition(){}
     #endregion
 }
 
@@ -136,6 +194,21 @@ public class ActionRecoveryOperation
     [JsonProperty("opmessage_usr")] public IList<OperationMessageUser>? OpMessageUser { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public ActionRecoveryOperation(int operationType)
+    {
+        OperationType = operationType;
+    }
+
+    public ActionRecoveryOperation()
+    {
+
+    }
+    
+
+    #endregion
 }
 
 public class ActionUpdateOperation
@@ -161,6 +234,21 @@ public class ActionUpdateOperation
     [JsonProperty("opmessage_grp")] public IList<OperationMessageGroup>? OpMessageGroup { get; set; }
 
     [JsonProperty("opmessage_usr")] public IList<OperationMessageUser>? OpMessageUser { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public ActionUpdateOperation(int operationType)
+    {
+        OperationType = operationType;
+    }
+
+    public ActionUpdateOperation()
+    {
+
+    }
+
 
     #endregion
 }
@@ -224,6 +312,21 @@ public class OperationCondition
     [JsonProperty("operationid")] public string? OperationId { get; set; }
 
     [JsonProperty("operator")] public int? Operator { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public OperationCondition(int conditionType, string value)
+    {
+        ConditionType = conditionType;
+        Value = Value;
+    }
+
+    public OperationCondition()
+    {
+
+    }
 
     #endregion
 }

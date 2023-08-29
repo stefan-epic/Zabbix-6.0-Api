@@ -65,6 +65,7 @@ public class User : BaseEntity
 
     [JsonProperty("roleid")] public string? Roleid { get; set; }
 
+    [JsonProperty("passwd")] public string? Passwd { get; set; }
 
     //for Login UserData
     [JsonProperty("type")] public int? Type { get; set; }
@@ -91,11 +92,26 @@ public class User : BaseEntity
 
 
     #endregion
+
+    #region Constructor
+
+    public User(string? passwd, IList<UserGroup> groups, string username, string roleid)
+    {
+        Passwd = passwd;
+        UserGroups = groups;
+        Username = username;
+        Roleid = roleid;
+    }
+    public User() { }
+
+    #endregion
 }
 
 
 public class Media
 {
+    #region Properties
+
     [JsonProperty("mediatypeid")]
     public string? MediaTypeId { get; set; }
 
@@ -110,4 +126,17 @@ public class Media
 
     [JsonProperty("period")]
     public string? Period { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public Media(string mediaTypeId, object sendTo)
+    {
+        MediaTypeId = mediaTypeId;
+        SendTo = sendTo;
+    }
+    public Media() { }
+
+    #endregion
 }

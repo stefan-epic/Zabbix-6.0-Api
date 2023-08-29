@@ -46,7 +46,22 @@ namespace Zabbix.Entities
 
         #region Components
 
-        [JsonProperty("graphs")] public IList<Graph> Graphs { get; set; }
+        [JsonProperty("graphs")] public IList<Graph>? Graphs { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public GraphItem(string color, string itemid)
+        {
+            Color = color;
+            ItemId = itemid;
+        }
+
+        public GraphItem()
+        {
+
+        }
 
         #endregion
     }

@@ -129,4 +129,33 @@ public class Template : BaseEntity
     [JsonProperty("uuid")] public string? Uuid { get; set; }
 
     #endregion
+
+    #region Components
+
+    [JsonProperty("groups")] public IList<HostGroup>? Groups { get; set; }
+    [JsonProperty("tags")] public IList<Tag>? Tags { get; set; }
+    [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
+    [JsonProperty("templates")] public IList<Template>? Templates { get; set; }
+    [JsonProperty("parentTemplates")] public IList<Template>? ParentTemplates { get; set; }
+    [JsonProperty("httpTests")] public IList<WebScenario>? WebScenarios { get; set; }
+    [JsonProperty("items")] public IList<Item>? Items { get; set; }
+    [JsonProperty("discoveries")] public IList<LLDRule>? LldRules { get; set; }
+    [JsonProperty("triggers")] public IList<Trigger>? Triggers { get; set; }
+    [JsonProperty("graphs")] public IList<Graph>? Graphs { get; set; }
+    [JsonProperty("macros")] public IList<UserMacro>? Macros { get; set; }
+    [JsonProperty("dashboards")] public IList<Dashboard>? Dashboards { get; set; }
+    [JsonProperty("valuemaps")] public IList<ValueMap>? ValueMaps { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public Template(IList<HostGroup> groups, string hostName)
+    {
+        Host = hostName;
+        Groups = groups;
+    }
+    public Template() { }
+
+    #endregion
 }

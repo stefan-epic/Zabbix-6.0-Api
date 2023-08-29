@@ -159,6 +159,22 @@ namespace Zabbix.Entities
 
 
         #endregion Components
+
+        #region Constructors
+
+        public LLDRule(string delay, string hostid, string interfaceid, string key, string name, int type, string url,
+            int valueType)
+        {
+            Delay = delay;
+            HostId = hostid;
+            InterfaceId = interfaceid;
+            Key = key;
+            Name = name;
+            Type = type;
+            Url = url;
+        }
+        public LLDRule(){}
+        #endregion
     }
 
     public class LLDRuleFilterCondition
@@ -176,6 +192,17 @@ namespace Zabbix.Entities
 
         [JsonProperty("operator")]
         public int? Operator { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public LLDRuleFilterCondition(string macro, string value)
+        {
+            Macro = macro;
+            Value = value;
+        }
+        public LLDRuleFilterCondition(){}
 
         #endregion
 
@@ -201,6 +228,17 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public LLDRuleFilter(IList<LLDRuleFilterCondition> conditions, int evalType)
+        {
+            Conditions = conditions;
+            EvalType = evalType;
+        }
+        public LLDRuleFilter(){}
+
+        #endregion
+
     }
     public class LLdMacroPath
     {
@@ -211,6 +249,21 @@ namespace Zabbix.Entities
 
         [JsonProperty("path")]
         public string? Path { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public LLdMacroPath(string lLdMacro, string path)
+        {
+            LLdMacro = lLdMacro;
+            Path = path;
+        }
+
+        public LLdMacroPath()
+        {
+
+        }
 
         #endregion
 
@@ -231,6 +284,18 @@ namespace Zabbix.Entities
         [JsonProperty("error_handler_params")]
         public string? ErrorHandlerParams { get; set; }
 
+        #endregion
+
+        #region Constructors
+
+        public LLdRulePreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+        {
+            Type = type;
+            Params = @params;
+            ErrorHandler = errorHandler;
+            ErrorHandlerParams = errorHandlerParams;
+        }
+        public LLdRulePreprocessing() { }
         #endregion
 
     }
@@ -258,6 +323,18 @@ namespace Zabbix.Entities
         public IList<LLDRuleOverrideOperation>? Operations { get; set; }
 
         #endregion
+
+        #region Constructos
+
+        public LLDRuleOverride(string name, int step)
+        {
+            Name = name;
+            Step = step;
+        }
+        public LLDRuleOverride(){}
+        
+
+        #endregion
     }
     public class LLDRuleOverrideFilter
     {
@@ -279,6 +356,16 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public LLDRuleOverrideFilter(int evalType, IList<LLDRuleOverrideFilterCondition> conditions)
+        {
+            Conditions = conditions;
+            EvalType = evalType;
+        }
+
+        #endregion
+
     }
 
     public class LLDRuleOverrideFilterCondition
@@ -296,6 +383,19 @@ namespace Zabbix.Entities
 
         [JsonProperty("operator")]
         public int? Operator { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public LLDRuleOverrideFilterCondition(string macro, string value)
+        {
+            Macro = macro;
+            Value = value;
+        }
+
+        public LLDRuleOverrideFilterCondition(){}
+
 
         #endregion
 
@@ -346,6 +446,17 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public LLDRuleOverrideOperation(int operationObject)
+        {
+            OperationObject = operationObject;
+        }
+
+        public LLDRuleOverrideOperation() { }
+
+        #endregion
+
     }
 
     #region ComponentClasses
@@ -354,35 +465,72 @@ namespace Zabbix.Entities
     {
         [JsonProperty("status")]
         public int? Status { get; set; }
+
+        public LLDRuleOverrideOperationStatus(int status)
+        {
+            Status = status;
+        }
+        public LLDRuleOverrideOperationStatus() { }
     }
 
     public class LLDRuleOverrideOperationDiscover
     {
         [JsonProperty("discover")]
         public int? Discover { get; set; }
+
+        public LLDRuleOverrideOperationDiscover(int discover)
+        {
+            Discover = discover;
+        }
+        public LLDRuleOverrideOperationDiscover() { }
     }
 
     public class LLDRuleOverrideOperationPeriod
     {
         [JsonProperty("delay")]
         public string? Delay { get; set; }
+
+        public LLDRuleOverrideOperationPeriod(string delay)
+        {
+            Delay = delay;
+        }
+        public LLDRuleOverrideOperationPeriod() { }
     }
 
     public class LLDRuleOverrideOperationHistory
     {
         [JsonProperty("history")]
         public string? History { get; set; }
+
+        public LLDRuleOverrideOperationHistory(string history)
+        {
+            History = history;
+        }
+
+        public LLDRuleOverrideOperationHistory() { }
     }
 
     public class LLDRuleOverrideOperationTrends
     {
         [JsonProperty("trends")]
         public string? Trends { get; set; }
+
+        public LLDRuleOverrideOperationTrends(string trends)
+        {
+            Trends = trends;
+        }
+        public LLDRuleOverrideOperationTrends() { }
     }
     public class LLDRuleOverrideOperationSeverity
     {
         [JsonProperty("severity")]
         public int? Severity { get; set; }
+
+        public LLDRuleOverrideOperationSeverity(int severity)
+        {
+            Severity = severity;
+        }
+        public LLDRuleOverrideOperationSeverity() { }
     }
 
     public class LLDRuleOverrideOperationTag
@@ -392,6 +540,12 @@ namespace Zabbix.Entities
 
         [JsonProperty("value")]
         public string? Value { get; set; }
+
+        public LLDRuleOverrideOperationTag(string? tag)
+        {
+            Tag = tag;
+        }
+        public LLDRuleOverrideOperationTag() { }
     }
 
     public class LLDRuleOverrideOperationTemplate
@@ -404,6 +558,12 @@ namespace Zabbix.Entities
     {
         [JsonProperty("inventory_mode")]
         public int? InventoryMode { get; set; }
+
+        public LLDRuleOverrideOperationInventory(int inventoryMode)
+        {
+            InventoryMode = inventoryMode;
+        }
+        public LLDRuleOverrideOperationInventory() { }
     }
 
     #endregion

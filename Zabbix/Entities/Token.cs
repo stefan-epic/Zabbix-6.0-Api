@@ -39,5 +39,15 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public Token(string name)
+        {
+            Name = name;
+        }
+        public Token() { }
+
+        #endregion
+
     }
 }

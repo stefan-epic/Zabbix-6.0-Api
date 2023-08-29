@@ -59,6 +59,19 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Constructors
+
+        public Service(int algorithm, string name, int sortOrder)
+        {
+            Algorithm = algorithm;
+            Name = name;
+            SortOrder = sortOrder;
+        }
+
+        public Service() { }
+
+        #endregion
+
     }
     public class StatusRule
     {
@@ -78,6 +91,19 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Consturctors
+
+        public StatusRule(int type, int limitValue, int limitStatus, int newStatus)
+        {
+            Type = type;
+            LimitValue = limitValue;
+            LimitStatus = limitStatus;
+            NewStatus = newStatus;
+        }
+
+        public StatusRule() { }
+        #endregion
+
     }
     public class ServiceAlarm
     {
@@ -91,6 +117,7 @@ namespace Zabbix.Entities
 
         #endregion
 
+
     }
     public class ProblemTag : Tag
     {
@@ -101,7 +128,12 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Construcors
+        public ProblemTag(string tagName, string value) : base(tagName, value) { }
+        #endregion
+
     }
+
 
     public class ProblemEvent
     {

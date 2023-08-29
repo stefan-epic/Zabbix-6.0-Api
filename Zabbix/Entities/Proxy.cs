@@ -46,6 +46,18 @@ public class Proxy : BaseEntity
     [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public Proxy(string host, int status)
+    {
+        Host = host;
+        Status = status;
+    }
+
+    public Proxy() { }
+
+    #endregion
 }
 
 
@@ -64,6 +76,19 @@ public class ProxyInterface
 
     [JsonProperty("useip")]
     public int? UseIp { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public ProxyInterface(string dns, string ip, string port, int useIp)
+    {
+        Dns = dns;
+        Ip = ip;
+        Port = port;
+        UseIp = useIp;
+    }
+    public ProxyInterface() { }
 
     #endregion
 

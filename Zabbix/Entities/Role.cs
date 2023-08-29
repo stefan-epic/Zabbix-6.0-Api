@@ -25,6 +25,18 @@ public class Role : BaseEntity
     [JsonProperty("readonly")] public int? ReadOnly { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public Role(string name, int type)
+    {
+        Name = name;
+        this.type = type;
+    }
+
+    public Role() { }
+
+    #endregion
 }
 
 public class RoleRule
@@ -68,6 +80,7 @@ public class RoleRule
     [JsonProperty("actions")] public IList<RoleAction>? Actions { get; set; }
 
     #endregion
+
 }
 
 public class RoleRuleService
@@ -75,6 +88,16 @@ public class RoleRuleService
     #region Properties
 
     [JsonProperty("serviceid")] public string? ServiceId { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public RoleRuleService(string serviceId)
+    {
+        ServiceId = serviceId;
+    }
+    public RoleRuleService() { }
 
     #endregion
 }
@@ -88,6 +111,14 @@ public class Module
     [JsonProperty("status")] public int? Status { get; set; }
 
     #endregion
+
+    #region Constructors
+    public Module(string moduleId)
+    {
+        ModuleId = moduleId;
+    }
+
+    #endregion
 }
 
 public class UiElement
@@ -99,6 +130,16 @@ public class UiElement
     [JsonProperty("status")] public int? Status { get; set; }
 
     #endregion
+
+    #region Constructors
+
+    public UiElement(string name)
+    {
+        Name = name;
+    }
+    public UiElement() { }
+
+    #endregion
 }
 
 public class RoleAction
@@ -108,6 +149,16 @@ public class RoleAction
     [JsonProperty("name")] public string? Name { get; set; }
 
     [JsonProperty("status")] public int? Status { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public RoleAction(string name)
+    {
+        Name = name;
+    }
+    public RoleAction() { }
 
     #endregion
 }

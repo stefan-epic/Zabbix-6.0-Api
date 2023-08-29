@@ -39,6 +39,9 @@ public class HostPrototype : BaseEntity
     [JsonProperty("custom_interfaces")]
     public int? CustomInterfaces { get; set; }
 
+    [JsonProperty("ruleid")]
+    public string? RuleId { get; set; }
+
     [JsonProperty("uuid")]
     public string? Uuid { get; set; }
 
@@ -54,21 +57,68 @@ public class HostPrototype : BaseEntity
     [JsonProperty("parentHost")] public IList<Host>? ParentHosts { get; set; }
     [JsonProperty("templates")] public IList<Template>? Templates { get; set; }
     #endregion
+
+    #region Constructors
+
+    public HostPrototype(IList<GroupLink> groupLinks, string ruleid, string hostName)
+    {
+        GroupLinks = groupLinks;
+        RuleId = ruleid;
+        Host = hostName;
+    }
+
+    public HostPrototype(){}
+    #endregion
 }
 public class GroupLink
 {
+    #region Properties
+
     [JsonProperty("groupid")]
     public string? GroupId { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public GroupLink(string groupId)
+    {
+        GroupId = groupId;
+    }
+
+    public GroupLink()
+    {
+
+    }
+    #endregion
+
 }
 
 public class GroupPrototype
 {
+    #region Properties
+
     [JsonProperty("name")]
     public string? Name { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public GroupPrototype(string name)
+    {
+        Name = name;
+    }
+    public GroupPrototype(){}
+    #endregion
+
 }
 
 public class CustomInterfaceDetails
 {
+
+    #region Properties
+
     [JsonProperty("version")]
     public int? Version { get; set; }
 
@@ -98,10 +148,26 @@ public class CustomInterfaceDetails
 
     [JsonProperty("contextname")]
     public string? ContextName { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public CustomInterfaceDetails(int version)
+    {
+        Version = version;
+    }
+    public CustomInterfaceDetails(){}
+    
+
+    #endregion
+
 }
 
 public class CustomInterface
 {
+    #region Properties
+
     [JsonProperty("dns")]
     public string? DNS { get; set; }
 
@@ -118,10 +184,29 @@ public class CustomInterface
     public int? Type { get; set; }
 
     [JsonProperty("useip")]
-    public int? UseIP { get; set; }
+    public int? UseIp { get; set; }
+
+    #endregion
+
+    #region Components
 
     [JsonProperty("details")]
     public CustomInterfaceDetails? Details { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    public CustomInterface(int main, string port, int type, int useip)
+    {
+        Main = main;
+        Port = port;
+        Type = type;
+        UseIp = useip;
+    }
+
+    #endregion
+
 }
 
 

@@ -30,6 +30,16 @@ public class UserGroup : BaseEntity
 
     #endregion
 
+    #region Constructors
+
+    public UserGroup(string name)
+    {
+        Name = name;
+    }
+    public UserGroup() { }
+
+    #endregion
+
 }
 
 public class UserGroupPermission
@@ -41,6 +51,16 @@ public class UserGroupPermission
 
     #endregion
 
+    #region Constructors
+
+    public UserGroupPermission(string id, int permission)
+    {
+        Id = id;
+        Permission = permission;
+    }
+    public UserGroupPermission() { }
+    #endregion
+
 }
 public class TagBasedPermission : Tag
 {
@@ -50,4 +70,13 @@ public class TagBasedPermission : Tag
 
     #endregion
 
+    #region Constructors
+
+    public TagBasedPermission(string tagName, string value, string groupId) : base(tagName, value)
+    {
+        GroupId = groupId;
+    }
+    public TagBasedPermission() { }
+
+    #endregion
 }
