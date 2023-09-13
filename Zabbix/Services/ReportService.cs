@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class ReportService : CrudService<Report, GetReportFilter, ReportService.ReportResult>
+public class ReportService : CrudService<Report, ReportFilterOptions, ReportService.ReportResult>
 {
     public ReportService(ICore core) : base(core, "report")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
     {
         return BaseBuildParams(filter);
     }
@@ -23,19 +23,19 @@ public class ReportService : CrudService<Report, GetReportFilter, ReportService.
     }
 }
 
-public class GetReportFilter : GetFilter
+public class ReportFilterOptions : FilterOptions
 {
     [JsonProperty("reportids")]
-    public IList<string>? ReportIds { get; set; }
+    public object? ReportIds { get; set; }
 
     [JsonProperty("expired")]
     public bool? Expired { get; set; }
 
     [JsonProperty("selectUsers")]
-    public IList<string>? SelectUsers { get; set; }
+    public object? SelectUsers { get; set; }
 
     [JsonProperty("selectUserGroups")]
-    public IList<string>? SelectUserGroups { get; set; }
+    public object? SelectUserGroups { get; set; }
 }
 
 public enum ReportInclude

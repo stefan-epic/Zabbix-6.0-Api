@@ -6,14 +6,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class RegexObjectService : CrudService<RegexObject, GetRegexObjectFilter, RegexObjectService.RegexObjectResult>
+    public class RegexObjectService : CrudService<RegexObject, RegexObjectFilterOptions, RegexObjectService.RegexObjectResult>
     {
 
         public RegexObjectService(ICore core) : base(core, "regexp")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -25,13 +25,13 @@ namespace Zabbix.Services
 
     }
 
-    public class GetRegexObjectFilter : GetFilter
+    public class RegexObjectFilterOptions : FilterOptions
     {
         [JsonProperty("regexpids")]
-        public IList<string>? RegularExpressionIds { get; set; }
+        public object? RegularExpressionIds { get; set; }
 
         [JsonProperty("selectExpressions")]
-        public IList<string>? SelectExpressions { get; set; }
+        public object? SelectExpressions { get; set; }
     }
 
     public enum RegexObjectInclude

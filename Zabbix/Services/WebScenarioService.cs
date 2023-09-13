@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class WebScenarioService : CrudService<WebScenario, GetWebScenarioFilter, WebScenarioService.WebScenarioResult>
+public class WebScenarioService : CrudService<WebScenario, WebScenarioFilterOptions, WebScenarioService.WebScenarioResult>
 {
     public WebScenarioService(ICore core) : base(core, "httptest")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -23,18 +23,18 @@ public class WebScenarioService : CrudService<WebScenario, GetWebScenarioFilter,
     }
 }
 
-public class GetWebScenarioFilter : GetFilter
+public class WebScenarioFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("httptestids")]
-    public IList<string>? HttpTestIds { get; set; }
+    public object? HttpTestIds { get; set; }
 
     [JsonProperty("inherited")]
     public bool? Inherited { get; set; }
@@ -46,7 +46,7 @@ public class GetWebScenarioFilter : GetFilter
     public bool? Templated { get; set; }
 
     [JsonProperty("templateids")]
-    public IList<string>? TemplateIds { get; set; }
+    public object? TemplateIds { get; set; }
 
     [JsonProperty("expandName")]
     public bool? ExpandName { get; set; }
@@ -61,13 +61,13 @@ public class GetWebScenarioFilter : GetFilter
     public IList<TagFilter>? Tags { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("selectSteps")]
-    public IList<string>? SelectSteps { get; set; }
+    public object? SelectSteps { get; set; }
 
     [JsonProperty("selectTags")]
-    public IList<string>? SelectTags { get; set; }
+    public object? SelectTags { get; set; }
 
     #endregion
 }

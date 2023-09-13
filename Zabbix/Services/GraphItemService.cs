@@ -11,31 +11,31 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class GraphItemService : GetService<GraphItem, GetGraphItemFilter>
+    public class GraphItemService : GetService<GraphItem, GraphItemFilterOptions>
     {
         public GraphItemService(ICore core) : base(core, "graphitem")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetGraphItemFilter : GetFilter
+    public class GraphItemFilterOptions : FilterOptions
     {
         [JsonProperty("graphids")]
-        public IList<string>? GraphIds { get; set; }
+        public object? GraphIds { get; set; }
 
         [JsonProperty("itemids")]
-        public IList<string>? ItemIds { get; set; }
+        public object? ItemIds { get; set; }
 
         [JsonProperty("type")]
         public int? Type { get; set; }
 
         [JsonProperty("selectGraphs")]
-        public IList<string>? SelectGraphs { get; set; }
+        public object? SelectGraphs { get; set; }
     }
 
     public enum GraphItemInclude

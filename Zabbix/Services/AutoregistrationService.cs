@@ -11,14 +11,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class AutoregistrationService : GetAndUpdateService<Autoregistration, GetAutoregistrationFilter, bool>
+    public class AutoregistrationService : GetAndUpdateService<Autoregistration, AutoregistrationFilterOptions, bool>
     {
 
         public AutoregistrationService(ICore core) : base(core, "autoregistration")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -28,7 +28,7 @@ namespace Zabbix.Services
     public enum AutoregistrationInclude
     {
     }
-    public class GetAutoregistrationFilter : GetFilter
+    public class AutoregistrationFilterOptions : FilterOptions
     {
         //TODO: only supports output https://www.zabbix.com/documentation/current/en/manual/api/reference/authentication/get
     }

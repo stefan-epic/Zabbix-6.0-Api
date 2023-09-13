@@ -6,7 +6,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class TemplateDashboardService : CrudService<TemplateDashboard, GetTemplateDashboardFilter, TemplateDashboardService.TemplateDashboardResult>
+    public class TemplateDashboardService : CrudService<TemplateDashboard, TemplateDashboardFilterOptions, TemplateDashboardService.TemplateDashboardResult>
     {
 
 
@@ -14,7 +14,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -25,16 +25,16 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetTemplateDashboardFilter : GetFilter
+    public class TemplateDashboardFilterOptions : FilterOptions
     {
         [JsonProperty("dashboardids")]
-        public IList<string>? DashboardIds { get; set; }
+        public object? DashboardIds { get; set; }
 
         [JsonProperty("templateids")]
-        public IList<string>? TemplateIds { get; set; }
+        public object? TemplateIds { get; set; }
 
         [JsonProperty("selectPages")]
-        public IList<string>? SelectPages { get; set; }
+        public object? SelectPages { get; set; }
     }
 
 }

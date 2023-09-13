@@ -7,13 +7,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class TriggerService : CrudService<Trigger, GetTriggerFilter, TriggerService.TriggerResult>
+public class TriggerService : CrudService<Trigger, TriggerFilterOptions, TriggerService.TriggerResult>
 {
     public TriggerService(ICore core) : base(core, "trigger")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -48,27 +48,27 @@ public class TriggerService : CrudService<Trigger, GetTriggerFilter, TriggerServ
     }
 }
 
-public class GetTriggerFilter : GetFilter
+public class TriggerFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("triggerids")]
-    public IList<string>? TriggerIds { get; set; }
+    public object? TriggerIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("templateids")]
-    public IList<string>? TemplateIds { get; set; }
+    public object? TemplateIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("itemids")]
-    public IList<string>? ItemIds { get; set; }
+    public object? ItemIds { get; set; }
 
     [JsonProperty("functions")]
-    public IList<string>? Functions { get; set; }
+    public object? Functions { get; set; }
 
     [JsonProperty("group")]
     public string? Group { get; set; }
@@ -134,31 +134,31 @@ public class GetTriggerFilter : GetFilter
     public bool? ExpandExpression { get; set; }
 
     [JsonProperty("selectGroups")]
-    public IList<string>? SelectGroups { get; set; }
+    public object? SelectGroups { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("selectItems")]
-    public IList<string>? SelectItems { get; set; }
+    public object? SelectItems { get; set; }
 
     [JsonProperty("selectFunctions")]
-    public IList<string>? SelectFunctions { get; set; }
+    public object? SelectFunctions { get; set; }
 
     [JsonProperty("selectDependencies")]
-    public IList<string>? SelectDependencies { get; set; }
+    public object? SelectDependencies { get; set; }
 
     [JsonProperty("selectDiscoveryRule")]
-    public IList<string>? SelectDiscoveryRule { get; set; }
+    public object? SelectDiscoveryRule { get; set; }
 
     [JsonProperty("selectLastEvent")]
-    public IList<string>? SelectLastEvent { get; set; }
+    public object? SelectLastEvent { get; set; }
 
     [JsonProperty("selectTags")]
-    public IList<string>? SelectTags { get; set; }
+    public object? SelectTags { get; set; }
 
     [JsonProperty("selectTriggerDiscovery")]
-    public IList<string>? SelectTriggerDiscovery { get; set; }
+    public object? SelectTriggerDiscovery { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

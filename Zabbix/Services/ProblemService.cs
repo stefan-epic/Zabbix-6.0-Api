@@ -6,33 +6,33 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class ProblemService : GetService<Problem, GetProblemFilter>
+public class ProblemService : GetService<Problem, ProblemFilterOptions>
 {
     public ProblemService(ICore core) : base(core, "problem")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
     {
         return BaseBuildParams(filter);
     }
 }
 
-public class GetProblemFilter : GetFilter
+public class ProblemFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("eventids")]
-    public IList<string>? EventIds { get; set; }
+    public object? EventIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("objectids")]
-    public IList<string>? ObjectIds { get; set; }
+    public object? ObjectIds { get; set; }
 
     [JsonProperty("source")]
     public int? Source { get; set; }
@@ -71,13 +71,13 @@ public class GetProblemFilter : GetFilter
     public string? TimeTill { get; set; }
 
     [JsonProperty("selectAcknowledges")]
-    public IList<string>? SelectAcknowledges { get; set; }
+    public object? SelectAcknowledges { get; set; }
 
     [JsonProperty("selectTags")]
-    public IList<string>? SelectTags { get; set; }
+    public object? SelectTags { get; set; }
 
     [JsonProperty("selectSuppressionData")]
-    public IList<string>? SelectSuppressionData { get; set; }
+    public object? SelectSuppressionData { get; set; }
 
     #endregion
 }

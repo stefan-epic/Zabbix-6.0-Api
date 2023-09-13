@@ -8,14 +8,14 @@ namespace Zabbix.Services
 {
 
     //TODO Copy method
-    public class LldRuleService : CrudService<LldRule, GetLldRuleFilter, LldRuleService.LldRuleResult>
+    public class LldRuleService : CrudService<LldRule, LldRuleFilterOptions, LldRuleService.LldRuleResult>
     {
 
         public LldRuleService(ICore core) : base(core, "discoveryrule")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -27,24 +27,24 @@ namespace Zabbix.Services
 
     }
 
-    public class GetLldRuleFilter : GetFilter
+    public class LldRuleFilterOptions : FilterOptions
     {
         #region Filter Properties
 
         [JsonProperty("itemids")]
-        public IList<string>? ItemIds { get; set; }
+        public object? ItemIds { get; set; }
 
         [JsonProperty("groupids")]
-        public IList<string>? GroupIds { get; set; }
+        public object? GroupIds { get; set; }
 
         [JsonProperty("hostids")]
-        public IList<string>? HostIds { get; set; }
+        public object? HostIds { get; set; }
 
         [JsonProperty("inherited")]
         public bool? Inherited { get; set; }
 
         [JsonProperty("interfaceids")]
-        public IList<string>? InterfaceIds { get; set; }
+        public object? InterfaceIds { get; set; }
 
         [JsonProperty("monitored")]
         public bool? Monitored { get; set; }
@@ -53,25 +53,25 @@ namespace Zabbix.Services
         public bool? Templated { get; set; }
 
         [JsonProperty("templateids")]
-        public IList<string>? TemplateIds { get; set; }
+        public object? TemplateIds { get; set; }
 
         [JsonProperty("selectFilter")]
         public string? SelectFilter { get; set; }
 
         [JsonProperty("selectGraphs")]
-        public IList<string>? SelectGraphs { get; set; }
+        public object? SelectGraphs { get; set; }
 
         [JsonProperty("selectHostPrototypes")]
-        public IList<string>? SelectHostPrototypes { get; set; }
+        public object? SelectHostPrototypes { get; set; }
 
         [JsonProperty("selectHosts")]
-        public IList<string>? SelectHosts { get; set; }
+        public object? SelectHosts { get; set; }
 
         [JsonProperty("selectItems")]
-        public IList<string>? SelectItems { get; set; }
+        public object? SelectItems { get; set; }
 
         [JsonProperty("selectTriggers")]
-        public IList<string>? SelectTriggers { get; set; }
+        public object? SelectTriggers { get; set; }
 
         [JsonProperty("selectLLDMacroPaths")]
         public string? SelectLLDMacroPaths { get; set; }

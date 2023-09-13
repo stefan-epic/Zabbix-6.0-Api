@@ -11,7 +11,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class CorrelationService : CrudService<Correlation, GetCorrelationFilter, CorrelationService.CorrelationResult>
+    public class CorrelationService : CrudService<Correlation, CorrelationFilterOptions, CorrelationService.CorrelationResult>
     {
         
 
@@ -20,7 +20,7 @@ namespace Zabbix.Services
 
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -31,16 +31,16 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetCorrelationFilter : GetFilter
+    public class CorrelationFilterOptions : FilterOptions
     {
         [JsonProperty("correlationids")]
-        public IList<string>? CorrelationIds { get; set; }
+        public object? CorrelationIds { get; set; }
 
         [JsonProperty("selectFilter")]
-        public IList<string>? SelectFilter { get; set; }
+        public object? SelectFilter { get; set; }
 
         [JsonProperty("selectOperations")]
-        public IList<string>? SelectOperations { get; set; }
+        public object? SelectOperations { get; set; }
     }
 
 }

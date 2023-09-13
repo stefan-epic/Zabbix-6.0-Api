@@ -8,7 +8,7 @@ namespace Zabbix.Services.CrudServices;
 public abstract class
     GetAndUpdateService<TEntity, TEntityFilter, TEntityResult> : GetService<TEntity, TEntityFilter>, IUpdate<TEntity>
     where TEntity : BaseEntity
-    where TEntityFilter : GetFilter
+    where TEntityFilter : FilterOptions
 {
     protected GetAndUpdateService(ICore core, string className) : base(core, className)
     {

@@ -6,40 +6,40 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class DiscoveredServiceService : GetService<DiscoveredService, GetDiscoveredServiceFilter>
+    public class DiscoveredServiceService : GetService<DiscoveredService, DiscoveredServiceFilterOptions>
     {
         public DiscoveredServiceService(ICore core) : base(core, "dservice")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetDiscoveredServiceFilter : GetFilter
+    public class DiscoveredServiceFilterOptions : FilterOptions
     {
         [JsonProperty("dserviceids")]
-        public IList<string>? DiscoveredServiceIds { get; set; }
+        public object? DiscoveredServiceIds { get; set; }
 
         [JsonProperty("dhostids")]
-        public IList<string>? DiscoveredHostIds { get; set; }
+        public object? DiscoveredHostIds { get; set; }
 
         [JsonProperty("dcheckids")]
-        public IList<string>? DiscoveryCheckIds { get; set; }
+        public object? DiscoveryCheckIds { get; set; }
 
         [JsonProperty("druleids")]
-        public IList<string>? DiscoveryRuleIds { get; set; }
+        public object? DiscoveryRuleIds { get; set; }
 
         [JsonProperty("selectDRules")]
-        public IList<string>? SelectDiscoveryRules { get; set; }
+        public object? SelectDiscoveryRules { get; set; }
 
         [JsonProperty("selectDHosts")]
-        public IList<string>? SelectDiscoveredHosts { get; set; }
+        public object? SelectDiscoveredHosts { get; set; }
 
         [JsonProperty("selectHosts")]
-        public IList<string>? SelectHosts { get; set; }
+        public object? SelectHosts { get; set; }
     }
 
     public enum DiscoveredServiceInclude

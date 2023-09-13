@@ -102,7 +102,7 @@ public class ZabbixCore : ICore
         lock (_httpClient)
         {
             var request = GetRequest(@params, method, token);
-
+            string json = JsonConvert.SerializeObject(request, _serializerSettings);
             var requestData = new StringContent(JsonConvert.SerializeObject(request, _serializerSettings), Encoding.UTF8, "application/json");
             var response = _httpClient.PostAsync(_url, requestData).Result;
             response.EnsureSuccessStatusCode();

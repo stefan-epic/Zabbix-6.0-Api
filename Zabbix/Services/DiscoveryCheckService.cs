@@ -6,28 +6,28 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class DiscoveryCheckService : GetService<DiscoveryCheck, GetDiscoveryCheckServiceFilter>
+    public class DiscoveryCheckService : GetService<DiscoveryCheck, DiscoveryCheckServiceFilterOptions>
     {
         public DiscoveryCheckService(ICore core) : base(core, "dcheck")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetDiscoveryCheckServiceFilter : GetFilter
+    public class DiscoveryCheckServiceFilterOptions : FilterOptions
     {
         [JsonProperty("dcheckids")]
-        public IList<string>? DiscoveryCheckIds { get; set; }
+        public object? DiscoveryCheckIds { get; set; }
 
         [JsonProperty("druleids")]
-        public IList<string>? DiscoveryRuleIds { get; set; }
+        public object? DiscoveryRuleIds { get; set; }
 
         [JsonProperty("dserviceids")]
-        public IList<string>? DiscoveredServiceIds { get; set; }
+        public object? DiscoveredServiceIds { get; set; }
     }
 
     public enum DiscoveryCheckInclude

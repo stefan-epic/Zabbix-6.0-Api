@@ -11,22 +11,22 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class HighAvailabilityNodeService : GetService<HighAvailabilityNode, GetHighAvFilter>
+    public class HighAvailabilityNodeService : GetService<HighAvailabilityNode, HighAvFilterOptions>
     {
         public HighAvailabilityNodeService(ICore core) : base(core, "hanode")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetHighAvFilter : GetFilter
+    public class HighAvFilterOptions : FilterOptions
     {
         [JsonProperty("ha_nodeids")]
-        public IList<string>? HaNodeIds { get; set; }
+        public object? HaNodeIds { get; set; }
     }
 
 }

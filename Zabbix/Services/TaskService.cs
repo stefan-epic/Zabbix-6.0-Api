@@ -12,19 +12,19 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
 
-    public class TaskService : GetAndCreate<TaskObject, GetTaskObjectFilter>
+    public class TaskService : GetAndCreate<TaskObject, TaskObjectFilterOptions>
     {
         public TaskService(ICore core, string className) : base(core, className) { }
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetTaskObjectFilter : GetFilter
+    public class TaskObjectFilterOptions : FilterOptions
     {
         [JsonProperty("taskids")]
-        public IList<string>? TaskIds { get; set; }
+        public object? TaskIds { get; set; }
     }
 
     public enum TaskObjectInclude

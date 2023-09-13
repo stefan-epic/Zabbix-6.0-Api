@@ -11,14 +11,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class ImageService : CrudService<Image, GetImageFilter, ImageService.ImageResult>
+    public class ImageService : CrudService<Image, ImageFilterOptions, ImageService.ImageResult>
     {
 
         public ImageService(ICore core) : base(core, "image")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -30,13 +30,13 @@ namespace Zabbix.Services
 
     }
 
-    public class GetImageFilter : GetFilter
+    public class ImageFilterOptions : FilterOptions
     {
         [JsonProperty("imageids")]
-        public IList<string>? ImageIds { get; set; }
+        public object? ImageIds { get; set; }
 
         [JsonProperty("sysmapids")]
-        public IList<string>? SysMapIds { get; set; }
+        public object? SysMapIds { get; set; }
 
         [JsonProperty("select_image")]
         public int? SelectImage { get; set; }
