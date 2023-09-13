@@ -220,7 +220,7 @@ namespace Zabbix.Entities
 
     public class ElementData
     {
-
+        //TODO?
     }
 
     public class MapElementHost : ElementData

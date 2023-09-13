@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
@@ -15,9 +16,12 @@ namespace Zabbix.Services
         public MapService(ICore core, string className) : base(core, className) { }
         protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
-            throw new NotImplementedException();
+            return BaseBuildParams(filter);
         }
-        public class MapResult : BaseResult { }
+        public class MapResult : BaseResult
+        {
+            [JsonProperty("sysmapids")]public override IList<string>? Ids { get; set; }
+        }
 
     }
 
