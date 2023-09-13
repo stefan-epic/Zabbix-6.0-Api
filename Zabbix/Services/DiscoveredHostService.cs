@@ -6,34 +6,34 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class DiscoveredHostService : GetService<DiscoveredHost, GetDiscoveredHostFilter>
+    public class DiscoveredHostService : GetService<DiscoveredHost, DiscoveredHostFilterOptions>
     {
         public DiscoveredHostService(ICore core) : base(core, "dhost")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetDiscoveredHostFilter : GetFilter
+    public class DiscoveredHostFilterOptions : FilterOptions
     {
         [JsonProperty("dhostids")]
-        public IList<string>? DiscoveredHostIds { get; set; }
+        public object? DiscoveredHostIds { get; set; }
 
         [JsonProperty("druleids")]
-        public IList<string>? DiscoveryRuleIds { get; set; }
+        public object? DiscoveryRuleIds { get; set; }
 
         [JsonProperty("dserviceids")]
-        public IList<string>? DiscoveredServiceIds { get; set; }
+        public object? DiscoveredServiceIds { get; set; }
 
         [JsonProperty("selectDRules")]
-        public IList<string>? SelectDiscoveryRules { get; set; }
+        public object? SelectDiscoveryRules { get; set; }
 
         [JsonProperty("selectDServices")]
-        public IList<string>? SelectDiscoveredServices { get; set; }
+        public object? SelectDiscoveredServices { get; set; }
     }
 
     public enum DiscoveredHostInclude

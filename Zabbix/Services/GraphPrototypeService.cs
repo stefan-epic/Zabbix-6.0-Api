@@ -11,14 +11,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class GraphPrototypeService : CrudService<GraphPrototype, GetGraphPrototypeFilter, GraphPrototypeService.GraphPrototypeResult>
+    public class GraphPrototypeService : CrudService<GraphPrototype, GraphPrototypeFilterOptions, GraphPrototypeService.GraphPrototypeResult>
     {
     
         public GraphPrototypeService(ICore core) : base(core, "graphprototype")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -29,54 +29,54 @@ namespace Zabbix.Services
 
     }
 
-    public class GetGraphPrototypeFilter : GetFilter
+    public class GraphPrototypeFilterOptions : FilterOptions
     {
         #region Filter Properties
 
         [JsonProperty("discoveryids")]
-        public IList<string>? DiscoveryIds { get; set; }
+        public object? DiscoveryIds { get; set; }
 
         [JsonProperty("graphids")]
-        public IList<string>? GraphIds { get; set; }
+        public object? GraphIds { get; set; }
 
         [JsonProperty("groupids")]
-        public IList<string>? GroupIds { get; set; }
+        public object? GroupIds { get; set; }
 
         [JsonProperty("hostids")]
-        public IList<string>? HostIds { get; set; }
+        public object? HostIds { get; set; }
 
         [JsonProperty("inherited")]
         public bool? Inherited { get; set; }
 
         [JsonProperty("itemids")]
-        public IList<string>? ItemIds { get; set; }
+        public object? ItemIds { get; set; }
 
         [JsonProperty("templated")]
         public bool? Templated { get; set; }
 
         [JsonProperty("templateids")]
-        public IList<string>? TemplateIds { get; set; }
+        public object? TemplateIds { get; set; }
 
         [JsonProperty("selectDiscoveryRule")]
-        public IList<string>? SelectDiscoveryRule { get; set; }
+        public object? SelectDiscoveryRule { get; set; }
 
         [JsonProperty("selectGraphItems")]
-        public IList<string>? SelectGraphItems { get; set; }
+        public object? SelectGraphItems { get; set; }
 
         [JsonProperty("selectHostGroups")]
-        public IList<string>? SelectHostGroups { get; set; }
+        public object? SelectHostGroups { get; set; }
 
         [JsonProperty("selectHosts")]
-        public IList<string>? SelectHosts { get; set; }
+        public object? SelectHosts { get; set; }
 
         [JsonProperty("selectItems")]
-        public IList<string>? SelectItems { get; set; }
+        public object? SelectItems { get; set; }
 
         [JsonProperty("selectTemplateGroups")]
-        public IList<string>? SelectTemplateGroups { get; set; }
+        public object? SelectTemplateGroups { get; set; }
 
         [JsonProperty("selectTemplates")]
-        public IList<string>? SelectTemplates { get; set; }
+        public object? SelectTemplates { get; set; }
         #endregion
     }
 

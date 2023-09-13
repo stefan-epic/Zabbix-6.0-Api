@@ -7,13 +7,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class EventService : GetService<Event, GetEventFilter>
+public class EventService : GetService<Event, EventFilterOptions>
 {
     public EventService(ICore core) : base(core, "event")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -42,21 +42,21 @@ public class EventService : GetService<Event, GetEventFilter>
     }
 }
 
-public class GetEventFilter : GetFilter
+public class EventFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("eventids")]
-    public IList<string>? EventIds { get; set; }
+    public object? EventIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("objectids")]
-    public IList<string>? ObjectIds { get; set; }
+    public object? ObjectIds { get; set; }
 
     [JsonProperty("source")]
     public int? Source { get; set; }
@@ -104,22 +104,22 @@ public class GetEventFilter : GetFilter
     public IList<int>? Values { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("selectRelatedObject")]
-    public IList<string>? SelectRelatedObject { get; set; }
+    public object? SelectRelatedObject { get; set; }
 
     [JsonProperty("select_alerts")]
-    public IList<string>? SelectAlerts { get; set; }
+    public object? SelectAlerts { get; set; }
 
     [JsonProperty("select_acknowledges")]
-    public IList<string>? SelectAcknowledges { get; set; }
+    public object? SelectAcknowledges { get; set; }
 
     [JsonProperty("selectTags")]
-    public IList<string>? SelectTags { get; set; }
+    public object? SelectTags { get; set; }
 
     [JsonProperty("selectSuppressionData")]
-    public IList<string>? SelectSuppressionData { get; set; }
+    public object? SelectSuppressionData { get; set; }
     #endregion
 
 }

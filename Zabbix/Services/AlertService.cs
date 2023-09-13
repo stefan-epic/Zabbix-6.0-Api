@@ -6,45 +6,45 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class AlertService : GetService<Alert, GetAlertFilter>
+public class AlertService : GetService<Alert, AlertFilterOptions>
 {
     public AlertService(ICore core) : base(core, "alert")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
 }
 
-public class GetAlertFilter : GetFilter
+public class AlertFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("alertids")]
-    public IList<string>? AlertIds { get; set; }
+    public object? AlertIds { get; set; }
 
     [JsonProperty("actionids")]
-    public IList<string>? ActionIds { get; set; }
+    public object? ActionIds { get; set; }
 
     [JsonProperty("eventids")]
-    public IList<string>? EventIds { get; set; }
+    public object? EventIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("mediatypeids")]
-    public IList<string>? MediaTypeIds { get; set; }
+    public object? MediaTypeIds { get; set; }
 
     [JsonProperty("objectids")]
-    public IList<string>? ObjectIds { get; set; }
+    public object? ObjectIds { get; set; }
 
     [JsonProperty("userids")]
-    public IList<string>? UserIds { get; set; }
+    public object? UserIds { get; set; }
 
     [JsonProperty("eventobject")]
     public int? EventObject { get; set; }
@@ -59,13 +59,13 @@ public class GetAlertFilter : GetFilter
     public DateTime? TimeTill { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("selectMediatypes")]
-    public IList<string>? SelectMediatypes { get; set; }
+    public object? SelectMediatypes { get; set; }
 
     [JsonProperty("selectUsers")]
-    public IList<string>? SelectUsers { get; set; }
+    public object? SelectUsers { get; set; }
 
     #endregion
 }

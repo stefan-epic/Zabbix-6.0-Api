@@ -25,7 +25,7 @@ namespace Zabbix.Services.CrudServices
     public abstract class MassCrudService<TEntity, TEntityFilter, TEntityResult> : CrudService<TEntity, TEntityFilter, TEntityResult>, IMassAdd<TEntity>, IMassRemove<TEntity>, IMassUpdate<TEntity>
             where TEntity : BaseEntity
             where TEntityResult : BaseResult
-            where TEntityFilter : GetFilter
+            where TEntityFilter : FilterOptions
     {
         public MassCrudService(ICore core, string className) : base(core, className)
         {

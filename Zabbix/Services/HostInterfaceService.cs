@@ -7,13 +7,13 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services;
 
 //TODO
-public class HostInterfaceService : CrudService<HostInterface, GetHostInterfaceFilter,HostInterfaceService.HostInterfaceResult>
+public class HostInterfaceService : CrudService<HostInterface, HostInterfaceFilterOptions,HostInterfaceService.HostInterfaceResult>
 {
     public HostInterfaceService(ICore core) : base(core, "hostinterface")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
     {
         return BaseBuildParams(filter);
     }
@@ -24,25 +24,25 @@ public class HostInterfaceService : CrudService<HostInterface, GetHostInterfaceF
     }
 }
 
-public class GetHostInterfaceFilter : GetFilter
+public class HostInterfaceFilterOptions : FilterOptions
 {
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("interfaceids")]
-    public IList<string>? InterfaceIds { get; set; }
+    public object? InterfaceIds { get; set; }
 
     [JsonProperty("itemids")]
-    public IList<string>? ItemIds { get; set; }
+    public object? ItemIds { get; set; }
 
     [JsonProperty("triggerids")]
-    public IList<string>? TriggerIds { get; set; }
+    public object? TriggerIds { get; set; }
 
     [JsonProperty("selectItems")]
-    public IList<string>? SelectItems { get; set; }
+    public object? SelectItems { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

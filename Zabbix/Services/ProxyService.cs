@@ -6,14 +6,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class ProxyService : CrudService<Proxy, GetProxyFilter, ProxyService.ProxyResult>
+public class ProxyService : CrudService<Proxy, ProxyFilterOptions, ProxyService.ProxyResult>
 {
 
     public ProxyService(ICore core) : base(core, "proxy")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -24,16 +24,16 @@ public class ProxyService : CrudService<Proxy, GetProxyFilter, ProxyService.Prox
     }
 }
 
-public class GetProxyFilter : GetFilter
+public class ProxyFilterOptions : FilterOptions
 {
     [JsonProperty("proxyids")]
-    public IList<string>? ProxyIds { get; set; }
+    public object? ProxyIds { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("selectInterface")]
-    public IList<string>? SelectInterface { get; set; }
+    public object? SelectInterface { get; set; }
 }
 
 public enum ProxyInclude

@@ -8,14 +8,14 @@ namespace Zabbix.Services
 {
 
     //TODO implemement SLAsli method
-    public class SlaService : CrudService<SLA, GetSlaFilter, SlaService.SlaResult>
+    public class SlaService : CrudService<SLA, SlaFilterOptions, SlaService.SlaResult>
     {
 
         public SlaService(ICore core) : base(core, "sla")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -27,22 +27,22 @@ namespace Zabbix.Services
 
     }
 
-    public class GetSlaFilter : GetFilter
+    public class SlaFilterOptions : FilterOptions
     {
         [JsonProperty("slaids")]
-        public IList<string>? SlaIds { get; set; }
+        public object? SlaIds { get; set; }
 
         [JsonProperty("serviceids")]
-        public IList<string>? ServiceIds { get; set; }
+        public object? ServiceIds { get; set; }
 
         [JsonProperty("selectSchedule")]
-        public IList<string>? SelectSchedule { get; set; }
+        public object? SelectSchedule { get; set; }
 
         [JsonProperty("selectExcludedDowntimes")]
-        public IList<string>? SelectExcludedDowntimes { get; set; }
+        public object? SelectExcludedDowntimes { get; set; }
 
         [JsonProperty("selectServiceTags")]
-        public IList<string>? SelectServiceTags { get; set; }
+        public object? SelectServiceTags { get; set; }
     }
 
 }

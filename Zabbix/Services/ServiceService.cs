@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class ServiceService : CrudService<Service, GetServiceFilter, ServiceService.ServiceResult>
+    public class ServiceService : CrudService<Service, ServiceFilterOptions, ServiceService.ServiceResult>
     {
         public ServiceService(ICore core) : base(core, "service")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -23,21 +23,21 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetServiceFilter : GetFilter
+    public class ServiceFilterOptions : FilterOptions
     {
         #region Filter Properties
 
         [JsonProperty("serviceids")]
-        public IList<string>? ServiceIds { get; set; }
+        public object? ServiceIds { get; set; }
 
         [JsonProperty("parentids")]
-        public IList<string>? ParentIds { get; set; }
+        public object? ParentIds { get; set; }
 
         [JsonProperty("deep_parentids")]
         public bool? DeepParentIds { get; set; }
 
         [JsonProperty("childids")]
-        public IList<string>? ChildIds { get; set; }
+        public object? ChildIds { get; set; }
 
         [JsonProperty("evaltype")]
         public int? EvalType { get; set; }
@@ -52,25 +52,25 @@ namespace Zabbix.Services
         public bool? WithoutProblemTags { get; set; }
 
         [JsonProperty("slaids")]
-        public IList<string>? SlaIds { get; set; }
+        public object? SlaIds { get; set; }
 
         [JsonProperty("selectChildren")]
-        public IList<string>? SelectChildren { get; set; }
+        public object? SelectChildren { get; set; }
 
         [JsonProperty("selectParents")]
-        public IList<string>? SelectParents { get; set; }
+        public object? SelectParents { get; set; }
 
         [JsonProperty("selectTags")]
-        public IList<string>? SelectTags { get; set; }
+        public object? SelectTags { get; set; }
 
         [JsonProperty("selectProblemEvents")]
-        public IList<string>? SelectProblemEvents { get; set; }
+        public object? SelectProblemEvents { get; set; }
 
         [JsonProperty("selectProblemTags")]
-        public IList<string>? SelectProblemTags { get; set; }
+        public object? SelectProblemTags { get; set; }
 
         [JsonProperty("selectStatusRules")]
-        public IList<string>? SelectStatusRules { get; set; }
+        public object? SelectStatusRules { get; set; }
 
         [JsonProperty("selectStatusTimeline")]
         public IList<StatusTimelineFilter>? SelectStatusTimeline { get; set; }

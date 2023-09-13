@@ -9,7 +9,7 @@ namespace Zabbix.Services.CrudServices;
 
 
 
-public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : ServiceBase where TEntityResult : BaseResult where TEntity : BaseEntity where TEntityFilter : GetFilter
+public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : ServiceBase where TEntityResult : BaseResult where TEntity : BaseEntity where TEntityFilter : FilterOptions
 {
     protected CrudService(ICore core, string className) : base(core, className)
     {

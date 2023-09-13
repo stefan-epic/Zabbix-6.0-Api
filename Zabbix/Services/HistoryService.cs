@@ -12,28 +12,28 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
     //TODO: method clear
-    public class HistoryService : GetService<History, GetHistoryFilter>
+    public class HistoryService : GetService<History, HistoryFilterOptions>
     {
         public HistoryService(ICore core) : base(core, "history")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetHistoryFilter : GetFilter
+    public class HistoryFilterOptions : FilterOptions
     {
         [JsonProperty("history")]
         public int? History { get; set; }
 
         [JsonProperty("hostids")]
-        public IList<string>? HostIds { get; set; }
+        public object? HostIds { get; set; }
 
         [JsonProperty("itemids")]
-        public IList<string>? ItemIds { get; set; }
+        public object? ItemIds { get; set; }
 
         [JsonProperty("time_from")]
         public string? TimeFrom { get; set; }

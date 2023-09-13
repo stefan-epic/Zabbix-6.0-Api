@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class DiscoveryRuleService : CrudService<DiscoveryRule, GetDiscoveryRuleFilter, DiscoveryRuleService.DiscoveryRuleResult>
+public class DiscoveryRuleService : CrudService<DiscoveryRule, DiscoveryRuleFilterOptions, DiscoveryRuleService.DiscoveryRuleResult>
 {
     public DiscoveryRuleService(ICore core) : base(core, "drule")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -23,16 +23,16 @@ public class DiscoveryRuleService : CrudService<DiscoveryRule, GetDiscoveryRuleF
     }
 }
 
-public class GetDiscoveryRuleFilter : GetFilter
+public class DiscoveryRuleFilterOptions : FilterOptions
 {
     [JsonProperty("dcheckids")]
-    public IList<string>? DiscoveryCheckIds { get; set; }
+    public object? DiscoveryCheckIds { get; set; }
 
     [JsonProperty("druleids")]
-    public IList<string>? DiscoveryRuleIds { get; set; }
+    public object? DiscoveryRuleIds { get; set; }
 
     [JsonProperty("dserviceids")]
-    public IList<string>? DiscoveredServiceIds { get; set; }
+    public object? DiscoveredServiceIds { get; set; }
 }
 
 public enum DiscoverRuleInclude

@@ -84,7 +84,7 @@ public class Item : BaseEntity
 
     [JsonProperty("http_proxy")] public string? HttpProxy { get; set; }
 
-    [JsonProperty("headers")] public IList<object>? Headers { get; set; }
+    [JsonProperty("headers")] public object? Headers { get; set; }
 
     [JsonProperty("retrieve_mode")] public int? RetrieveMode { get; set; }
 
@@ -110,7 +110,7 @@ public class Item : BaseEntity
 
     [JsonProperty("error")] public string? Error { get; set; }
 
-    [JsonProperty("parameters")] public IList<object>? Parameters { get; set; }
+    [JsonProperty("parameters")] public object? Parameters { get; set; }
 
     [JsonProperty("lastclock")] public string? Lastclock { get; set; }
 

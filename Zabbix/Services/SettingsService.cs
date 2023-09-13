@@ -11,19 +11,19 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class SettingsService : GetAndUpdateService<Settings, GetSettingsFilter, object>
+    public class SettingsService : GetAndUpdateService<Settings, SettingsFilterOptions, object>
     {
         public SettingsService(ICore core) : base(core, "settings")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
            return BaseBuildParams(filter);
         }
     }
 
-    public class GetSettingsFilter : GetFilter
+    public class SettingsFilterOptions : FilterOptions
     {
 
     }

@@ -6,26 +6,26 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class AuditLogService : GetService<AuditLog, GetAuditLogFilter>
+public class AuditLogService : GetService<AuditLog, AuditLogFilterOptions>
 {
     public AuditLogService(ICore core) : base(core, "auditlog")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
 }
-public class GetAuditLogFilter : GetFilter
+public class AuditLogFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("auditids")]
-    public IList<string>? AuditIds { get; set; }
+    public object? AuditIds { get; set; }
 
     [JsonProperty("userids")]
-    public IList<string>? UserIds { get; set; }
+    public object? UserIds { get; set; }
 
     [JsonProperty("time_from")]
     public DateTime? TimeFrom { get; set; }

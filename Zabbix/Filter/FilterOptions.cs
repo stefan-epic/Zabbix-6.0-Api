@@ -8,7 +8,7 @@ using Zabbix.Entities;
 
 namespace Zabbix.Filter
 {
-    public class GetFilter
+    public class FilterOptions
     {
         [JsonProperty("countOutput")]
         public bool? CountOutput { get; set; }

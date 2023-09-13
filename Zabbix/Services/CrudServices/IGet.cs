@@ -5,7 +5,7 @@ namespace Zabbix.Services.CrudServices;
 
 public interface IGet<TEntity, TEntityFilter>
     where TEntity : BaseEntity
-    where TEntityFilter : GetFilter
+    where TEntityFilter : FilterOptions
 {
     IEnumerable<TEntity> Get(TEntityFilter? filter = null);
 

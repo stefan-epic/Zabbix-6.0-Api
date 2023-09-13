@@ -6,7 +6,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class ScriptService : CrudService<Script, GetScriptFilter, ScriptService.ScriptResult>
+    public class ScriptService : CrudService<Script, ScriptFilterOptions, ScriptService.ScriptResult>
     {
 
 
@@ -14,7 +14,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -25,28 +25,28 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetScriptFilter : GetFilter
+    public class ScriptFilterOptions : FilterOptions
     {
         [JsonProperty("groupids")]
-        public IList<string>? GroupIds { get; set; }
+        public object? GroupIds { get; set; }
 
         [JsonProperty("hostids")]
-        public IList<string>? HostIds { get; set; }
+        public object? HostIds { get; set; }
 
         [JsonProperty("scriptids")]
-        public IList<string>? ScriptIds { get; set; }
+        public object? ScriptIds { get; set; }
 
         [JsonProperty("usrgrpids")]
-        public IList<string>? UsrgrpIds { get; set; }
+        public object? UsrgrpIds { get; set; }
 
         [JsonProperty("selectGroups")]
-        public IList<string>? SelectGroups { get; set; }
+        public object? SelectGroups { get; set; }
 
         [JsonProperty("selectHosts")]
-        public IList<string>? SelectHosts { get; set; }
+        public object? SelectHosts { get; set; }
 
         [JsonProperty("selectActions")]
-        public IList<string>? SelectActions { get; set; }
+        public object? SelectActions { get; set; }
     }
 
     public enum ScriptInclude

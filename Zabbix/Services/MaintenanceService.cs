@@ -6,14 +6,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class MaintenanceService : CrudService<Maintenance, GetMaintenanceFilter, MaintenanceService.MaintenanceResult>
+    public class MaintenanceService : CrudService<Maintenance, MaintenanceFilterOptions, MaintenanceService.MaintenanceResult>
     {
 
         public MaintenanceService(ICore core) : base(core, "maintenance")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -25,16 +25,16 @@ namespace Zabbix.Services
 
     }
 
-    public class GetMaintenanceFilter : GetFilter
+    public class MaintenanceFilterOptions : FilterOptions
     {
         [JsonProperty("groupids")]
-        public IList<string>? GroupIds { get; set; }
+        public object? GroupIds { get; set; }
 
         [JsonProperty("hostids")]
-        public IList<string>? HostIds { get; set; }
+        public object? HostIds { get; set; }
 
         [JsonProperty("maintenanceids")]
-        public IList<string>? MaintenanceIds { get; set; }
+        public object? MaintenanceIds { get; set; }
 
         [JsonProperty("selectGroups")]
         public string? SelectGroups { get; set; }

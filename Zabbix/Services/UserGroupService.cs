@@ -6,14 +6,14 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class UserGroupService : CrudService<UserGroup, GetUserGroupFilter, UserGroupService.UserGroupResult>
+    public class UserGroupService : CrudService<UserGroup, UserGroupFilterOptions, UserGroupService.UserGroupResult>
     {
 
         public UserGroupService(ICore core) : base(core, "usergroup")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -24,25 +24,25 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetUserGroupFilter : GetFilter
+    public class UserGroupFilterOptions : FilterOptions
     {
         [JsonProperty("status")]
         public int? Status { get; set; }
 
         [JsonProperty("userids")]
-        public IList<string>? UserIds { get; set; }
+        public object? UserIds { get; set; }
 
         [JsonProperty("usrgrpids")]
-        public IList<string>? UserGroupIds { get; set; }
+        public object? UserGroupIds { get; set; }
 
         [JsonProperty("selectTagFilters")]
-        public IList<string>? SelectTagFilters { get; set; }
+        public object? SelectTagFilters { get; set; }
 
         [JsonProperty("selectUsers")]
-        public IList<string>? SelectUsers { get; set; }
+        public object? SelectUsers { get; set; }
 
         [JsonProperty("selectRights")]
-        public IList<string>? SelectRights { get; set; }
+        public object? SelectRights { get; set; }
 
         [JsonProperty("limitSelects")]
         public int? LimitSelects { get; set; }

@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class RoleService : CrudService<Role, GetRoleFilter, RoleService.RoleResult>
+public class RoleService : CrudService<Role, RoleFilterOptions, RoleService.RoleResult>
 {
     public RoleService(ICore core) : base(core, "role")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -23,16 +23,16 @@ public class RoleService : CrudService<Role, GetRoleFilter, RoleService.RoleResu
     }
 }
 
-public class GetRoleFilter : GetFilter
+public class RoleFilterOptions : FilterOptions
 {
     [JsonProperty("roleids")]
-    public IList<string>? RoleIds { get; set; }
+    public object? RoleIds { get; set; }
 
     [JsonProperty("selectRules")]
-    public IList<string>? SelectRules { get; set; }
+    public object? SelectRules { get; set; }
 
     [JsonProperty("selectUsers")]
-    public IList<string>? SelectUsers { get; set; }
+    public object? SelectUsers { get; set; }
 }
 
 public enum RoleInclude

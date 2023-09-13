@@ -6,13 +6,13 @@ using Action = Zabbix.Entities.Action;
 
 namespace Zabbix.Services;
 
-public class ActionService : CrudService<Action, GetActionFilter, ActionService.ActionResult>
+public class ActionService : CrudService<Action, ActionFilterOptions, ActionService.ActionResult>
 {
     public ActionService(ICore core) : base(core, "action")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -23,45 +23,45 @@ public class ActionService : CrudService<Action, GetActionFilter, ActionService.
     }
   
 }
-public class GetActionFilter : GetFilter
+public class ActionFilterOptions : FilterOptions
 {
     #region FilterProps
 
     [JsonProperty("actionids")]
-    public IList<string>? ActionIds { get; set; }
+    public object? ActionIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("triggerids")]
-    public IList<string>? TriggerIds { get; set; }
+    public object? TriggerIds { get; set; }
 
     [JsonProperty("mediatypeids")]
-    public IList<string>? MediaTypeIds { get; set; }
+    public object? MediaTypeIds { get; set; }
 
     [JsonProperty("usrgrpids")]
-    public IList<string>? UserGroupIds { get; set; }
+    public object? UserGroupIds { get; set; }
 
     [JsonProperty("userids")]
-    public IList<string>? UserIds { get; set; }
+    public object? UserIds { get; set; }
 
     [JsonProperty("scriptids")]
-    public IList<string>? ScriptIds { get; set; }
+    public object? ScriptIds { get; set; }
 
     [JsonProperty("selectFilter")]
-    public IList<string>? SelectFilter { get; set; }
+    public object? SelectFilter { get; set; }
 
     [JsonProperty("selectOperations")]
-    public IList<string>? SelectOperations { get; set; }
+    public object? SelectOperations { get; set; }
 
     [JsonProperty("selectRecoveryOperations")]
-    public IList<string>? SelectRecoveryOperations { get; set; }
+    public object? SelectRecoveryOperations { get; set; }
 
     [JsonProperty("selectUpdateOperations")]
-    public IList<string>? SelectUpdateOperations { get; set; }
+    public object? SelectUpdateOperations { get; set; }
 
     #endregion
 }

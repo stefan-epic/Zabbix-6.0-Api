@@ -21,13 +21,13 @@ namespace Zabbix.Services
 
 
     }
-    public class FloatTrendService : GetService<FloatTrend, GetTrendFilter>
+    public class FloatTrendService : GetService<FloatTrend, TrendFilterOptions>
     {
         public FloatTrendService(ICore core) : base(core, "trend")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -35,22 +35,22 @@ namespace Zabbix.Services
 
    
 
-    public class IntegerTrendService : GetService<IntegerTrend, GetTrendFilter>
+    public class IntegerTrendService : GetService<IntegerTrend, TrendFilterOptions>
     {
         public IntegerTrendService(ICore core) : base(core, "trend")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
     }
 
-    public class GetTrendFilter : GetFilter
+    public class TrendFilterOptions : FilterOptions
     {
         [JsonProperty("itemids")]
-        public IList<string>? ItemIds { get; set; }
+        public object? ItemIds { get; set; }
 
         [JsonProperty("time_from")]
         public string? TimeFrom { get; set; }

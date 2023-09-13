@@ -6,13 +6,13 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class HostGroupService : MassCrudService<HostGroup, GetHostGroupFilter, HostGroupService.HostGroupResult>
+public class HostGroupService : MassCrudService<HostGroup, HostGroupFilterOptions, HostGroupService.HostGroupResult>
 {
     public HostGroupService(ICore core) : base(core, "hostgroup")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -48,24 +48,24 @@ public class HostGroupService : MassCrudService<HostGroup, GetHostGroupFilter, H
 
 }
 
-public class GetHostGroupFilter : GetFilter
+public class HostGroupFilterOptions : FilterOptions
 {
     #region Filter Properties
 
     [JsonProperty("graphids")]
-    public IList<string>? GraphIds { get; set; }
+    public object? GraphIds { get; set; }
 
     [JsonProperty("groupids")]
-    public IList<string>? GroupIds { get; set; }
+    public object? GroupIds { get; set; }
 
     [JsonProperty("hostids")]
-    public IList<string>? HostIds { get; set; }
+    public object? HostIds { get; set; }
 
     [JsonProperty("maintenanceids")]
-    public IList<string>? MaintenanceIds { get; set; }
+    public object? MaintenanceIds { get; set; }
 
     [JsonProperty("triggerids")]
-    public IList<string>? TriggerIds { get; set; }
+    public object? TriggerIds { get; set; }
 
     [JsonProperty("with_graphs")]
     public bool? WithGraphs { get; set; }
@@ -107,13 +107,13 @@ public class GetHostGroupFilter : GetFilter
     public bool? WithTriggers { get; set; }
 
     [JsonProperty("selectDiscoveryRule")]
-    public IList<string>? SelectDiscoveryRule { get; set; }
+    public object? SelectDiscoveryRule { get; set; }
 
     [JsonProperty("selectGroupDiscovery")]
-    public IList<string>? SelectGroupDiscovery { get; set; }
+    public object? SelectGroupDiscovery { get; set; }
 
     [JsonProperty("selectHosts")]
-    public IList<string>? SelectHosts { get; set; }
+    public object? SelectHosts { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

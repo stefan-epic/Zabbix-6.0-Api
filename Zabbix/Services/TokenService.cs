@@ -6,7 +6,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class TokenService : CrudService<Token, GetTokenFilter, TokenService.TokenResult>
+    public class TokenService : CrudService<Token, TokenFilterOptions, TokenService.TokenResult>
     {
 
         //TODO: Token generate token update methds
@@ -14,7 +14,7 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -25,13 +25,13 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetTokenFilter : GetFilter
+    public class TokenFilterOptions : FilterOptions
     {
         [JsonProperty("tokenids")]
-        public IList<string>? TokenIds { get; set; }
+        public object? TokenIds { get; set; }
 
         [JsonProperty("userids")]
-        public IList<string>? UserIds { get; set; }
+        public object? UserIds { get; set; }
 
         [JsonProperty("token")]
         public string? Token { get; set; }

@@ -11,11 +11,11 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class ConnectorService : CrudService<Connector, GetConnectorFilter, ConnectorService.ConnectorResult>
+    public class ConnectorService : CrudService<Connector, ConnectorFilterOptions, ConnectorService.ConnectorResult>
     {
         
         public ConnectorService(ICore core, string className) : base(core, className) { }
-        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
         {
             return BaseBuildParams(filter);
         }
@@ -26,9 +26,9 @@ namespace Zabbix.Services
         }
     }
 
-    public class GetConnectorFilter : GetFilter
+    public class ConnectorFilterOptions : FilterOptions
     {
-        [JsonProperty("connectorids")] public IList<string>? ConnectorIds { get; set; }
-        [JsonProperty("selectTags")] public IList<string>? SelectTags { get; set; }
+        [JsonProperty("connectorids")] public object? ConnectorIds { get; set; }
+        [JsonProperty("selectTags")] public object? SelectTags { get; set; }
     }
 }

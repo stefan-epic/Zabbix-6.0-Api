@@ -8,13 +8,13 @@ namespace Zabbix.Services;
 
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference/usermacro/get
 //TODO: Global functions
-public class UserMacroService : CrudService<UserMacro, GetUserMacroFilter, UserMacroService.UserMacroResult>
+public class UserMacroService : CrudService<UserMacro, UserMacroFilterOptions, UserMacroService.UserMacroResult>
 {
     public UserMacroService(ICore core) : base(core, "usermacro")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
+    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
         return BaseBuildParams(filter);
     }
@@ -25,23 +25,23 @@ public class UserMacroService : CrudService<UserMacro, GetUserMacroFilter, UserM
     }
 }
 
-public class GetUserMacroFilter : GetFilter
+public class UserMacroFilterOptions : FilterOptions
 {
     [JsonProperty("globalmacro")] public bool? GlobalMacro { get; set; }
 
-    [JsonProperty("globalmacroids")] public IList<string>? GlobalMacroIds { get; set; }
+    [JsonProperty("globalmacroids")] public object? GlobalMacroIds { get; set; }
 
-    [JsonProperty("groupids")] public IList<string>? GroupIds { get; set; }
+    [JsonProperty("groupids")] public object? GroupIds { get; set; }
 
-    [JsonProperty("hostids")] public IList<string>? HostIds { get; set; }
+    [JsonProperty("hostids")] public object? HostIds { get; set; }
 
-    [JsonProperty("hostmacroids")] public IList<string>? HostMacroIds { get; set; }
+    [JsonProperty("hostmacroids")] public object? HostMacroIds { get; set; }
 
     [JsonProperty("inherited")] public bool? Inherited { get; set; }
 
-    [JsonProperty("selectGroups")] public IList<string>? SelectGroups { get; set; }
+    [JsonProperty("selectGroups")] public object? SelectGroups { get; set; }
 
-    [JsonProperty("selectHosts")] public IList<string>? SelectHosts { get; set; }
+    [JsonProperty("selectHosts")] public object? SelectHosts { get; set; }
 
-    [JsonProperty("selectTemplates")] public IList<string>? SelectTemplates { get; set; }
+    [JsonProperty("selectTemplates")] public object? SelectTemplates { get; set; }
 }

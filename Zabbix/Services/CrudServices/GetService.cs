@@ -7,7 +7,7 @@ namespace Zabbix.Services.CrudServices;
 public abstract class GetService<TEntity, TEntityFilter> :
     ServiceBase, IGet<TEntity, TEntityFilter>
     where TEntity : BaseEntity
-    where TEntityFilter : GetFilter
+    where TEntityFilter : FilterOptions
 {
     protected GetService(ICore core, string className) : base(core, className)
     {
