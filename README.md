@@ -8,7 +8,6 @@ Please note that this library is still under active development, there are proba
 ## Installation
 
 Currently, the library can be used by cloning this repository. I plan to release a NuGet package once I am satisfied with the stability and features.
-
 ## Usage
 
 First, let's establish a connection to the Zabbix server using your credentials:
@@ -41,52 +40,38 @@ string updatedServerHostId = core.Hosts.Delete(serverHost);
 string updatedServerHostId = core.Hosts.Delete(createdServerHostId);
 ```
 ### Getting Entities
-Getting Entities is a bit more complicated, but once you understand how it works its very simple.<br/>
-
 This is a simple Get, it will return every Host that is configured on Zabbix.<br/>
 ```csharp
 List<Host> hosts = core.Hosts.Get().ToList();
 ```
-However, the Get method can also accept a RequestFilter as its parameter.
-### RequestFilter (Will likely change quite a bit during Development)
-The RequestFilter can be employed to query Zabbix based on specific criteria or to fine-tune the output.<br/> 
-It consists of three main filters.
+However, the Get method can also accept a FilterOptions object as its parameter. Every entity has its own FilterOptions object named *Entityname*FilterOptions.<br/>
+The FilterOptions can be initialized directly via the constructor like so:
 
-#### OutputFilter
-The OutputFilter is very simple, you can tell Zabbix which Properties you want to get back from the requested Entities.<br/>
-The below code will ask Zabbix to return every Host but only with their hostname and status Properties(awell as their ids).
 ```csharp
-  RequestFilter<HostProperties, HostInclude> requestFilter = new();
-  requestFilter.OutputFilter.AddFilter(HostProperties.host);
-  requestFilter.OutputFilter.AddFilter(HostProperties.status);
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend"});
+```
+if you want to for example query the Hosts items to only return certain properties you can pass it a list of strings like so:
+```csharp
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"hostid", "itemid"}});
+```
+#### Attention
+The count related FilterOptions currently do not work<br/>
+If you want to set any of the filter properties to "extend" (at least those which support it) do not use a list:
+```csharp
+//THIS IS WRONG
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"extend"}});
 
-  List<Host> hosts = core.Hosts.Get(requestFilter).ToList();
+//Do this instead
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend");
 ```
-#### IncludeFilter
-The IncludeFilter is utilized to expand the output of a request. <br/>
-The following example retrieves all hosts from Zabbix along with their associated groups.
+Use a list if you're Querying for any property. For example:
 ```csharp
-RequestFilter<HostProperties, HostInclude> requestFilter = new();
-requestFilter.IncludeFilter.Set(HostInclude.selectGroups);
+//This is correct
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"hostid"}});
+```
+The exact meaning and usage of each FilterOption can be found on the Zabbix Docs under the Get section of the entity:
+https://www.zabbix.com/documentation/6.0/en/manual/api/reference
 
-List<Host> hosts = core.Hosts.Get(requestFilter).ToList();
-```
-You can also provide the IncludeFilter with a list of properties you want to obtain from the requested include query, similar to the OutputFilter.
-```csharp
-RequestFilter<HostProperties, HostInclude> requestFilter = new();
-requestFilter.IncludeFilter.Set(HostInclude.selectGroups, new List<string>(){"groupname", "groupid"});
-
-List<Host> hosts = core.Hosts.Get(requestFilter).ToList();
-```
-#### ObjectFilter
-The ObjectFilter can be used to query for a specific Entity or every Entity that meets a certian Criteria.<br/>
-The below code returns every Host that either has the name "Zabbix Server" or "Linux Server"
-```csharp
-    RequestFilter<HostProperties, HostInclude> rqFilter = new();
-    rqFilter.ObjectFilter.Set(HostProperties.host, "Zabbix Server");
-    rqFilter.ObjectFilter.Append(HostProperties.host, "Linux Server");
-    var list = core.Hosts.Get(rqFilter);
-```
 ### CRUD operations
 Most entities support the CRUD operations and some include some extra Operations. <br/>
 Every Crud operation can be called with either a single Entity or a List of Entities. <br/>
