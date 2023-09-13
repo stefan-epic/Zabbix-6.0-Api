@@ -41,6 +41,8 @@ public class WebScenario : BaseEntity
 
     [JsonProperty("http_proxy")] public string? HttpProxy { get; set; }
 
+    [JsonProperty("nextcheck")] public string? NextCheck { get; set; }
+
     [JsonProperty("retries")] public int? Retries { get; set; } = 1;
 
     [JsonProperty("ssl_cert_file")] public string? SslCertFile { get; set; }
@@ -94,7 +96,6 @@ public class WebScenarioStep
     [JsonProperty("url")] public string? Url { get; set; }
 
     [JsonProperty("timeout")] public string? Timeout { get; set; }
-
 
     [JsonProperty("required")] public string? Required { get; set; }
 

@@ -61,16 +61,17 @@ public class Host : BaseEntity
 
     [JsonProperty("triggers")] public IList<Trigger>? Triggers { get; set; }
 
-    //[JsonProperty("discoveries")]
-    // not done
-    // SelectHostDiscovery
-    //public IList<Discovery>? Discoveries { get; set; }
+    [JsonProperty("discoveries")] public IList<LldRule>? LldRules { get; set; }
+
+    [JsonProperty("discoveryRule")] public IList<DiscoveryRule>? DiscoveryRules { get; set; }
+
+    [JsonProperty("hostDiscovery")] public object? HostDiscovery { get; set; } //TODO map this to actual object
 
     [JsonProperty("items")] public IList<Item>? Items { get; set; }
 
     [JsonProperty("graphs")] public IList<Graph>? Graphs { get; set; }
 
-    [JsonProperty("httptests")] public IList<WebScenario>? WebScenarios { get; set; }
+    [JsonProperty("httpTests")] public IList<WebScenario>? WebScenarios { get; set; }
 
     [JsonProperty("interfaces")] public IList<HostInterface>? Interfaces { get; set; }
 
@@ -82,7 +83,7 @@ public class Host : BaseEntity
 
     [JsonProperty("inheritedTags")] public IList<Tag>? InheritedTags { get; set; }
 
-    [JsonProperty("valueMaps")] public IList<Tag>? ValueMaps { get; set; }
+    [JsonProperty("valueMaps")] public IList<ValueMap>? ValueMaps { get; set; }
 
     #endregion
 
