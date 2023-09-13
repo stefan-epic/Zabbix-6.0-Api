@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public enum IconMapProperties
-    {
-        iconmapid,
-        default_iconid,
-        name
-    }
     public class IconMapping
     {
         #region Properties

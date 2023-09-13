@@ -7,13 +7,6 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public enum ImageProperties
-    {
-        imageid,
-        name,
-        imagetype,
-        image
-    }
     public class Image : BaseEntity
     {
         #region Properties

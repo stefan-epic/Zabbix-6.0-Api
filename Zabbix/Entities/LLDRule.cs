@@ -2,64 +2,8 @@
 
 namespace Zabbix.Entities
 {
-    public enum LLDRuleProperties
-    {
-        itemid,
-        delay,
-        hostid,
-        stringerfaceid,
-        key_,
-        name,
-        type,
-        url,
-        allow_traps,
-        authtype,
-        description,
-        error,
-        follow_redirects,
-        http_proxy,
-        ipmi_sensor,
-        jmx_endpostring,
-        lifetime,
-        master_itemid,
-        output_format,
-        @params,
-        password,
-        post_type,
-        posts,
-        privatekey,
-        publickey,
-        request_method,
-        retrieve_mode,
-        snmp_oid,
-        ssl_cert_file,
-        ssl_key_file,
-        ssl_key_password,
-        state,
-        status,
-        status_codes,
-        templateid,
-        timeout,
-        trapper_hosts,
-        username,
-        uuid,
-        verify_host,
-        verify_peer,
-        headers,
-        parameters,
-        query_fields,
-        filter,
-        graphs,
-        hostPrototypes,
-        hosts,
-        items,
-        triggers,
-        lld_macro_paths,
-        preprocessing,
-        lld_rule_overrides
-    }
 
-    public class LLDRule : BaseEntity
+    public class LldRule : BaseEntity
     {
         #region Properties
 
@@ -199,7 +143,7 @@ namespace Zabbix.Entities
         [JsonProperty("query_fields")]
         public IList<object>? QueryFields { get; set; }
 
-        [JsonProperty("filter")] public IList<LLDRuleFilter>? Filters { get; set; }
+        [JsonProperty("filter")] public IList<LldRuleFilter>? Filters { get; set; }
         [JsonProperty("graphs")] public IList<Graph>? Graphs { get; set; }
         [JsonProperty("hostPrototypes")] public IList<HostPrototype>? HostPrototypes { get; set; }
         [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
@@ -207,14 +151,14 @@ namespace Zabbix.Entities
         [JsonProperty("triggers")] public IList<Trigger>? Triggers { get; set; }
         [JsonProperty("lld_macro_paths")] public IList<LLdMacroPath>? LLdMacroPaths { get; set; }
         [JsonProperty("preprocessing")] public IList<LLdRulePreprocessing>? LLdRulePreprocessings { get; set; }
-        [JsonProperty("lld_rule_overrides")] public IList<LLDRuleOverride>? LLdRuleOverrides { get; set; }
+        [JsonProperty("lld_rule_overrides")] public IList<LldRuleOverride>? LLdRuleOverrides { get; set; }
 
 
         #endregion Components
 
         #region Constructors
 
-        public LLDRule(string delay, string hostid, string interfaceid, string key, string name, int type, string url,
+        public LldRule(string delay, string hostid, string interfaceid, string key, string name, int type, string url,
             int valueType)
         {
             Delay = delay;
@@ -225,11 +169,11 @@ namespace Zabbix.Entities
             Type = type;
             Url = url;
         }
-        public LLDRule(){}
+        public LldRule(){}
         #endregion
     }
 
-    public class LLDRuleFilterCondition
+    public class LldRuleFilterCondition
     {
         #region Properties
 
@@ -249,17 +193,17 @@ namespace Zabbix.Entities
 
         #region Constructors
 
-        public LLDRuleFilterCondition(string macro, string value)
+        public LldRuleFilterCondition(string macro, string value)
         {
             Macro = macro;
             Value = value;
         }
-        public LLDRuleFilterCondition(){}
+        public LldRuleFilterCondition(){}
 
         #endregion
 
     }
-    public class LLDRuleFilter
+    public class LldRuleFilter
     {
         #region Properties
 
@@ -276,18 +220,18 @@ namespace Zabbix.Entities
 
         #region Components
         [JsonProperty("conditions")]
-        public IList<LLDRuleFilterCondition>? Conditions { get; set; }
+        public IList<LldRuleFilterCondition>? Conditions { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public LLDRuleFilter(IList<LLDRuleFilterCondition> conditions, int evalType)
+        public LldRuleFilter(IList<LldRuleFilterCondition> conditions, int evalType)
         {
             Conditions = conditions;
             EvalType = evalType;
         }
-        public LLDRuleFilter(){}
+        public LldRuleFilter(){}
 
         #endregion
 
@@ -351,7 +295,7 @@ namespace Zabbix.Entities
         #endregion
 
     }
-    public class LLDRuleOverride
+    public class LldRuleOverride
     {
         #region Properties
 
@@ -369,26 +313,26 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("filter")]
-        public LLDRuleOverrideFilter? Filter { get; set; }
+        public LldRuleOverrideFilter? Filter { get; set; }
 
         [JsonProperty("operations")]
-        public IList<LLDRuleOverrideOperation>? Operations { get; set; }
+        public IList<LldRuleOverrideOperation>? Operations { get; set; }
 
         #endregion
 
         #region Constructos
 
-        public LLDRuleOverride(string name, int step)
+        public LldRuleOverride(string name, int step)
         {
             Name = name;
             Step = step;
         }
-        public LLDRuleOverride(){}
+        public LldRuleOverride(){}
         
 
         #endregion
     }
-    public class LLDRuleOverrideFilter
+    public class LldRuleOverrideFilter
     {
         #region Properties
         [JsonProperty("evaltype")]
@@ -404,13 +348,13 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("conditions")]
-        public IList<LLDRuleOverrideFilterCondition>? Conditions { get; set; }
+        public IList<LldRuleOverrideFilterCondition>? Conditions { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public LLDRuleOverrideFilter(int evalType, IList<LLDRuleOverrideFilterCondition> conditions)
+        public LldRuleOverrideFilter(int evalType, IList<LldRuleOverrideFilterCondition> conditions)
         {
             Conditions = conditions;
             EvalType = evalType;
@@ -420,7 +364,7 @@ namespace Zabbix.Entities
 
     }
 
-    public class LLDRuleOverrideFilterCondition
+    public class LldRuleOverrideFilterCondition
     {
         #region Properties
 
@@ -440,19 +384,19 @@ namespace Zabbix.Entities
 
         #region Constructors
 
-        public LLDRuleOverrideFilterCondition(string macro, string value)
+        public LldRuleOverrideFilterCondition(string macro, string value)
         {
             Macro = macro;
             Value = value;
         }
 
-        public LLDRuleOverrideFilterCondition(){}
+        public LldRuleOverrideFilterCondition(){}
 
 
         #endregion
 
     }
-    public class LLDRuleOverrideOperation
+    public class LldRuleOverrideOperation
     {
         #region Properties
 
@@ -500,12 +444,12 @@ namespace Zabbix.Entities
 
         #region Constructors
 
-        public LLDRuleOverrideOperation(int operationObject)
+        public LldRuleOverrideOperation(int operationObject)
         {
             OperationObject = operationObject;
         }
 
-        public LLDRuleOverrideOperation() { }
+        public LldRuleOverrideOperation() { }
 
         #endregion
 

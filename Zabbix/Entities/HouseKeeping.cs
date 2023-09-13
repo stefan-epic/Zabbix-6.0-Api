@@ -7,31 +7,6 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    public enum HousekeepingProperties
-    {
-        hk_events_mode,
-        hk_events_trigger,
-        hk_events_service,
-        hk_events_internal,
-        hk_events_discovery,
-        hk_events_autoreg,
-        hk_services_mode,
-        hk_services,
-        hk_audit_mode,
-        hk_audit,
-        hk_sessions_mode,
-        hk_sessions,
-        hk_history_mode,
-        hk_history_global,
-        hk_history,
-        hk_trends_mode,
-        hk_trends_global,
-        hk_trends,
-        db_extension,
-        compression_status,
-        compress_older,
-        compression_availability
-    }
     public class Housekeeping : BaseEntity
     {
         #region MyRegion

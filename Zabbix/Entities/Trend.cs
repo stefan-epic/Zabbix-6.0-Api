@@ -2,10 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum TrendProperties
-    {
-
-    }
     public abstract class Trend : BaseEntity
     {
         #region Properties

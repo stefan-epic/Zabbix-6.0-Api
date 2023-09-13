@@ -2,18 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum HostGroupProperties
-{
-    groupid,
-    name,
-    @internal,
-    flags,
-    discoveryRule,
-    groupDiscovery,
-    hosts,
-    templates
-}
-
 public class HostGroup : BaseEntity
 {
 

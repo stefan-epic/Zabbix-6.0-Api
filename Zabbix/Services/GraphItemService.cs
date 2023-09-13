@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,31 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class GraphItemService : GetService<GraphItem, GraphItemInclude, GraphItemProperties>
+    public class GraphItemService : GetService<GraphItem, GetGraphItemFilter>
     {
         public GraphItemService(ICore core) : base(core, "graphitem")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<GraphItemProperties, GraphItemInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
+    }
+
+    public class GetGraphItemFilter : GetFilter
+    {
+        [JsonProperty("graphids")]
+        public IList<string>? GraphIds { get; set; }
+
+        [JsonProperty("itemids")]
+        public IList<string>? ItemIds { get; set; }
+
+        [JsonProperty("type")]
+        public int? Type { get; set; }
+
+        [JsonProperty("selectGraphs")]
+        public IList<string>? SelectGraphs { get; set; }
     }
 
     public enum GraphItemInclude

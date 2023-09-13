@@ -2,17 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum TaskProperties
-    {
-        taskid,
-        type,
-        status,
-        clock,
-        ttl,
-        proxy_hostid,
-        request,
-        result
-    }
 
     public class TaskObject : BaseEntity
     {

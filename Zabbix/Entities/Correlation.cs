@@ -7,16 +7,6 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    //TODO:
-    public enum CorrelationProperties
-    {
-        correlationid,
-        name,
-        description,
-        status,
-        operations,
-        filter
-    }
 
     public class Correlation : BaseEntity
     {
@@ -149,7 +139,7 @@ public class CorrelationFilter
     public CorrelationFilter(int evalType, IList<CorrelationFilterCondition> conditions)
     {
         EvalType = evalType;
-        conditions = conditions;
+        Conditions = conditions;
     }
 
     public CorrelationFilter()

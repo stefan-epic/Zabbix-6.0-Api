@@ -2,26 +2,6 @@
 
 namespace Zabbix.Entities;
 
-//TODO
-public enum ProxyProperties
-{
-    proxyid,
-    host,
-    status,
-    description,
-    lastaccess,
-    tls_connect,
-    tls_accept,
-    tls_issuer,
-    tls_subject,
-    tls_psk_identity,
-    tls_psk,
-    proxy_address,
-    auto_compress,
-    @interface,
-    hosts
-}
-
 public class Proxy : BaseEntity
 {
     #region Properties

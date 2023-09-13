@@ -1,26 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Zabbix.Filter;
 
 namespace Zabbix.Entities;
 
-public enum AlertProperties
-{
-    alertid,
-    actionid,
-    eventid,
-    userid,
-    clock,
-    mediatypeid,
-    sendto,
-    subject,
-    message,
-    status,
-    retries,
-    error,
-    esc_step,
-    alerttype,
-    p_eventid,
-    acknowledgeid
-}
 
 public class Alert : BaseEntity
 {
@@ -68,3 +50,4 @@ public class Alert : BaseEntity
 
     #endregion
 }
+

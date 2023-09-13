@@ -11,15 +11,15 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class IconMapService : CrudService<IconMap, IconMapInclude, IconMapProperties, IconMapService.IconMapResult>
+    public class IconMapService : CrudService<IconMap, GetIconMapFilter, IconMapService.IconMapResult>
     {
         public IconMapService(ICore core) : base(core, "iconmap")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<IconMapProperties, IconMapInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
         public class IconMapResult : BaseResult
         {
@@ -29,8 +29,16 @@ namespace Zabbix.Services
 
     }
 
-    public enum IconMapInclude
+    public class GetIconMapFilter : GetFilter
     {
-        selectMappings
+        [JsonProperty("iconmapids")]
+        public IList<string>? IconMapIds { get; set; }
+
+        [JsonProperty("sysmapids")]
+        public IList<string>? SysMapIds { get; set; }
+
+        [JsonProperty("selectMappings")]
+        public IList<string>? SelectMappings { get; set; }
     }
+
 }

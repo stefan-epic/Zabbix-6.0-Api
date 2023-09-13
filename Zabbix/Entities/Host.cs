@@ -2,43 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum HostProperties
-{
-    hostid,
-    proxy_hostid,
-    host,
-    status,
-    lastaccess,
-    ipmi_authtype,
-    ipmi_privilege,
-    ipmi_username,
-    ipmi_password,
-    maintenanceid,
-    maintenance_status,
-    maintenance_type,
-    maintenance_from,
-    name,
-    flags,
-    description,
-    tls_connect,
-    tls_accept,
-    tls_issuer,
-    tls_subject,
-    inventory_mode,
-    groups,
-    parentTemplates,
-    tags,
-    triggers,
-    items,
-    graphs,
-    httptests,
-    interfaces,
-    inventory,
-    macros,
-    dashboards,
-    inheritedTags,
-    valueMaps
-}
 
 public class Host : BaseEntity
 {

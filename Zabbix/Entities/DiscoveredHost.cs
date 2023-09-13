@@ -4,16 +4,6 @@ namespace Zabbix.Entities;
 
 //TODO
 
-public enum DiscoveredHostProperties
-{
-    dhostid,
-    druleid,
-    lastdown,
-    lastup,
-    status,
-    drules,
-    dservices
-}
 public class DiscoveredHost : BaseEntity
 {
     #region Properties

@@ -4,15 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zabbix.Filter;
 
 namespace Zabbix.Entities
 {
-    public enum AutoregistrationProperties
-    {
-        tls_accept,
-        tls_psk_identity,
-        tls_psk
-    }
     public class Autoregistration : BaseEntity
     {
         [JsonProperty("tls_accept")]
@@ -24,4 +19,6 @@ namespace Zabbix.Entities
         [JsonProperty("tls_psk")]
         public string? TlsPsk { get; set; }
     }
+
+
 }

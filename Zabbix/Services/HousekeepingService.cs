@@ -12,21 +12,22 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
     //TODO this sucks aswell
-    public class HousekeepingService : GetAndUpdateService<Housekeeping, HousekeepingInclude, HousekeepingProperties, object>
+    public class HousekeepingService : GetAndUpdateService<Housekeeping, GetHousekeepingFilter, object>
     {
 
         public HousekeepingService(ICore core) : base(core, "housekeeping")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<HousekeepingProperties, HousekeepingInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
 
     }
 
-    public enum HousekeepingInclude 
+    public class GetHousekeepingFilter : GetFilter
     {
+
     }
 }

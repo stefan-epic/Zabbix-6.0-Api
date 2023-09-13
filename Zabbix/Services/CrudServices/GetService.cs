@@ -4,24 +4,24 @@ using Zabbix.Filter;
 
 namespace Zabbix.Services.CrudServices;
 
-public abstract class GetService<TEntity, TEntityInclude, TEntityProperty> :
-    ServiceBase<TEntity, TEntityInclude, TEntityProperty>, IGet<TEntity, TEntityInclude, TEntityProperty>
+public abstract class GetService<TEntity, TEntityFilter> :
+    ServiceBase, IGet<TEntity, TEntityFilter>
     where TEntity : BaseEntity
-    where TEntityInclude : struct, Enum
-    where TEntityProperty : Enum
+    where TEntityFilter : GetFilter
 {
     protected GetService(ICore core, string className) : base(core, className)
     {
     }
 
-    public IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null)
+    public IEnumerable<TEntity> Get(TEntityFilter? filter = null)
     {
-        return Core.SendRequest<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
+        return Core.SendRequest<TEntity[]>(BuildParams(filter), ClassName + ".get");
     }
 
-    public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null)
+    public async Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null,
+        Dictionary<string, object>? @params = null)
     {
-        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
+        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter), ClassName + ".get");
 
     }
 }

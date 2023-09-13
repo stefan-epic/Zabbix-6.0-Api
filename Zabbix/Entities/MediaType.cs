@@ -3,38 +3,6 @@
 namespace Zabbix.Entities;
 
 //TODO
-public enum MediaTypeProperties
-{
-    mediatypeid,
-    name,
-    type,
-    exec_path,
-    gsm_modem,
-    passwd,
-    smtp_email,
-    smtp_helo,
-    smtp_server,
-    smtp_port,
-    smtp_security,
-    smtp_verify_host,
-    smtp_verify_peer,
-    smtp_authentication,
-    status,
-    username,
-    exec_params,
-    maxsessions,
-    maxattempts,
-    attempt_interval,
-    content_type,
-    script,
-    timeout,
-    process_tags,
-    show_event_menu,
-    event_menu_url,
-    event_menu_name,
-    description,
-    parameters
-}
 
 public class MediaType : BaseEntity
 {

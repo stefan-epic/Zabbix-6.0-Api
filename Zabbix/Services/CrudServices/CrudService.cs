@@ -6,22 +6,10 @@ using Zabbix.Helpers;
 namespace Zabbix.Services.CrudServices;
 
 //TODO: Maybe add createOrupdate methods
-public interface ICrudService<TEntity, TEntityInclude, TEntityProperty> : ICreate<TEntity>,
-    IGet<TEntity, TEntityInclude, TEntityProperty>, IUpdate<TEntity>, IDelete<TEntity>
-    where TEntity : BaseEntity
-    where TEntityInclude : struct, Enum
-    where TEntityProperty : Enum
-{
-
-}
 
 
-public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEntityResult> :
-    ServiceBase<TEntity, TEntityInclude, TEntityProperty>,
-    ICrudService<TEntity, TEntityInclude, TEntityProperty> where TEntityInclude : struct, Enum
-    where TEntityResult : BaseResult
-    where TEntityProperty : Enum
-    where TEntity : BaseEntity
+
+public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : ServiceBase where TEntityResult : BaseResult where TEntity : BaseEntity where TEntityFilter : GetFilter
 {
     protected CrudService(ICore core, string className) : base(core, className)
     {
@@ -30,16 +18,14 @@ public abstract class CrudService<TEntity, TEntityInclude, TEntityProperty, TEnt
 
     #region Get
 
-    public virtual IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude>? filter = null, Dictionary<string, object>? @params = null)
+    public virtual IEnumerable<TEntity> Get(TEntityFilter? filter = null)
     {
-
-        return Core.SendRequest<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
+        return Core.SendRequest<TEntity[]>(BuildParams(filter), ClassName + ".get");
     }
 
-    public async Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
-        Dictionary<string, object>? @params = null)
+    public async Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null)
     {
-        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter, @params), ClassName + ".get");
+        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter), ClassName + ".get");
     }
 
     #endregion

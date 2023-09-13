@@ -6,28 +6,6 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Entities;
 
-public enum HostPrototypeProperties
-{
-    hostid,
-    host,
-    name,
-    status,
-    iventory_mode,
-    templateid,
-    discover,
-    custom_interfaces,
-    ruleid,
-    uuid,
-    discoveryRule,
-    interfaces,
-    groupLinks,
-    groupPrototypes,
-    macros,
-    tags,
-    parentHost,
-    templates
-}
-//TODO
 public class HostPrototype : BaseEntity
 {
     #region Properties

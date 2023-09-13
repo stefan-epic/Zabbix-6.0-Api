@@ -2,16 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum TemplateDashboardProperties
-    {
-        dashboardid,
-        name,
-        templateid,
-        display_period,
-        auto_start,
-        uuid,
-        pages
-    }
     public class TemplateDashboard : BaseEntity
     {
         #region Properties

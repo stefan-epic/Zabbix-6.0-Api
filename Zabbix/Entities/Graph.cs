@@ -3,35 +3,6 @@
 namespace Zabbix.Entities;
 
 //TODO
-public enum GraphProperties
-{
-    graphid,
-    name,
-    width,
-    height,
-    yaxismin,
-    yaxismax,
-    templateid,
-    show_work_period,
-    show_triggers,
-    graphtype,
-    show_legend,
-    show_3d,
-    percent_left,
-    percent_right,
-    ymin_type,
-    ymax_type,
-    ymin_itemid,
-    ymax_itemid,
-    flags,
-    groups,
-    templates,
-    hosts,
-    items,
-    graphDiscovery,
-    gitems,
-    discoveryRule
-}
 public class Graph : BaseEntity
 {
     #region Properties

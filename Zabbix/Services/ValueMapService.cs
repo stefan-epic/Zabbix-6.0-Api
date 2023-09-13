@@ -6,22 +6,31 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class ValueMapService : CrudService<ValueMap, ValueMapInclude, ValueMapProperties, ValueMapService.ValueMapResult>
+    public class ValueMapService : CrudService<ValueMap, GetValueFilter, ValueMapService.ValueMapResult>
     {
 
         public ValueMapService(ICore core) : base(core, "valuemap")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<ValueMapProperties, ValueMapInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
         public class ValueMapResult : BaseResult
         {
             [JsonProperty("valuemapids")]
             public override IList<string>? Ids { get; set; }
         }
+    }
+
+    public class GetValueFilter : GetFilter
+    {
+        [JsonProperty("valuemapids")]
+        public IList<string>? ValueMapIds { get; set; }
+
+        [JsonProperty("selectMappings")]
+        public IList<string>? SelectMappings { get; set; }
     }
 
     public enum ValueMapInclude

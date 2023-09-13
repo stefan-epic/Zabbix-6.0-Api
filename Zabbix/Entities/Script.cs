@@ -2,32 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum ScriptProperties
-    {
-        scriptid,
-        name,
-        type,
-        command,
-        scope,
-        execute_on,
-        menu_path,
-        authtype,
-        username,
-        password,
-        publickey,
-        privatekey,
-        port,
-        groupid,
-        usrgrpid,
-        host_access,
-        confirmation,
-        timeout,
-        description,
-        parameters,
-        groups,
-        hosts,
-        actions
-    }
     public class Script : BaseEntity
     {
         #region Properties

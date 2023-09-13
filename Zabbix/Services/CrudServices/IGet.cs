@@ -3,14 +3,12 @@ using Zabbix.Filter;
 
 namespace Zabbix.Services.CrudServices;
 
-public interface IGet<TEntity, TEntityInclude, TEntityProperty>
+public interface IGet<TEntity, TEntityFilter>
     where TEntity : BaseEntity
-    where TEntityInclude : struct, Enum
-    where TEntityProperty : Enum
+    where TEntityFilter : GetFilter
 {
-    IEnumerable<TEntity> Get(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
-        Dictionary<string, object>? @params = null);
+    IEnumerable<TEntity> Get(TEntityFilter? filter = null);
 
-    Task<IEnumerable<TEntity>> GetAsync(RequestFilter<TEntityProperty, TEntityInclude>? filter = null,
+    Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null,
         Dictionary<string, object>? @params = null);
 }

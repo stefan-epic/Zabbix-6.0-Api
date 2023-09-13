@@ -3,19 +3,6 @@
 namespace Zabbix.Entities;
 
 //TODO maybe also make Host and GlobalMacro diffrent classes
-public enum UserMacroProperties
-{
-    hostmacroid,
-    hostid,
-    macro,
-    value,
-    description,
-    type,
-    groups,
-    hosts,
-    templates
-}
-
 public class UserMacro : BaseEntity
 {
     #region Properties

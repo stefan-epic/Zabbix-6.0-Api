@@ -8,17 +8,15 @@ namespace Zabbix.Services;
 
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference/usermacro/get
 //TODO: Global functions
-public class UserMacroService : CrudService<UserMacro, UserMacroInclude, UserMacroProperties,
-    UserMacroService.UserMacroResult>
+public class UserMacroService : CrudService<UserMacro, GetUserMacroFilter, UserMacroService.UserMacroResult>
 {
     public UserMacroService(ICore core) : base(core, "usermacro")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<UserMacroProperties, UserMacroInclude>? filter = null, Dictionary<string, object>? @params = null)
+    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
     {
-        return BaseBuildParams(filter, @params);
+        return BaseBuildParams(filter);
     }
 
     public class UserMacroResult : BaseResult
@@ -27,9 +25,23 @@ public class UserMacroService : CrudService<UserMacro, UserMacroInclude, UserMac
     }
 }
 
-public enum UserMacroInclude
+public class GetUserMacroFilter : GetFilter
 {
-    selectGroups,
-    selectHosts,
-    selectTemplates
+    [JsonProperty("globalmacro")] public bool? GlobalMacro { get; set; }
+
+    [JsonProperty("globalmacroids")] public IList<string>? GlobalMacroIds { get; set; }
+
+    [JsonProperty("groupids")] public IList<string>? GroupIds { get; set; }
+
+    [JsonProperty("hostids")] public IList<string>? HostIds { get; set; }
+
+    [JsonProperty("hostmacroids")] public IList<string>? HostMacroIds { get; set; }
+
+    [JsonProperty("inherited")] public bool? Inherited { get; set; }
+
+    [JsonProperty("selectGroups")] public IList<string>? SelectGroups { get; set; }
+
+    [JsonProperty("selectHosts")] public IList<string>? SelectHosts { get; set; }
+
+    [JsonProperty("selectTemplates")] public IList<string>? SelectTemplates { get; set; }
 }

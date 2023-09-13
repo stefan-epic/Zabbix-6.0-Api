@@ -6,16 +6,15 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class UserService : CrudService<User, UserInclude, UserProperties, UserService.UserResult>
+public class UserService : CrudService<User, UserFilter, UserService.UserResult>
 {
     public UserService(ICore core) : base(core, "user")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<UserProperties, UserInclude>? filter = null, Dictionary<string, object>? @params = null)
+    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
     {
-        return BaseBuildParams(filter, @params);
+        return BaseBuildParams(filter);
     }
 
     //TODO Make Async Variants
@@ -51,6 +50,36 @@ public class UserService : CrudService<User, UserInclude, UserProperties, UserSe
     {
         [JsonProperty("userids")] public override IList<string>? Ids { get; set; }
     }
+}
+
+public class UserFilter : GetFilter
+{
+    [JsonProperty("mediaids")]
+    public IList<string>? MediaIds { get; set; }
+
+    [JsonProperty("mediatypeids")]
+    public IList<string>? MediaTypeIds { get; set; }
+
+    [JsonProperty("userids")]
+    public IList<string>? UserIds { get; set; }
+
+    [JsonProperty("usrgrpids")]
+    public IList<string>? UserGroupIds { get; set; }
+
+    [JsonProperty("getAccess")]
+    public bool? GetAccess { get; set; }
+
+    [JsonProperty("selectMedias")]
+    public IList<string>? SelectMedias { get; set; }
+
+    [JsonProperty("selectMediatypes")]
+    public IList<string>? SelectMediatypes { get; set; }
+
+    [JsonProperty("selectUsrgrps")]
+    public IList<string>? SelectUsrgrps { get; set; }
+
+    [JsonProperty("selectRole")]
+    public bool? SelectRole { get; set; }
 }
 
 public enum UserInclude

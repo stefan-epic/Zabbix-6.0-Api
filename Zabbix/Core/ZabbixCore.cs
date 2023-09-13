@@ -39,7 +39,7 @@ public class ZabbixCore : ICore
         _url = url;
         _httpClient = new HttpClient();
         GraphItems = new GraphItemService(this);
-        Autoregistration = new(this);
+        AutoRegistration = new(this);
         Correlations = new CorrelationService(this);
         Hosts = new HostService(this);
         HostGroups = new HostGroupService(this);
@@ -65,7 +65,7 @@ public class ZabbixCore : ICore
         DiscoveryRules = new DiscoveryRuleService(this);
         TriggerPrototypess = new TriggerPrototypeService(this);
         Trends = new TrendService(this);
-        LldRules = new LLDRuleService(this);
+        LldRules = new LldRuleService(this);
         UserGroups = new UserGroupService(this);
         GraphPrototypes = new GraphPrototypeService(this);
         HighAvailabilityNodes = new HighAvailabilityNodeService(this);
@@ -80,10 +80,11 @@ public class ZabbixCore : ICore
         Regex = new RegexObjectService(this);
         Scripts = new ScriptService(this);
         Settings = new SettingsService(this);
-        SLAs = new SLAService(this);
+        SLAs = new SlaService(this);
         TemplateDashboards = new TemplateDashboardService(this);
         Templates = new TemplateService(this);
         Tokens = new TokenService(this);
+        Configuration = new ConfigurationService(this);
         Authenticate(username, password);
     }
 
@@ -206,8 +207,8 @@ public class ZabbixCore : ICore
     public AlertService Alerts;
     public AuditLogService AuditLogs;
     public AuthenticationService Authentication;
-    public AutoregistrationService Autoregistration;
-    //Configuration
+    public AutoregistrationService AutoRegistration;
+    public ConfigurationService Configuration;
     public CorrelationService Correlations;
     public DiscoveredHostService DiscoveredHosts;
     public DiscoveryCheckService DiscoveryChecks;
@@ -227,7 +228,7 @@ public class ZabbixCore : ICore
     public ImageService Images;
     public ItemPrototypeService ItemPrototypes;
     public ItemService Items;
-    public LLDRuleService LldRules;
+    public LldRuleService LldRules;
     public MaintenanceService Maintenance;
     public MediaTypeService MediaTypes;
     public ProblemService Problems;
@@ -238,7 +239,7 @@ public class ZabbixCore : ICore
     public ScriptService Scripts;
     public ServiceService Services;
     public SettingsService Settings;
-    public SLAService SLAs;
+    public SlaService SLAs;
     //TaskService
     public TemplateDashboardService TemplateDashboards;
     public TemplateService Templates;

@@ -2,26 +2,6 @@
 
 namespace Zabbix.Entities;
 
-//TODO
-public enum DiscoveryCheckProperties
-{
-    dcheckid,
-    druleid,
-    key_,
-    ports,
-    snmp_community,
-    snmpv3_authpassphrase,
-    snmpv3_authprotocol,
-    snmpv3_contextname,
-    snmpv3_privpassphrase,
-    snmpv3_privprotocol,
-    snmpv3_securitylevel,
-    snmpv3_securityname,
-    type,
-    uniq,
-    host_source,
-    name_source
-}
 public class DiscoveryCheck : BaseEntity
 {
     #region Properties

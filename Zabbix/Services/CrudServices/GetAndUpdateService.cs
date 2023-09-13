@@ -1,15 +1,14 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
+using Zabbix.Filter;
 using Zabbix.Helpers;
 
 namespace Zabbix.Services.CrudServices;
 
 public abstract class
-    GetAndUpdateService<TEntity, TEntityInclude, TEntityProperty, TEntityResult> :
-        GetService<TEntity, TEntityInclude, TEntityProperty>, IUpdate<TEntity>
+    GetAndUpdateService<TEntity, TEntityFilter, TEntityResult> : GetService<TEntity, TEntityFilter>, IUpdate<TEntity>
     where TEntity : BaseEntity
-    where TEntityInclude : struct, Enum
-    where TEntityProperty : Enum
+    where TEntityFilter : GetFilter
 {
     protected GetAndUpdateService(ICore core, string className) : base(core, className)
     {

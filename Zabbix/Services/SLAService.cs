@@ -8,18 +8,18 @@ namespace Zabbix.Services
 {
 
     //TODO implemement SLAsli method
-    public class SLAService : CrudService<SLA, SLAInclude, SLAProperties, SLAService.SLAResult>
+    public class SlaService : CrudService<SLA, GetSlaFilter, SlaService.SlaResult>
     {
 
-        public SLAService(ICore core) : base(core, "sla")
+        public SlaService(ICore core) : base(core, "sla")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<SLAProperties, SLAInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
-        public class SLAResult : BaseResult
+        public class SlaResult : BaseResult
         {
             [JsonProperty("slaids")]
             public override IList<string>? Ids { get; set; }
@@ -27,10 +27,22 @@ namespace Zabbix.Services
 
     }
 
-    public enum SLAInclude
+    public class GetSlaFilter : GetFilter
     {
-        selectSchedule,
-        selectExcludedDowntimes,
-        selectServiceTags
+        [JsonProperty("slaids")]
+        public IList<string>? SlaIds { get; set; }
+
+        [JsonProperty("serviceids")]
+        public IList<string>? ServiceIds { get; set; }
+
+        [JsonProperty("selectSchedule")]
+        public IList<string>? SelectSchedule { get; set; }
+
+        [JsonProperty("selectExcludedDowntimes")]
+        public IList<string>? SelectExcludedDowntimes { get; set; }
+
+        [JsonProperty("selectServiceTags")]
+        public IList<string>? SelectServiceTags { get; set; }
     }
+
 }

@@ -2,27 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum ReportProperties
-{
-    reportid,
-    userid,
-    name,
-    dashboardid,
-    period,
-    cycle,
-    start_time,
-    weekdays,
-    active_since,
-    active_till,
-    subject,
-    message,
-    status,
-    description,
-    state,
-    lastsent,
-    info
-}
-
 public class Report : BaseEntity
 {
     #region Properties

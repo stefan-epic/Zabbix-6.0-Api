@@ -3,10 +3,6 @@
 namespace Zabbix.Entities
 {
 
-    public enum SettingsProperties
-    {
-
-    }
     public class Settings : BaseEntity
     {
         #region Properties

@@ -2,20 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum SLAProperties
-    {
-        slaid,
-        name,
-        period,
-        slo,
-        effective_date,
-        timezone,
-        status,
-        description,
-        excluded_downtimes,
-        service_tags,
-        schedule
-    }
     public class SLA : BaseEntity
     {
         #region Properties

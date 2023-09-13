@@ -6,17 +6,15 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-public class HostGroupService : MassCrudService<HostGroup, HostGroupInclude, HostGroupProperties,
-    HostGroupService.HostGroupResult>
+public class HostGroupService : MassCrudService<HostGroup, GetHostGroupFilter, HostGroupService.HostGroupResult>
 {
     public HostGroupService(ICore core) : base(core, "hostgroup")
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(
-        RequestFilter<HostGroupProperties, HostGroupInclude>? filter = null, Dictionary<string, object>? @params = null)
+    protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
     {
-        return BaseBuildParams(filter, @params);
+        return BaseBuildParams(filter);
     }
 
     public class HostGroupResult : BaseResult
@@ -41,18 +39,87 @@ public class HostGroupService : MassCrudService<HostGroup, HostGroupInclude, Hos
 
         return @params;
     }
-    */
 
     public override Dictionary<string, object> BuildMassParams(IEnumerable<HostGroup> entities, Dictionary<HostGroupProperties, object> properties, Dictionary<string, object>? @params = null)
     {
         throw new NotImplementedException();
     }
+    */
+
 }
 
-public enum HostGroupInclude
+public class GetHostGroupFilter : GetFilter
 {
-    selectDiscoveryRule,
-    selectGroupDiscovery,
-    selectHosts,
-    selectTemplates
+    #region Filter Properties
+
+    [JsonProperty("graphids")]
+    public IList<string>? GraphIds { get; set; }
+
+    [JsonProperty("groupids")]
+    public IList<string>? GroupIds { get; set; }
+
+    [JsonProperty("hostids")]
+    public IList<string>? HostIds { get; set; }
+
+    [JsonProperty("maintenanceids")]
+    public IList<string>? MaintenanceIds { get; set; }
+
+    [JsonProperty("triggerids")]
+    public IList<string>? TriggerIds { get; set; }
+
+    [JsonProperty("with_graphs")]
+    public bool? WithGraphs { get; set; }
+
+    [JsonProperty("with_graph_prototypes")]
+    public bool? WithGraphPrototypes { get; set; }
+
+    [JsonProperty("with_hosts")]
+    public bool? WithHosts { get; set; }
+
+    [JsonProperty("with_httptests")]
+    public bool? WithHttpTests { get; set; }
+
+    [JsonProperty("with_items")]
+    public bool? WithItems { get; set; }
+
+    [JsonProperty("with_item_prototypes")]
+    public bool? WithItemPrototypes { get; set; }
+
+    [JsonProperty("with_simple_graph_item_prototypes")]
+    public bool? WithSimpleGraphItemPrototypes { get; set; }
+
+    [JsonProperty("with_monitored_httptests")]
+    public bool? WithMonitoredHttpTests { get; set; }
+
+    [JsonProperty("with_monitored_hosts")]
+    public bool? WithMonitoredHosts { get; set; }
+
+    [JsonProperty("with_monitored_items")]
+    public bool? WithMonitoredItems { get; set; }
+
+    [JsonProperty("with_monitored_triggers")]
+    public bool? WithMonitoredTriggers { get; set; }
+
+    [JsonProperty("with_simple_graph_items")]
+    public bool? WithSimpleGraphItems { get; set; }
+
+    [JsonProperty("with_triggers")]
+    public bool? WithTriggers { get; set; }
+
+    [JsonProperty("selectDiscoveryRule")]
+    public IList<string>? SelectDiscoveryRule { get; set; }
+
+    [JsonProperty("selectGroupDiscovery")]
+    public IList<string>? SelectGroupDiscovery { get; set; }
+
+    [JsonProperty("selectHosts")]
+    public IList<string>? SelectHosts { get; set; }
+
+    [JsonProperty("limitSelects")]
+    public int? LimitSelects { get; set; }
+
+    #endregion
+
 }
+//TODO:
+

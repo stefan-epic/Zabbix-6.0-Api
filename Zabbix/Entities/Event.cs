@@ -2,29 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum EventProperties
-{
-    eventid,
-    source,
-    objectid,
-    acknowledged,
-    clock,
-    ns,
-    name,
-    value,
-    severity,
-    r_eventid,
-    c_eventid,
-    correlationid,
-    userid,
-    supressed,
-    opdata,
-    urls,
-    acknowledges,
-    suppression_data,
-    tags
-}
-
 public class Event : BaseEntity
 {
     #region Properties

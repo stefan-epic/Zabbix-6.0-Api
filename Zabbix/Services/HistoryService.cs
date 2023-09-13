@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +12,34 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
     //TODO: method clear
-    public class HistoryService : GetService<History, HistoyInclude, HistoryProperties>
+    public class HistoryService : GetService<History, GetHistoryFilter>
     {
         public HistoryService(ICore core) : base(core, "history")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<HistoryProperties, HistoyInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
     }
 
-    public enum HistoyInclude
+    public class GetHistoryFilter : GetFilter
     {
+        [JsonProperty("history")]
+        public int? History { get; set; }
+
+        [JsonProperty("hostids")]
+        public IList<string>? HostIds { get; set; }
+
+        [JsonProperty("itemids")]
+        public IList<string>? ItemIds { get; set; }
+
+        [JsonProperty("time_from")]
+        public string? TimeFrom { get; set; }
+
+        [JsonProperty("time_till")]
+        public string? TimeTill { get; set; }
     }
+
 }

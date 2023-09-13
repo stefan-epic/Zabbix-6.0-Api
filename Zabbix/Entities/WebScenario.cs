@@ -2,34 +2,14 @@
 
 namespace Zabbix.Entities;
 
-public enum WebScenarioProperties
-{
-    httptestid,
-    name,
-    nextcheck,
-    delay,
-    status,
-    variables,
-    agent,
-    authentication,
-    http_user,
-    http_password,
-    hostid,
-    templateid,
-    http_proxy,
-    retries,
-    ssl_cert_file,
-    ssl_key_file,
-    ssl_key_password,
-    verify_peer,
-    verify_host
-}
 
 public class WebScenario : BaseEntity
 {
     #region Components
 
     [JsonProperty("steps")] public IList<WebScenarioStep>? Steps { get; set; }
+    [JsonProperty("tags")] public IList<Tag>? Tags { get; set; }
+    [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
 
     #endregion
 

@@ -1,4 +1,5 @@
-﻿using Zabbix.Core;
+﻿using Newtonsoft.Json;
+using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Services.CrudServices;
@@ -20,30 +21,42 @@ namespace Zabbix.Services
 
 
     }
-    public class FloatTrendService : GetService<FloatTrend, TrendInclude, TrendProperties>
+    public class FloatTrendService : GetService<FloatTrend, GetTrendFilter>
     {
         public FloatTrendService(ICore core) : base(core, "trend")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<TrendProperties, TrendInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
     }
-    public class IntegerTrendService : GetService<IntegerTrend, TrendInclude, TrendProperties>
+
+   
+
+    public class IntegerTrendService : GetService<IntegerTrend, GetTrendFilter>
     {
         public IntegerTrendService(ICore core) : base(core, "trend")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<TrendProperties, TrendInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
     }
 
-    public enum TrendInclude
+    public class GetTrendFilter : GetFilter
     {
+        [JsonProperty("itemids")]
+        public IList<string>? ItemIds { get; set; }
+
+        [JsonProperty("time_from")]
+        public string? TimeFrom { get; set; }
+
+        [JsonProperty("time_till")]
+        public string? TimeTill { get; set; }
     }
+
 }

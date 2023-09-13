@@ -2,24 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum HostInterfaceProperties
-{
-    interfaceid,
-    hostid,
-    main,
-    type,
-    useip,
-    ip,
-    dns,
-    port,
-    available,
-    error,
-    errors_from,
-    disable_until,
-    details,
-    hosts,
-    items
-}
 
 //TODO
 public class HostDetails

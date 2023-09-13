@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace Zabbix.Entities
 {
-    //TODO ?
-    public enum HistoryProperties
-    {
-
-    }
-
     public class History : BaseEntity
     {
     }
-
+    //TODO?
     public class HistoryBase : History
     {
         [JsonProperty("clock")]

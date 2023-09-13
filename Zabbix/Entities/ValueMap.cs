@@ -2,15 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum ValueMapProperties
-{
-    valuemapid,
-    hostid,
-    name,
-    uuid,
-    mappings
-}
-
 public class ValueMappings
 {
     #region Properties
@@ -76,4 +67,3 @@ public class ValueMap : BaseEntity
     #endregion
 }
 
-//TODO

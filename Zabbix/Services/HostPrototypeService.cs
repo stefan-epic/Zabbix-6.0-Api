@@ -11,16 +11,16 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class HostPrototypeService : CrudService<HostPrototype, HostPrototypeInclude, HostPrototypeProperties, HostPrototypeService.HostPrototyepResult>
+    public class HostPrototypeService : CrudService<HostPrototype, GetHostPrototypeFilter, HostPrototypeService.HostPrototyepResult>
     {
 
         public HostPrototypeService(ICore core) : base(core, "hostprototype")
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<HostPrototypeProperties, HostPrototypeInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-           return BaseBuildParams(filter, @params);
+           return BaseBuildParams(filter);
         }
         public class HostPrototyepResult : BaseResult
         {
@@ -30,15 +30,43 @@ namespace Zabbix.Services
 
     }
 
-    public enum HostPrototypeInclude
+    public class GetHostPrototypeFilter : GetFilter
     {
-        selectDiscoveryRule,
-        selectInterfaces,
-        selectGroupLinks,
-        selectGroupPrototypes,
-        selectMacros,
-        selectTags,
-        selectParentHost,
-        selectTemplates
+        #region Filter Properties
+
+        [JsonProperty("hostids")]
+        public IList<string>? HostIds { get; set; }
+
+        [JsonProperty("discoveryids")]
+        public IList<string>? DiscoveryIds { get; set; }
+
+        [JsonProperty("inherited")]
+        public bool? Inherited { get; set; }
+
+        [JsonProperty("selectDiscoveryRule")]
+        public IList<string>? SelectDiscoveryRule { get; set; }
+
+        [JsonProperty("selectInterfaces")]
+        public IList<string>? SelectInterfaces { get; set; }
+
+        [JsonProperty("selectGroupLinks")]
+        public IList<string>? SelectGroupLinks { get; set; }
+
+        [JsonProperty("selectGroupPrototypes")]
+        public IList<string>? SelectGroupPrototypes { get; set; }
+
+        [JsonProperty("selectMacros")]
+        public IList<string>? SelectMacros { get; set; }
+
+        [JsonProperty("selectParentHost")]
+        public IList<string>? SelectParentHost { get; set; }
+
+        [JsonProperty("selectTags")]
+        public IList<string>? SelectTags { get; set; }
+
+        [JsonProperty("selectTemplates")]
+        public IList<string>? SelectTemplates { get; set; }
+
+        #endregion
     }
 }

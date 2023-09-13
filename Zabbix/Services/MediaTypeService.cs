@@ -6,7 +6,7 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class MediaTypeService : CrudService<MediaType, MediaTypeInclude, MediaTypeProperties, MediaTypeService.MediaTypeResult>
+    public class MediaTypeService : CrudService<MediaType, GetMediaTypeFilter, MediaTypeService.MediaTypeResult>
     {
 
         public MediaTypeService(ICore core) : base(core, "mediatype")
@@ -14,9 +14,9 @@ namespace Zabbix.Services
 
         }
 
-        protected override Dictionary<string, object> BuildParams(RequestFilter<MediaTypeProperties, MediaTypeInclude>? filter = null, Dictionary<string, object>? @params = null)
+        protected override Dictionary<string, object> BuildParams(GetFilter? filter = null)
         {
-            return BaseBuildParams(filter, @params);
+            return BaseBuildParams(filter);
         }
         public class MediaTypeResult : BaseResult
         {
@@ -25,7 +25,23 @@ namespace Zabbix.Services
         }
     }
 
-    public enum MediaTypeInclude
+    public class GetMediaTypeFilter : GetFilter
     {
+        [JsonProperty("mediatypeids")]
+        public IList<string>? MediaTypeIds { get; set; }
+
+        [JsonProperty("mediaids")]
+        public IList<string>? MediaIds { get; set; }
+
+        [JsonProperty("userids")]
+        public IList<string>? UserIds { get; set; }
+
+        [JsonProperty("selectMessageTemplates")]
+        public string? SelectMessageTemplates { get; set; }
+
+        [JsonProperty("selectUsers")]
+        public string? SelectUsers { get; set; }
     }
+
+    
 }

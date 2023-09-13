@@ -2,50 +2,6 @@
 
 namespace Zabbix.Entities;
 
-public enum TemplateProperties
-{
-    proxy_hostid,
-    host,
-    status,
-    disable_until,
-    error,
-    available,
-    errors_from,
-    lastaccess,
-    ipmi_authtype,
-    ipmi_privilege,
-    ipmi_username,
-    ipmi_password,
-    ipmi_disable_until,
-    ipmi_available,
-    snmp_disable_until,
-    snmp_available,
-    maintenanceid,
-    maintenance_status,
-    maintenance_type,
-    maintenance_from,
-    ipmi_errors_from,
-    snmp_errors_from,
-    ipmi_error,
-    snmp_error,
-    jmx_disable_until,
-    jmx_available,
-    jmx_errors_from,
-    jmx_error,
-    name,
-    flags,
-    templateid,
-    description,
-    tls_connect,
-    tls_accept,
-    tls_issuer,
-    tls_subject,
-    tls_psk_identity,
-    tls_psk,
-    uuid
-}
-//TODO
-
 public class Template : BaseEntity
 {
     #region Properties
@@ -139,7 +95,7 @@ public class Template : BaseEntity
     [JsonProperty("parentTemplates")] public IList<Template>? ParentTemplates { get; set; }
     [JsonProperty("httpTests")] public IList<WebScenario>? WebScenarios { get; set; }
     [JsonProperty("items")] public IList<Item>? Items { get; set; }
-    [JsonProperty("discoveries")] public IList<LLDRule>? LldRules { get; set; }
+    [JsonProperty("discoveries")] public IList<LldRule>? LldRules { get; set; }
     [JsonProperty("triggers")] public IList<Trigger>? Triggers { get; set; }
     [JsonProperty("graphs")] public IList<Graph>? Graphs { get; set; }
     [JsonProperty("macros")] public IList<UserMacro>? Macros { get; set; }

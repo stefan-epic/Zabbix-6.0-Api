@@ -2,28 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    public enum ServiceProperties
-    {
-        serviceid,
-        algorithm,
-        name,
-        sortorder,
-        weight,
-        propagation_rule,
-        propagation_value,
-        status,
-        description,
-        uuid,
-        created_at,
-        @readonly,
-        children,
-        parents,
-        tags,
-        problem_events,
-        problem_tags,
-        status_rules,
-        status_timeline
-    }
     public class Service : BaseEntity
     {
         #region Properties

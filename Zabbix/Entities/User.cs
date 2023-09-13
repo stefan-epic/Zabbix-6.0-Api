@@ -3,32 +3,6 @@
 //https://www.zabbix.com/documentation/6.0/en/manual/api/reference/user/login
 namespace Zabbix.Entities;
 
-public enum UserProperties
-{
-    userid,
-    username,
-    name,
-    surname,
-    url,
-    autologin,
-    autologout,
-    lang,
-    refresh,
-    theme,
-    attempt_failed,
-    attempt_ip,
-    attempt_clock,
-    rows_per_page,
-    timezone,
-    roleid,
-    type,
-    userip,
-    debug_mode,
-    gui_access,
-    sessionid
-}
-//TODO
-
 public class User : BaseEntity
 {
     #region Properties
