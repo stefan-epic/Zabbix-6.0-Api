@@ -62,7 +62,7 @@ If you want to set any of the filter properties to "extend" (at least those whic
 var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"extend"}});
 
 //Do this instead
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend");
+var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend"});
 ```
 Use a list if you're Querying for any property. For example:
 ```csharp
