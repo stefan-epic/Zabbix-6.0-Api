@@ -26,11 +26,6 @@ namespace Zabbix.Services
         public FloatTrendService(ICore core) : base(core, "trend")
         {
         }
-
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
     }
 
    
@@ -39,11 +34,6 @@ namespace Zabbix.Services
     {
         public IntegerTrendService(ICore core) : base(core, "trend")
         {
-        }
-
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
         }
     }
 

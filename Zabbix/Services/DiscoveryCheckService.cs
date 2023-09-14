@@ -12,10 +12,8 @@ namespace Zabbix.Services
         {
         }
 
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
+        
+ 
     }
 
     public class DiscoveryCheckServiceFilterOptions : FilterOptions

@@ -12,10 +12,6 @@ public class HostGroupService : MassCrudService<HostGroup, HostGroupFilterOption
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
 
     public class HostGroupResult : BaseResult
     {

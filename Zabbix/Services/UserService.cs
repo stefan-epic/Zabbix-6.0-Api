@@ -12,10 +12,7 @@ public class UserService : CrudService<User, UserFilterOptions, UserService.User
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+    
 
     //TODO Make Async Variants
     public User Login(string username, string password, Dictionary<string, string>? @params = null)

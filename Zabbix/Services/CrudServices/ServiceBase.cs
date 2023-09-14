@@ -17,25 +17,15 @@ public abstract class ServiceBase
         ClassName = className;
     }
 
-    protected abstract Dictionary<string, object> BuildParams(FilterOptions? filter = null);
-
-
-
-    //TODO make this default implementation of BuildParams
-    protected Dictionary<string, object> BaseBuildParams(FilterOptions? filter = null)
+    protected virtual Dictionary<string, object> BuildParams(FilterOptions? filter = null)
     {
-
-        string json = JsonConvert.SerializeObject(filter, new JsonSerializerSettings
+        var json = JsonConvert.SerializeObject(filter, new JsonSerializerSettings
         {
             NullValueHandling = NullValueHandling.Ignore,
         });
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
-        if (dictionary != null)
-        {
-            return new Dictionary<string, object>(dictionary);
-        }
-
-        return new Dictionary<string, object>();
+        return dictionary != null ? new Dictionary<string, object>(dictionary) : new Dictionary<string, object>();
     }
+
 }

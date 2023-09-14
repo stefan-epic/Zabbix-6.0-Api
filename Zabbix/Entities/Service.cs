@@ -51,7 +51,7 @@ namespace Zabbix.Entities
         [JsonProperty("problem_events")] public IList<ProblemEvent>? ProblemEvents { get; set; }
         [JsonProperty("problem_tags")] public IList<ProblemTag>? ProblemTags { get; set; }
         [JsonProperty("status_rules")] public IList<StatusRule>? StatusRules { get; set; }
-        [JsonProperty("status_timeline")] public IList<object>? StatusTimeline { get; set; } //TODO maybe map this to actual class
+        [JsonProperty("status_timeline")] public object? StatusTimeline { get; set; } //TODO maybe map this to actual class
 
         #endregion
 

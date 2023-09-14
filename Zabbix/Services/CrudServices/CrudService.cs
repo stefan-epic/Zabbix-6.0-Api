@@ -9,10 +9,26 @@ namespace Zabbix.Services.CrudServices;
 
 
 
-public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : ServiceBase where TEntityResult : BaseResult where TEntity : BaseEntity where TEntityFilter : FilterOptions
+public abstract class CrudService<TEntity, TEntityFilter, TEntityResult>
+    where TEntityResult : BaseResult 
+    where TEntity : BaseEntity 
+    where TEntityFilter : FilterOptions
 {
-    protected CrudService(ICore core, string className) : base(core, className)
+    private readonly CreateService<TEntity, TEntityResult> _createService;
+    private readonly GetService<TEntity, TEntityFilter> _getService;
+    private readonly UpdateService<TEntity, TEntityResult> _updateService;
+    private readonly DeleteService<TEntity, TEntityResult> _deleteService;
+
+    protected ICore Core;
+    protected string ClassName;
+    protected CrudService(ICore core, string className)
     {
+        _createService = new(core, className);
+        _getService = new(core, className);
+        _updateService = new(core, className);
+        _deleteService = new(core, className);
+        Core = core;
+        ClassName = className;
     }
 
 
@@ -20,12 +36,12 @@ public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : Servi
 
     public virtual IEnumerable<TEntity> Get(TEntityFilter? filter = null)
     {
-        return Core.SendRequest<TEntity[]>(BuildParams(filter), ClassName + ".get");
+        return _getService.Get(filter);
     }
 
     public async Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null)
     {
-        return await Core.SendRequestAsync<TEntity[]>(BuildParams(filter), ClassName + ".get");
+        return await _getService.GetAsync(filter);
     }
 
     #endregion
@@ -34,26 +50,24 @@ public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : Servi
 
     public virtual IEnumerable<string> Create(IEnumerable<TEntity> entities)
     {
-        var ret = Core.SendRequest<TEntityResult>(entities, ClassName + ".create").Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return _createService.Create(entities);
     }
 
     public virtual string Create(TEntity entity)
     {
-        var ret = Create(new List<TEntity> { entity }).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return _createService.Create(entity);
     }
 
     public virtual async Task<IEnumerable<string>> CreateAsync(IEnumerable<TEntity> entities)
     {
-        var ret = (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".create")).Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return await _createService.CreateAsync(entities);
+
     }
 
     public virtual async Task<string> CreateAsync(TEntity entity)
     {
-        var ret = (await CreateAsync(new List<TEntity> { entity })).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return await _createService.CreateAsync(entity);
+
     }
 
     #endregion
@@ -62,26 +76,22 @@ public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : Servi
 
     public virtual IEnumerable<string> Update(IEnumerable<TEntity> entities)
     {
-        var ret = Core.SendRequest<TEntityResult>(entities, ClassName + ".update").Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return _updateService.Update(entities);
     }
 
     public virtual string Update(TEntity entity)
     {
-        var ret = Update(new List<TEntity> { entity }).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return _updateService.Update(entity);
     }
 
     public virtual async Task<IEnumerable<string>> UpdateAsync(IEnumerable<TEntity> entities)
     {
-        var ret = (await Core.SendRequestAsync<TEntityResult>(entities, ClassName + ".update")).Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return await _updateService.UpdateAsync(entities);
     }
 
     public virtual async Task<string> UpdateAsync(TEntity entity)
     {
-        var ret = (await UpdateAsync(new List<TEntity> { entity })).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return await _updateService.UpdateAsync(entity);
     }
 
     #endregion
@@ -90,69 +100,47 @@ public abstract class CrudService<TEntity, TEntityFilter, TEntityResult> : Servi
 
     public virtual string Delete(TEntity entity)
     {
-        Checker.CheckEntityId(entity);
-        var ret = Delete(new List<string> { entity.EntityId! }).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return _deleteService.Delete(entity);
     }
 
     public virtual string Delete(string id)
     {
-        Checker.CheckEntityId(id);
-        var ret = Delete(new List<string> { id }).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return _deleteService.Delete(id);
     }
 
     public virtual IEnumerable<string> Delete(IEnumerable<TEntity> entities)
     {
-        var baseEntities = entities.ToList();
-        Checker.CheckEntityIds(baseEntities);
-
-        var ids = baseEntities.Select(e => e.EntityId).ToList();
-
-
-        return Delete(ids!);
+        return _deleteService.Delete(entities);
     }
 
     public virtual IEnumerable<string> Delete(List<string> ids)
     {
-
-        Checker.CheckEntityIds(ids);
-        var ret = Core.SendRequest<TEntityResult>(ids, ClassName + ".delete").Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return _deleteService.Delete(ids);
     }
-
-
 
     public virtual async Task<string> DeleteAsync(TEntity entity)
     {
-        Checker.CheckEntityId(entity);
-        var ret = (await DeleteAsync(new List<TEntity> { entity })).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
+        return await _deleteService.DeleteAsync(entity);
+
     }
 
     public virtual async Task<string> DeleteAsync(string id)
     {
-        Checker.CheckEntityId(id);
+        return await _deleteService.DeleteAsync(id);
 
-        var ret = (await DeleteAsync(new List<string> { id })).FirstOrDefault();
-        return Checker.ReturnEmptyStringOrActual(ret);
     }
 
     public virtual async Task<IEnumerable<string>> DeleteAsync(IEnumerable<TEntity> entities)
     {
-        var baseEntities = entities.ToList();
-        Checker.CheckEntityIds(baseEntities);
-        var ids = baseEntities.ToList().Select(e => e.EntityId).ToList();
-        var ret = await DeleteAsync(ids!);
-        return ret;
+        return await _deleteService.DeleteAsync(entities);
+
     }
 
     public virtual async Task<IEnumerable<string>> DeleteAsync(IEnumerable<string> ids)
     {
 
-        Checker.CheckEntityIds(ids);
-        var ret = (await Core.SendRequestAsync<TEntityResult>(ids, ClassName + ".delete")).Ids;
-        return Checker.ReturnEmptyListOrActual(ret);
+        return await _deleteService.DeleteAsync(ids);
+
     }
 
     #endregion

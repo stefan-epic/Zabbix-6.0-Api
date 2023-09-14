@@ -2,7 +2,6 @@
 
 namespace Zabbix.Entities
 {
-    //TODO
     public class ItemPrototype : BaseEntity
     {
         #region Properties

@@ -12,13 +12,61 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
 
-    public class TaskService : GetAndCreate<TaskObject, TaskObjectFilterOptions>
+    public class TaskService : IGetService<TaskObject, TaskObjectFilterOptions>, ICreateService<TaskObject, TaskService.TaskResult>
     {
-        public TaskService(ICore core, string className) : base(core, className) { }
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
+        private GetService<TaskObject, TaskObjectFilterOptions> _getService;
+        private CreateService<TaskObject, TaskResult> _createService;
+
+        public TaskService(ICore core)
         {
-            return BaseBuildParams(filter);
+            _getService = new(core, "task");
+            _createService = new(core, "task");
         }
+
+        #region Get
+
+        public class TaskResult : BaseResult
+        {
+            [JsonProperty("taskids")] public override IList<string>? Ids { get; set; }
+        }
+
+        public IEnumerable<TaskObject> Get(TaskObjectFilterOptions? filter = null)
+        {
+            return _getService.Get(filter);
+        }
+
+        public async Task<IEnumerable<TaskObject>> GetAsync(TaskObjectFilterOptions? filter = null)
+        {
+            return await _getService.GetAsync(filter);
+
+        }
+
+        #endregion
+
+        #region Create
+
+        public IEnumerable<string> Create(IEnumerable<TaskObject> entities)
+        {
+            return _createService.Create(entities);
+        }
+
+        public string Create(TaskObject entity)
+        {
+            return _createService.Create(entity);
+        }
+
+        public async Task<IEnumerable<string>> CreateAsync(IEnumerable<TaskObject> entities)
+        {
+            return await _createService.CreateAsync(entities);
+        }
+
+        public async Task<string> CreateAsync(TaskObject entity)
+        {
+            return await _createService.CreateAsync(entity);
+        }
+
+        #endregion
+
     }
 
     public class TaskObjectFilterOptions : FilterOptions

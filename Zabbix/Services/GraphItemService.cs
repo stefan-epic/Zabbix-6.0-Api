@@ -16,11 +16,6 @@ namespace Zabbix.Services
         public GraphItemService(ICore core) : base(core, "graphitem")
         {
         }
-
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
     }
 
     public class GraphItemFilterOptions : FilterOptions

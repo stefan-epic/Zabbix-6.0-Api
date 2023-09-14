@@ -13,11 +13,6 @@ public class HostInterfaceService : CrudService<HostInterface, HostInterfaceFilt
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
-    {
-        return BaseBuildParams(filter);
-    }
-
     public class HostInterfaceResult : BaseResult
     {
         [JsonProperty("interfaceids")] public override IList<string>? Ids { get; set; }

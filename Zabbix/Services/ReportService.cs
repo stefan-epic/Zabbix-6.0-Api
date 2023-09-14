@@ -12,11 +12,6 @@ public class ReportService : CrudService<Report, ReportFilterOptions, ReportServ
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
-    {
-        return BaseBuildParams(filter);
-    }
-
     public class ReportResult : BaseResult
     {
         [JsonProperty("reportids")] public override IList<string>? Ids { get; set; }

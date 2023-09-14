@@ -12,11 +12,6 @@ public class ActionService : CrudService<Action, ActionFilterOptions, ActionServ
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
-
     public class ActionResult : BaseResult
     {
         [JsonProperty("actionids")] public override IList<string>? Ids { get; set; }

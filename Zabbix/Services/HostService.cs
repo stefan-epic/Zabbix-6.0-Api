@@ -14,10 +14,7 @@ public class HostService : MassCrudService<Host, HostFilterOptions, HostService.
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+
 
     public class HostResult : BaseResult
     {

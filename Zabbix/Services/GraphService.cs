@@ -16,10 +16,7 @@ namespace Zabbix.Services
 
         public GraphService(ICore core) : base(core, "graph") { }
 
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
+
 
         public class GraphResult : BaseResult
         {

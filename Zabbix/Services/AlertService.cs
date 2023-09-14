@@ -12,10 +12,6 @@ public class AlertService : GetService<Alert, AlertFilterOptions>
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
 }
 
 public class AlertFilterOptions : FilterOptions

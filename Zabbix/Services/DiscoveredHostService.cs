@@ -11,11 +11,8 @@ namespace Zabbix.Services
         public DiscoveredHostService(ICore core) : base(core, "dhost")
         {
         }
+        
 
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
     }
 
     public class DiscoveredHostFilterOptions : FilterOptions

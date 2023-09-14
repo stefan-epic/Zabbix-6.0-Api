@@ -15,10 +15,7 @@ namespace Zabbix.Services
     {
         
         public ConnectorService(ICore core, string className) : base(core, className) { }
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
+        
 
         public class ConnectorResult : BaseResult
         {

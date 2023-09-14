@@ -12,10 +12,7 @@ public class ItemService : CrudService<Item, ItemFilterOptions, ItemService.Item
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+
 
     public class ItemResult : BaseResult
     {

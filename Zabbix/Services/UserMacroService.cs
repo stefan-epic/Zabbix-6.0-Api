@@ -14,10 +14,6 @@ public class UserMacroService : CrudService<UserMacro, UserMacroFilterOptions, U
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
 
     public class UserMacroResult : BaseResult
     {

@@ -2,7 +2,6 @@
 
 namespace Zabbix.Entities;
 
-//TODO
 public class Graph : BaseEntity
 {
     #region Properties

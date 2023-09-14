@@ -3,7 +3,6 @@
 namespace Zabbix.Entities;
 
 
-//TODO
 public class HostDetails
 {
     #region Properties

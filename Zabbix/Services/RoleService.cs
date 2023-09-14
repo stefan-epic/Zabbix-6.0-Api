@@ -12,10 +12,8 @@ public class RoleService : CrudService<Role, RoleFilterOptions, RoleService.Role
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+    
+
 
     public class RoleResult : BaseResult
     {

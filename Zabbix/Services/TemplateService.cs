@@ -13,11 +13,6 @@ public class
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
-    {
-        return BaseBuildParams(filter);
-    }
-
     public class TemplateResult : BaseResult
     {
         [JsonProperty("templateids")] public override IList<string>? Ids { get; set; }

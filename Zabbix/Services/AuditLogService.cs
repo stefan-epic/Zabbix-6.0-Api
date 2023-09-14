@@ -12,10 +12,7 @@ public class AuditLogService : GetService<AuditLog, AuditLogFilterOptions>
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+    
 }
 public class AuditLogFilterOptions : FilterOptions
 {

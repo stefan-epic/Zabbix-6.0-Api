@@ -13,10 +13,7 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+    
 
     //TODO: make async variants
     public IList<string> AddDependency(int triggerId, int dependsOnTriggerId)

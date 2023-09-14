@@ -12,10 +12,6 @@ public class ProblemService : GetService<Problem, ProblemFilterOptions>
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter)
-    {
-        return BaseBuildParams(filter);
-    }
 }
 
 public class ProblemFilterOptions : FilterOptions

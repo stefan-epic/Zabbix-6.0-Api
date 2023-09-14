@@ -12,11 +12,6 @@ namespace Zabbix.Services
         public ValueMapService(ICore core) : base(core, "valuemap")
         {
         }
-
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
         public class ValueMapResult : BaseResult
         {
             [JsonProperty("valuemapids")]

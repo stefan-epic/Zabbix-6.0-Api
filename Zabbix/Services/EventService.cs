@@ -13,10 +13,7 @@ public class EventService : GetService<Event, EventFilterOptions>
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+
 
     //TODO: make enum for action, make async variants
     public IEnumerable<string> Acknowledge(IList<string> eventIds, int action, string? message = null, string? severity = null)

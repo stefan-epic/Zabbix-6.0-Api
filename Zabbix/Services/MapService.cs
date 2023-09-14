@@ -14,10 +14,8 @@ namespace Zabbix.Services
     public class MapService : CrudService<Map, MapFilterOptions, MapService.MapResult>
     {
         public MapService(ICore core, string className) : base(core, className) { }
-        protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-        {
-            return BaseBuildParams(filter);
-        }
+        
+
         public class MapResult : BaseResult
         {
             [JsonProperty("sysmapids")]public override IList<string>? Ids { get; set; }

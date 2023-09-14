@@ -13,10 +13,8 @@ public class ProxyService : CrudService<Proxy, ProxyFilterOptions, ProxyService.
     {
     }
 
-    protected override Dictionary<string, object> BuildParams(FilterOptions? filter = null)
-    {
-        return BaseBuildParams(filter);
-    }
+    
+
     public class ProxyResult : BaseResult
     {
         [JsonProperty("proxyids")]
