@@ -36,7 +36,10 @@ string updatedServerHostId = core.Hosts.Update(serverHost);
 Deleting a Entity returns its former remote Zabbix id. <br/>
 When deleting a Entity you need to know the remote Zabbix id.
 ```csharp
+//By Entity
 string updatedServerHostId = core.Hosts.Delete(serverHost);
+
+//Or also by Id
 string updatedServerHostId = core.Hosts.Delete(createdServerHostId);
 ```
 ### Getting Entities
