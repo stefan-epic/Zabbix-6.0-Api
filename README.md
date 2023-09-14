@@ -7,7 +7,7 @@ Please note that this library is still under active development, there are proba
 
 ## Installation
 
-Currently, the library can be used by cloning this repository. I plan to release a NuGet package once I am satisfied with the stability and features.
+Currently, the library can be used by either cloning this repository or by installing the NuGet package https://www.nuget.org/packages/ZabbixApiLibrary/
 ## Usage
 
 First, let's establish a connection to the Zabbix server using your credentials:
