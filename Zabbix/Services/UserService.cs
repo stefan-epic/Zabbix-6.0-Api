@@ -2,6 +2,7 @@
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
+using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
@@ -12,9 +13,64 @@ public class UserService : CrudService<User, UserFilterOptions, UserService.User
     {
     }
 
-    
+    public IEnumerable<string> Unblock(IEnumerable<User> users)
+    {
+        var baseEntities = users.ToList();
+        Checker.CheckEntityIds(baseEntities);
+        var ids = baseEntities.Select(user => user.EntityId!);
+        return Checker.ReturnEmptyListOrActual(Core.SendRequest<UserResult>(ids, ClassName + ".login", null).Ids);
+    }
+    public IEnumerable<string> Unblock(IEnumerable<string> userIds)
+    {
+        return Checker.ReturnEmptyListOrActual(Core.SendRequest<UserResult>(userIds, ClassName + ".login", null).Ids);
+    }
 
-    //TODO Make Async Variants
+    public async Task<IEnumerable<string>> UnblockAsync(IEnumerable<User> users)
+    {
+        var baseEntities = users.ToList();
+        Checker.CheckEntityIds(baseEntities);
+        var ids = baseEntities.Select(user => user.EntityId!);
+        var result = await Core.SendRequestAsync<UserResult>(ids, ClassName + ".unblock", null);
+        return Checker.ReturnEmptyListOrActual(result.Ids);
+    }
+    public async Task<IList<string>> UnblockAsync(IEnumerable<string> userIds)
+    {
+        return Checker.ReturnEmptyListOrActual((await Core.SendRequestAsync<UserResult>(userIds, ClassName + ".unblock", null)).Ids);
+    }
+
+    public User CheckAuthentication(bool? extend, string? sessionId, string? token)
+    {
+        var @params = new Dictionary<string, object?>();
+        if (extend != null)
+            @params.Add("extend", extend);
+        if (sessionId != null)
+            @params.Add("sessionid", sessionId);
+        if (token != null)
+            @params.Add("token", token);
+        if (token == null && sessionId == null)
+        {
+            throw new Exception("Either sessionid or tokenid need to be not null for 'CheckAuthentication'");
+        }
+
+        return Core.SendRequest<User>(@params, "user.checkAuthentication");
+    }
+    public async Task<User> CheckAuthenticationAsync(bool? extend, string? sessionId, string? token)
+    {
+        var @params = new Dictionary<string, object?>();
+        if (extend != null)
+            @params.Add("extend", extend);
+        if (sessionId != null)
+            @params.Add("sessionid", sessionId);
+        if (token != null)
+            @params.Add("token", token);
+        if (token == null && sessionId == null)
+        {
+            throw new Exception("Either sessionid or tokenid need to be not null for 'CheckAuthentication'");
+        }
+
+        return await Core.SendRequestAsync<User>(@params, "user.checkAuthentication");
+    }
+
     public User Login(string username, string password, Dictionary<string, string>? @params = null)
     {
         if (@params == null)

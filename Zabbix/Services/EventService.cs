@@ -15,10 +15,9 @@ public class EventService : GetService<Event, EventFilterOptions>
 
 
 
-    //TODO: make enum for action, make async variants
     public IEnumerable<string> Acknowledge(IList<string> eventIds, int action, string? message = null, string? severity = null)
     {
-        Dictionary<string, object?>? @params = new()
+        Dictionary<string, object?> @params = new()
         {
             { "eventids", eventIds },
             { "action", action }
@@ -32,7 +31,22 @@ public class EventService : GetService<Event, EventFilterOptions>
         var ret = Core.SendRequest<EventResult>(@params, ClassName + ".acknowledge").Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
+    public async Task<IEnumerable<string>> AcknowledgeAsync(IList<string> eventIds, int action, string? message = null, string? severity = null)
+    {
+        Dictionary<string, object?> @params = new()
+        {
+            { "eventids", eventIds },
+            { "action", action }
+        };
 
+        if (message != null)
+            @params.Add("message", message);
+        if (severity != null)
+            @params.Add("severity", severity);
+
+        var ret = (await Core.SendRequestAsync<EventResult>(@params, ClassName + ".acknowledge")).Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
+    }
     public class EventResult : BaseResult
     {
         public override IList<string>? Ids { get; set; }
@@ -131,14 +145,4 @@ public class TagFilter
 
     [JsonProperty("operator")]
     public int Operator { get; set; }
-}
-
-public enum EventInclude
-{
-    selectHosts,
-    selectRelatedObject,
-    selectAlerts,
-    selectAcknowledges,
-    selectTags,
-    selectSuppressionData
 }

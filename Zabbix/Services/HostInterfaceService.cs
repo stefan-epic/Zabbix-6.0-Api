@@ -6,7 +6,6 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-//TODO
 public class HostInterfaceService : CrudService<HostInterface, HostInterfaceFilterOptions,HostInterfaceService.HostInterfaceResult>
 {
     public HostInterfaceService(ICore core) : base(core, "hostinterface")

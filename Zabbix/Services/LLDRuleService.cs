@@ -2,6 +2,7 @@
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
+using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
@@ -15,8 +16,36 @@ namespace Zabbix.Services
         {
         }
 
-        
- 
+        public bool Copy(IEnumerable<LldRule> discoveries, IEnumerable<Host> hosts)
+        {
+            var dIds = discoveries.Select(rule => rule.EntityId);
+            var hIds = hosts.Select(host => host.EntityId);
+
+            Checker.CheckEntityIds(dIds);
+            Checker.CheckEntityIds(hIds);
+
+            Dictionary<string, object?> @params = new() {
+                { "discoveryids", dIds },
+                {"hostids", hIds}
+            };
+
+            return Core.SendRequest<bool>(@params, "discoveryrule.copy");
+        }
+        public async Task<bool> CopyAsync(IEnumerable<LldRule> discoveries, IEnumerable<Host> hosts)
+        {
+            var dIds = discoveries.Select(rule => rule.EntityId);
+            var hIds = hosts.Select(host => host.EntityId);
+
+            Checker.CheckEntityIds(dIds);
+            Checker.CheckEntityIds(hIds);
+
+            Dictionary<string, object?> @params = new() {
+                { "discoveryids", dIds },
+                {"hostids", hIds}
+            };
+
+            return await Core.SendRequestAsync<bool>(@params, "discoveryrule.copy");
+        }
         public class LldRuleResult : BaseResult
         {
             [JsonProperty("itemids")]

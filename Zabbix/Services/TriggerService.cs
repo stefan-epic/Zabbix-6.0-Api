@@ -15,10 +15,9 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
 
     
 
-    //TODO: make async variants
     public IList<string> AddDependency(int triggerId, int dependsOnTriggerId)
     {
-        Dictionary<string, object>? @params = new Dictionary<string, object>
+        Dictionary<string, object?> @params = new()
         {
             { "triggerid", triggerId },
             { "dependsOnTriggerid", dependsOnTriggerId }
@@ -27,15 +26,35 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
         var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".adddependencies").Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
+    public async Task<IList<string>> AddDependencyAsync(int triggerId, int dependsOnTriggerId)
+    {
+        Dictionary<string, object?> @params = new()
+        {
+            { "triggerid", triggerId },
+            { "dependsOnTriggerid", dependsOnTriggerId }
+        };
 
+        var ret = (await Core.SendRequestAsync<TriggerResult>(@params, ClassName + ".adddependencies")).Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
+    }
     public IList<string> DeleteDependency(int triggerId)
     {
-        Dictionary<string, object>? @params = new Dictionary<string, object>
+        Dictionary<string, object?> @params = new()
         {
             { "triggerid", triggerId }
         };
 
         var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".deleteDependencies").Ids;
+        return Checker.ReturnEmptyListOrActual(ret);
+    }
+    public async Task<IList<string>> DeleteDependencyAsync(int triggerId)
+    {
+        Dictionary<string, object?> @params = new()
+        {
+            { "triggerid", triggerId }
+        };
+
+        var ret = (await Core.SendRequestAsync<TriggerResult>(@params, ClassName + ".deleteDependencies")).Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
 

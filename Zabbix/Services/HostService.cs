@@ -34,7 +34,6 @@ public class HostService : MassCrudService<Host, HostFilterOptions, HostService.
         };
 
 
-        //TODO: doesnt work
         @params.Add("params", JsonConvert.SerializeObject(properties, settings));
 
         return @params;

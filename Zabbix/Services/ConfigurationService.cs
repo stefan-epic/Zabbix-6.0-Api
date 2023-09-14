@@ -18,5 +18,10 @@ namespace Zabbix.Services
         {
             return _core.SendRequest<bool>(configuration, "configuration.import");
         }
+        //TODO map this to actual Entity
+        public object ImportCompare(ImportConfiguration configuration)
+        {
+            return _core.SendRequest<object>(configuration, "configuration.import");
+        }
     }
 }
