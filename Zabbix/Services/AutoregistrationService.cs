@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Zabbix.Core;
+﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Zabbix.Services
 {
-    public class AutoregistrationService : IGetService<Autoregistration, AutoregistrationFilterOptions>, IUpdateService<Autoregistration, IEnumerable<string>>
+    public class AutoregistrationService : ServiceBase, IGetService<Autoregistration, AutoregistrationFilterOptions>, IUpdateService<Autoregistration, IEnumerable<string>>
     {
         private GetService<Autoregistration, AutoregistrationFilterOptions> _getService;
-        private string _className;
-        private ICore _core;
-        public AutoregistrationService(ICore core)
+        public AutoregistrationService(ICore core) : base(core, "autoregistration")
         {
-            _core = core;
-            _className = "autoregistration";
-            _getService = new(core, _className);
+            _getService = new(core, "autoregistration");
         }
 
         #region Get
@@ -42,7 +31,7 @@ namespace Zabbix.Services
         #region Update
         public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Autoregistration> entities)
         {
-            var ret = _core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, _className + ".update");
+            var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
             return ret;
         }
 
@@ -54,7 +43,7 @@ namespace Zabbix.Services
 
         public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Autoregistration> entities)
         {
-            var ret = (await _core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, _className + ".update"));
+            var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
             return ret;
         }
 

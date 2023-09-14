@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Zabbix.Core;
+﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Helpers;
@@ -12,16 +6,12 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    //TODO this sucks aswell
-    public class HousekeepingService : IGetService<Housekeeping, HousekeepingFilterOptions>, IUpdateService<Housekeeping, IEnumerable<string>>
+    public class HousekeepingService : ServiceBase, IGetService<Housekeeping, HousekeepingFilterOptions>, IUpdateService<Housekeeping, IEnumerable<string>>
     {
         private GetService<Housekeeping, HousekeepingFilterOptions> _getService;
-        private string _className;
-        private ICore _core;
-        public HousekeepingService(ICore core)
+
+        public HousekeepingService(ICore core) : base(core, "housekeeping")
         {
-            _core = core;
-            _className = "housekeeping";
             _getService = new(core, "housekeeping");
         }
 
@@ -42,7 +32,7 @@ namespace Zabbix.Services
         #region Update
         public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Housekeeping> entities)
         {
-            var ret = _core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, _className + ".update");
+            var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
             return ret;
         }
 
@@ -54,7 +44,7 @@ namespace Zabbix.Services
 
         public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Housekeeping> entities)
         {
-            var ret = (await _core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, _className + ".update"));
+            var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
             return ret;
         }
 
@@ -66,7 +56,7 @@ namespace Zabbix.Services
 
         #endregion
 
-    }
+    } 
 
     public class HousekeepingResult : BaseResult
     {

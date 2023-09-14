@@ -68,7 +68,7 @@ public class DashboardUserGroup
     [JsonProperty("permission")] public int? Permission { get; set; }
 }
 
-public class DashboardUser
+public class DashboardUser 
 {
     [JsonProperty("userid")] public string? UserId { get; set; }
     [JsonProperty("permission")] public int? Permission { get; set; }

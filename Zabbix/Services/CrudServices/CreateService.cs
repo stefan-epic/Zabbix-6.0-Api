@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zabbix.Core;
+﻿using Zabbix.Core;
 using Zabbix.Entities;
-using Zabbix.Filter;
 using Zabbix.Helpers;
 
 namespace Zabbix.Services.CrudServices
 {
-    public interface ICreateService<TEntity, TEntityResult> where TEntity : BaseEntity where TEntityResult : BaseResult
+    public interface ICreateService<TEntity> where TEntity : BaseEntity
     {
         IEnumerable<string> Create(IEnumerable<TEntity> entities);
         string Create(TEntity entity);
@@ -18,7 +12,7 @@ namespace Zabbix.Services.CrudServices
         Task<string> CreateAsync(TEntity entity);
     }
 
-    public class CreateService<TEntity, TEntityResult> : ServiceBase, ICreateService<TEntity, TEntityResult> where TEntity : BaseEntity
+    public class CreateService<TEntity, TEntityResult> : ServiceBase, ICreateService<TEntity> where TEntity : BaseEntity
     where TEntityResult : BaseResult
     {
 

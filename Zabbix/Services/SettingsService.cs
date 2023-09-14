@@ -1,27 +1,16 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zabbix.Core;
+﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
 using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Zabbix.Services
 {
-    public class SettingsService : IGetService<Settings, SettingsFilterOptions>, IUpdateService<Settings, IEnumerable<string>>
+    public class SettingsService :  ServiceBase, IGetService<Settings, SettingsFilterOptions>, IUpdateService<Settings, IEnumerable<string>>
     {
         private GetService<Settings, SettingsFilterOptions> _getService;
-        private string _className;
-        private ICore _core;
-        public SettingsService(ICore core)
+        public SettingsService(ICore core) : base(core, "settings")
         {
-            _core = core;
-            _className = "settings";
             _getService = new(core, "settings");
         }
 
@@ -42,7 +31,7 @@ namespace Zabbix.Services
         #region Update
         public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Settings> entities)
         {
-            var ret = _core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, _className + ".update");
+            var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
             return ret;
         }
 
@@ -54,7 +43,7 @@ namespace Zabbix.Services
 
         public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Settings> entities)
         {
-            var ret = (await _core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, _className + ".update"));
+            var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
             return ret;
         }
 

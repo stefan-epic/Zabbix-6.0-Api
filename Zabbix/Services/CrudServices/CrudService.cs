@@ -1,7 +1,6 @@
 ﻿using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
-using Zabbix.Helpers;
 
 namespace Zabbix.Services.CrudServices;
 

@@ -1,8 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel;
-using System;
-using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Entities;
 

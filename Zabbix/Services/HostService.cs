@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;

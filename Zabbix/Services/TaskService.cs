@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
@@ -12,7 +7,7 @@ using Zabbix.Services.CrudServices;
 namespace Zabbix.Services
 {
 
-    public class TaskService : IGetService<TaskObject, TaskObjectFilterOptions>, ICreateService<TaskObject, TaskService.TaskResult>
+    public class TaskService : IGetService<TaskObject, TaskObjectFilterOptions>, ICreateService<TaskObject>
     {
         private GetService<TaskObject, TaskObjectFilterOptions> _getService;
         private CreateService<TaskObject, TaskResult> _createService;
@@ -73,10 +68,5 @@ namespace Zabbix.Services
     {
         [JsonProperty("taskids")]
         public object? TaskIds { get; set; }
-    }
-
-    public enum TaskObjectInclude
-    {
-
     }
 }
