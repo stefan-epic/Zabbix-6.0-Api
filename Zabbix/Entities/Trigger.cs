@@ -66,8 +66,12 @@ public class Trigger : BaseEntity
     #endregion
 
     #region Components
-
     [JsonProperty("functions")] public IList<Trigger>? TriggerFunctions { get; set; }
+    [JsonProperty("tags")] public IList<Tag>? Tags { get; set; }
+    [JsonProperty("items")] public IList<Item>? Items { get; set; }
+    [JsonProperty("groups")] public IList<HostGroup>? HostGroups { get; set; }
+    [JsonProperty("hosts")] public IList<Host>? Hosts { get; set; }
+    [JsonProperty("lldrule")] public IList<DiscoveryRule>? DiscoveryRules { get; set; }
 
     #endregion
 

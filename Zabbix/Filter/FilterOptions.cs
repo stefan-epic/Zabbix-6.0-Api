@@ -14,7 +14,7 @@ namespace Zabbix.Filter
         public bool? ExcludeSearch { get; set; }
 
         [JsonProperty("filter")]
-        public Dictionary<string, string>? Filter { get; set; }
+        public Dictionary<string, object>? Filter { get; set; }
 
         [JsonProperty("limit")]
         public int? Limit { get; set; }
