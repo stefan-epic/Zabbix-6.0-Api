@@ -75,7 +75,7 @@ namespace Zabbix.Services
             public int? ErrorBudget { get; set; }
 
             [JsonProperty("excluded_downtimes")]
-            public List<ExcludedDowntime>? ExcludedDowntimes { get; set; }
+            public IList<ExcludedDowntime>? ExcludedDowntimes { get; set; }
         }
 
         public class ExcludedDowntime

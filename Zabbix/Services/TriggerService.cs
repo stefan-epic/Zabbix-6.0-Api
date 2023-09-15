@@ -15,7 +15,7 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
 
     
 
-    public IList<string> AddDependency(int triggerId, int dependsOnTriggerId)
+    public IEnumerable<string> AddDependency(int triggerId, int dependsOnTriggerId)
     {
         Dictionary<string, object?> @params = new()
         {
@@ -26,7 +26,7 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
         var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".adddependencies").Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
-    public async Task<IList<string>> AddDependencyAsync(int triggerId, int dependsOnTriggerId)
+    public async Task<IEnumerable<string>> AddDependencyAsync(int triggerId, int dependsOnTriggerId)
     {
         Dictionary<string, object?> @params = new()
         {
@@ -37,7 +37,7 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
         var ret = (await Core.SendRequestAsync<TriggerResult>(@params, ClassName + ".adddependencies")).Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
-    public IList<string> DeleteDependency(int triggerId)
+    public IEnumerable<string> DeleteDependency(int triggerId)
     {
         Dictionary<string, object?> @params = new()
         {
@@ -47,7 +47,7 @@ public class TriggerService : CrudService<Trigger, TriggerFilterOptions, Trigger
         var ret = Core.SendRequest<TriggerResult>(@params, ClassName + ".deleteDependencies").Ids;
         return Checker.ReturnEmptyListOrActual(ret);
     }
-    public async Task<IList<string>> DeleteDependencyAsync(int triggerId)
+    public async Task<IEnumerable<string>> DeleteDependencyAsync(int triggerId)
     {
         Dictionary<string, object?> @params = new()
         {

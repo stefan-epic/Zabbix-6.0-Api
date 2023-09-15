@@ -4,7 +4,34 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Zabbix 6.0 API Library</Title>
+    <Authors>Stefan Hasler</Authors>
+    <Company />
+    <PackageId>$(AssemblyName).Api.NET</PackageId>
+    <Product />
+    <Description>Library to communicate with the 6.0 Zabbix Api</Description>
+    <Copyright>MIT License</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIcon>zabbix_logo_icon_167937.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/stefan-epic/Zabbix-6.0-Api</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Zabbix,Api-Library,zabbixapi</PackageTags>
+    <IncludeSymbols>False</IncludeSymbols>
+    <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\zabbix_logo_icon_167937.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

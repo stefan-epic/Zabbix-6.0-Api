@@ -4,11 +4,11 @@ namespace Zabbix.Helpers
 {
     public static class Checker
     {
-        public static IList<T> ReturnEmptyListOrActual<T>(IEnumerable<T>? objects)
+        public static IEnumerable<T> ReturnEmptyListOrActual<T>(IEnumerable<T>? objects)
         {
             if (objects == null)
                 return new List<T>();
-            return objects.ToList();
+            return objects;
         }
         public static string ReturnEmptyStringOrActual(string? str)
         {

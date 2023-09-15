@@ -33,7 +33,7 @@ public class UserService : CrudService<User, UserFilterOptions, UserService.User
         var result = await Core.SendRequestAsync<UserResult>(ids, ClassName + ".unblock", null);
         return Checker.ReturnEmptyListOrActual(result.Ids);
     }
-    public async Task<IList<string>> UnblockAsync(IEnumerable<string> userIds)
+    public async Task<IEnumerable<string>> UnblockAsync(IEnumerable<string> userIds)
     {
         return Checker.ReturnEmptyListOrActual((await Core.SendRequestAsync<UserResult>(userIds, ClassName + ".unblock", null)).Ids);
     }

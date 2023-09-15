@@ -2,7 +2,6 @@
 
 namespace Zabbix.Entities;
 
-//TODO maybe also make Host and GlobalMacro diffrent classes
 public class UserMacro : BaseEntity
 {
     #region Properties

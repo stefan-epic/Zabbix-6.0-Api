@@ -14,14 +14,12 @@ namespace Zabbix.Services.CrudServices
 
         public virtual string Delete(TEntity entity)
         {
-            Checker.CheckEntityId(entity);
             var ret = Delete(new List<string> { entity.EntityId! }).FirstOrDefault();
             return Checker.ReturnEmptyStringOrActual(ret);
         }
 
         public virtual string Delete(string id)
         {
-            Checker.CheckEntityId(id);
             var ret = Delete(new List<string> { id }).FirstOrDefault();
             return Checker.ReturnEmptyStringOrActual(ret);
         }
@@ -30,9 +28,7 @@ namespace Zabbix.Services.CrudServices
         {
             var baseEntities = entities.ToList();
             Checker.CheckEntityIds(baseEntities);
-
             var ids = baseEntities.Select(e => e.EntityId).ToList();
-
             return Delete(ids!);
         }
 
@@ -48,15 +44,12 @@ namespace Zabbix.Services.CrudServices
 
         public virtual async Task<string> DeleteAsync(TEntity entity)
         {
-            Checker.CheckEntityId(entity);
             var ret = (await DeleteAsync(new List<TEntity> { entity })).FirstOrDefault();
             return Checker.ReturnEmptyStringOrActual(ret);
         }
 
         public virtual async Task<string> DeleteAsync(string id)
         {
-            Checker.CheckEntityId(id);
-
             var ret = (await DeleteAsync(new List<string> { id })).FirstOrDefault();
             return Checker.ReturnEmptyStringOrActual(ret);
         }
