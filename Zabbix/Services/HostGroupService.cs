@@ -15,7 +15,7 @@ public class HostGroupService : MassCrudService<HostGroup, HostGroupFilterOption
 
     public class HostGroupResult : BaseResult
     {
-        [JsonProperty("hostgroupids")] public override IList<string>? Ids { get; set; }
+        [JsonProperty("groupids")] public override IList<string>? Ids { get; set; }
     }
     /*
     public override Dictionary<string, object> BuildMassParams(IEnumerable<HostGroup> entities, HostGroup properties, Dictionary<string, object>? @params = null)

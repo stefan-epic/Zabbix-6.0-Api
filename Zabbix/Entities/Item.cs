@@ -13,7 +13,7 @@ public class Item : BaseEntity
 
     [JsonProperty("snmp_oid")] public string? SnmpOid { get; set; }
 
-    [JsonProperty("hostid")] public string? Hostid { get; set; }
+    [JsonProperty("hostid")] public string? HostId { get; set; }
 
     [JsonProperty("name")] public string? Name { get; set; }
 
@@ -71,7 +71,7 @@ public class Item : BaseEntity
 
     [JsonProperty("url")] public string? Url { get; set; }
 
-    [JsonProperty("query_fields")] public object QueryFields { get; set; }
+    [JsonProperty("query_fields")] public object? QueryFields { get; set; } //TODO: map this to something else
 
     [JsonProperty("posts")] public string? Posts { get; set; }
 
@@ -83,7 +83,7 @@ public class Item : BaseEntity
 
     [JsonProperty("http_proxy")] public string? HttpProxy { get; set; }
 
-    [JsonProperty("headers")] public object? Headers { get; set; } //TODO make this something thats not object, bug: doesnt work with list of httpfields, above and below are two more with same problem
+    [JsonProperty("headers")] public HttpField? Headers { get; set; } //TODO make this something thats not object, bug: doesnt work with list of httpfields, above and below are two more with same problem
 
     [JsonProperty("retrieve_mode")] public int? RetrieveMode { get; set; }
 
@@ -145,11 +145,11 @@ public class Item : BaseEntity
 
     #region Constructors
 
-    public Item(string delay, string hostid, string interfaceid, string key, string name, int type, string url,
+    public Item(string delay, string hostId, string interfaceid, string key, string name, int type, string url,
         int valueType)
     {
         Delay = delay;
-        Hostid = hostid;
+        HostId = hostId;
         Interfaceid = interfaceid;
         Key = key;
         Name = name;

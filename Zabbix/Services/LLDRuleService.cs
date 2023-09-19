@@ -109,9 +109,6 @@ namespace Zabbix.Services
         [JsonProperty("selectOverrides")]
         public string? SelectOverrides { get; set; }
 
-        [JsonProperty("filter")]
-        public IDictionary<string, object>? Filter { get; set; }
-
         [JsonProperty("limitSelects")]
         public int? LimitSelects { get; set; }
 

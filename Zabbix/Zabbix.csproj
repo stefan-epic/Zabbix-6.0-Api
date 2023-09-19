@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,7 +8,7 @@
     <Title>Zabbix 6.0 API Library</Title>
     <Authors>Stefan Hasler</Authors>
     <Company />
-	  <Version>1.1.0</Version>
+	  <Version>1.1.5</Version>
     <PackageId>$(AssemblyName).Api.NET</PackageId>
     <Product />
     <Description>Library to communicate with the 6.0 Zabbix Api</Description>
@@ -21,6 +21,14 @@
     <PackageTags>Zabbix,Api-Library,zabbixapi</PackageTags>
     <IncludeSymbols>False</IncludeSymbols>
     <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>

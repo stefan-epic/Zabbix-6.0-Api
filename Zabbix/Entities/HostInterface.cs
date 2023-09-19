@@ -60,7 +60,7 @@ public class HostInterface : BaseEntity
 
     [JsonProperty("interfaceid")] public override string? EntityId { get; set; }
 
-    [JsonProperty("hostid")] public string? Hostid { get; set; }
+    [JsonProperty("hostid")] public string? HostId { get; set; }
 
     [JsonProperty("main")] public int? Main { get; set; }
 
@@ -94,10 +94,10 @@ public class HostInterface : BaseEntity
 
     #region Constructors
 
-    public HostInterface(string dns, string hostid, string ip, int main, string port, int type, int useip)
+    public HostInterface(string dns, string hostId, string ip, int main, string port, int type, int useip)
     {
         Dns = dns;
-        Hostid = hostid;
+        HostId = hostId;
         Ip = ip;
         Main = main;
         Port = port;

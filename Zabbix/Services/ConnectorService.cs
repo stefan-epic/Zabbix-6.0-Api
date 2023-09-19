@@ -9,7 +9,7 @@ namespace Zabbix.Services
     public class ConnectorService : CrudService<Connector, ConnectorFilterOptions, ConnectorService.ConnectorResult>
     {
         
-        public ConnectorService(ICore core, string className) : base(core, className) { }
+        public ConnectorService(ICore core) : base(core, "connector") { }
         
 
         public class ConnectorResult : BaseResult

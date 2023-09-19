@@ -19,8 +19,6 @@ public class WebScenario : BaseEntity
 
     [JsonProperty("name")] public string? Name { get; set; }
 
-    [JsonProperty("nextcheck")] public string? Nextcheck { get; set; }
-
     [JsonProperty("delay")] public string? Delay { get; set; }
 
     [JsonProperty("status")] public int? Status { get; set; }
@@ -35,7 +33,7 @@ public class WebScenario : BaseEntity
 
     [JsonProperty("http_password")] public string? HttpPassword { get; set; }
 
-    [JsonProperty("hostid")] public string? Hostid { get; set; }
+    [JsonProperty("hostid")] public string? HostId { get; set; }
 
     [JsonProperty("templateid")] public string? Templateid { get; set; }
 
@@ -55,16 +53,16 @@ public class WebScenario : BaseEntity
 
     [JsonProperty("verify_host")] public int? VerifyHost { get; set; }
 
-    [JsonProperty("headers")] public IList<object>? Headers { get; set; }
+    [JsonProperty("headers")] public IList<HttpField>? Headers { get; set; }
 
     #endregion
 
     #region Constructors
 
-    public WebScenario(string name, string? hostid, IList<WebScenarioStep> steps)
+    public WebScenario(string name, string? hostId, IList<WebScenarioStep> steps)
     {
         Name = name;
-        Hostid = hostid;
+        HostId = hostId;
         Steps = steps;
     }
 

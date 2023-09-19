@@ -2,25 +2,22 @@
 using Zabbix.Core;
 using Zabbix.Entities;
 using Zabbix.Filter;
+using Zabbix.Helpers;
 using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services;
 
-//TODO:
-public class AuthenticationService
+public class AuthenticationService : ServiceBase, IGetService<Authentication, AuthenticationFilterOptions>, IUpdateService<Authentication, IEnumerable<string>>
 {
     private class AuthenticationResult : BaseResult
     {
         [JsonIgnore] public override IList<string>? Ids { get; set; }
-        public IList<string> updatedParams { get; set; }
     }
 
     private GetService<Authentication, AuthenticationFilterOptions> _getService;
-    private UpdateService<Authentication, AuthenticationService.AuthenticationResult> _updateService;
-    public AuthenticationService(ICore core)
+    public AuthenticationService(ICore core) : base(core, "authentication")
     {
         _getService = new(core, "authentication");
-        _updateService = new(core, "authentication");
     }
 
     #region Get
@@ -34,6 +31,35 @@ public class AuthenticationService
     {
         return await _getService.GetAsync(filter);
     }
+
+    #endregion
+
+    #region Update
+
+    public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Authentication> entities)
+    {
+        var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
+        return ret;
+    }
+
+    public virtual IEnumerable<string> Update(Authentication entity)
+    {
+        var ret = Update(new List<Authentication> { entity }).FirstOrDefault();
+        return Checker.ReturnEmptyListOrActual(ret);
+    }
+
+    public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Authentication> entities)
+    {
+        var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
+        return ret;
+    }
+
+    public virtual async Task<IEnumerable<string>> UpdateAsync(Authentication entity)
+    {
+        var ret = (await UpdateAsync(new List<Authentication> { entity })).FirstOrDefault();
+        return Checker.ReturnEmptyListOrActual(ret);
+    }
+
 
     #endregion
 

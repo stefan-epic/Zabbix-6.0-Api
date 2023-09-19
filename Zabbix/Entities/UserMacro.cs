@@ -8,7 +8,7 @@ public class UserMacro : BaseEntity
 
     [JsonProperty("hostmacroid")] public override string? EntityId { get; set; }
 
-    [JsonProperty("hostid")] public string? Hostid { get; set; }
+    [JsonProperty("hostid")] public string? HostId { get; set; }
 
     [JsonProperty("macro")] public string? Macro { get; set; }
 
@@ -32,9 +32,9 @@ public class UserMacro : BaseEntity
 
     #region Constructors
 
-    public UserMacro(string? hostid, string? macro, string? value)
+    public UserMacro(string? hostId, string? macro, string? value)
     {
-        Hostid = hostid;
+        HostId = hostId;
         Macro = macro;
         Value = value;
     }

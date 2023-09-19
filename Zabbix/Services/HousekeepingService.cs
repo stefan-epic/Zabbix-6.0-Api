@@ -56,11 +56,6 @@ namespace Zabbix.Services
 
         #endregion
 
-    } 
-
-    public class HousekeepingResult : BaseResult
-    {
-
     }
 
     public class HousekeepingFilterOptions : FilterOptions

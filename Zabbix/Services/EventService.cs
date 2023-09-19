@@ -138,11 +138,11 @@ public class EventFilterOptions : FilterOptions
 public class TagFilter
 {
     [JsonProperty("tag")]
-    public string Tag { get; set; }
+    public string? Tag { get; set; }
 
     [JsonProperty("value")]
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
     [JsonProperty("operator")]
-    public int Operator { get; set; }
+    public int? Operator { get; set; }
 }

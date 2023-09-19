@@ -63,7 +63,7 @@ public class ZabbixCore : ICore
         DiscoveryChecks = new DiscoveryCheckService(this);
         DiscoveredServices = new DiscoveredServiceService(this);
         DiscoveryRules = new DiscoveryRuleService(this);
-        TriggerPrototypess = new TriggerPrototypeService(this);
+        TriggerPrototypes = new TriggerPrototypeService(this);
         Trends = new TrendService(this);
         LldRules = new LldRuleService(this);
         UserGroups = new UserGroupService(this);
@@ -80,11 +80,14 @@ public class ZabbixCore : ICore
         Regex = new RegexObjectService(this);
         Scripts = new ScriptService(this);
         Settings = new SettingsService(this);
-        SLAs = new SlaService(this);
+        SlAs = new SlaService(this);
         TemplateDashboards = new TemplateDashboardService(this);
         Templates = new TemplateService(this);
         Tokens = new TokenService(this);
         Configuration = new ConfigurationService(this);
+        Services = new ServiceService(this);
+        Tasks = new TaskService(this);
+        Connectors = new ConnectorService(this);
         Authenticate(username, password);
     }
 
@@ -239,13 +242,17 @@ public class ZabbixCore : ICore
     public ScriptService Scripts;
     public ServiceService Services;
     public SettingsService Settings;
-    public SlaService SLAs;
-    //TaskService
+    public SlaService SlAs;
+    public TaskService Tasks;
+    /// <summary>
+    /// Only Available on Zabbix Version >= 6.4
+    /// </summary>
+    public ConnectorService Connectors;
     public TemplateDashboardService TemplateDashboards;
     public TemplateService Templates;
     public TokenService Tokens;
     public TrendService Trends;
-    public TriggerPrototypeService TriggerPrototypess;
+    public TriggerPrototypeService TriggerPrototypes;
     public TriggerService Triggers;
     public UserGroupService UserGroups;
     public UserMacroService UserMacros;
