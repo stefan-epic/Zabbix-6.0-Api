@@ -15,7 +15,7 @@ namespace Zabbix.Entities
         [JsonProperty("imagetype")]
         public int? ImageType { get; set; }
 
-        [JsonProperty("ImageBase64")]
+        [JsonProperty("image")]
         public string? ImageBase64 { get; set; }
         #endregion
 

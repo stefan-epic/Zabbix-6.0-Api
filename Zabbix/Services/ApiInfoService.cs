@@ -11,7 +11,7 @@ namespace Zabbix.Services
 
         public string GetVersion()
         {
-            return Core.SendRequest<string>(null, "apiinfo.version");
+            return Core.SendRequest<string>(new List<object>(), "apiinfo.version", null);
         }
         public async Task<string> GetVersionAsync()
         {

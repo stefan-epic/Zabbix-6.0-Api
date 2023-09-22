@@ -8,7 +8,7 @@ namespace Zabbix.Services
 {
     public class MapService : CrudService<Map, MapFilterOptions, MapService.MapResult>
     {
-        public MapService(ICore core, string className) : base(core, className) { }
+        public MapService(ICore core) : base(core, "map") { }
         
 
         public class MapResult : BaseResult

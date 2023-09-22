@@ -6,51 +6,38 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class SettingsService :  ServiceBase, IGetService<Settings, SettingsFilterOptions>, IUpdateService<Settings, IEnumerable<string>>
+    public class SettingsService :  ServiceBase
     {
-        private GetService<Settings, SettingsFilterOptions> _getService;
         public SettingsService(ICore core) : base(core, "settings")
         {
-            _getService = new(core, "settings");
         }
 
         #region Get
 
-        public IEnumerable<Settings> Get(SettingsFilterOptions? filter = null)
+        public Settings Get(SettingsFilterOptions? filter = null)
         {
-            return _getService.Get(filter);
+            return Core.SendRequest<Settings>(BuildParams(filter), ClassName + ".get");
+
         }
 
-        public async Task<IEnumerable<Settings>> GetAsync(SettingsFilterOptions? filter = null)
+        public async Task<Settings> GetAsync(SettingsFilterOptions? filter = null)
         {
-            return await _getService.GetAsync(filter);
+            return await Core.SendRequestAsync<Settings>(BuildParams(filter), ClassName + ".get");
+
         }
 
         #endregion
 
         #region Update
-        public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Settings> entities)
+        public IEnumerable<string> Update(Settings entity)
         {
-            var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
+            var ret = Core.SendRequest<IEnumerable<string>>(entity, ClassName + ".update");
             return ret;
         }
-
-        public virtual IEnumerable<string> Update(Settings entity)
+        public async Task<IEnumerable<string>> UpdateAsync(Settings entity)
         {
-            var ret = Update(new List<Settings> { entity }).FirstOrDefault();
-            return Checker.ReturnEmptyListOrActual(ret);
-        }
-
-        public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Settings> entities)
-        {
-            var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
+            var ret = await Core.SendRequestAsync<IEnumerable<string>>(entity, ClassName + ".update");
             return ret;
-        }
-
-        public virtual async Task<IEnumerable<string>> UpdateAsync(Settings entity)
-        {
-            var ret = (await UpdateAsync(new List<Settings> { entity })).FirstOrDefault();
-            return Checker.ReturnEmptyListOrActual(ret);
         }
 
         #endregion

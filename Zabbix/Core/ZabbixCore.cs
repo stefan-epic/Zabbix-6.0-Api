@@ -35,7 +35,7 @@ public class ZabbixCore : ICore
             NullValueHandling = NullValueHandling.Ignore,
         };
 
-
+        //Todo: do this using reflection
         _url = url;
         _httpClient = new HttpClient();
         GraphItems = new GraphItemService(this);
@@ -80,7 +80,7 @@ public class ZabbixCore : ICore
         Regex = new RegexObjectService(this);
         Scripts = new ScriptService(this);
         Settings = new SettingsService(this);
-        SlAs = new SlaService(this);
+        SLAs = new SlaService(this);
         TemplateDashboards = new TemplateDashboardService(this);
         Templates = new TemplateService(this);
         Tokens = new TokenService(this);
@@ -88,6 +88,11 @@ public class ZabbixCore : ICore
         Services = new ServiceService(this);
         Tasks = new TaskService(this);
         Connectors = new ConnectorService(this);
+        ApiInfo = new ApiInfoService(this);
+        Dashboards = new DashboardService(this);
+        Graphs = new GraphService(this);
+        Maps = new MapService(this);
+
         Authenticate(username, password);
     }
 
@@ -210,7 +215,7 @@ public class ZabbixCore : ICore
     public AlertService Alerts { get; }
     public AuditLogService AuditLogs { get; }
     public AuthenticationService Authentication{ get; }
-    public AutoregistrationService AutoRegistration{ get; }
+    public AutoRegistrationService AutoRegistration{ get; }
     public ConfigurationService Configuration{ get; }
     public CorrelationService Correlations{ get; }
     public DiscoveredHostService DiscoveredHosts{ get; }
@@ -242,7 +247,8 @@ public class ZabbixCore : ICore
     public ScriptService Scripts{ get; }
     public ServiceService Services{ get; }
     public SettingsService Settings{ get; }
-    public SlaService SlAs{ get; }
+    public SlaService SLAs{ get; }
+    public DashboardService Dashboards{ get; }
     public TaskService Tasks{ get; }
     /// <summary>
     /// Only Available on Zabbix Version >= 6.4
@@ -259,6 +265,9 @@ public class ZabbixCore : ICore
     public UserService Users{ get; }
     public ValueMapService ValueMaps{ get; }
     public WebScenarioService WebScenarios{ get; }
+    public ApiInfoService ApiInfo { get; }
+    public GraphService Graphs { get; }
+    public MapService Maps { get; }
 
 
 

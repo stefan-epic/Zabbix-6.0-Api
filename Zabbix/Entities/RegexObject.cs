@@ -17,6 +17,11 @@ namespace Zabbix.Entities
 
         #endregion
 
+        #region Components
+        [JsonProperty("expressions")] public  IList<Expressions>? Expressions { get; set; }
+
+        #endregion
+
         #region Constructors
 
         public RegexObject(string name)

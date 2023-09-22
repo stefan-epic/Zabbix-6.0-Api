@@ -117,6 +117,7 @@ namespace Zabbix.Entities
 
         #region Constructors
         public SLAServiceTag(string tagName, string value) : base(tagName, value) { }
+        public SLAServiceTag() { }
 
         #endregion
 

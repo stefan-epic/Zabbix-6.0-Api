@@ -6,7 +6,7 @@ public class Role : BaseEntity
 {
     #region Components
 
-    [JsonProperty("rules")] public IList<RoleRule>? Rules { get; set; }
+    [JsonProperty("rules")] public RoleRule? Rule { get; set; }
 
     #endregion
 

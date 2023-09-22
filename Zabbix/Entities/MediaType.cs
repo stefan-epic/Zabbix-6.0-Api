@@ -8,7 +8,7 @@ public class MediaType : BaseEntity
     #region Properties
 
     [JsonProperty("mediatypeid")]
-    public string? MediaTypeId { get; set; }
+    public override string? EntityId { get; set; }
 
     [JsonProperty("name")]
     public string? Name { get; set; }
