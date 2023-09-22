@@ -1,6 +1,6 @@
 # Zabbix 6.0 API Library for C#
 
-This is a C# library designed to simplify interactions with the Zabbix API (version 6.0). It provides an intuitive way to perform operations such as creating, updating, deleting and getting entties for Zabbix.
+This is a C# library designed to simplify interactions with the Zabbix API (version 6.0). It provides an intuitive way to perform operations (synchronously and asynchronously) such as creating, updating, deleting and getting entties for Zabbix.
 
 ## Still in Development
 Please note that this library is still under active development, there are probably a lot of bugs. Your assistance in identifying and addressing these issues is greatly appreciated.
@@ -78,6 +78,7 @@ https://www.zabbix.com/documentation/6.0/en/manual/api/reference
 ### CRUD operations
 Most entities support the CRUD operations and some include some extra Operations. <br/>
 Every Crud operation can be called with either a single Entity or a List of Entities. <br/>
+Every operation has a Async Variant
 
 
 ## Contribution
