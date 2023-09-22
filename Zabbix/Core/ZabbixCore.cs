@@ -206,59 +206,59 @@ public class ZabbixCore : ICore
     }
 
     #region Services
-    public ActionService Actions;
-    public AlertService Alerts;
-    public AuditLogService AuditLogs;
-    public AuthenticationService Authentication;
-    public AutoregistrationService AutoRegistration;
-    public ConfigurationService Configuration;
-    public CorrelationService Correlations;
-    public DiscoveredHostService DiscoveredHosts;
-    public DiscoveryCheckService DiscoveryChecks;
-    public DiscoveredServiceService DiscoveredServices;
-    public DiscoveryRuleService DiscoveryRules;
-    public EventService Events;
-    public GraphItemService GraphItems;
-    public GraphPrototypeService GraphPrototypes;
-    public HighAvailabilityNodeService HighAvailabilityNodes;
-    public HistoryService History;
-    public HostGroupService HostGroups;
-    public HostInterfaceService HostInterfaces;
-    public HostPrototypeService HostPrototypes;
-    public HostService Hosts;
-    public HousekeepingService Housekeeping;
-    public IconMapService IconMaps;
-    public ImageService Images;
-    public ItemPrototypeService ItemPrototypes;
-    public ItemService Items;
-    public LldRuleService LldRules;
-    public MaintenanceService Maintenance;
-    public MediaTypeService MediaTypes;
-    public ProblemService Problems;
-    public ProxyService Proxies;
-    public RegexObjectService Regex;
-    public ReportService Reports;
-    public RoleService Roles;
-    public ScriptService Scripts;
-    public ServiceService Services;
-    public SettingsService Settings;
-    public SlaService SlAs;
-    public TaskService Tasks;
+    public ActionService Actions { get; }
+    public AlertService Alerts { get; }
+    public AuditLogService AuditLogs { get; }
+    public AuthenticationService Authentication{ get; }
+    public AutoregistrationService AutoRegistration{ get; }
+    public ConfigurationService Configuration{ get; }
+    public CorrelationService Correlations{ get; }
+    public DiscoveredHostService DiscoveredHosts{ get; }
+    public DiscoveryCheckService DiscoveryChecks{ get; }
+    public DiscoveredServiceService DiscoveredServices{ get; }
+    public DiscoveryRuleService DiscoveryRules{ get; }
+    public EventService Events{ get; }
+    public GraphItemService GraphItems{ get; }
+    public GraphPrototypeService GraphPrototypes{ get; }
+    public HighAvailabilityNodeService HighAvailabilityNodes{ get; }
+    public HistoryService History{ get; }
+    public HostGroupService HostGroups{ get; }
+    public HostInterfaceService HostInterfaces{ get; }
+    public HostPrototypeService HostPrototypes{ get; }
+    public HostService Hosts{ get; }
+    public HousekeepingService Housekeeping{ get; }
+    public IconMapService IconMaps{ get; }
+    public ImageService Images{ get; }
+    public ItemPrototypeService ItemPrototypes{ get; }
+    public ItemService Items{ get; }
+    public LldRuleService LldRules{ get; }
+    public MaintenanceService Maintenance{ get; }
+    public MediaTypeService MediaTypes{ get; }
+    public ProblemService Problems{ get; }
+    public ProxyService Proxies{ get; }
+    public RegexObjectService Regex{ get; }
+    public ReportService Reports{ get; }
+    public RoleService Roles{ get; }
+    public ScriptService Scripts{ get; }
+    public ServiceService Services{ get; }
+    public SettingsService Settings{ get; }
+    public SlaService SlAs{ get; }
+    public TaskService Tasks{ get; }
     /// <summary>
     /// Only Available on Zabbix Version >= 6.4
     /// </summary>
-    public ConnectorService Connectors;
-    public TemplateDashboardService TemplateDashboards;
-    public TemplateService Templates;
-    public TokenService Tokens;
-    public TrendService Trends;
-    public TriggerPrototypeService TriggerPrototypes;
-    public TriggerService Triggers;
-    public UserGroupService UserGroups;
-    public UserMacroService UserMacros;
-    public UserService Users;
-    public ValueMapService ValueMaps;
-    public WebScenarioService WebScenarios;
+    public ConnectorService Connectors{ get; }
+    public TemplateDashboardService TemplateDashboards{ get; }
+    public TemplateService Templates{ get; }
+    public TokenService Tokens{ get; }
+    public TrendService Trends{ get; }
+    public TriggerPrototypeService TriggerPrototypes{ get; }
+    public TriggerService Triggers{ get; }
+    public UserGroupService UserGroups{ get; }
+    public UserMacroService UserMacros{ get; }
+    public UserService Users{ get; }
+    public ValueMapService ValueMaps{ get; }
+    public WebScenarioService WebScenarios{ get; }
 
 
 

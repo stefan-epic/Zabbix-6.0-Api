@@ -145,7 +145,7 @@ public class Item : BaseEntity
 
     #region Constructors
 
-    public Item(string delay, string hostId, string interfaceid, string key, string name, int type, string url,
+    public Item(string? delay, string hostId, string? interfaceid, string key, string name, int type, string? url,
         int valueType)
     {
         Delay = delay;

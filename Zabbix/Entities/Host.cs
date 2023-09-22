@@ -98,6 +98,11 @@ public class Host : BaseEntity
         host = hostName;
         Groups = groups;
     }
+    public Host(string hostName, HostGroup group)
+    {
+        host = hostName;
+        Groups = new List<HostGroup>(){group};
+    }
 
     #endregion
 }
