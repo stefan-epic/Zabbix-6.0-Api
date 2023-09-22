@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +17,7 @@ namespace ZabbixIntegrationTests
         public HostGroup? TestGroup { get; set; }
         public Host? TestHost { get; set; }
         public UserGroup? TestUserGroup { get; set; }
+        public Item? TestItem { get; set; }
 
         public TestBase()
         {
@@ -100,6 +102,20 @@ namespace ZabbixIntegrationTests
             var deleteMethod = propVal.GetType().GetMethod("Delete", paramType);
             entity.EntityId = (string?)deleteMethod.Invoke(propVal, @params);
             Assert.IsNotNull(entity.EntityId);
+        }
+
+        public object TestGet<T>(T? filter, string propertyName) where T : FilterOptions
+        {
+            var propInfo = Core.GetType().GetProperty(propertyName);
+            Assert.IsNotNull(propInfo);
+            var paramType = new Type[] { typeof(T) };
+            var propVal = propInfo.GetValue(Core);
+            Assert.IsNotNull(propVal);
+            var getMethod = propVal.GetType().GetMethod("Get", paramType);
+            var @params = new object?[] { filter };
+            var obj = getMethod.Invoke(propVal, @params);
+            Assert.IsNotNull(obj);
+            return obj;
         }
 
         public void TestCreate<T>(T entity, string propertyName) where T : BaseEntity
@@ -241,5 +257,34 @@ namespace ZabbixIntegrationTests
 
             }
         }
+        public void SetUpTestItem(Host h)
+        {
+            try
+            {
+                TestItem = new Item("1m", h.EntityId!, null!, "testKey" + Id, "testItem" + Id, 19, "test.com", 0);
+                TestItem.EntityId = Core.Items.Create(TestItem);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new AssertFailedException("Initializing of Item failed, failed to create Item", e);
+
+            }
+        }
+        public void DestroyTestItem()
+        {
+            try
+            {
+                Core.Items.Delete(TestItem);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new AssertFailedException("Initializing of Item failed, failed to create Item", e);
+
+            }
+        }
+
     }
 }

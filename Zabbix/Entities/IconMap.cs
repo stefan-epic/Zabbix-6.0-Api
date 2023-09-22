@@ -54,11 +54,11 @@ namespace Zabbix.Entities
         #endregion
 
         #region Components
-        [JsonProperty("mappings")] IList<IconMapping>? IconMappings {get; set; }
+         [JsonProperty("mappings")] public IList<IconMapping>? IconMappings {get; set; }
 
         #endregion
 
-        #region Constructo
+        #region Constructors
 
         public IconMap(IList<IconMapping> mappings, string defaultIconId, string name)
         {

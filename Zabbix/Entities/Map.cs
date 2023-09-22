@@ -7,7 +7,7 @@ namespace Zabbix.Entities
         #region Properties
 
         [JsonProperty("sysmapid")]
-        public string? SysmapId { get; set; }
+        public override string? EntityId { get; set; }
 
         [JsonProperty("height")]
         public int? Height { get; set; }

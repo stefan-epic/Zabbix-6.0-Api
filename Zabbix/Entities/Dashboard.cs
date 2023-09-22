@@ -21,6 +21,7 @@ public class DashboardPage : BaseEntity
     [JsonProperty("display_period")] public string? DisplayPeriod { get; set; }
 
     [JsonProperty("widgets")] public IList<DashboardWidget>? Widgets { get; set; }
+
 }
 
 public class Dashboard : BaseEntity
@@ -38,6 +39,8 @@ public class Dashboard : BaseEntity
     [JsonProperty("uuid")] public string? Uuid { get; set; }
 
     [JsonProperty("pages")] public IList<DashboardPage>? Pages { get; set; }
+    [JsonProperty("users")] public IList<DashboardUser>? Users { get; set; }
+    [JsonProperty("userGroups")] public IList<DashboardUserGroup>? UserGroups { get; set; }
 }
 
 public class DashboardWidget : BaseEntity

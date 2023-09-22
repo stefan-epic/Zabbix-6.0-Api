@@ -6,52 +6,36 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    public class HousekeepingService : ServiceBase, IGetService<Housekeeping, HousekeepingFilterOptions>, IUpdateService<Housekeeping, IEnumerable<string>>
+    public class HousekeepingService : ServiceBase
     {
-        private GetService<Housekeeping, HousekeepingFilterOptions> _getService;
-
         public HousekeepingService(ICore core) : base(core, "housekeeping")
         {
-            _getService = new(core, "housekeeping");
         }
 
         #region Get
 
-        public IEnumerable<Housekeeping> Get(HousekeepingFilterOptions? filter = null)
+        public Housekeeping Get(HousekeepingFilterOptions? filter = null)
         {
-            return _getService.Get(filter);
+            return Core.SendRequest<Housekeeping>(BuildParams(filter), ClassName + ".get");
         }
 
-        public async Task<IEnumerable<Housekeeping>> GetAsync(HousekeepingFilterOptions? filter = null)
+        public async Task<Housekeeping> GetAsync(HousekeepingFilterOptions? filter = null)
         {
-            return await _getService.GetAsync(filter);
+            return await Core.SendRequestAsync<Housekeeping>(BuildParams(filter), ClassName + ".get");
         }
 
         #endregion
 
         #region Update
-        public virtual IEnumerable<IEnumerable<string>> Update(IEnumerable<Housekeeping> entities)
+        public IEnumerable<string> Update(Housekeeping entity)
         {
-            var ret = Core.SendRequest<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update");
+            var ret = Core.SendRequest<IEnumerable<string>>(entity, ClassName + ".update");
             return ret;
         }
-
-        public virtual IEnumerable<string> Update(Housekeeping entity)
+        public async Task<IEnumerable<string>> UpdateAsync(Housekeeping entity)
         {
-            var ret = Update(new List<Housekeeping> { entity }).FirstOrDefault();
-            return Checker.ReturnEmptyListOrActual(ret);
-        }
-
-        public virtual async Task<IEnumerable<IEnumerable<string>>> UpdateAsync(IEnumerable<Housekeeping> entities)
-        {
-            var ret = (await Core.SendRequestAsync<IEnumerable<IEnumerable<string>>>(entities, ClassName + ".update"));
+            var ret = await Core.SendRequestAsync<IEnumerable<string>>(entity, ClassName + ".update");
             return ret;
-        }
-
-        public virtual async Task<IEnumerable<string>> UpdateAsync(Housekeeping entity)
-        {
-            var ret = (await UpdateAsync(new List<Housekeeping> { entity })).FirstOrDefault();
-            return Checker.ReturnEmptyListOrActual(ret);
         }
 
         #endregion
