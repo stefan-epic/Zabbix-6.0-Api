@@ -371,5 +371,3 @@ FodyWeavers.xsd
 
 /ZabbixApiDebug/Main.cs
 /ZabbixApiDebug/ReflectionHelper.cs
-/ZabbixTests
-/ZabbixTests/TestBase.cs
