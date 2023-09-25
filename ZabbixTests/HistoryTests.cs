@@ -13,15 +13,20 @@ namespace ZabbixIntegrationTests
         [TestMethod]
         public void TestHistoryGet()
         {
-            TestGet<HistoryFilterOptions>(null, "History");
+            HistoryFilterOptions options = new HistoryFilterOptions() {
+                History = 3,
+                HostIds = TestHost.EntityId
+            };
+            TestGet(options, "History");
         }
         public override void SetUp()
         {
-            
+            SetUpTestGroupAndHost();
         }
 
         public override void CleanUp()
         {
+            DestroyTestGroupAndHost();
         }
     }
 }
