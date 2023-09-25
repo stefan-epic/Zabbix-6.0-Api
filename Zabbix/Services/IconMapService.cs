@@ -30,7 +30,7 @@ namespace Zabbix.Services
         public object? SysMapIds { get; set; }
 
         [JsonProperty("selectMappings")]
-        public object? SelectMappings { get; set; }
+        public ZabbixQuery? SelectMappings { get; set; }
     }
 
 }

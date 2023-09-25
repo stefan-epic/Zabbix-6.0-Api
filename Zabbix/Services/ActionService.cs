@@ -47,16 +47,16 @@ public class ActionFilterOptions : FilterOptions
     public object? ScriptIds { get; set; }
 
     [JsonProperty("selectFilter")]
-    public object? SelectFilter { get; set; }
+    public ZabbixQuery? SelectFilter { get; set; }
 
     [JsonProperty("selectOperations")]
-    public object? SelectOperations { get; set; }
+    public ZabbixQuery? SelectOperations { get; set; }
 
     [JsonProperty("selectRecoveryOperations")]
-    public object? SelectRecoveryOperations { get; set; }
+    public ZabbixQuery? SelectRecoveryOperations { get; set; }
 
     [JsonProperty("selectUpdateOperations")]
-    public object? SelectUpdateOperations { get; set; }
+    public ZabbixQuery? SelectUpdateOperations { get; set; }
 
     #endregion
 }

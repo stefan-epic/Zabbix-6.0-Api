@@ -27,10 +27,10 @@ public class ReportFilterOptions : FilterOptions
     public bool? Expired { get; set; }
 
     [JsonProperty("selectUsers")]
-    public object? SelectUsers { get; set; }
+    public ZabbixQuery? SelectUsers { get; set; }
 
     [JsonProperty("selectUserGroups")]
-    public object? SelectUserGroups { get; set; }
+    public ZabbixQuery? SelectUserGroups { get; set; }
 }
 
 public enum ReportInclude

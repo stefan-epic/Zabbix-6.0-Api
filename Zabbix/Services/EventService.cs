@@ -115,22 +115,22 @@ public class EventFilterOptions : FilterOptions
     public IList<int>? Values { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectRelatedObject")]
-    public object? SelectRelatedObject { get; set; }
+    public ZabbixQuery? SelectRelatedObject { get; set; }
 
     [JsonProperty("select_alerts")]
-    public object? SelectAlerts { get; set; }
+    public ZabbixQuery? SelectAlerts { get; set; }
 
     [JsonProperty("select_acknowledges")]
-    public object? SelectAcknowledges { get; set; }
+    public ZabbixQuery? SelectAcknowledges { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     [JsonProperty("selectSuppressionData")]
-    public object? SelectSuppressionData { get; set; }
+    public ZabbixQuery? SelectSuppressionData { get; set; }
     #endregion
 
 }

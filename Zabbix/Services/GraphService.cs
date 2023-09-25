@@ -49,28 +49,28 @@ namespace Zabbix.Services
         public bool? ExpandName { get; set; }
 
         [JsonProperty("selectHostGroups")]
-        public object? SelectHostGroups { get; set; }
+        public ZabbixQuery? SelectHostGroups { get; set; }
 
         [JsonProperty("selectTemplateGroups")]
-        public object? SelectTemplateGroups { get; set; }
+        public ZabbixQuery? SelectTemplateGroups { get; set; }
 
         [JsonProperty("selectTemplates")]
-        public object? SelectTemplates { get; set; }
+        public ZabbixQuery? SelectTemplates { get; set; }
 
         [JsonProperty("selectHosts")]
-        public object? SelectHosts { get; set; }
+        public ZabbixQuery? SelectHosts { get; set; }
 
         [JsonProperty("selectItems")]
-        public object? SelectItems { get; set; }
+        public ZabbixQuery? SelectItems { get; set; }
 
         [JsonProperty("selectGraphDiscovery")]
-        public object? SelectGraphDiscovery { get; set; }
+        public ZabbixQuery? SelectGraphDiscovery { get; set; }
 
         [JsonProperty("selectGraphItems")]
-        public object? SelectGraphItems { get; set; }
+        public ZabbixQuery? SelectGraphItems { get; set; }
 
         [JsonProperty("selectDiscoveryRule")]
-        public object? SelectDiscoveryRule { get; set; }
+        public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
         #endregion
     }

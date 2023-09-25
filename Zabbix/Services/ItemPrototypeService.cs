@@ -55,22 +55,22 @@ namespace Zabbix.Services
         public object? TriggerIds { get; set; }
 
         [JsonProperty("selectDiscoveryRule")]
-        public object? SelectDiscoveryRule { get; set; }
+        public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
         [JsonProperty("selectGraphs")]
-        public object? SelectGraphs { get; set; }
+        public ZabbixQuery? SelectGraphs { get; set; }
 
         [JsonProperty("selectHosts")]
-        public object? SelectHosts { get; set; } 
+        public ZabbixQuery? SelectHosts { get; set; } 
 
         [JsonProperty("selectTags")]
         public bool? SelectTags { get; set; }
 
         [JsonProperty("selectTriggers")]
-        public object? SelectTriggers { get; set; } 
+        public ZabbixQuery? SelectTriggers { get; set; } 
 
         [JsonProperty("selectPreprocessing")]
-        public object? SelectPreprocessing { get; set; }
+        public ZabbixQuery? SelectPreprocessing { get; set; }
 
         [JsonProperty("selectValueMap")]
         public bool? SelectValueMap { get; set; }

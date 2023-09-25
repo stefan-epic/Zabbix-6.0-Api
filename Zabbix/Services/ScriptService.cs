@@ -78,13 +78,13 @@ namespace Zabbix.Services
         public object? UsrgrpIds { get; set; }
 
         [JsonProperty("selectGroups")]
-        public object? SelectGroups { get; set; }
+        public ZabbixQuery? SelectGroups { get; set; }
 
         [JsonProperty("selectHosts")]
-        public object? SelectHosts { get; set; }
+        public ZabbixQuery? SelectHosts { get; set; }
 
         [JsonProperty("selectActions")]
-        public object? SelectActions { get; set; }
+        public ZabbixQuery? SelectActions { get; set; }
         #endregion
     }
 

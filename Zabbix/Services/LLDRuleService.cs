@@ -86,19 +86,19 @@ namespace Zabbix.Services
         public string? SelectFilter { get; set; }
 
         [JsonProperty("selectGraphs")]
-        public object? SelectGraphs { get; set; }
+        public ZabbixQuery? SelectGraphs { get; set; }
 
         [JsonProperty("selectHostPrototypes")]
-        public object? SelectHostPrototypes { get; set; }
+        public ZabbixQuery? SelectHostPrototypes { get; set; }
 
         [JsonProperty("selectHosts")]
-        public object? SelectHosts { get; set; }
+        public ZabbixQuery? SelectHosts { get; set; }
 
         [JsonProperty("selectItems")]
-        public object? SelectItems { get; set; }
+        public ZabbixQuery? SelectItems { get; set; }
 
         [JsonProperty("selectTriggers")]
-        public object? SelectTriggers { get; set; }
+        public ZabbixQuery? SelectTriggers { get; set; }
 
         [JsonProperty("selectLLDMacroPaths")]
         public string? SelectLLDMacroPaths { get; set; }

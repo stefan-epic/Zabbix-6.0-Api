@@ -21,6 +21,6 @@ namespace Zabbix.Services
     public class ConnectorFilterOptions : FilterOptions
     {
         [JsonProperty("connectorids")] public object? ConnectorIds { get; set; }
-        [JsonProperty("selectTags")] public object? SelectTags { get; set; }
+        [JsonProperty("selectTags")] public ZabbixQuery? SelectTags { get; set; }
     }
 }

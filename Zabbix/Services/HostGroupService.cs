@@ -103,13 +103,13 @@ public class HostGroupFilterOptions : FilterOptions
     public bool? WithTriggers { get; set; }
 
     [JsonProperty("selectDiscoveryRule")]
-    public object? SelectDiscoveryRule { get; set; }
+    public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
     [JsonProperty("selectGroupDiscovery")]
-    public object? SelectGroupDiscovery { get; set; }
+    public ZabbixQuery? SelectGroupDiscovery { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

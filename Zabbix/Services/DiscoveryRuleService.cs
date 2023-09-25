@@ -31,9 +31,3 @@ public class DiscoveryRuleFilterOptions : FilterOptions
     [JsonProperty("dserviceids")]
     public object? DiscoveredServiceIds { get; set; }
 }
-
-public enum DiscoverRuleInclude
-{
-    selectDHosts,
-    selectDChecks
-}

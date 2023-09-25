@@ -51,22 +51,22 @@ namespace Zabbix.Services
         public object? SlaIds { get; set; }
 
         [JsonProperty("selectChildren")]
-        public object? SelectChildren { get; set; }
+        public ZabbixQuery? SelectChildren { get; set; }
 
         [JsonProperty("selectParents")]
-        public object? SelectParents { get; set; }
+        public ZabbixQuery? SelectParents { get; set; }
 
         [JsonProperty("selectTags")]
-        public object? SelectTags { get; set; }
+        public ZabbixQuery? SelectTags { get; set; }
 
         [JsonProperty("selectProblemEvents")]
-        public object? SelectProblemEvents { get; set; }
+        public ZabbixQuery? SelectProblemEvents { get; set; }
 
         [JsonProperty("selectProblemTags")]
-        public object? SelectProblemTags { get; set; }
+        public ZabbixQuery? SelectProblemTags { get; set; }
 
         [JsonProperty("selectStatusRules")]
-        public object? SelectStatusRules { get; set; }
+        public ZabbixQuery? SelectStatusRules { get; set; }
 
         [JsonProperty("selectStatusTimeline")]
         public IList<StatusTimelineFilter>? SelectStatusTimeline { get; set; }

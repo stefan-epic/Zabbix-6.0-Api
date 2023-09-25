@@ -67,13 +67,13 @@ public class ProblemFilterOptions : FilterOptions
     public string? TimeTill { get; set; }
 
     [JsonProperty("selectAcknowledges")]
-    public object? SelectAcknowledges { get; set; }
+    public ZabbixQuery? SelectAcknowledges { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     [JsonProperty("selectSuppressionData")]
-    public object? SelectSuppressionData { get; set; }
+    public ZabbixQuery? SelectSuppressionData { get; set; }
 
     #endregion
 }

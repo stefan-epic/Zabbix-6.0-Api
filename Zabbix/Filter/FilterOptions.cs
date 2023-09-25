@@ -4,9 +4,6 @@ namespace Zabbix.Filter
 {
     public class FilterOptions
     {
-        [JsonProperty("countOutput")]
-        public bool? CountOutput { get; set; }
-
         [JsonProperty("editable")]
         public bool? Editable { get; set; }
 
@@ -21,9 +18,6 @@ namespace Zabbix.Filter
 
         [JsonProperty("output")]
         public string? Output { get; set; }
-
-        [JsonProperty("preservekeys")]
-        public bool? PreserveKeys { get; set; }
 
         [JsonProperty("search")]
         public Dictionary<string, string>? Search { get; set; }

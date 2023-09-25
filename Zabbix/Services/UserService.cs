@@ -123,13 +123,13 @@ public class UserFilterOptions : FilterOptions
     public bool? GetAccess { get; set; }
 
     [JsonProperty("selectMedias")]
-    public object? SelectMedias { get; set; }
+    public ZabbixQuery? SelectMedias { get; set; }
 
     [JsonProperty("selectMediatypes")]
-    public object? SelectMediatypes { get; set; }
+    public ZabbixQuery? SelectMediatypes { get; set; }
 
     [JsonProperty("selectUsrgrps")]
-    public object? SelectUsrgrps { get; set; }
+    public ZabbixQuery? SelectUsrgrps { get; set; }
 
     [JsonProperty("selectRole")]
     public bool? SelectRole { get; set; }

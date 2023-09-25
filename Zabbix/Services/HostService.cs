@@ -141,52 +141,52 @@ public class HostFilterOptions : FilterOptions
     public bool? InheritedTags { get; set; }
 
     [JsonProperty("selectDiscoveries")]
-    public object? SelectDiscoveries { get; set; }
+    public ZabbixQuery? SelectDiscoveries { get; set; }
 
     [JsonProperty("selectDiscoveryRule")]
-    public object? SelectDiscoveryRule { get; set; }
+    public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
     [JsonProperty("selectGraphs")]
-    public object? SelectGraphs { get; set; }
+    public ZabbixQuery? SelectGraphs { get; set; }
 
     [JsonProperty("selectHostDiscovery")]
-    public object? SelectHostDiscovery { get; set; }
+    public ZabbixQuery? SelectHostDiscovery { get; set; }
 
     [JsonProperty("selectHostGroups")]
-    public object? SelectHostGroups { get; set; }
+    public ZabbixQuery? SelectHostGroups { get; set; }
 
     [JsonProperty("selectHttpTests")]
-    public object? SelectHttpTests { get; set; }
+    public ZabbixQuery? SelectHttpTests { get; set; }
 
     [JsonProperty("selectInterfaces")]
-    public object? SelectInterfaces { get; set; }
+    public ZabbixQuery? SelectInterfaces { get; set; }
 
     [JsonProperty("selectInventory")]
-    public object? SelectInventory { get; set; }
+    public ZabbixQuery? SelectInventory { get; set; }
 
     [JsonProperty("selectItems")]
-    public object? SelectItems { get; set; }
+    public ZabbixQuery? SelectItems { get; set; }
 
     [JsonProperty("selectMacros")]
-    public object? SelectMacros { get; set; }
+    public ZabbixQuery? SelectMacros { get; set; }
 
     [JsonProperty("selectParentTemplates")]
-    public object? SelectParentTemplates { get; set; }
+    public ZabbixQuery? SelectParentTemplates { get; set; }
 
     [JsonProperty("selectDashboards")]
-    public object? SelectDashboards { get; set; }
+    public ZabbixQuery? SelectDashboards { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     [JsonProperty("selectInheritedTags")]
-    public object? SelectInheritedTags { get; set; }
+    public ZabbixQuery? SelectInheritedTags { get; set; }
 
     [JsonProperty("selectTriggers")]
-    public object? SelectTriggers { get; set; }
+    public ZabbixQuery? SelectTriggers { get; set; }
 
     [JsonProperty("selectValueMaps")]
-    public object? SelectValueMaps { get; set; }
+    public ZabbixQuery? SelectValueMaps { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

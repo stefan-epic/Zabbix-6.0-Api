@@ -8,10 +8,8 @@ namespace Zabbix.Services
 {
     public class AutoRegistrationService : ServiceBase
     {
-        private GetService<Autoregistration, AutoregistrationFilterOptions> _getService;
         public AutoRegistrationService(ICore core) : base(core, "autoregistration")
         {
-            _getService = new(core, "autoregistration");
         }
 
         #region Get
@@ -25,6 +23,7 @@ namespace Zabbix.Services
         {
             return await Core.SendRequestAsync<Autoregistration>(BuildParams(filter), ClassName + ".get");
         }
+
 
         #endregion
 

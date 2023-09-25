@@ -28,10 +28,10 @@ namespace Zabbix.Services
         public object? CorrelationIds { get; set; }
 
         [JsonProperty("selectFilter")]
-        public object? SelectFilter { get; set; }
+        public ZabbixQuery? SelectFilter { get; set; }
 
         [JsonProperty("selectOperations")]
-        public object? SelectOperations { get; set; }
+        public ZabbixQuery? SelectOperations { get; set; }
     }
 
 }

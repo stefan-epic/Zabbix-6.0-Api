@@ -57,13 +57,13 @@ public class WebScenarioFilterOptions : FilterOptions
     public IList<TagFilter>? Tags { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectSteps")]
-    public object? SelectSteps { get; set; }
+    public ZabbixQuery? SelectSteps { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     #endregion
 }
