@@ -132,9 +132,9 @@ public class UserMacroFilterOptions : FilterOptions
 
     [JsonProperty("inherited")] public bool? Inherited { get; set; }
 
-    [JsonProperty("selectGroups")] public object? SelectGroups { get; set; }
+    [JsonProperty("selectGroups")] public ZabbixQuery? SelectGroups { get; set; }
 
-    [JsonProperty("selectHosts")] public object? SelectHosts { get; set; }
+    [JsonProperty("selectHosts")] public ZabbixQuery? SelectHosts { get; set; }
 
-    [JsonProperty("selectTemplates")] public object? SelectTemplates { get; set; }
+    [JsonProperty("selectTemplates")] public ZabbixQuery? SelectTemplates { get; set; }
 }

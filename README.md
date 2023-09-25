@@ -43,43 +43,80 @@ string updatedServerHostId = core.Hosts.Delete(serverHost);
 string updatedServerHostId = core.Hosts.Delete(createdServerHostId);
 ```
 ### Getting Entities
-This is a simple Get, it will return every Host that is configured on Zabbix.<br/>
+This is a simple Get, it will return every Host that is configured on Zabbix.
 ```csharp
 List<Host> hosts = core.Hosts.Get().ToList();
 ```
-However, the Get method can also accept a FilterOptions object as its parameter. Every entity has its own FilterOptions object named *Entityname*FilterOptions.<br/>
+This will return the amount of configured Hosts on Zabbix:
+```csharp
+int hostAmount = core.Hosts.CountOutput();
+```
+
+This is will return every Host that is configured on Zabbix as a Dictionary where their Id is the Key.
+
+```csharp
+Dictionary<string, Host> hosts = core.Hosts.PreserveKeys();
+```
+However, the Get, CountOutput and PreserveKeys method can also accept a FilterOptions object as its parameter. Every entity has its own FilterOptions object named *Entityname*FilterOptions.<br/>
 The FilterOptions can be initialized directly via the constructor like so:
 
 ```csharp
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend"});
+var hosts = core.Hosts.Get(new()
+{
+	HostIds = new List<string>(){"12312","32323"}
+});
 ```
-if you want to for example query the Hosts items to only return certain properties you can pass it a list of strings like so:
-```csharp
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"hostid", "itemid"}});
-```
-#### Attention
-The count related FilterOptions currently do not work<br/>
-If you want to set any of the filter properties to "extend" (at least those which support it) do not use a list:
-```csharp
-//THIS IS WRONG
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"extend"}});
 
-//Do this instead
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = "extend"});
-```
-Use a list if you're Querying for any property. For example:
+Every query (every FilterOption Prop that has a 'Select' in its name) can be used in multiple ways:
+
+The Default Constructor will set it to "extend"
 ```csharp
-//This is correct
-var hostsWithItems = core.Hosts.Get(new() { SelectItems = new List<string>(){"hostid"}});
+var hosts = core.Hosts.Get(new()
+{
+	SelectItems = new()
+});
 ```
+
+Return every Host and its Items but with only their 'Delay', 'Hostid' and 'ItemId' property set
+```csharp
+var hosts = core.Hosts.Get(new()
+{
+	SelectItems = new("delay", "hostid")
+});
+``` 
+There are two additional Constructors for ZabbixQuery, one accepts a ``object`` and the other accepts a ``IEnumerable<string>``. <br/>
+When using those, keep in mind that if you want to set the value of a query to "extend", it cannot be inside a list. 
+
+For example:
+```csharp
+var hosts = core.Hosts.Get(new()
+{
+    //this would not work
+    SelectItems = new(new List<string>(){"extend"})
+
+});
+```
+
 The exact meaning and usage of each FilterOption can be found on the Zabbix Docs under the Get section of the entity:
 https://www.zabbix.com/documentation/6.0/en/manual/api/reference
+
+### Attention
+The 'count' option for queries is currently not supported <br/>
+
 
 ### CRUD operations
 Most entities support the CRUD operations and some include some extra Operations. <br/>
 Every Crud operation can be called with either a single Entity or a List of Entities. <br/>
 Every operation has a Async Variant
 
+## Integration Tests
+:heavy_exclamation_mark: The Integration Tests are not meant to be run on a Productive System :heavy_exclamation_mark:
+<br/>
+The reason for that is because they can potentially change the state of Zabbix. For example, during the HostTests, if the creation is successful but the deletion fails, Zabbix will now have a stray host that will need to be deleted manually.
+
+The integration tests are mostly there for development purposes, so I can make changes and ensure that the base functionality of the Library is intact.
+
+A automated set up for the test enviroment is planned.
 
 ## Contribution
 I welcome contributions and improvements to this library. Please feel free to open issues and submit pull requests.

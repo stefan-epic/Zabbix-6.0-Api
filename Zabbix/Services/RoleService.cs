@@ -27,10 +27,10 @@ public class RoleFilterOptions : FilterOptions
     public object? RoleIds { get; set; }
 
     [JsonProperty("selectRules")]
-    public object? SelectRules { get; set; }
+    public ZabbixQuery? SelectRules { get; set; }
 
     [JsonProperty("selectUsers")]
-    public object? SelectUsers { get; set; }
+    public ZabbixQuery? SelectUsers { get; set; }
 }
 
 public enum RoleInclude

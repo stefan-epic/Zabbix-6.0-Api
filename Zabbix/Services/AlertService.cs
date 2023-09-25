@@ -55,13 +55,13 @@ public class AlertFilterOptions : FilterOptions
     public DateTime? TimeTill { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectMediatypes")]
-    public object? SelectMediatypes { get; set; }
+    public ZabbixQuery? SelectMediatypes { get; set; }
 
     [JsonProperty("selectUsers")]
-    public object? SelectUsers { get; set; }
+    public ZabbixQuery? SelectUsers { get; set; }
 
     #endregion
 }

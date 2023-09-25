@@ -25,7 +25,7 @@ namespace Zabbix.Services
         public int? Type { get; set; }
 
         [JsonProperty("selectGraphs")]
-        public object? SelectGraphs { get; set; }
+        public ZabbixQuery? SelectGraphs { get; set; }
     }
 
     public enum GraphItemInclude

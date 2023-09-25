@@ -32,13 +32,13 @@ namespace Zabbix.Services
         public object? UserGroupIds { get; set; }
 
         [JsonProperty("selectTagFilters")]
-        public object? SelectTagFilters { get; set; }
+        public ZabbixQuery? SelectTagFilters { get; set; }
 
         [JsonProperty("selectUsers")]
-        public object? SelectUsers { get; set; }
+        public ZabbixQuery? SelectUsers { get; set; }
 
         [JsonProperty("selectRights")]
-        public object? SelectRights { get; set; }
+        public ZabbixQuery? SelectRights { get; set; }
 
         [JsonProperty("limitSelects")]
         public int? LimitSelects { get; set; }

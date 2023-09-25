@@ -30,13 +30,13 @@ namespace Zabbix.Services
         public object? DiscoveryRuleIds { get; set; }
 
         [JsonProperty("selectDRules")]
-        public object? SelectDiscoveryRules { get; set; }
+        public ZabbixQuery? SelectDiscoveryRules { get; set; }
 
         [JsonProperty("selectDHosts")]
-        public object? SelectDiscoveredHosts { get; set; }
+        public ZabbixQuery? SelectDiscoveredHosts { get; set; }
 
         [JsonProperty("selectHosts")]
-        public object? SelectHosts { get; set; }
+        public ZabbixQuery? SelectHosts { get; set; }
     }
 
     public enum DiscoveredServiceInclude

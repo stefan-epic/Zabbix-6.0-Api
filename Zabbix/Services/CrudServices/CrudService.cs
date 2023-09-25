@@ -38,11 +38,28 @@ public abstract class CrudService<TEntity, TEntityFilter, TEntityResult>
         return _getService.Get(filter);
     }
 
-    public async Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null)
+    public virtual async Task<IEnumerable<TEntity>> GetAsync(TEntityFilter? filter = null)
     {
         return await _getService.GetAsync(filter);
     }
 
+    public virtual int CountOutput(TEntityFilter? filter = null)
+    {
+        return _getService.CountOutput(filter);
+    }
+    public virtual async Task<int> CountOutputAsync(TEntityFilter? filter = null)
+    {
+        return await _getService.CountOutputAsync(filter);
+    }
+
+    public virtual Dictionary<string, TEntity> PreserveKeys(TEntityFilter? filter = null)
+    {
+        return _getService.PreserveKeys(filter);
+    }
+    public virtual async Task<Dictionary<string, TEntity>> PreserveKeysAsync(TEntityFilter? filter = null)
+    {
+        return await _getService.PreserveKeysAsync(filter);
+    }
     #endregion
 
     #region Create

@@ -33,10 +33,10 @@ public class HostInterfaceFilterOptions : FilterOptions
     public object? TriggerIds { get; set; }
 
     [JsonProperty("selectItems")]
-    public object? SelectItems { get; set; }
+    public ZabbixQuery? SelectItems { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

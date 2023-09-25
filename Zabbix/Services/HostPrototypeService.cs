@@ -36,28 +36,28 @@ namespace Zabbix.Services
         public bool? Inherited { get; set; }
 
         [JsonProperty("selectDiscoveryRule")]
-        public object? SelectDiscoveryRule { get; set; }
+        public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
         [JsonProperty("selectInterfaces")]
-        public object? SelectInterfaces { get; set; }
+        public ZabbixQuery? SelectInterfaces { get; set; }
 
         [JsonProperty("selectGroupLinks")]
-        public object? SelectGroupLinks { get; set; }
+        public ZabbixQuery? SelectGroupLinks { get; set; }
 
         [JsonProperty("selectGroupPrototypes")]
-        public object? SelectGroupPrototypes { get; set; }
+        public ZabbixQuery? SelectGroupPrototypes { get; set; }
 
         [JsonProperty("selectMacros")]
-        public object? SelectMacros { get; set; }
+        public ZabbixQuery? SelectMacros { get; set; }
 
         [JsonProperty("selectParentHost")]
-        public object? SelectParentHost { get; set; }
+        public ZabbixQuery? SelectParentHost { get; set; }
 
         [JsonProperty("selectTags")]
-        public object? SelectTags { get; set; }
+        public ZabbixQuery? SelectTags { get; set; }
 
         [JsonProperty("selectTemplates")]
-        public object? SelectTemplates { get; set; }
+        public ZabbixQuery? SelectTemplates { get; set; }
 
         #endregion
     }

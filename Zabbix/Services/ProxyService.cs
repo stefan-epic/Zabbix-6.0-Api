@@ -28,10 +28,10 @@ public class ProxyFilterOptions : FilterOptions
     public object? ProxyIds { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectInterface")]
-    public object? SelectInterface { get; set; }
+    public ZabbixQuery? SelectInterface { get; set; }
 }
 
 public enum ProxyInclude

@@ -7,7 +7,6 @@ using Zabbix.Services.CrudServices;
 
 namespace Zabbix.Services
 {
-    //TODO: method clear
     public class HistoryService : GetService<History, HistoryFilterOptions>
     {
         public HistoryService(ICore core) : base(core, "history")
@@ -30,6 +29,7 @@ namespace Zabbix.Services
             var ids = baseEntities.Select(history => history.EntityId);
             return Checker.ReturnEmptyListOrActual((await Core.SendRequestAsync<HistoryResult>(ids, "history.clear")).Ids);
         }
+
 
         public class HistoryResult : BaseResult
         {

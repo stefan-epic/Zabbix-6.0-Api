@@ -107,13 +107,13 @@ namespace Zabbix.Services
         public object? ServiceIds { get; set; }
 
         [JsonProperty("selectSchedule")]
-        public object? SelectSchedule { get; set; }
+        public ZabbixQuery? SelectSchedule { get; set; }
 
         [JsonProperty("selectExcludedDowntimes")]
-        public object? SelectExcludedDowntimes { get; set; }
+        public ZabbixQuery? SelectExcludedDowntimes { get; set; }
 
         [JsonProperty("selectServiceTags")]
-        public object? SelectServiceTags { get; set; }
+        public ZabbixQuery? SelectServiceTags { get; set; }
     }
 
 }

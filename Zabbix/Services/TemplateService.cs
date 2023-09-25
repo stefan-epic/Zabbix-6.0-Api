@@ -63,43 +63,43 @@ public class TemplateFilterOptions : FilterOptions
     public IList<TagFilter>? Tags { get; set; }
 
     [JsonProperty("selectGroups")]
-    public object? SelectGroups { get; set; }
+    public ZabbixQuery? SelectGroups { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectTemplates")]
-    public object? SelectTemplates { get; set; }
+    public ZabbixQuery? SelectTemplates { get; set; }
 
     [JsonProperty("selectParentTemplates")]
-    public object? SelectParentTemplates { get; set; }
+    public ZabbixQuery? SelectParentTemplates { get; set; }
 
     [JsonProperty("selectHttpTests")]
-    public object? SelectHttpTests { get; set; }
+    public ZabbixQuery? SelectHttpTests { get; set; }
 
     [JsonProperty("selectItems")]
-    public object? SelectItems { get; set; }
+    public ZabbixQuery? SelectItems { get; set; }
 
     [JsonProperty("selectDiscoveries")]
-    public object? SelectDiscoveries { get; set; }
+    public ZabbixQuery? SelectDiscoveries { get; set; }
 
     [JsonProperty("selectTriggers")]
-    public object? SelectTriggers { get; set; }
+    public ZabbixQuery? SelectTriggers { get; set; }
 
     [JsonProperty("selectGraphs")]
-    public object? SelectGraphs { get; set; }
+    public ZabbixQuery? SelectGraphs { get; set; }
 
     [JsonProperty("selectMacros")]
-    public object? SelectMacros { get; set; }
+    public ZabbixQuery? SelectMacros { get; set; }
 
     [JsonProperty("selectDashboards")]
-    public object? SelectDashboards { get; set; }
+    public ZabbixQuery? SelectDashboards { get; set; }
 
     [JsonProperty("selectValueMaps")]
-    public object? SelectValueMaps { get; set; }
+    public ZabbixQuery? SelectValueMaps { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

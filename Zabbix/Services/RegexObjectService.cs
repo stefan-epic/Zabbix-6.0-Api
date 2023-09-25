@@ -29,7 +29,7 @@ namespace Zabbix.Services
         public object? RegularExpressionIds { get; set; }
 
         [JsonProperty("selectExpressions")]
-        public object? SelectExpressions { get; set; }
+        public ZabbixQuery? SelectExpressions { get; set; }
     }
 
     public enum RegexObjectInclude

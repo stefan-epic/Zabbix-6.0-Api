@@ -25,7 +25,7 @@ namespace Zabbix.Services
         public object? ValueMapIds { get; set; }
 
         [JsonProperty("selectMappings")]
-        public object? SelectMappings { get; set; }
+        public ZabbixQuery? SelectMappings { get; set; }
     }
 
     public enum ValueMapInclude

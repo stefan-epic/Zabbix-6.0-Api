@@ -150,31 +150,31 @@ public class TriggerFilterOptions : FilterOptions
     public bool? ExpandExpression { get; set; }
 
     [JsonProperty("selectGroups")]
-    public object? SelectGroups { get; set; }
+    public ZabbixQuery? SelectGroups { get; set; }
 
     [JsonProperty("selectHosts")]
-    public object? SelectHosts { get; set; }
+    public ZabbixQuery? SelectHosts { get; set; }
 
     [JsonProperty("selectItems")]
-    public object? SelectItems { get; set; }
+    public ZabbixQuery? SelectItems { get; set; }
 
     [JsonProperty("selectFunctions")]
-    public object? SelectFunctions { get; set; }
+    public ZabbixQuery? SelectFunctions { get; set; }
 
     [JsonProperty("selectDependencies")]
-    public object? SelectDependencies { get; set; }
+    public ZabbixQuery? SelectDependencies { get; set; }
 
     [JsonProperty("selectDiscoveryRule")]
-    public object? SelectDiscoveryRule { get; set; }
+    public ZabbixQuery? SelectDiscoveryRule { get; set; }
 
     [JsonProperty("selectLastEvent")]
-    public object? SelectLastEvent { get; set; }
+    public ZabbixQuery? SelectLastEvent { get; set; }
 
     [JsonProperty("selectTags")]
-    public object? SelectTags { get; set; }
+    public ZabbixQuery? SelectTags { get; set; }
 
     [JsonProperty("selectTriggerDiscovery")]
-    public object? SelectTriggerDiscovery { get; set; }
+    public ZabbixQuery? SelectTriggerDiscovery { get; set; }
 
     [JsonProperty("limitSelects")]
     public int? LimitSelects { get; set; }

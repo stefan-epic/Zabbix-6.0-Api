@@ -31,7 +31,7 @@ namespace Zabbix.Services
         public object? TemplateIds { get; set; }
 
         [JsonProperty("selectPages")]
-        public object? SelectPages { get; set; }
+        public ZabbixQuery? SelectPages { get; set; }
     }
 
 }
