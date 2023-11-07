@@ -8,7 +8,7 @@
     <Title>Zabbix 6.0 API Library</Title>
     <Authors>Stefan Hasler</Authors>
     <Company />
-	  <Version>1.2.2</Version>
+	  <Version>1.2.3</Version>
     <PackageId>$(AssemblyName).Api.NET</PackageId>
     <Product />
     <Description>Library to communicate with the 6.0 Zabbix Api</Description>
