@@ -21,9 +21,9 @@ namespace ZabbixIntegrationTests
 
         public TestBase()
         {
-            string url = "";
-            string username = "";
-            string password = "";
+            string url = "http://localhost/api_jsonrpc.php";
+            string username = "Admin";
+            string password = "zabbix";
             Core = new ZabbixCore(url, username, password);
             Id = Guid.NewGuid();
         }

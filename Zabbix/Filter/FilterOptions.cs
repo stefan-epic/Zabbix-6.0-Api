@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Zabbix.Core;
 
 namespace Zabbix.Filter
 {
@@ -17,7 +18,7 @@ namespace Zabbix.Filter
         public int? Limit { get; set; }
 
         [JsonProperty("output")]
-        public string? Output { get; set; }
+        public ZabbixQuery? Output { get; set; }
 
         [JsonProperty("search")]
         public Dictionary<string, string>? Search { get; set; }

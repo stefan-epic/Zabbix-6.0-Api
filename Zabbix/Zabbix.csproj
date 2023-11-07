@@ -32,7 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Downloads\zabbix_logo_icon_167937.png">
+    <None Include="..\zabbix_logo_icon_167937.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
