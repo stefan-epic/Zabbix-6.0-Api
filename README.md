@@ -84,19 +84,6 @@ var hosts = core.Hosts.Get(new()
 	SelectItems = new("delay", "hostid")
 });
 ``` 
-There are two additional Constructors for ZabbixQuery, one accepts a ``object`` and the other accepts a ``IEnumerable<string>``. <br/>
-When using those, keep in mind that if you want to set the value of a query to "extend", it cannot be inside a list. 
-
-For example:
-```csharp
-var hosts = core.Hosts.Get(new()
-{
-    //this would not work
-    SelectItems = new(new List<string>(){"extend"})
-
-});
-```
-
 The exact meaning and usage of each FilterOption can be found on the Zabbix Docs under the Get section of the entity:
 https://www.zabbix.com/documentation/6.0/en/manual/api/reference
 
