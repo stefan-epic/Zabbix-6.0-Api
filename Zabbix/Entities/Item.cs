@@ -168,7 +168,7 @@ public class ItemPreprocessing
 
     [JsonProperty("type")] public int? Type { get; set; }
 
-    [JsonProperty("params")] public string? Params { get; set; }
+    [JsonProperty("params")] public Dictionary<string, string>? Params { get; set; }
 
     [JsonProperty("error_handler")] public int? ErrorHandler { get; set; }
 
@@ -178,7 +178,7 @@ public class ItemPreprocessing
 
     #region Constructors
 
-    public ItemPreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+    public ItemPreprocessing(int type, Dictionary<string, string> @params, int errorHandler, string errorHandlerParams)
     {
         Type = type;
         Params = @params;
