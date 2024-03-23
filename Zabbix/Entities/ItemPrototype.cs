@@ -49,7 +49,7 @@ namespace Zabbix.Entities
         public int? FollowRedirects { get; set; }
 
         [JsonProperty("headers")]
-        public HttpField? Headers { get; set; }
+        public Dictionary<string, string>? Headers { get; set; }
 
         [JsonProperty("history")]
         public string? History { get; set; }

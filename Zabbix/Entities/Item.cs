@@ -39,7 +39,7 @@ public class Item : BaseEntity
 
     [JsonProperty("valuemapid")] public string? Valuemapid { get; set; }
 
-    [JsonProperty("params")] public string? Params { get; set; }
+    [JsonProperty("params")] public Dictionary<string, string>? Params { get; set; }
 
     [JsonProperty("ipmi_sensor")] public string? IpmiSensor { get; set; }
 
@@ -83,7 +83,7 @@ public class Item : BaseEntity
 
     [JsonProperty("http_proxy")] public string? HttpProxy { get; set; }
 
-    [JsonProperty("headers")] public List<HttpField>? Headers { get; set; } 
+    [JsonProperty("headers")] public Dictionary<string, string>? Headers { get; set; } 
 
     [JsonProperty("retrieve_mode")] public int? RetrieveMode { get; set; }
 

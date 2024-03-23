@@ -135,7 +135,7 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("headers")]
-        public object? Headers { get; set; }
+        public Dictionary<string, string>? Headers { get; set; }
 
         [JsonProperty("parameters")]
         public IList<object>? Parameters { get; set; }
