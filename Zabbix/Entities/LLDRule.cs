@@ -65,7 +65,7 @@ namespace Zabbix.Entities
         public int? OutputFormat { get; set; }
 
         [JsonProperty("params")]
-        public string? Params { get; set; }
+        public Dictionary<string, string>? Params { get; set; }
 
         [JsonProperty("password")]
         public string? Password { get; set; }
@@ -135,7 +135,7 @@ namespace Zabbix.Entities
         #region Components
 
         [JsonProperty("headers")]
-        public object? Headers { get; set; }
+        public Dictionary<string, string>? Headers { get; set; }
 
         [JsonProperty("parameters")]
         public IList<object>? Parameters { get; set; }
@@ -272,7 +272,7 @@ namespace Zabbix.Entities
         public int? Type { get; set; }
 
         [JsonProperty("params")]
-        public string? Params { get; set; }
+        public Dictionary<string, string>? Params { get; set; }
 
         [JsonProperty("error_handler")]
         public int? ErrorHandler { get; set; }
@@ -284,7 +284,7 @@ namespace Zabbix.Entities
 
         #region Constructors
 
-        public LLdRulePreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+        public LLdRulePreprocessing(int type, Dictionary<string, string> @params, int errorHandler, string errorHandlerParams)
         {
             Type = type;
             Params = @params;

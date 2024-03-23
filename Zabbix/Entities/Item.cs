@@ -39,7 +39,7 @@ public class Item : BaseEntity
 
     [JsonProperty("valuemapid")] public string? Valuemapid { get; set; }
 
-    [JsonProperty("params")] public string? Params { get; set; }
+    [JsonProperty("params")] public Dictionary<string, string>? Params { get; set; }
 
     [JsonProperty("ipmi_sensor")] public string? IpmiSensor { get; set; }
 
@@ -71,7 +71,7 @@ public class Item : BaseEntity
 
     [JsonProperty("url")] public string? Url { get; set; }
 
-    [JsonProperty("query_fields")] public object? QueryFields { get; set; } //TODO: map this to something else
+    [JsonProperty("query_fields")] public List<object>? QueryFields { get; set; } 
 
     [JsonProperty("posts")] public string? Posts { get; set; }
 
@@ -83,7 +83,7 @@ public class Item : BaseEntity
 
     [JsonProperty("http_proxy")] public string? HttpProxy { get; set; }
 
-    [JsonProperty("headers")] public HttpField? Headers { get; set; } //TODO make this something thats not object, bug: doesnt work with list of httpfields, above and below are two more with same problem
+    [JsonProperty("headers")] public Dictionary<string, string>? Headers { get; set; } 
 
     [JsonProperty("retrieve_mode")] public int? RetrieveMode { get; set; }
 
@@ -109,7 +109,8 @@ public class Item : BaseEntity
 
     [JsonProperty("error")] public string? Error { get; set; }
 
-    [JsonProperty("parameters")] public object? Parameters { get; set; }
+    [JsonProperty("parameters")] public List<object>? Parameters { get; set; }
+
 
     [JsonProperty("lastclock")] public string? Lastclock { get; set; }
 
@@ -167,7 +168,7 @@ public class ItemPreprocessing
 
     [JsonProperty("type")] public int? Type { get; set; }
 
-    [JsonProperty("params")] public string? Params { get; set; }
+    [JsonProperty("params")] public Dictionary<string, string>? Params { get; set; }
 
     [JsonProperty("error_handler")] public int? ErrorHandler { get; set; }
 
@@ -177,7 +178,7 @@ public class ItemPreprocessing
 
     #region Constructors
 
-    public ItemPreprocessing(int type, string @params, int errorHandler, string errorHandlerParams)
+    public ItemPreprocessing(int type, Dictionary<string, string> @params, int errorHandler, string errorHandlerParams)
     {
         Type = type;
         Params = @params;
